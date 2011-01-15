@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<WorkflowLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://is.tm.tue.nl/research/processmining/WorkflowLog.xsd">
+<Process id="new_process">
+<Data>
+<Attribute name="ProM: Retain this process if empty">true</Attribute>
+</Data>
+</Process>
+</WorkflowLog>

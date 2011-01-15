@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkflowLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://is.tm.tue.nl/research/processmining/WorkflowLog.xsd" description="Sample Guancio Log File">
+  <Source program="Example One from Guancio"/>
+  <Process id="Paper" description="Paper Submission">
+    <ProcessInstance id="1" description="PaperOne">
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>1970-01-02T12:23:00.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>1970-01-03T12:23:00.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>1970-01-03T12:23:00.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+      	<WorkflowModelElement>Restart</WorkflowModelElement>
+      	<EventType >complete</EventType>
+      	<Timestamp>1970-01-04T12:23:00.000+01:00</Timestamp>
+      	<Originator>Emilio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+      	<WorkflowModelElement>Draft</WorkflowModelElement>
+      	<EventType >start</EventType>
+      	<Timestamp>1970-01-04T12:23:00.000+01:00</Timestamp>
+      	<Originator>Emilio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+      	<WorkflowModelElement>Draft</WorkflowModelElement>
+      	<EventType >complete</EventType>
+      	<Timestamp>1970-01-04T12:23:00.000+01:00</Timestamp>
+      	<Originator>Emilio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>1970-01-05T12:23:00.000+01:00</Timestamp>
+	<Originator>Rev1</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>1970-01-05T12:23:00.000+01:00</Timestamp>
+	<Originator>Rev1</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>1970-01-05T12:23:00.000+01:00</Timestamp>
+	<Originator>Rev2</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>1970-01-05T12:23:00.000+01:00</Timestamp>
+	<Originator>Rev2</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>1970-01-05T12:23:00.000+01:00</Timestamp>
+	<Originator>Rev3</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>1970-01-05T12:23:00.000+01:00</Timestamp>
+	<Originator>Rev3</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>1970-01-06T12:23:00.000+01:00</Timestamp>
+	<Originator>Publisher</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>1970-01-06T12:23:00.000+01:00</Timestamp>
+	<Originator>Publisher</Originator>
+      </AuditTrailEntry>
+    </ProcessInstance>
+    <ProcessInstance id="2" description="PaperTwo">
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>1970-01-02T12:23:00.000+01:00</Timestamp>
+	<Originator>Giangi</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>1970-01-03T12:23:00.000+01:00</Timestamp>
+	<Originator>Giangi</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>1970-01-03T12:23:00.000+01:00</Timestamp>
+	<Originator>Giangi</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>1970-01-05T12:23:00.000+01:00</Timestamp>
+	<Originator>Rev1</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>1970-01-05T12:23:00.000+01:00</Timestamp>
+	<Originator>Rev1</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>1970-01-05T12:23:00.000+01:00</Timestamp>
+	<Originator>Rev2</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>1970-01-05T12:23:00.000+01:00</Timestamp>
+	<Originator>Rev2</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>1970-01-05T12:23:00.000+01:00</Timestamp>
+	<Originator>Rev3</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>1970-01-05T12:23:00.000+01:00</Timestamp>
+	<Originator>Rev3</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>1970-01-06T12:23:00.000+01:00</Timestamp>
+	<Originator>Publisher</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>1970-01-06T12:23:00.000+01:00</Timestamp>
+	<Originator>Publisher</Originator>
+      </AuditTrailEntry>
+    </ProcessInstance>
+    <ProcessInstance id="3" description="PaperThree">
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>1970-01-02T12:23:00.000+01:00</Timestamp>
+	<Originator>Ciencia</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>1970-01-03T12:23:00.000+01:00</Timestamp>
+	<Originator>Ciancia</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>1970-01-03T12:23:00.000+01:00</Timestamp>
+	<Originator>Ciancia</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>1970-01-05T12:23:00.000+01:00</Timestamp>
+	<Originator>Rev1</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>1970-01-05T12:23:00.000+01:00</Timestamp>
+	<Originator>Rev1</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>1970-01-05T12:23:00.000+01:00</Timestamp>
+	<Originator>Rev2</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>1970-01-05T12:23:00.000+01:00</Timestamp>
+	<Originator>Rev2</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>1970-01-05T12:23:00.000+01:00</Timestamp>
+	<Originator>Rev3</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>1970-01-05T12:23:00.000+01:00</Timestamp>
+	<Originator>Rev3</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>1970-01-06T12:23:00.000+01:00</Timestamp>
+	<Originator>Publisher</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>1970-01-06T12:23:00.000+01:00</Timestamp>
+	<Originator>Publisher</Originator>
+      </AuditTrailEntry>
+    </ProcessInstance>
+  </Process>
+  <!-- <Process id="Blog" description="Blog"> -->
+  <!-- </Process> -->
+</WorkflowLog>
