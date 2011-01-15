@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry kind="lib" path="/home/guancio/Downloads/ProM-5.2-source/lib/framework/att.jar"/>
+	<classpathentry kind="lib" path="/home/guancio/Downloads/ProM-5.2-source/lib/framework/java_cup.jar"/>
+	<classpathentry kind="lib" path="/home/guancio/Downloads/ProM-5.2-source/lib/framework/ProM.jar" sourcepath="/home/guancio/Downloads/ProM-5.2-source/src/framework"/>
+	<classpathentry kind="lib" path="/home/guancio/Downloads/ProM-5.2-source/lib/framework/GantzGraf-0.9.jar"/>
+	<classpathentry kind="lib" path="/home/guancio/Downloads/ProM-5.2-source/lib/framework/MXMLib.jar"/>
+	<classpathentry kind="lib" path="/home/guancio/Downloads/ProM-5.2-source/lib/framework/slickerbox0.5.jar"/>
+	<classpathentry kind="lib" path="/home/guancio/Downloads/ProM-5.2-source/lib/models/ProMmodels.jar" sourcepath="/home/guancio/Downloads/ProM-5.2-source/src/models"/>
+	<classpathentry kind="lib" path="/home/guancio/Downloads/ProM-5.2-source/lib/plugins/ProMplugins.jar" sourcepath="/home/guancio/Downloads/ProM-5.2-source/src/plugins"/>
+	<classpathentry kind="lib" path="/home/guancio/Downloads/ProM-5.2-source/lib/plugins/DecisionMiner.jar"/>
+	<classpathentry kind="lib" path="/home/guancio/Downloads/ProM-5.2-source/lib/plugins/jgrapht-jdk-1.5.jar"/>
+	<classpathentry kind="lib" path="/home/guancio/Downloads/ProM-5.2-source/lib/plugins/saminer.jar"/>
+	<classpathentry kind="lib" path="/home/guancio/Downloads/ProM-5.2-source/lib/plugins/JFLAP.jar"/>
+	<classpathentry kind="lib" path="/home/guancio/Downloads/ProM-5.2-source/lib/plugins/BPEL2PNML.jar"/>
+	<classpathentry kind="lib" path="/home/guancio/Downloads/ProM-5.2-source/lib/plugins/WorkflowPatternsMiner.jar"/>
+	<classpathentry kind="lib" path="/home/guancio/Downloads/ProM-5.2-source/lib/plugins/TsinghuaAlphaProcessMiner.jar"/>
+	<classpathentry kind="lib" path="/home/guancio/Downloads/ProM-5.2-source/lib/plugins/SCIFFChecker.jar"/>
+	<classpathentry kind="lib" path="/home/guancio/Downloads/ProM-5.2-source/lib/plugins/AlphaPPProcessMiner.jar"/>
+	<classpathentry kind="lib" path="/home/guancio/Downloads/ProM-5.2-source/lib/plugins/kriminer.jar"/>
+	<classpathentry kind="lib" path="/home/guancio/Downloads/ProM-5.2-source/lib/plugins/DecMinerPlugin.jar"/>
+	<classpathentry kind="lib" path="/home/guancio/Downloads/ProM-5.2-source/lib/plugins/emailplugin.jar"/>
+	<classpathentry kind="lib" path="/home/guancio/Downloads/ProM-5.2-source/lib/external/declare.jar"/>
+	<classpathentry kind="lib" path="/home/guancio/Downloads/ProM-5.2-source/lib/external/kxml2.jar"/>
+	<classpathentry kind="lib" path="/home/guancio/Downloads/ProM-5.2-source/lib/external/weka.jar"/>
+	<classpathentry kind="lib" path="/home/guancio/Downloads/ProM-5.2-source/lib/external/commons-collections-3.2.jar"/>
+	<classpathentry kind="lib" path="/home/guancio/Downloads/ProM-5.2-source/lib/external/testng-5.7-jdk15.jar"/>
+	<classpathentry kind="lib" path="/home/guancio/Downloads/ProM-5.2-source/lib/external/jcommon-1.0.6.jar"/>
+	<classpathentry kind="lib" path="/home/guancio/Downloads/ProM-5.2-source/lib/external/jcalendar-1.3.2.jar"/>
+	<classpathentry kind="lib" path="/home/guancio/Downloads/ProM-5.2-source/lib/external/java-cup-11a-runtime.jar"/>
+	<classpathentry kind="lib" path="/home/guancio/Downloads/ProM-5.2-source/lib/external/colt.jar"/>
+	<classpathentry kind="lib" path="/home/guancio/Downloads/ProM-5.2-source/lib/external/holub.jar"/>
+	<classpathentry kind="lib" path="/home/guancio/Downloads/ProM-5.2-source/lib/external/JRI.jar"/>
+	<classpathentry kind="lib" path="/home/guancio/Downloads/ProM-5.2-source/lib/external/JRclient.jar"/>
+	<classpathentry kind="lib" path="/home/guancio/Downloads/ProM-5.2-source/lib/external/wsmo4j-0.6.1.jar"/>
+	<classpathentry kind="lib" path="/home/guancio/Downloads/ProM-5.2-source/lib/external/wsml2reasoner-noncom-v0_5.jar"/>
+	<classpathentry kind="lib" path="/home/guancio/Downloads/ProM-5.2-source/lib/external/jlfgr-1_0.jar"/>
+	<classpathentry kind="lib" path="/home/guancio/Downloads/ProM-5.2-source/lib/external/PrologEngine.jar"/>
+	<classpathentry kind="lib" path="/home/guancio/Downloads/ProM-5.2-source/lib/external/commons-math-1.1.jar"/>
+	<classpathentry kind="lib" path="/home/guancio/Downloads/ProM-5.2-source/lib/external/wsmo-api-0.6.1.jar"/>
+	<classpathentry kind="lib" path="/home/guancio/Downloads/ProM-5.2-source/lib/external/jdom.jar"/>
+	<classpathentry kind="lib" path="/home/guancio/Downloads/ProM-5.2-source/lib/external/jahmm-0.6.1.jar"/>
+	<classpathentry kind="lib" path="/home/guancio/Downloads/ProM-5.2-source/lib/external/jung-1.7.6.jar"/>
+	<classpathentry kind="lib" path="/home/guancio/Downloads/ProM-5.2-source/lib/external/kaon2.jar"/>
+	<classpathentry kind="lib" path="/home/guancio/Downloads/ProM-5.2-source/lib/external/jfreechart-1.0.5.jar"/>
+	<classpathentry kind="lib" path="/home/guancio/Downloads/ProM-5.2-source/lib/external/mathCollection.jar"/>
+	<classpathentry kind="lib" path="/home/guancio/Downloads/ProM-5.2-source/lib/external/WSML-grammar-20070417.jar"/>
+	<classpathentry kind="lib" path="/home/guancio/Downloads/ProM-5.2-source/lib/external/lpsolve55j.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
