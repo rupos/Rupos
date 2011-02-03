@@ -1,0 +1,5709 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkflowLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://is.tm.tue.nl/research/processmining/WorkflowLog.xsd" description="Sample Guancio Log File">
+  <Source program="Example One from Guancio"/>
+  <Process id="Paper" description="Paper Submission">
+
+
+    <ProcessInstance id="0" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-30T17:33:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-30T18:03:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-30T18:50:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-30T19:02:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-30T19:27:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-30T19:29:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-30T20:48:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-30T21:00:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="1" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-30T18:29:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-30T18:34:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-30T19:45:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-30T19:52:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-30T20:24:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-30T20:53:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-30T21:26:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-30T21:28:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="2" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-30T19:38:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-30T20:06:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-30T20:48:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-30T20:55:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-30T21:39:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-30T22:13:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-30T22:27:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-30T22:43:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="3" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-30T20:51:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-30T20:55:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-30T21:25:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-30T21:35:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-30T22:36:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-30T23:13:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-30T23:37:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T00:16:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="4" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-30T21:45:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-30T22:20:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-30T22:41:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-30T23:14:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-30T23:45:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T00:01:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T00:43:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T01:10:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="5" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-30T22:50:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-30T23:15:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-30T23:34:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-30T23:53:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T00:31:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T01:14:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T01:42:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T02:07:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="6" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-30T23:41:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-30T23:58:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T00:29:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T00:38:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T01:29:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T01:50:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T02:51:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T03:13:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="7" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T00:34:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T01:00:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T01:44:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T02:03:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T02:51:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T02:53:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T03:42:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T04:13:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="8" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T01:24:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T01:46:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T02:51:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T03:19:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T03:35:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T03:41:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T04:28:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T04:48:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="9" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T02:26:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T02:39:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T03:37:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T04:14:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T04:45:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T04:53:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T05:25:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T05:53:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="10" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T03:35:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T04:08:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T04:31:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T04:44:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T05:45:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T06:19:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T06:46:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T07:20:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="11" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T04:40:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T04:44:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T05:45:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T06:19:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T06:35:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T06:54:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T07:37:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T07:57:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="12" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T05:49:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T06:15:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T06:46:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T06:57:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T07:32:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T08:16:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T08:47:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T09:15:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="13" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T06:46:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T07:02:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T07:51:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T08:18:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T08:28:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T08:42:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T09:27:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T10:13:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="14" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T07:39:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T08:09:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T08:48:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T09:00:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T09:49:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T10:10:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T10:33:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T11:07:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="15" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T08:35:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T09:18:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T09:26:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T09:28:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T10:31:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T11:10:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T11:45:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T11:54:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="16" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T09:30:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T10:17:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T10:41:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T10:44:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T11:47:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T12:10:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T12:51:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T13:12:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="17" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T10:51:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T10:56:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T11:51:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T11:53:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T12:46:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T12:54:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T13:48:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T13:49:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="18" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T11:46:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T12:07:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T12:29:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T12:57:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T13:28:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T13:31:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T14:24:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T14:30:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="19" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T12:32:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T12:42:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T13:35:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T14:07:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T14:42:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T14:47:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T15:39:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T15:42:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="20" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T13:26:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T13:29:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T14:45:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T15:10:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T15:39:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T16:07:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T16:34:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T16:55:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="21" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T14:23:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T14:51:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T15:36:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T15:56:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T16:51:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T17:05:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T17:33:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T17:48:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="22" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T15:32:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T16:06:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T16:37:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T16:43:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T17:35:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T17:44:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T18:41:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T19:17:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="23" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T16:51:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T17:21:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T17:48:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T18:17:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T18:26:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T19:21:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T19:31:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T20:16:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="24" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T17:47:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T17:59:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T18:32:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T19:03:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T19:35:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T20:01:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T20:51:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T21:07:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="25" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T18:28:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T18:45:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T19:23:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T19:46:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T20:27:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T20:52:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T21:27:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T22:01:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="26" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T19:50:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T20:12:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T20:37:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T21:05:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T21:42:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T21:54:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T22:28:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T22:37:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="27" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T20:37:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T20:52:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T21:32:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T21:43:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T22:41:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T23:16:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T23:33:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T23:59:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="28" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T21:27:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T21:28:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T22:44:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T23:16:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T23:24:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T23:59:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T00:41:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T00:44:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="29" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T22:33:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-01-31T22:46:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T23:52:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T00:17:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T00:28:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T01:13:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T01:47:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T02:19:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="30" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-01-31T23:29:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T00:05:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T00:29:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T01:19:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T01:48:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T01:58:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T02:45:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T03:07:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="31" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T00:45:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T00:48:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T01:30:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T01:34:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T02:52:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T02:57:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T03:31:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T03:33:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="32" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T01:38:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T01:54:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T02:31:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T02:51:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T03:44:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T04:08:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T04:30:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T04:42:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="33" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T02:31:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T02:48:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T03:45:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T03:52:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T04:44:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T05:08:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T05:26:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T06:14:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="34" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T03:23:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T04:01:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T04:39:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T05:20:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T05:35:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T06:04:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T06:37:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T06:57:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="35" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T04:32:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T04:34:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T05:25:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T05:34:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T06:42:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T07:18:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T07:32:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T08:01:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="36" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T05:23:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T06:10:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T06:39:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T07:07:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T07:41:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T07:43:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T08:33:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T08:55:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="37" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T06:35:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T07:06:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T07:29:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T07:43:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T08:52:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T08:54:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T09:30:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T09:47:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="38" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T07:36:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T08:21:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T08:52:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T08:56:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T09:45:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T10:08:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T10:47:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T11:05:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="39" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T08:48:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T08:51:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T09:35:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T10:12:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T10:35:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T10:52:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T11:46:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T11:49:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="40" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T09:37:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T09:56:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T10:47:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T11:03:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T11:27:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T11:30:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T12:29:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T13:17:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="41" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T10:42:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T11:02:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T11:45:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T11:53:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T12:35:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T13:15:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T13:50:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T13:51:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="42" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T11:31:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T11:43:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T12:28:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T13:04:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T13:37:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T14:19:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T14:51:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T14:53:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="43" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T12:39:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T12:42:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T13:47:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T14:19:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T14:34:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T14:47:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T15:37:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T15:43:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="44" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T13:42:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T13:50:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T14:48:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T14:55:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T15:35:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T15:41:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T16:46:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T16:55:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="45" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T14:52:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T15:11:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T15:34:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T15:40:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T16:37:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T16:51:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T17:39:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T18:02:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="46" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T15:42:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T15:56:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T16:38:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T16:51:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T17:39:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T18:20:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T18:31:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T19:01:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="47" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T16:23:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T16:38:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T17:36:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T18:06:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T18:51:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T19:13:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T19:36:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T20:15:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="48" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T17:32:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T17:43:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T18:42:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T18:44:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T19:49:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T19:54:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T20:43:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T21:20:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="49" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T18:23:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T18:54:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T19:51:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T20:11:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T20:33:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T21:13:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T21:29:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T22:03:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="50" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T19:37:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T19:47:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T20:51:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T21:01:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T21:25:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T22:03:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T22:40:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T23:08:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="51" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T20:51:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T21:07:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T21:27:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T21:38:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T22:44:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T22:47:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T23:44:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T00:05:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="52" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T21:41:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T21:56:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T22:30:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T22:53:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T23:49:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T23:55:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T00:27:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T01:05:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="53" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T22:24:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T22:47:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T23:43:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T00:07:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T00:33:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T00:43:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T01:45:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T01:55:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="54" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-01T23:36:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-01T23:46:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T00:33:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T01:17:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T01:49:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T02:14:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T02:37:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T02:56:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="55" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T00:24:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T00:31:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T01:34:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T01:37:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T02:45:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T03:13:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T03:48:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T04:19:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="56" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T01:41:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T01:59:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T02:33:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T03:13:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T03:49:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T04:21:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T04:35:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T04:37:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="57" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T02:44:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T03:04:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T03:50:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T04:05:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T04:36:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T04:40:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T05:48:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T06:08:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="58" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T03:46:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T04:04:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T04:36:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T05:21:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T05:23:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T06:10:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T06:38:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T06:50:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="59" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T04:29:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T05:14:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T05:48:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T06:12:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T06:51:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T07:16:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T07:29:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T07:43:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="60" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T05:26:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T05:31:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T06:40:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T06:46:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T07:29:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T07:38:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T08:29:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T08:59:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="61" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T06:37:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T06:56:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T07:40:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T08:18:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T08:39:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T08:47:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T09:48:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T09:52:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="62" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T07:31:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T07:36:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T08:37:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T08:51:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T09:26:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T09:40:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T10:31:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T10:43:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="63" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T08:44:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T08:59:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T09:48:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T10:16:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T10:30:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T10:47:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T11:52:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T12:12:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="64" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T09:30:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T09:59:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T10:52:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T11:17:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T11:48:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T12:00:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T12:26:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T13:11:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="65" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T10:40:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T11:04:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T11:31:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T12:15:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T12:26:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T13:09:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T13:27:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T14:00:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="66" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T11:36:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T11:46:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T12:49:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T13:03:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T13:33:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T13:58:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T14:47:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T15:19:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="67" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T12:34:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T13:04:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T13:36:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T14:06:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T14:44:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T15:18:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T15:24:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T15:43:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="68" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T13:32:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T14:02:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T14:39:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T14:58:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T15:35:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T15:47:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T16:44:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T16:59:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="69" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T14:41:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T15:19:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T15:28:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T15:37:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T16:49:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T16:51:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T17:44:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T18:05:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="70" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T15:42:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T15:50:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T16:40:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T17:16:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T17:28:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T17:29:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T18:42:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T19:18:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="71" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T16:35:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T17:19:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T17:24:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T17:55:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T18:39:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T18:54:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T19:45:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T19:49:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="72" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T17:37:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T17:40:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T18:51:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T19:17:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T19:36:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T20:05:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T20:25:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T21:11:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="73" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T18:50:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T18:51:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T19:48:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T19:50:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T20:39:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T20:41:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T21:25:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T22:03:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="74" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T19:23:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T20:07:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T20:24:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T21:03:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T21:34:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T21:49:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T22:28:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T22:37:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="75" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T20:42:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T20:51:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T21:46:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T22:06:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T22:36:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T23:18:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T23:39:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T00:18:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="76" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T21:31:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T21:52:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T22:47:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T23:16:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T23:52:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T00:09:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T00:42:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T01:15:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="77" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T22:50:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T22:58:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T23:32:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-02T23:40:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T00:37:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T00:48:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T01:26:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T02:13:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="78" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-02T23:30:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T00:17:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T00:52:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T01:12:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T01:50:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T02:04:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T02:33:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T02:58:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="79" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T00:52:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T01:06:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T01:45:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T02:10:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T02:34:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T03:11:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T03:37:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T04:19:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="80" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T01:52:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T02:21:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T02:42:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T02:58:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T03:25:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T03:41:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T04:40:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T04:55:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="81" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T02:41:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T02:57:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T03:34:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T03:55:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T04:38:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T04:59:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T05:46:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T05:50:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="82" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T03:38:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T04:21:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T04:25:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T05:04:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T05:36:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T05:48:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T06:29:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T06:58:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="83" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T04:31:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T04:55:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T05:34:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T06:08:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T06:50:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T07:06:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T07:42:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T08:15:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="84" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T05:43:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T06:00:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T06:34:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T06:36:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T07:24:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T07:30:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T08:45:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T09:20:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="85" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T06:49:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T06:57:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T07:24:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T07:54:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T08:43:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T09:12:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T09:45:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T09:50:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="86" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T07:44:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T07:55:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T08:30:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T08:33:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T09:34:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T09:37:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T10:52:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T10:57:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="87" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T08:32:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T09:07:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T09:45:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T09:57:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T10:52:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T11:02:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T11:41:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T12:05:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="88" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T09:23:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T09:53:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T10:24:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T10:48:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T11:47:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T11:48:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T12:37:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T12:51:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="89" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T10:31:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T10:49:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T11:30:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T12:19:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T12:27:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T13:04:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T13:52:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T14:02:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="90" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T11:28:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T12:16:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T12:47:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T12:53:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T13:51:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T13:53:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T14:23:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T15:17:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="91" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T12:43:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T12:47:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T13:42:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T13:55:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T14:49:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T15:11:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T15:38:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T15:57:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="92" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T13:42:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T14:16:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T14:27:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T15:18:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T15:45:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T15:54:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T16:35:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T17:21:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="93" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T14:23:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T15:21:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T15:30:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T15:43:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T16:28:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T17:04:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T17:52:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T18:05:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="94" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T15:51:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T16:00:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T16:29:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T17:11:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T17:23:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T17:53:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T18:50:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T19:15:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="95" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T16:40:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T17:04:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T17:26:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T17:34:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T18:28:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T19:21:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T19:41:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T19:53:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="96" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T17:37:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T17:55:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T18:31:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T18:58:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T19:42:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T20:12:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T20:39:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T20:45:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="97" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T18:32:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T19:19:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T19:30:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T19:49:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T20:31:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T21:13:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T21:48:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T22:09:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="98" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T19:44:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T20:18:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T20:28:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T20:38:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T21:30:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T21:43:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T22:46:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Published</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T23:21:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="99" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T20:52:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>RegisterUser</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T21:18:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T21:26:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Draft</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T22:09:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T22:38:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Review</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T22:45:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-02-03T23:30:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Rejected</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-02-03T23:35:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+  </Process>
+</WorkflowLog>
+
