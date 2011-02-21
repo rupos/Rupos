@@ -40,8 +40,8 @@ CPATH=$CPATH:$PROM_ORIGIN/lib/xstream-1.3.1.jar
 
 CPATH=$CPATH:$PROM_ORIGIN_BASE/Log/dist/LogFilters.jar
 
-# CPATH=$CPATH:../Packages/OSService/dist/OSService.jar
-# CPATH=$CPATH:../Packages/TransitionSystems/dist/TransitionSystems.jar
+CPATH=$CPATH:$PROM_ORIGIN_BASE/OSService/dist/OSService.jar
+CPATH=$CPATH:$PROM_ORIGIN_BASE/TransitionSystems/dist/TransitionSystems.jar
 # CPATH=$CPATH:../Packages/PetriNets/dist/PetriNets.jar
 # CPATH=$CPATH:../Packages/LogAbstractions/dist/LogAbstractions.jar
 # CPATH=$CPATH:../Packages/AlphaMiner/dist/AlphaMiner.jar
