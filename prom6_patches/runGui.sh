@@ -1,6 +1,6 @@
 #!/bin/sh
 
-PROM_ORIGIN=../prom6_origin/prom6svn
+PROM_ORIGIN=../prom6_origin/ProM
 
 CPATH=./bindist/
 CPATH=$CPATH:$PROM_ORIGIN/dist/ProM-Contexts.jar

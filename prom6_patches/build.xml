@@ -46,10 +46,10 @@
 					<fileset dir=".">
 						<include name="lib/**/*.jar" />
 					</fileset>
-					<fileset dir="../prom6_origin/prom6svn/dist/">
+					<fileset dir="../prom6_origin/ProM/dist/">
 						<include name="*.jar" />
 					</fileset>
-					<fileset dir="../prom6_origin/prom6svn/lib/">
+					<fileset dir="../prom6_origin/ProM/lib/">
 						<include name="*.jar" />
 					</fileset>
 					<pathelement path="@{dependson}" />
