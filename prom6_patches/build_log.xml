@@ -36,6 +36,10 @@
 						<include name="stdlib/**/*.jar" />
 						<include name="packagelib/**/*.jar" />
 					</fileset>
+					<fileset dir="../ProM">
+						<include name="lib/**/*.jar" />
+						<include name="dist/**/*.jar" />
+					</fileset>
 				</classpath>
 				<!-- Check for unsafe operations -->
 				<compilerarg value="-Xlint:unchecked" />
