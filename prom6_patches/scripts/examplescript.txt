@@ -1,0 +1,31 @@
+print("Starting example script...");
+
+//---------------------------------------------------
+print("1) Opening log file: " + filename);
+
+// Use the name of the plugin (in lowercase) to open a log
+	
+org.deckfour.xes.model.XLog log = open_xes_log_file("../prom5_log_files/sequence.mxml");
+
+print(" id of the opened log: " + log);
+
+//---------------------------------------------------
+print("2) Mining using the alpha miner...");
+
+res = alpha_miner(log);
+
+pnet = res[0];
+marking = res[1];
+	
+print("   net: " + pnet);
+print("   marking: " + marking);
+
+//---------------------------------------------------
+print("3) Writing pnml file ...");
+
+file = new java.io.File("../prom5_log_files/seq_script.pnml");
+
+pnml_export_petri_net_(pnet, file);
+
+print("4) Finished writing the file ...");
+
