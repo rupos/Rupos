@@ -1,6 +1,7 @@
 #!/bin/sh
 
 PROM_ORIGIN=../prom6_origin/ProM
+PROM_ORIGIN_BASE=../prom6_origin
 
 CPATH=./bindist/
 CPATH=$CPATH:$PROM_ORIGIN/dist/ProM-Contexts.jar
@@ -37,8 +38,7 @@ CPATH=$CPATH:$PROM_ORIGIN/lib/weka.jar
 CPATH=$CPATH:$PROM_ORIGIN/lib/xpp3-1.1.4c.jar
 CPATH=$CPATH:$PROM_ORIGIN/lib/xstream-1.3.1.jar
 
-echo $CPATH
-# CPATH=$CPATH:../Packages/Log/dist/LogFilters.jar
+CPATH=$CPATH:$PROM_ORIGIN_BASE/Log/dist/LogFilters.jar
 
 # CPATH=$CPATH:../Packages/OSService/dist/OSService.jar
 # CPATH=$CPATH:../Packages/TransitionSystems/dist/TransitionSystems.jar
