@@ -85,39 +85,45 @@ class Sequence:
         
 
 def gen_sequence(t):
-    acts = Sequence([
-            Entry("RegisterUser"),
-            # Par([
-                    Entry("Draft"), 
-            #         Entry("Study")
-            #         ]),
-            # Recursion(
-            #       # Sequence([
-            #       #       Entry("Restart"),
-            #             Par([
-            #                     Entry("Draft"), 
-            #                     Entry("Study")
-            #                     ])
-            #             # ])
-            #       )
-            # ,
-#             Recursion(
-#                  Sequence([
-#             #         Entry("Restart"),
-# #                     Par([
-#                                  Entry("Draft"),
-# #                                 Entry("Study")
-#                                  ]),
-#             #         ])
-#                  ),
-Sequence([ 
-            Entry("Review"), 
-             # Choice([
-                    Entry("Published")
-                    # ,Entry("Rejected")
-                    # ])
-], p=0.1)
-            ])
+     acts = Sequence([
+             Entry("RegisterUser"),
+             Choice([
+                 ])
+             ])
+
+#     acts = Sequence([
+#             Entry("RegisterUser"),
+#             # Par([
+#                     Entry("Draft"), 
+#             #         Entry("Study")
+#             #         ]),
+#             # Recursion(
+#             #       # Sequence([
+#             #       #       Entry("Restart"),
+#             #             Par([
+#             #                     Entry("Draft"), 
+#             #                     Entry("Study")
+#             #                     ])
+#             #             # ])
+#             #       )
+#             # ,
+# #             Recursion(
+# #                  Sequence([
+# #             #         Entry("Restart"),
+# # #                     Par([
+# #                                  Entry("Draft"),
+# # #                                 Entry("Study")
+# #                                  ]),
+# #             #         ])
+# #                  ),
+# Sequence([ 
+#             Entry("Review"), 
+#              # Choice([
+#                     Entry("Published")
+#                     # ,Entry("Rejected")
+#                     # ])
+# ], p=0.1)
+#             ])
 
     exceptions = ["Draft"]
 
