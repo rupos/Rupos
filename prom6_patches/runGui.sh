@@ -49,7 +49,7 @@ CPATH=$CPATH:$PROM_ORIGIN_BASE/Log/dist/LogFilters.jar
 # CPATH=$CPATH:../Packages/ETConformance/lib/javailp-1.1.jar
 # CPATH=$CPATH:../Packages/ETConformance/dist/ETConformance.jar
 
-# CPATH=$CPATH:../Packages/LogDialog/dist/LogDialog.jar
+CPATH=$CPATH:$PROM_ORIGIN_BASE/LogDialog/dist/LogDialog.jar
 # CPATH=$CPATH:../Packages/PetriNetReplayer/dist/PetriNetReplayer.jar
 
 # CPATH=$CPATH:../Packages/Performance/dist/Performance.jar
