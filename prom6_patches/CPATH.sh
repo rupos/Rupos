@@ -7,7 +7,6 @@ CPATH=./bindist/
 CPATH=$CPATH:$PROM_ORIGIN/dist/ProM-Contexts.jar
 CPATH=$CPATH:$PROM_ORIGIN/dist/ProM-Framework.jar
 CPATH=$CPATH:$PROM_ORIGIN/dist/ProM-Models.jar
-# CPATH=$CPATH:$PROM_ORIGIN/dist/ProM-Plugins.jar
 CPATH=$CPATH:$PROM_ORIGIN/lib/axis.jar
 CPATH=$CPATH:$PROM_ORIGIN/lib/bsh-2.0b4.jar
 CPATH=$CPATH:$PROM_ORIGIN/lib/collections-generic-4.01.jar
@@ -50,6 +49,6 @@ CPATH=$CPATH:$PROM_ORIGIN_BASE/ETConformance/lib/javailp-1.1.jar
 CPATH=$CPATH:$PROM_ORIGIN_BASE/ETConformance/dist/ETConformance.jar
 
 CPATH=$CPATH:$PROM_ORIGIN_BASE/LogDialog/dist/LogDialog.jar
-# CPATH=$CPATH:../Packages/PetriNetReplayer/dist/PetriNetReplayer.jar
+CPATH=$CPATH:$PROM_ORIGIN_BASE/PetriNetReplayer/dist/PetriNetReplayer.jar
 
-# CPATH=$CPATH:../Packages/Performance/dist/Performance.jar
+CPATH=$CPATH:$PROM_ORIGIN_BASE/Performance/dist/Performance.jar
