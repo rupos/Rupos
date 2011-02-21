@@ -50,50 +50,8 @@ public class UI {
 	}
 
 	public static void main(String[] args) throws Exception {
-	    //Boot.boot(UI.class, UIPluginContext.class, args);
-	    
-
-		if (!Boot.isLatestReleaseInstalled()) {
-			Boot.setReleaseInstalled("", "");
-			PMFrame frame = (PMFrame) Boot.boot(PMFrame.class);
-			frame.setIconImage(ImageLoader.load("prom_icon_32x32.png"));
-			// Now select the release package
-			PMPackage releasePackage = frame.getController().selectPackage(Boot.RELEASE_PACKAGE);
-			Boot.setLatestReleaseInstalled();
-			Boot.boot(UI.class, UIPluginContext.class, args);
-			    
-			if (releasePackage.getStatus() == PMStatus.TOUNINSTALL) {
-				// Package is upToDate and installed.
-				// Do not show package manager and start ProM
-				Boot.setLatestReleaseInstalled();
-				Boot.boot(UI.class, UIPluginContext.class, args);
-
-			} else {
-
-				// Start listening
-				UIPackageManagerListener listener = new UIPackageManagerListener(frame, args);
-				PackageManager.getInstance().addListener(listener);
-
-				// Show the package manager
-				frame.setVisible(true);
-
-				// And install the release package!
-				frame.getController().update(releasePackage, frame.getController().getMainView().getWorkspaceView());
-
-				// ProM will be started as soon as the package manager finishes.
-
-				synchronized (listener) {
-					while (!listener.isDone()) {
-						listener.wait();
-					}
-				}
-
-			}
-			//Boot.setLatestReleaseInstalled();
-		} else {
-			Boot.boot(UI.class, UIPluginContext.class, args);
-		}
-
+	    System.out.println("Guancio");
+	    Boot.boot(UI.class, UIPluginContext.class, args);
 	}
 }
 
