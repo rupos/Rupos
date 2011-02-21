@@ -52,6 +52,9 @@
 					<fileset dir="../prom6_origin/ProM/lib/">
 						<include name="*.jar" />
 					</fileset>
+					<fileset dir="../prom6_origin/PetriNets/dist/">
+						<include name="*.jar" />
+					</fileset>
 					<pathelement path="@{dependson}" />
 				</classpath>
 				<!-- Check for unsafe operations -->
