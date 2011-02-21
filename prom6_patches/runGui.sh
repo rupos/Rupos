@@ -42,9 +42,9 @@ CPATH=$CPATH:$PROM_ORIGIN_BASE/Log/dist/LogFilters.jar
 
 CPATH=$CPATH:$PROM_ORIGIN_BASE/OSService/dist/OSService.jar
 CPATH=$CPATH:$PROM_ORIGIN_BASE/TransitionSystems/dist/TransitionSystems.jar
-# CPATH=$CPATH:../Packages/PetriNets/dist/PetriNets.jar
-# CPATH=$CPATH:../Packages/LogAbstractions/dist/LogAbstractions.jar
-# CPATH=$CPATH:../Packages/AlphaMiner/dist/AlphaMiner.jar
+CPATH=$CPATH:$PROM_ORIGIN_BASE/PetriNets/dist/PetriNets.jar
+CPATH=$CPATH:$PROM_ORIGIN_BASE/LogAbstractions/dist/LogAbstractions.jar
+CPATH=$CPATH:$PROM_ORIGIN_BASE/AlphaMiner/dist/AlphaMiner.jar
 
 # CPATH=$CPATH:../Packages/ETConformance/lib/javailp-1.1.jar
 # CPATH=$CPATH:../Packages/ETConformance/dist/ETConformance.jar
