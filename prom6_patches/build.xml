@@ -56,6 +56,11 @@
 						<include name="*.jar" />
 					</fileset>
 					<pathelement path="@{dependson}" />
+
+					<fileset dir="../prom6_origin/PetriNetReplayer/dist/">
+						<include name="*.jar" />
+					</fileset>
+
 				</classpath>
 				<!-- Check for unsafe operations -->
 				<compilerarg value="-Xlint:unchecked" />
