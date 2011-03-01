@@ -121,7 +121,7 @@
 
 
 	<!-- clean all binaries and distributions -->
-	<target name="Clean build and dist folders" description="clean up" id="1">
+	<target name="clean" description="clean up" id="1">
 		<!-- Delete the ${build} and ${dist} directory trees -->
 		<delete dir="${build}" />
 		<delete dir="${dist}" />
