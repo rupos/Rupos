@@ -56,6 +56,11 @@
 						<include name="*.jar" />
 					</fileset>
 					<pathelement path="@{dependson}" />
+
+					<fileset dir="../prom6_origin/PetriNetReplayer/dist/">
+						<include name="*.jar" />
+					</fileset>
+
 				</classpath>
 				<!-- Check for unsafe operations -->
 				<compilerarg value="-Xlint:unchecked" />
@@ -116,7 +121,7 @@
 
 
 	<!-- clean all binaries and distributions -->
-	<target name="Clean build and dist folders" description="clean up" id="1">
+	<target name="clean" description="clean up" id="1">
 		<!-- Delete the ${build} and ${dist} directory trees -->
 		<delete dir="${build}" />
 		<delete dir="${dist}" />
