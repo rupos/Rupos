@@ -52,3 +52,6 @@ CPATH=$CPATH:$PROM_ORIGIN_BASE/LogDialog/dist/LogDialog.jar
 CPATH=$CPATH:$PROM_ORIGIN_BASE/PetriNetReplayer/dist/PetriNetReplayer.jar
 
 CPATH=$CPATH:$PROM_ORIGIN_BASE/Performance/dist/Performance.jar
+
+CPATH=$CPATH:$PROM_ORIGIN_BASE/TSPetrinet/dist/TSPetrinet.jar
+
