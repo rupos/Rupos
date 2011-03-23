@@ -266,4 +266,19 @@ public class ReplayFitnessPlugin {
 			    this.missingMarking
 	};
     }
+
+    @Plugin(name = "FitnessDetails", returnLabels = { "Fitness", "Remaining","Missing" }, returnTypes = { ReplayFitness.class, Marking.class, Marking.class }, parameterLabels = {}, userAccessible = true)
+    @UITopiaVariant(affiliation = UITopiaVariant.EHV, author = "T. Yuliani and H.M.W. Verbeek", email = "h.m.w.verbeek@tue.nl")
+    public Object[] getFitnessDetails(PluginContext context, XLog log, Petrinet net) {
+	ReplayFitnessSetting setting = new ReplayFitnessSetting();
+	suggestActions(setting, log, net);
+
+	this.remainingMarking = new Marking();
+	this.missingMarking = new Marking();
+
+	return new Object[]{getFitness(context, log, net, setting),
+			    this.remainingMarking,
+			    this.missingMarking
+	};
+    }
 }
