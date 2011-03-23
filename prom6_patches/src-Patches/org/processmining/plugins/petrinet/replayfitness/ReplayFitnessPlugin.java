@@ -105,6 +105,7 @@ public class ReplayFitnessPlugin {
 
 		int replayedTraces = 0;
 		for (XTrace trace : log) {
+		    System.out.println(replayedTraces);
 			List<XEventClass> list = getList(trace, classes);
 			try {
 				List<Transition> sequence = replayer.replayTrace(marking, list, setting);
