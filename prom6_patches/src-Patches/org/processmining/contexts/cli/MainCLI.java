@@ -37,6 +37,8 @@ public class MainCLI {
 		    PluginDescriptor openLogPlugin = null;
 		    PluginDescriptor alphaPlugin = null;
 		    PluginDescriptor fitnessPlugin = null;
+		    PluginDescriptor importNetPlugin = null;
+
 		    System.out.println("------------------------------");
 		    for (PluginDescriptor plugin : context.getPluginManager().getAllPlugins()) {
 			if ("Open XES Log File".equals(plugin.getName()))
@@ -45,6 +47,8 @@ public class MainCLI {
 			    alphaPlugin = plugin;
 			else if ("FitnessDetails".equals(plugin.getName()))
 			    fitnessPlugin = plugin;
+			else if ("Import Petri net from PNML file".equals(plugin.getName()))
+			    importNetPlugin = plugin;
 			else
 			    continue;
 			if (printPluginSignatures) {
@@ -54,27 +58,45 @@ public class MainCLI {
 			    }
 			}
 		    }
-		    System.out.println("------------------------------");
-		    System.out.println(openLogPlugin);
-		    System.out.println("------------------------------");
-		    PluginContext context1 = context.createChildContext("Result of Import Log");
-		    openLogPlugin.invoke(0, context1, "..//prom5_log_files/sequence.mxml");
-		    context1.getResult().synchronize();
-		    org.deckfour.xes.model.XLog res = (org.deckfour.xes.model.XLog)context1.getResult().getResult(0);
-		    System.out.println("------------------------------");
-		    // System.out.println(res);
-		    System.out.println("------------------------------");
+
+		    PluginContext context1 = null;
+
+		    // System.out.println("------------------------------");
+		    // System.out.println(openLogPlugin);
+		    // System.out.println("------------------------------");
+		    // context1 = context.createChildContext("Result of Import Log");
+		    // openLogPlugin.invoke(0, context1, "../prom5_log_files/sequence.mxml");
+		    // context1.getResult().synchronize();
+		    // org.deckfour.xes.model.XLog res = (org.deckfour.xes.model.XLog)context1.getResult().getResult(0);
+		    // System.out.println("------------------------------");
+		    // // System.out.println(res);
+		    // System.out.println("------------------------------");
+
+		    // System.out.println("------------------------------");
+		    // System.out.println(alphaPlugin);
+		    // System.out.println("------------------------------");
+		    // context1 = context.createChildContext("Result of Alpha");
+		    // alphaPlugin.invoke(0, context1, res);
+		    // context1.getResult().synchronize();
+		    // Object res1 = context1.getResult().getResult(0);
+		    // System.out.println("------------------------------");
+		    // // System.out.println(res1);
+		    // System.out.println("------------------------------");
 
 		    System.out.println("------------------------------");
-		    System.out.println(alphaPlugin);
+		    System.out.println(importNetPlugin);
 		    System.out.println("------------------------------");
-		    context1 = context.createChildContext("Result of Alpha");
-		    alphaPlugin.invoke(0, context1, res);
+		    context1 = context.createChildContext("Import Net");
+		    importNetPlugin.invoke(0, context1, "../prom5_log_files/sequence_prom6.pnml");
 		    context1.getResult().synchronize();
-		    Object res1 = context1.getResult().getResult(0);
 		    System.out.println("------------------------------");
-		    // System.out.println(res1);
+		    PluginExecutionResult res1 = context1.getResult();
+		    System.out.println("Obtained " + res1.getSize() + " results");
 		    System.out.println("------------------------------");
+		    Object net = res1.getResult(0);
+		    Marking startMarking = res1.getResult(1);
+		    System.out.println("------------------------------");
+
 
 		    System.out.println("------------------------------");
 		    System.out.println(openLogPlugin);
@@ -92,7 +114,7 @@ public class MainCLI {
 		    System.out.println(fitnessPlugin);
 		    System.out.println("------------------------------");
 		    context1 = context.createChildContext("Fitness Checking");
-		    fitnessPlugin.invoke(0, context1, errors, res1);
+		    fitnessPlugin.invoke(0, context1, errors, net);
 		    context1.getResult().synchronize();
 		    System.out.println("------------------------------");
 		    PluginExecutionResult res2 = context1.getResult();
