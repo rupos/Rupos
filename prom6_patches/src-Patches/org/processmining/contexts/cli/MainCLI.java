@@ -10,6 +10,8 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
 
 import org.processmining.framework.plugin.PluginContext;
 import org.processmining.framework.plugin.PluginDescriptor;
@@ -23,7 +25,10 @@ import org.processmining.framework.plugin.PluginExecutionResult;
 
 import org.processmining.models.semantics.petrinet.Marking;
 import org.processmining.plugins.petrinet.replayfitness.ReplayFitness;
+import org.processmining.plugins.petrinet.replay.ReplayAction;
+import org.processmining.plugins.petrinet.replayfitness.ReplayFitnessSetting;
 
+import java.util.Properties;
 
 public class MainCLI {
 	@Plugin(name = "MainCLI", parameterLabels = {}, returnLabels = {}, returnTypes = {}, userAccessible = false)
@@ -45,7 +50,7 @@ public class MainCLI {
 			    openLogPlugin = plugin;
 			else if ("Alpha Miner".equals(plugin.getName()))
 			    alphaPlugin = plugin;
-			else if ("FitnessDetails".equals(plugin.getName()))
+			else if ("FitnessDetailsSettings".equals(plugin.getName()))
 			    fitnessPlugin = plugin;
 			else if ("Import Petri net from PNML file".equals(plugin.getName()))
 			    importNetPlugin = plugin;
@@ -125,7 +130,26 @@ public class MainCLI {
 		    System.out.println(fitnessPlugin);
 		    System.out.println("------------------------------");
 		    context1 = context.createChildContext("Fitness Checking");
-		    fitnessPlugin.invoke(0, context1, errors, net);
+
+		    ReplayFitnessSetting setting = new ReplayFitnessSetting();
+		    setting.setAction(ReplayAction.INSERT_ENABLED_MATCH, true);
+		    setting.setAction(ReplayAction.INSERT_ENABLED_INVISIBLE, true);
+		    setting.setAction(ReplayAction.REMOVE_HEAD, true);
+		    setting.setAction(ReplayAction.INSERT_ENABLED_MISMATCH, true);
+		    setting.setAction(ReplayAction.INSERT_DISABLED_MATCH, true);
+		    setting.setAction(ReplayAction.INSERT_DISABLED_MISMATCH, true);
+
+		    setting.setWeight(ReplayAction.INSERT_ENABLED_MATCH, 1);
+		    setting.setWeight(ReplayAction.INSERT_ENABLED_INVISIBLE, 10);
+		    setting.setWeight(ReplayAction.REMOVE_HEAD, 100);
+		    setting.setWeight(ReplayAction.INSERT_ENABLED_MISMATCH, 100);
+		    setting.setWeight(ReplayAction.INSERT_DISABLED_MATCH, 100);
+		    setting.setWeight(ReplayAction.INSERT_DISABLED_MISMATCH, 1000);
+
+		    loadSettings(setting);
+
+
+		    fitnessPlugin.invoke(0, context1, errors, net, setting);
 		    context1.getResult().synchronize();
 		    System.out.println("------------------------------");
 		    PluginExecutionResult res2 = context1.getResult();
@@ -153,4 +177,36 @@ public class MainCLI {
 	    Boot.VERBOSE = Level.NONE;
 	    Boot.boot(MainCLI.class, CLIPluginContext.class, args);
 	}
+
+    public static void loadSettings(ReplayFitnessSetting setting) {
+	  Properties props = new Properties();
+	  try {
+	      props.load(new FileInputStream("fitness.properties"));
+	      Map<ReplayAction, String> names = new HashMap<ReplayAction, String>();
+	      names.put(ReplayAction.INSERT_ENABLED_MATCH, "INSERT_ENABLED_MATCH");
+	      names.put(ReplayAction.INSERT_ENABLED_INVISIBLE, "INSERT_ENABLED_INVISIBLE");
+	      names.put(ReplayAction.REMOVE_HEAD, "REMOVE_HEAD");
+	      names.put(ReplayAction.INSERT_ENABLED_MISMATCH, "INSERT_ENABLED_MISMATCH");
+	      names.put(ReplayAction.INSERT_DISABLED_MATCH, "INSERT_DISABLED_MATCH");
+	      names.put(ReplayAction.INSERT_DISABLED_MISMATCH, "INSERT_DISABLED_MISMATCH");
+
+	      for (ReplayAction k : names.keySet()) {
+		  String value = props.getProperty(names.get(k));
+		  if (value == null) {
+		      setting.setAction(k, false);
+		      continue;
+		  }
+		  int iValue = Integer.valueOf(value);
+		  if (iValue < 0) {
+		      setting.setAction(k, false);
+		      continue;
+		  }
+		  setting.setAction(k, true);
+		  setting.setWeight(k, iValue);
+	      }
+	  }
+	  catch(IOException e) {
+	      e.printStackTrace();
+	  }
+    }
 }
