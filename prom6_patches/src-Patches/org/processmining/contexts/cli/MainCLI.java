@@ -20,6 +20,11 @@ import org.processmining.framework.plugin.annotations.Plugin;
 import org.processmining.framework.util.CommandLineArgumentList;
 import org.processmining.framework.plugin.PluginExecutionResult;
 
+
+import org.processmining.models.semantics.petrinet.Marking;
+import org.processmining.plugins.petrinet.replayfitness.ReplayFitness;
+
+
 public class MainCLI {
 	@Plugin(name = "MainCLI", parameterLabels = {}, returnLabels = {}, returnTypes = {}, userAccessible = false)
 	@Bootable
@@ -93,7 +98,14 @@ public class MainCLI {
 		    PluginExecutionResult res2 = context1.getResult();
 		    System.out.println("Obtained " + res2.getSize() + " results");
 		    System.out.println("------------------------------");
-		    // System.out.println(res);
+		    ReplayFitness fitness = res2.getResult(0);
+		    System.out.println(fitness.getValue());
+		    System.out.println("------------------------------");
+		    Marking remaining = res2.getResult(1);
+		    System.out.println(remaining);
+		    System.out.println("------------------------------");
+		    Marking missing = res2.getResult(2);
+		    System.out.println(missing);
 		    System.out.println("------------------------------");
 
 		} catch (Throwable t) {
