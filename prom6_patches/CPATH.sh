@@ -55,3 +55,7 @@ CPATH=$CPATH:$PROM_ORIGIN_BASE/Performance/dist/Performance.jar
 
 CPATH=$CPATH:$PROM_ORIGIN_BASE/TSPetrinet/dist/TSPetrinet.jar
 
+CPATH=$CPATH:$PROM_ORIGIN_BASE/DottedChart/dist/DottedChart.jar
+
+
+
