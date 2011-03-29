@@ -2,11 +2,14 @@ package org.processmining.plugins.petrinet.replayfitness;
 
 import java.util.Iterator;
 import java.util.List;
+import org.processmining.models.graphbased.directed.petrinet.elements.Transition;
+import org.processmining.models.graphbased.directed.petrinet.elements.Arc;
 
 public class TotalFitnessResult {
 	
 	FitnessResult total;
 	List<FitnessResult> list;
+	String ret = System.getProperty("line.separator");
 	
 	
 	public FitnessResult getTotal() {
@@ -23,28 +26,22 @@ public class TotalFitnessResult {
 	}
 	
 	public String toString(){
-		String ret = System.getProperty("line.separator");
-		String tot = "Totale:"; 
-		tot += ret+serializeFitnessResult(total);
+		String tot = ""; 
 		Iterator<FitnessResult> iter = list.iterator();
 		Integer index = 1;
 		while (iter.hasNext()) {
-			tot += "Traccia n."+index++;
-			FitnessResult fitnessResult = (FitnessResult) iter.next();
-			tot += ret;
-			tot += serializeFitnessResult(fitnessResult);
+		    FitnessResult fitnessResult = (FitnessResult) iter.next();
+		    tot += "------------ Traccia n."+(index++)+" ------------"+ret;
+		    tot += fitnessResult;
+		    tot += "-----------------------------------"+ret;
 		}
+                tot += "------------ TOTALE SU TUTTE LE TRACCE: ------------"+ret;
+		tot += total;
+                tot += "-----------------------------------"+ret;
+
 		return tot;
 	}
 	
 	
-	private String serializeFitnessResult(FitnessResult result) {
-		String ret = System.getProperty("line.separator");
-		String tot = "Fitness totale:" +result.getFitness();
-		tot+=ret+"Missing Marking:"+result.getMissingMarking();
-		tot+=ret+"Remaning Marking: "+ result.getRemainingMarking();
-		tot +=ret;
-		return tot;
-	}
 
 }

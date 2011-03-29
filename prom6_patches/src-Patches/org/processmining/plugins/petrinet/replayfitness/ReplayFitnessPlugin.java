@@ -52,10 +52,12 @@ import com.fluxicon.slickerbox.factory.SlickerDecorator;
 
 public class ReplayFitnessPlugin {
 
+        //tokens
 	private int producedTokens;
 	private int missingTokens;
 	private int consumedTokens;
 	private int remainingTokens;
+        //
 
 	private XEventClasses eventClasses = null;
 
@@ -121,7 +123,6 @@ public class ReplayFitnessPlugin {
 
 		int replayedTraces = 0;
 		for (XTrace trace : log) {
-		    System.out.println(replayedTraces);
 			List<XEventClass> list = getList(trace, classes);
 			try {
 				List<Transition> sequence = replayer.replayTrace(marking, list, setting);
@@ -142,6 +143,15 @@ public class ReplayFitnessPlugin {
 		return fitness;
 	}
 
+
+    private void addArcUsage(Arc arc, FitnessResult fitnessResult) {
+	Integer numUsage = totalResult.getMapArc().get(arc);
+	totalResult.getMapArc().put(arc, numUsage == null ? 1 : numUsage+1);
+	numUsage = fitnessResult.getMapArc().get(arc);
+	fitnessResult.getMapArc().put(arc, numUsage == null ? 1 : numUsage+1);
+    }
+
+
 	private void updateFitness(Petrinet net, Marking initMarking, List<Transition> sequence, PetrinetSemantics semantics) {
 		Marking marking = new Marking(initMarking);
 		producedTokens += marking.size();
@@ -154,11 +164,13 @@ public class ReplayFitnessPlugin {
 		listResult.add(tempFitnessResult);
 
 		for (Transition transition : sequence) {
+		    boolean fittingTransition = true;
 			Collection<PetrinetEdge<? extends PetrinetNode, ? extends PetrinetNode>> preset = net
 					.getInEdges(transition);
 			for (PetrinetEdge<? extends PetrinetNode, ? extends PetrinetNode> edge : preset) {
 				if (edge instanceof Arc) {
 					Arc arc = (Arc) edge;
+					addArcUsage(arc, tempFitnessResult);
 					Place place = (Place) arc.getSource();
 					int consumed = arc.getWeight();
 					int missing = 0;
@@ -171,7 +183,6 @@ public class ReplayFitnessPlugin {
 					}
 					// Rupos patches
 					for (int i = 0; i < missing; i++) {
-					    
 					    totalResult.getMissingMarking().add(place);
 					    tempFitnessResult.getMissingMarking().add(place);
 					}
@@ -179,7 +190,8 @@ public class ReplayFitnessPlugin {
 					consumedTrace += consumed;
 					missingTokens += missing;
 					missingTrace +=missing;
-					
+					//se sono mancati token, questa transizione non ha fittato per questa traccia
+					if (missing>0) fittingTransition = false;
 				}
 			}
 			Collection<PetrinetEdge<? extends PetrinetNode, ? extends PetrinetNode>> postset = net
@@ -187,6 +199,7 @@ public class ReplayFitnessPlugin {
 			for (PetrinetEdge<? extends PetrinetNode, ? extends PetrinetNode> edge : postset) {
 				if (edge instanceof Arc) {
 					Arc arc = (Arc) edge;
+					addArcUsage(arc, tempFitnessResult);
 					Place place = (Place) arc.getTarget();
 					int produced = arc.getWeight();
 					for (int i = 0; i < produced; i++) {
@@ -196,6 +209,13 @@ public class ReplayFitnessPlugin {
 					producedTrace +=produced;
 				}
 			}
+			if (!fittingTransition) {
+			    Integer numTraceNotFittingForTransaction = totalResult.getMapTransition().get(transition);
+			    totalResult.getMapTransition().put(transition, numTraceNotFittingForTransaction == null ? 1 : numTraceNotFittingForTransaction+1);
+			    //sulla singola traccia, il numero di tracce che non fittano la transizione è 0 o 1
+			    tempFitnessResult.getMapTransition().put(transition, 1);
+			}
+			
 		}
 		consumedTokens += marking.size();
 		consumedTrace += marking.size();
@@ -203,9 +223,10 @@ public class ReplayFitnessPlugin {
 
 		// Rupos patches
 		totalResult.getRemainingMarking().addAll(marking);
-	    tempFitnessResult.getRemainingMarking().addAll(marking);
+		tempFitnessResult.getRemainingMarking().addAll(marking);
 	    
-	    tempFitnessResult.set(producedTrace,consumedTrace,missingTrace,marking.isEmpty() ? 0 : marking.size() - 1);
+		//calcola la fitness
+		tempFitnessResult.set(producedTrace,consumedTrace,missingTrace,marking.isEmpty() ? 0 : marking.size() - 1);
 	  
 		//this.remainingMarking.addAll(marking);
 	}
