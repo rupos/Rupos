@@ -93,10 +93,10 @@ public class MainCLI {
 		    System.out.println(importNetPlugin);
 		    System.out.println("------------------------------");
 		    context1 = context.createChildContext("Import Net");
-		    //importNetPlugin.invoke(0, context1, "../prom5_log_files/sequence_prom6.pnml");
+		    importNetPlugin.invoke(0, context1, "../prom5_log_files/sequence_prom6.pnml");
 		    // importNetPlugin.invoke(0, context1, "../prom5_log_files/TracceRuposAlpha.pnml");
 		    // importNetPlugin.invoke(0, context1, "../prom5_log_files/TracceRuposLTS5.pnml");
-		     importNetPlugin.invoke(0, context1, "../prom5_log_files/invioFlussoAlpha.pnml");
+		    //   importNetPlugin.invoke(0, context1, "../prom5_log_files/invioFlussoAlpha.pnml");
 		    // importNetPlugin.invoke(0, context1, "../prom5_log_files/invioFlussoLTS5BAG.pnml");
 		    // importNetPlugin.invoke(0, context1, "../prom5_log_files/ProcRuposAlpha.pnml");
 		    context1.getResult().synchronize();
@@ -114,11 +114,11 @@ public class MainCLI {
 		    System.out.println("------------------------------");
 		    context1 = context.createChildContext("Result of Import Log Error");
 		    // openLogPlugin.invoke(0, context1, "../prom5_log_files/choice.mxml");
-		    //openLogPlugin.invoke(0, context1, "../prom5_log_files/errors.mxml");
+		    openLogPlugin.invoke(0, context1, "../prom5_log_files/errors.mxml");
 		    //openLogPlugin.invoke(0, context1, "../prom5_log_files/par.mxml");
 		    // openLogPlugin.invoke(0, context1, "../prom5_log_files/rec.mxml");
 		    // openLogPlugin.invoke(0, context1, "../prom5_log_files/TracceRupos.mxml");
-		    openLogPlugin.invoke(0, context1, "../prom5_log_files/InviaFlusso.mxml");
+		    //openLogPlugin.invoke(0, context1, "../prom5_log_files/InviaFlusso.mxml");
 		    // openLogPlugin.invoke(0, context1, "../prom5_log_files/ProcRupos.mxml");
 		    context1.getResult().synchronize();
 		    org.deckfour.xes.model.XLog errors = (org.deckfour.xes.model.XLog)context1.getResult().getResult(0);

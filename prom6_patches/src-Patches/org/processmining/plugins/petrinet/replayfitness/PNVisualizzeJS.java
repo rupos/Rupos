@@ -2,38 +2,22 @@ package org.processmining.plugins.petrinet.replayfitness;
 
 import java.awt.geom.Point2D;
 import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
 
-import org.processmining.framework.plugin.PluginContext;
 import org.processmining.models.graphbased.AttributeMap;
-import org.processmining.models.graphbased.directed.petrinet.Petrinet;
-import org.processmining.models.graphbased.directed.petrinet.PetrinetEdge;
 import org.processmining.models.graphbased.directed.petrinet.PetrinetGraph;
-import org.processmining.models.graphbased.directed.petrinet.PetrinetNode;
 import org.processmining.models.graphbased.directed.petrinet.elements.Arc;
 import org.processmining.models.graphbased.directed.petrinet.elements.Place;
 import org.processmining.models.graphbased.directed.petrinet.elements.Transition;
 import org.processmining.models.semantics.petrinet.Marking;
-import org.processmining.plugins.pnml.Pnml;
-import org.processmining.plugins.pnml.PnmlElement;
-import org.processmining.plugins.pnml.graphics.PnmlNodeGraphics;
-import org.processmining.plugins.pnml.graphics.PnmlPosition;
-import org.processmining.plugins.pnml.importing.PnmlImportUtils;
-import org.xmlpull.v1.XmlPullParser;
-import org.xmlpull.v1.XmlPullParserFactory;
 
 public class PNVisualizzeJS {
 
-	private int lworld=800;
-	private int hworld=800;
-	private String output="";
+	private int lworld=1800;
+	private int hworld=400;
 	private String place="";
 	private String tran="";
 	private String arc="";
@@ -55,6 +39,12 @@ public class PNVisualizzeJS {
 	}
 
 	public void inserPlace(String name, int token, int xx, int yy){
+		if(xx<20){
+			xx=24;
+		}
+		if(yy<50){
+			yy=50;
+		}
 		String label=name;
 
 		name=name.replaceAll("\\W", "");
@@ -69,8 +59,8 @@ public class PNVisualizzeJS {
 		if(xx<20){
 			xx=24;
 		}
-		if(yy<20){
-			yy=24;
+		if(yy<50){
+			yy=50;
 		}
 		int token=0;
 		String label="";
@@ -98,8 +88,8 @@ public class PNVisualizzeJS {
 		if(xx<20){
 			xx=24;
 		}
-		if(yy<20){
-			yy=24;
+		if(yy<50){
+			yy=50;
 		}
 		int token=0;
 		String label="";
@@ -121,6 +111,12 @@ public class PNVisualizzeJS {
 
 	}
 	public void inserTransiction(String name, int xx, int yy, String color){
+		if(xx<20){
+			xx=24;
+		}
+		if(yy<20){
+			yy=24;
+		}
 		String label=name;
 
 		name=name.replaceAll("\\W", "");
@@ -134,6 +130,12 @@ public class PNVisualizzeJS {
 
 
 	public void inserTransiction(String name, int xx, int yy){
+		if(xx<20){
+			xx=24;
+		}
+		if(yy<20){
+			yy=24;
+		}
 		String label=name;
 
 		name=name.replaceAll("\\W", "");
@@ -157,14 +159,39 @@ public class PNVisualizzeJS {
 	}
 
 
+	public void toFile(TotalFitnessResult Result) {
+		FileWriter w;
+		try {
+			w = new FileWriter("/home/spagnolo1/rupos_new/Rupos/javascrips/scrittura.html");
+			BufferedWriter b = new BufferedWriter(w);
+			all+=all.substring(0, all.length()-1)+"];\n ";
+			b.write(head);
+			b.write(place);
+			b.write(tran);
+			//b.write(all);
+			b.write(arc);
+			b.write("</script>");
+			
+			//b.write(this.toHTMLfromTR(Result.total));
+			b.write(this.toHTMLfromFRT(Result));
+			b.write("</body></html>");
+
+			//b.write(foot);
+			b.flush();
+			b.close();
+
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		}
+
+	}
+
 	public void toFile() {
 		FileWriter w;
 		try {
 			w = new FileWriter("/home/spagnolo1/rupos_new/Rupos/javascrips/scrittura.html");
 			BufferedWriter b = new BufferedWriter(w);
-
-
-
 			all+=all.substring(0, all.length()-1)+"];\n ";
 			b.write(head);
 			b.write(place);
@@ -182,14 +209,8 @@ public class PNVisualizzeJS {
 
 	}
 
-
-
 	public void generateJSR(FitnessResult totalResult){
 
-		//for( Transition t: totalResult.getMapTransition().keySet()){
-
-
-		//	}
 		for (Arc c : totalResult.getMapArc().keySet()){
 
 			int i = totalResult.getMapArc().get(c);
@@ -207,12 +228,8 @@ public class PNVisualizzeJS {
 	 * @param totalResult 
 	 * @param context
 	 */
-	public void generateJS(PetrinetGraph net, FitnessResult totalResult){
-
-
-
-
-
+	public void generateJS(PetrinetGraph net, TotalFitnessResult Result){
+		FitnessResult totalResult = Result.total;
 		for (Place pl : net.getPlaces()) {
 			Object point =	pl.getAttributeMap().get(AttributeMap.POSITION);
 			Point2D xy = (Point2D) point;
@@ -251,10 +268,7 @@ public class PNVisualizzeJS {
 					this.inserTransiction(ts.getLabel(),x,y,"orange");
 					flag=false;
 				}
-				
-				
 			}
-				
 			if(flag){
 			this.inserTransiction(ts.getLabel(),x,y);
 			}
@@ -281,14 +295,40 @@ public class PNVisualizzeJS {
 			}*/
 		}
 
-		this.generateJSR(totalResult);
-		this.toFile();
-
-
-
-
+		this.generateJSR(totalResult); //archi con peso
+		this.toFile(Result);
 	}
-
-
-
+	public String toHTMLfromFRT(TotalFitnessResult tt){
+		String ret="</p>";
+		String out = this.toHTMLfromTR(tt.getTotal());
+		Integer index = 1;
+		for(FitnessResult f : tt.getList()){
+			  
+			    out += "<p>------------ Traccia n."+(index++)+" ------------"+ret;
+			  out +=this.toHTMLfromTR(f); 
+			   out += "<p>-----------------------------------"+ret;
+			
+			
+		}
+		
+		return out;
+	}
+	public String toHTMLfromTR(FitnessResult totalResult){
+		String ret="</p>";
+		String tot ="<p> Fitness totale:" +totalResult.getFitness()+"</p>";
+		tot+="<p> Missing Marking:"+totalResult.getMissingMarking()+ret;
+		tot+="<p> Remaning Marking: "+ totalResult.getRemainingMarking()+ret;
+		tot+="<p> Transizioni che non fittano:"+ret;
+		for (Transition t : totalResult.getMapTransition().keySet()){
+		    Integer i = totalResult.getMapTransition().get(t);
+		    tot +="<p>       "+t+" : "+i+" tracce"+ret;
+		}
+		tot+="<p> Attivazioni degli archi:"+ret;
+		for (Arc a : totalResult.getMapArc().keySet()){
+		    String asString = "<p> FROM "+a.getSource()+" TO "+a.getTarget();
+		    Integer i = totalResult.getMapArc().get(a);
+		    tot += "     "+asString+" : "+i+" attivazioni"+ret;
+		}
+		return tot;
+	}	
 }

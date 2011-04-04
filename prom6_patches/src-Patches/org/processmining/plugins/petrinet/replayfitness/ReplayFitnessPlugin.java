@@ -362,7 +362,7 @@ public class ReplayFitnessPlugin {
 	total.setTotal(totalResult);
 	
 	PNVisualizzeJS js = new PNVisualizzeJS();
-	js.generateJS(net, totalResult);
+	js.generateJS(net, total);
 	
 	return total;
     }
