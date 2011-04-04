@@ -1,0 +1,18 @@
+<html> <head> <script src="raphael-min.js"type="text/javascript"></script><script src="joint.min.js" type="text/javascript"></script><script src="joint.dia.min.js" type="text/javascript"></script><script src="joint.dia.fsa.min.js" type="text/javascript"></script><script src="joint.dia.pn.min.js" type="text/javascript"></script></head><body><div id="world"></div><script type="text/javascript"> var pn = Joint.dia.pn;
+ Joint.paper("world", 800, 800);
+ var arrow = pn.arrow; var SanitaRuposinviaFlussocompleteSanitaRuposinviaFlussostart = pn.Place.create({position: {x: 352, y: 99}, label: " 151/-200", tokens: 0, attrs: {stroke: "red" , fill : "white" } });
+ var SanitaRuposinviaFlussostartSanitaRuposinviaFlussocompleteSanitaRuposinviaFlussopi_abort = pn.Place.create({position: {x: 177, y: 48}, label: "", tokens: 0});
+ var Start = pn.Place.create({position: {x: 24, y: 70}, label: "Start -836", tokens: 0, attrs: {stroke: "red" , fill : "white" } });
+ var End = pn.Place.create({position: {x: 352, y: 29}, label: "End 1036", tokens: 0, attrs: {stroke: "red" , fill : "white" } });
+ var SanitaRuposinviaFlussocomplete = pn.Event.create({rect: {x: 262, y: 72 , width: 7, height: 50}, label: "SanitaRupos@inviaFlusso+complete"});
+ var SanitaRuposinviaFlussostart = pn.Event.create({rect: {x: 87, y: 68 , width: 7, height: 50}, label: "SanitaRupos@inviaFlusso+start", attrs: { stroke: "black", fill: "orange" }});
+ var SanitaRuposinviaFlussopi_abort = pn.Event.create({rect: {x: 262, y: 2 , width: 7, height: 50}, label: "SanitaRupos@inviaFlusso+pi_abort"});
+ SanitaRuposinviaFlussocomplete.joint(End, (arrow.label = "987", arrow));
+ SanitaRuposinviaFlussocomplete.joint(SanitaRuposinviaFlussocompleteSanitaRuposinviaFlussostart, (arrow.label = "987", arrow));
+ SanitaRuposinviaFlussocompleteSanitaRuposinviaFlussostart.joint(SanitaRuposinviaFlussostart, (arrow.label = "1036", arrow));
+ SanitaRuposinviaFlussostartSanitaRuposinviaFlussocompleteSanitaRuposinviaFlussopi_abort.joint(SanitaRuposinviaFlussocomplete, (arrow.label = "987", arrow));
+ SanitaRuposinviaFlussostart.joint(SanitaRuposinviaFlussostartSanitaRuposinviaFlussocompleteSanitaRuposinviaFlussopi_abort, (arrow.label = "1036", arrow));
+ Start.joint(SanitaRuposinviaFlussostart, (arrow.label = "1036", arrow));
+ SanitaRuposinviaFlussopi_abort.joint(End, (arrow.label = "49", arrow));
+ SanitaRuposinviaFlussostartSanitaRuposinviaFlussocompleteSanitaRuposinviaFlussopi_abort.joint(SanitaRuposinviaFlussopi_abort, (arrow.label = "49", arrow));
+ </script></body></html>

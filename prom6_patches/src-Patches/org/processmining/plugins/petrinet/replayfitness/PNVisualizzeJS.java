@@ -160,7 +160,7 @@ public class PNVisualizzeJS {
 	public void toFile() {
 		FileWriter w;
 		try {
-			w = new FileWriter("/home/spagnolo1/scrittura.html");
+			w = new FileWriter("/home/spagnolo1/rupos_new/Rupos/javascrips/scrittura.html");
 			BufferedWriter b = new BufferedWriter(w);
 
 
