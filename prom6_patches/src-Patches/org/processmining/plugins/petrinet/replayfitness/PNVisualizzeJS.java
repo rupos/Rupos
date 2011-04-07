@@ -162,7 +162,7 @@ public class PNVisualizzeJS {
 	public void toFile(TotalFitnessResult Result) {
 		FileWriter w;
 		try {
-			w = new FileWriter("/home/spagnolo1/rupos_new/Rupos/javascrips/scrittura.html");
+			w = new FileWriter("../javascrips/conformance.html");
 			BufferedWriter b = new BufferedWriter(w);
 			all+=all.substring(0, all.length()-1)+"];\n ";
 			b.write(head);
@@ -190,7 +190,7 @@ public class PNVisualizzeJS {
 	public void toFile() {
 		FileWriter w;
 		try {
-			w = new FileWriter("/home/spagnolo1/rupos_new/Rupos/javascrips/scrittura.html");
+			w = new FileWriter("../javascrips/conformance.html");
 			BufferedWriter b = new BufferedWriter(w);
 			all+=all.substring(0, all.length()-1)+"];\n ";
 			b.write(head);
