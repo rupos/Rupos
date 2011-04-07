@@ -44,6 +44,7 @@ public class MainCLI {
 		    PluginDescriptor alphaPlugin = null;
 		    PluginDescriptor fitnessPlugin = null;
 		    PluginDescriptor importNetPlugin = null;
+		    PluginDescriptor performancePlugin = null;
 
 		    System.out.println("------------------------------");
 		    for (PluginDescriptor plugin : context.getPluginManager().getAllPlugins()) {
@@ -53,6 +54,8 @@ public class MainCLI {
 			    alphaPlugin = plugin;
 			else if ("FitnessDetailsSettings".equals(plugin.getName()))
 			    fitnessPlugin = plugin;
+			else if ("PerformanceDetails".equals(plugin.getName()))
+			    performancePlugin = plugin;
 			else if ("Import Petri net from PNML file".equals(plugin.getName()))
 			    importNetPlugin = plugin;
 			else
@@ -93,8 +96,9 @@ public class MainCLI {
 		    System.out.println(importNetPlugin);
 		    System.out.println("------------------------------");
 		    context1 = context.createChildContext("Import Net");
-		    //importNetPlugin.invoke(0, context1, "../prom5_log_files/sequence_prom6.pnml");
-		     importNetPlugin.invoke(0, context1, "../prom5_log_files/TracceRuposAlpha.pnml");
+		    // importNetPlugin.invoke(0, context1, "../prom5_log_files/sequence_prom6.pnml");
+		    importNetPlugin.invoke(0, context1, "../prom5_log_files/par.pnml");
+		    // importNetPlugin.invoke(0, context1, "../prom5_log_files/TracceRuposAlpha.pnml");
 		    // importNetPlugin.invoke(0, context1, "../prom5_log_files/TracceRuposLTS5.pnml");
 		    //   importNetPlugin.invoke(0, context1, "../prom5_log_files/invioFlussoAlpha.pnml");
 		    // importNetPlugin.invoke(0, context1, "../prom5_log_files/invioFlussoLTS5BAG.pnml");
@@ -113,11 +117,12 @@ public class MainCLI {
 		    System.out.println(openLogPlugin);
 		    System.out.println("------------------------------");
 		    context1 = context.createChildContext("Result of Import Log Error");
+		    // openLogPlugin.invoke(0, context1, "../prom5_log_files/sequence.mxml");
 		    // openLogPlugin.invoke(0, context1, "../prom5_log_files/choice.mxml");
-		    //openLogPlugin.invoke(0, context1, "../prom5_log_files/errors.mxml");
-		    //openLogPlugin.invoke(0, context1, "../prom5_log_files/par.mxml");
+		    // openLogPlugin.invoke(0, context1, "../prom5_log_files/errors.mxml");
+		    openLogPlugin.invoke(0, context1, "../prom5_log_files/par.mxml");
 		    // openLogPlugin.invoke(0, context1, "../prom5_log_files/rec.mxml");
-		     openLogPlugin.invoke(0, context1, "../prom5_log_files/TracceRupos.mxml");
+		     // openLogPlugin.invoke(0, context1, "../prom5_log_files/TracceRupos.mxml");
 		    //openLogPlugin.invoke(0, context1, "../prom5_log_files/InviaFlusso.mxml");
 		    // openLogPlugin.invoke(0, context1, "../prom5_log_files/ProcRupos.mxml");
 		    context1.getResult().synchronize();
@@ -166,6 +171,22 @@ public class MainCLI {
 		    // System.out.println(missing);
 		    // System.out.println("------------------------------");
 
+
+
+		    System.out.println("------------------------------");
+		    System.out.println(performancePlugin);
+		    System.out.println("------------------------------");
+		    context1 = context.createChildContext("Performance Checking");
+
+		    performancePlugin.invoke(0, context1, errors, net);
+		    context1.getResult().synchronize();
+		    System.out.println("------------------------------");
+		    PluginExecutionResult res3 = context1.getResult();
+		    System.out.println("Obtained " + res2.getSize() + " results");
+		    System.out.println("------------------------------");
+		    Object output = res2.getResult(0);
+		    // System.out.println(output);
+		    System.out.println("------------------------------");
 		} catch (Throwable t) {
 			t.printStackTrace();
 			System.exit(1);
