@@ -9,6 +9,7 @@
         <name>
             <text>p20</text>
          </name>
+<initialMarking><text>1</text></initialMarking>
     </place>
     <place id="place_1">
         <graphics>
