@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<pnml>
+<net id="net1" type="http://www.pnml.org/version-2009/grammar/pnmlcoremodel">
+<name>
+<text>
+Petrinet mined from par.mxml</text>
+</name>
+<page id="node0">
+<place id="node1">
+<name>
+<text>
+{[RegisterUser+complete]} --&gt; {[Draft+start]}</text>
+</name>
+<graphics>
+<position x="184.75" y="45.5"/>
+<dimension x="17.5" y="17.5"/>
+</graphics>
+</place>
+<place id="node2">
+<name>
+<text>
+{[Draft+complete]} --&gt; {[Review+start]}</text>
+</name>
+<graphics>
+<position x="359.75" y="45.5"/>
+<dimension x="17.5" y="17.5"/>
+</graphics>
+</place>
+<place id="node3">
+<name>
+<text>
+{[RegisterUser+complete]} --&gt; {[Study+start]}</text>
+</name>
+<graphics>
+<position x="184.75" y="13.5"/>
+<dimension x="17.5" y="17.5"/>
+</graphics>
+</place>
+<place id="node4">
+<name>
+<text>
+{[Study+complete]} --&gt; {[Review+start]}</text>
+</name>
+<graphics>
+<position x="359.75" y="13.5"/>
+<dimension x="17.5" y="17.5"/>
+</graphics>
+</place>
+<place id="node5">
+<name>
+<text>
+{[Draft+start]} --&gt; {[Draft+complete]}</text>
+</name>
+<graphics>
+<position x="272.25" y="45.5"/>
+<dimension x="17.5" y="17.5"/>
+</graphics>
+</place>
+<place id="node6">
+<name>
+<text>
+{[Published+start]} --&gt; {[Published+complete]}</text>
+</name>
+<graphics>
+<position x="622.25" y="45.5"/>
+<dimension x="17.5" y="17.5"/>
+</graphics>
+</place>
+<place id="node7">
+<name>
+<text>
+{[Review+start]} --&gt; {[Review+complete]}</text>
+</name>
+<graphics>
+<position x="447.25" y="28.5"/>
+<dimension x="17.5" y="17.5"/>
+</graphics>
+</place>
+<place id="node8">
+<name>
+<text>
+{[Study+start]} --&gt; {[Study+complete]}</text>
+</name>
+<graphics>
+<position x="272.25" y="11.0"/>
+<dimension x="17.5" y="17.5"/>
+</graphics>
+</place>
+<place id="node9">
+<name>
+<text>
+{[RegisterUser+start]} --&gt; {[RegisterUser+complete]}</text>
+</name>
+<graphics>
+<position x="97.25" y="28.5"/>
+<dimension x="17.5" y="17.5"/>
+</graphics>
+</place>
+<place id="node10">
+<name>
+<text>
+{[Rejected+start]} --&gt; {[Rejected+complete]}</text>
+</name>
+<graphics>
+<position x="622.25" y="11.0"/>
+<dimension x="17.5" y="17.5"/>
+</graphics>
+</place>
+<place id="node11">
+<name>
+<text>
+{[Review+complete]} --&gt; {[Rejected+start, Published+start]}</text>
+</name>
+<graphics>
+<position x="534.75" y="28.5"/>
+<dimension x="17.5" y="17.5"/>
+</graphics>
+</place>
+<place id="node12">
+<name>
+<text>
+Start</text>
+</name>
+<graphics>
+<position x="9.75" y="28.5"/>
+<dimension x="17.5" y="17.5"/>
+</graphics>
+<initialMarking>
+<text>
+1</text>
+</initialMarking>
+</place>
+<place id="node13">
+<name>
+<text>
+End</text>
+</name>
+<graphics>
+<position x="709.75" y="28.5"/>
+<dimension x="17.5" y="17.5"/>
+</graphics>
+</place>
+<transition id="node14">
+<name>
+<text>
+Rejected+start</text>
+</name>
+<graphics>
+<position x="578.5" y="11.0"/>
+<dimension x="20.0" y="20.0"/>
+<fill color="#FFFFFF"/>
+</graphics>
+</transition>
+<transition id="node15">
+<name>
+<text>
+Published+complete</text>
+</name>
+<graphics>
+<position x="666.0" y="46.0"/>
+<dimension x="20.0" y="20.0"/>
+<fill color="#FFFFFF"/>
+</graphics>
+</transition>
+<transition id="node16">
+<name>
+<text>
+Draft+complete</text>
+</name>
+<graphics>
+<position x="316.0" y="46.0"/>
+<dimension x="20.0" y="20.0"/>
+<fill color="#FFFFFF"/>
+</graphics>
+</transition>
+<transition id="node17">
+<name>
+<text>
+Review+complete</text>
+</name>
+<graphics>
+<position x="491.0" y="28.5"/>
+<dimension x="20.0" y="20.0"/>
+<fill color="#FFFFFF"/>
+</graphics>
+</transition>
+<transition id="node18">
+<name>
+<text>
+RegisterUser+complete</text>
+</name>
+<graphics>
+<position x="141.0" y="28.5"/>
+<dimension x="20.0" y="20.0"/>
+<fill color="#FFFFFF"/>
+</graphics>
+</transition>
+<transition id="node19">
+<name>
+<text>
+Rejected+complete</text>
+</name>
+<graphics>
+<position x="666.0" y="11.0"/>
+<dimension x="20.0" y="20.0"/>
+<fill color="#FFFFFF"/>
+</graphics>
+</transition>
+<transition id="node20">
+<name>
+<text>
+Published+start</text>
+</name>
+<graphics>
+<position x="578.5" y="46.0"/>
+<dimension x="20.0" y="20.0"/>
+<fill color="#FFFFFF"/>
+</graphics>
+</transition>
+<transition id="node21">
+<name>
+<text>
+Draft+start</text>
+</name>
+<graphics>
+<position x="228.5" y="46.0"/>
+<dimension x="20.0" y="20.0"/>
+<fill color="#FFFFFF"/>
+</graphics>
+</transition>
+<transition id="node22">
+<name>
+<text>
+Review+start</text>
+</name>
+<graphics>
+<position x="403.5" y="28.5"/>
+<dimension x="20.0" y="20.0"/>
+<fill color="#FFFFFF"/>
+</graphics>
+</transition>
+<transition id="node23">
+<name>
+<text>
+Study+start</text>
+</name>
+<graphics>
+<position x="228.5" y="11.0"/>
+<dimension x="20.0" y="20.0"/>
+<fill color="#FFFFFF"/>
+</graphics>
+</transition>
+<transition id="node24">
+<name>
+<text>
+Study+complete</text>
+</name>
+<graphics>
+<position x="316.0" y="11.0"/>
+<dimension x="20.0" y="20.0"/>
+<fill color="#FFFFFF"/>
+</graphics>
+</transition>
+<transition id="node25">
+<name>
+<text>
+RegisterUser+start</text>
+</name>
+<graphics>
+<position x="53.5" y="28.5"/>
+<dimension x="20.0" y="20.0"/>
+<fill color="#FFFFFF"/>
+</graphics>
+</transition>
+<arc id="arc26" source="node14" target="node10">
+<name>
+<text>
+1</text>
+</name>
+<arctype>
+<text>
+normal</text>
+</arctype>
+</arc>
+<arc id="arc27" source="node15" target="node13">
+<name>
+<text>
+1</text>
+</name>
+<arctype>
+<text>
+normal</text>
+</arctype>
+</arc>
+<arc id="arc28" source="node8" target="node24">
+<name>
+<text>
+1</text>
+</name>
+<arctype>
+<text>
+normal</text>
+</arctype>
+</arc>
+<arc id="arc29" source="node11" target="node20">
+<name>
+<text>
+1</text>
+</name>
+<arctype>
+<text>
+normal</text>
+</arctype>
+</arc>
+<arc id="arc30" source="node10" target="node19">
+<name>
+<text>
+1</text>
+</name>
+<arctype>
+<text>
+normal</text>
+</arctype>
+</arc>
+<arc id="arc31" source="node19" target="node13">
+<name>
+<text>
+1</text>
+</name>
+<arctype>
+<text>
+normal</text>
+</arctype>
+</arc>
+<arc id="arc32" source="node21" target="node5">
+<name>
+<text>
+1</text>
+</name>
+<arctype>
+<text>
+normal</text>
+</arctype>
+</arc>
+<arc id="arc33" source="node24" target="node4">
+<name>
+<text>
+1</text>
+</name>
+<arctype>
+<text>
+normal</text>
+</arctype>
+</arc>
+<arc id="arc34" source="node3" target="node23">
+<name>
+<text>
+1</text>
+</name>
+<arctype>
+<text>
+normal</text>
+</arctype>
+</arc>
+<arc id="arc35" source="node5" target="node16">
+<name>
+<text>
+1</text>
+</name>
+<arctype>
+<text>
+normal</text>
+</arctype>
+</arc>
+<arc id="arc36" source="node20" target="node6">
+<name>
+<text>
+1</text>
+</name>
+<arctype>
+<text>
+normal</text>
+</arctype>
+</arc>
+<arc id="arc37" source="node11" target="node14">
+<name>
+<text>
+1</text>
+</name>
+<arctype>
+<text>
+normal</text>
+</arctype>
+</arc>
+<arc id="arc38" source="node6" target="node15">
+<name>
+<text>
+1</text>
+</name>
+<arctype>
+<text>
+normal</text>
+</arctype>
+</arc>
+<arc id="arc39" source="node12" target="node25">
+<name>
+<text>
+1</text>
+</name>
+<arctype>
+<text>
+normal</text>
+</arctype>
+</arc>
+<arc id="arc40" source="node1" target="node21">
+<name>
+<text>
+1</text>
+</name>
+<arctype>
+<text>
+normal</text>
+</arctype>
+</arc>
+<arc id="arc41" source="node16" target="node2">
+<name>
+<text>
+1</text>
+</name>
+<arctype>
+<text>
+normal</text>
+</arctype>
+</arc>
+<arc id="arc42" source="node25" target="node9">
+<name>
+<text>
+1</text>
+</name>
+<arctype>
+<text>
+normal</text>
+</arctype>
+</arc>
+<arc id="arc43" source="node18" target="node3">
+<name>
+<text>
+1</text>
+</name>
+<arctype>
+<text>
+normal</text>
+</arctype>
+</arc>
+<arc id="arc44" source="node2" target="node22">
+<name>
+<text>
+1</text>
+</name>
+<arctype>
+<text>
+normal</text>
+</arctype>
+</arc>
+<arc id="arc45" source="node18" target="node1">
+<name>
+<text>
+1</text>
+</name>
+<arctype>
+<text>
+normal</text>
+</arctype>
+</arc>
+<arc id="arc46" source="node17" target="node11">
+<name>
+<text>
+1</text>
+</name>
+<arctype>
+<text>
+normal</text>
+</arctype>
+</arc>
+<arc id="arc47" source="node4" target="node22">
+<name>
+<text>
+1</text>
+</name>
+<arctype>
+<text>
+normal</text>
+</arctype>
+</arc>
+<arc id="arc48" source="node22" target="node7">
+<name>
+<text>
+1</text>
+</name>
+<arctype>
+<text>
+normal</text>
+</arctype>
+</arc>
+<arc id="arc49" source="node23" target="node8">
+<name>
+<text>
+1</text>
+</name>
+<arctype>
+<text>
+normal</text>
+</arctype>
+</arc>
+<arc id="arc50" source="node7" target="node17">
+<name>
+<text>
+1</text>
+</name>
+<arctype>
+<text>
+normal</text>
+</arctype>
+</arc>
+<arc id="arc51" source="node9" target="node18">
+<name>
+<text>
+1</text>
+</name>
+<arctype>
+<text>
+normal</text>
+</arctype>
+</arc>
+</page>
+</net>
+</pnml>
