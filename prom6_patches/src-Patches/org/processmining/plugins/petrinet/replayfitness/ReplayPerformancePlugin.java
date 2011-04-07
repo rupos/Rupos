@@ -8,6 +8,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Vector;
+import java.util.Set;
+import java.util.Date;
+
 
 import javax.swing.BorderFactory;
 import javax.swing.JComponent;
@@ -26,6 +29,7 @@ import org.deckfour.xes.info.impl.XLogInfoImpl;
 import org.deckfour.xes.model.XEvent;
 import org.deckfour.xes.model.XLog;
 import org.deckfour.xes.model.XTrace;
+import org.deckfour.xes.model.impl.XAttributeTimestampImpl;
 import org.processmining.connections.logmodel.LogPetrinetConnectionImpl;
 import org.processmining.contexts.uitopia.UIPluginContext;
 import org.processmining.contexts.uitopia.annotations.UITopiaVariant;
@@ -83,7 +87,7 @@ public class ReplayPerformancePlugin {
 			List<XEventClass> list = getList(trace, classes);
 			try {
 				List<Transition> sequence = replayer.replayTrace(marking, list, setting);
-				updatePerformance(net, marking, sequence, semantics);
+				updatePerformance(net, marking, sequence, semantics, trace);
 				replayedTraces++;
 			} catch (Exception ex) {
 				context.log("Replay of trace " + trace + " failed: " + ex.getMessage());
@@ -96,72 +100,148 @@ public class ReplayPerformancePlugin {
 	}
 
 
-    private void addArcUsage(Arc arc, FitnessResult fitnessResult) {
-	Integer numUsage = totalResult.getMapArc().get(arc);
-	totalResult.getMapArc().put(arc, numUsage == null ? 1 : numUsage+1);
-	numUsage = fitnessResult.getMapArc().get(arc);
-	fitnessResult.getMapArc().put(arc, numUsage == null ? 1 : numUsage+1);
+    class PerformanceResult {
+	int tokenCount = 0;
+	float time = 0;
+	float waitTime = 0;
+	float synchTime = 0;
+	void addToken() {
+	    tokenCount += 1;
+	}
+	void addTime(float deltaTime, float waitTime) {
+	    time += deltaTime;
+	    this.waitTime += waitTime;
+	    this.synchTime += (deltaTime - waitTime);
+	}
+	public String toString() {
+	    String res = "";
+	    res += tokenCount + " \n";
+	    res += time + " \n";
+	    res += waitTime + " \n";
+	    res += synchTime + " \n";
+	    return res;
+	}
     }
 
+    private void updatePerformance(Petrinet net, Marking initMarking, List<Transition> sequence, PetrinetSemantics semantics, XTrace trace) {
+	// if (trace.size() != sequence.size())
+	//     System.exit(1);
 
-	private void updatePerformance(Petrinet net, Marking initMarking, List<Transition> sequence, PetrinetSemantics semantics) {
-		Marking marking = new Marking(initMarking);
-		
-		int producedTrace  = marking.size();
-		int consumedTrace = 0;
-		
-		int missingTrace=0;
-		FitnessResult tempFitnessResult = new FitnessResult();
-		listResult.add(tempFitnessResult);
+	XAttributeTimestampImpl date  = (XAttributeTimestampImpl)(trace.get(0).getAttributes().get("time:timestamp"));
+	long d1 = date.getValue().getTime();
 
-		for (Transition transition : sequence) {
-		    boolean fittingTransition = true;
-			Collection<PetrinetEdge<? extends PetrinetNode, ? extends PetrinetNode>> preset = net
-					.getInEdges(transition);
-			for (PetrinetEdge<? extends PetrinetNode, ? extends PetrinetNode> edge : preset) {
-				if (edge instanceof Arc) {
-					Arc arc = (Arc) edge;
-					addArcUsage(arc, tempFitnessResult);
-					Place place = (Place) arc.getSource();
-					int consumed = arc.getWeight();
-					int missing = 0;
-					//
-					if (arc.getWeight() > marking.occurrences(place)) {
-						missing = arc.getWeight() - marking.occurrences(place);
-					}
-					for (int i = missing; i < consumed; i++) {
-						marking.remove(place);
-					}
-					// Rupos patches
-					for (int i = 0; i < missing; i++) {
-					    totalResult.getMissingMarking().add(place);
-					    tempFitnessResult.getMissingMarking().add(place);
-					}
-				}
+	    Map<Place, PerformanceResult> performance = new HashMap<Place, PerformanceResult>();
+
+	    Marking marking = new Marking(initMarking);
+
+	    for (Place place : marking) {
+		PerformanceResult result = null;
+		if (performance.containsKey(place))
+		    result = performance.get(place);
+		else
+		    result = new PerformanceResult();
+
+		result.addToken();
+
+		performance.put(place, result);
+	    }
+
+
+	    for (int iTrans=0; iTrans<sequence.size(); iTrans++) {
+		Transition transition = sequence.get(iTrans);
+		XAttributeTimestampImpl date1  = (XAttributeTimestampImpl)(trace.get(iTrans).getAttributes().get("time:timestamp"));
+		long d2 = date1.getValue().getTime();
+		float deltaTime = d2-d1;
+		d1 = d2;
+
+		boolean fittingTransition = true;
+		Collection<PetrinetEdge<? extends PetrinetNode, ? extends PetrinetNode>> preset = net
+		    .getInEdges(transition);
+
+		Set<Place> places = new HashSet<Place>();
+		places.addAll(marking);
+		for (Place place : places) {
+		    PerformanceResult result = null;
+		    if (performance.containsKey(place))
+			result = performance.get(place);
+		    else
+			result = new PerformanceResult();
+
+		    int placeMarking = marking.occurrences(place);
+		    if (placeMarking == 0)
+			continue;
+
+		    // Transitions denending on the current place
+		    int maxMarking = 0;
+		    for (PetrinetEdge<? extends PetrinetNode, ? extends PetrinetNode> edge : net.getOutEdges(place)) {
+			if (! (edge instanceof Arc))
+			    continue;
+			Arc arc = (Arc) edge;
+			Transition trs = (Transition)arc.getTarget();
+			// Transition preset
+			int minMarking = placeMarking;
+			for (PetrinetEdge<? extends PetrinetNode, ? extends PetrinetNode> edge1 : net.getInEdges(trs)) {
+			    if (! (edge1 instanceof Arc))
+				continue;
+			    Arc arc1 = (Arc) edge1;
+			    Place p1 = (Place)arc1.getSource();
+			    int tokens = marking.occurrences(p1);
+			    minMarking = Math.min(minMarking, tokens);
 			}
-			Collection<PetrinetEdge<? extends PetrinetNode, ? extends PetrinetNode>> postset = net
-					.getOutEdges(transition);
-			for (PetrinetEdge<? extends PetrinetNode, ? extends PetrinetNode> edge : postset) {
-				if (edge instanceof Arc) {
-					Arc arc = (Arc) edge;
-					addArcUsage(arc, tempFitnessResult);
-					Place place = (Place) arc.getTarget();
-					int produced = arc.getWeight();
-					for (int i = 0; i < produced; i++) {
-						marking.add(place);
-					}
-				}
-			}
-			
+			maxMarking = Math.max(maxMarking, minMarking);
+		    }
+		    // maxMarking < placeMarking
+		    // maxMarking is the consumable tokens
+		    // synchTime = (placeMarking - maxMarking) *  deltaTime;
+		    result.addTime(placeMarking * deltaTime, maxMarking * deltaTime);
+		    performance.put(place, result);
 		}
+		
+		// Updates marking according with enabled transition
+		for (PetrinetEdge<? extends PetrinetNode, ? extends PetrinetNode> edge : preset) {
+		    if (edge instanceof Arc) {
+			Arc arc = (Arc) edge;
+			Place place = (Place) arc.getSource();
+			int consumed = arc.getWeight();
+			int missing = 0;
+			if (arc.getWeight() > marking.occurrences(place)) {
+			    missing = arc.getWeight() - marking.occurrences(place);
+			}
+			for (int i = missing; i < consumed; i++) {
+			    marking.remove(place);
+			}
+		    }
+		}
+		Collection<PetrinetEdge<? extends PetrinetNode, ? extends PetrinetNode>> postset = net
+		    .getOutEdges(transition);
+		for (PetrinetEdge<? extends PetrinetNode, ? extends PetrinetNode> edge : postset) {
+		    if (edge instanceof Arc) {
+			Arc arc = (Arc) edge;
+			Place place = (Place) arc.getTarget();
+			int produced = arc.getWeight();
+			for (int i = 0; i < produced; i++) {
+			    marking.add(place);
 
-		// Rupos patches
-		totalResult.getRemainingMarking().addAll(marking);
-		tempFitnessResult.getRemainingMarking().addAll(marking);
-	    
-		//calcola la fitness
-		tempFitnessResult.set(producedTrace,consumedTrace,missingTrace,marking.isEmpty() ? 0 : marking.size() - 1);
+			    PerformanceResult result = null;
+			    if (performance.containsKey(place))
+				result = performance.get(place);
+			    else
+				result = new PerformanceResult();
+			    result.addToken();
+			    performance.put(place, result);
+			}
+		    }
+		}
+	    }
+
+	    System.out.println("*****************************************");
+	    System.out.println(i++);
+	    System.out.println("*****************************************");
+	    System.out.println("");
+	    System.out.println(performance);
 	}
+
+    int i=1;
 
 	private List<XEventClass> getList(XTrace trace, XEventClasses classes) {
 		List<XEventClass> list = new ArrayList<XEventClass>();
