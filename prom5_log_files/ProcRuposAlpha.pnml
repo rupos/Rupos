@@ -12,7 +12,7 @@ Petrinet mined from ProcRupos.mxml</text>
 {[Verifica@richiestaIntegrazione+start]} --&gt; {[Verifica@richiestaIntegrazione+complete]}</text>
 </name>
 <graphics>
-<position x="272.25" y="93.09800215982717"/>
+<position x="272.25" y="96.0"/>
 <dimension x="17.5" y="17.5"/>
 </graphics>
 </place>
@@ -22,7 +22,7 @@ Petrinet mined from ProcRupos.mxml</text>
 {[Verifica@richiestaIntegrazione+complete]} --&gt; {[Istruttoria@integraRichiesta+start]}</text>
 </name>
 <graphics>
-<position x="359.75" y="83.5"/>
+<position x="359.75" y="112.5"/>
 <dimension x="17.5" y="17.5"/>
 </graphics>
 </place>
@@ -32,7 +32,7 @@ Petrinet mined from ProcRupos.mxml</text>
 {[Erogazione@accogliRichiesta+start]} --&gt; {[Erogazione@accogliRichiesta+complete]}</text>
 </name>
 <graphics>
-<position x="447.25" y="152.5"/>
+<position x="447.25" y="48.5"/>
 <dimension x="17.5" y="17.5"/>
 </graphics>
 </place>
@@ -42,7 +42,7 @@ Petrinet mined from ProcRupos.mxml</text>
 {[Erogazione@rigettaRichiesta+start]} --&gt; {[Erogazione@rigettaRichiesta+complete]}</text>
 </name>
 <graphics>
-<position x="447.25" y="117.0"/>
+<position x="447.25" y="83.5"/>
 <dimension x="17.5" y="17.5"/>
 </graphics>
 </place>
@@ -52,7 +52,7 @@ Petrinet mined from ProcRupos.mxml</text>
 {[Inoltro@inoltraRichiesta+complete]} --&gt; {[Erogazione@rigettaRichiesta+start, Erogazione@accogliRichiesta+start]}</text>
 </name>
 <graphics>
-<position x="359.75" y="139.5"/>
+<position x="359.75" y="63.5"/>
 <dimension x="17.5" y="17.5"/>
 </graphics>
 </place>
@@ -62,7 +62,7 @@ Petrinet mined from ProcRupos.mxml</text>
 {[Istruttoria@inviaRichiesta+start]} --&gt; {[Istruttoria@inviaRichiesta+complete, Istruttoria@inviaRichiesta+pi_abort]}</text>
 </name>
 <graphics>
-<position x="97.25" y="76.0"/>
+<position x="97.25" y="117.0"/>
 <dimension x="17.5" y="17.5"/>
 </graphics>
 </place>
@@ -72,7 +72,7 @@ Petrinet mined from ProcRupos.mxml</text>
 {[Inoltro@inoltraRichiesta+start]} --&gt; {[Inoltro@inoltraRichiesta+complete, Inoltro@inoltraRichiesta+pi_abort]}</text>
 </name>
 <graphics>
-<position x="272.25" y="153.0"/>
+<position x="272.25" y="45.0"/>
 <dimension x="17.5" y="17.5"/>
 </graphics>
 </place>
@@ -82,7 +82,7 @@ Petrinet mined from ProcRupos.mxml</text>
 {[Istruttoria@integraRichiesta+start]} --&gt; {[Istruttoria@integraRichiesta+pi_abort, Istruttoria@integraRichiesta+complete]}</text>
 </name>
 <graphics>
-<position x="447.25" y="67.0"/>
+<position x="447.25" y="129.5"/>
 <dimension x="17.5" y="17.5"/>
 </graphics>
 </place>
@@ -92,7 +92,7 @@ Petrinet mined from ProcRupos.mxml</text>
 {[Istruttoria@inviaRichiesta+complete, Istruttoria@integraRichiesta+complete]} --&gt; {[Inoltro@inoltraRichiesta+start, Verifica@richiestaIntegrazione+start]}</text>
 </name>
 <graphics>
-<position x="184.75" y="101.0"/>
+<position x="184.75" y="93.0"/>
 <dimension x="17.5" y="17.5"/>
 </graphics>
 </place>
@@ -102,7 +102,7 @@ Petrinet mined from ProcRupos.mxml</text>
 Start</text>
 </name>
 <graphics>
-<position x="9.75" y="77.0"/>
+<position x="9.75" y="115.5"/>
 <dimension x="17.5" y="17.5"/>
 </graphics>
 <initialMarking>
@@ -116,7 +116,7 @@ Start</text>
 End</text>
 </name>
 <graphics>
-<position x="534.75" y="116.0"/>
+<position x="534.75" y="81.0"/>
 <dimension x="17.5" y="17.5"/>
 </graphics>
 </place>
@@ -126,7 +126,7 @@ End</text>
 Istruttoria@inviaRichiesta+complete</text>
 </name>
 <graphics>
-<position x="141.0" y="88.5"/>
+<position x="141.0" y="105.0"/>
 <dimension x="20.0" y="20.0"/>
 <fill color="#FFFFFF"/>
 </graphics>
@@ -137,7 +137,7 @@ Istruttoria@inviaRichiesta+complete</text>
 Istruttoria@inviaRichiesta+start</text>
 </name>
 <graphics>
-<position x="53.5" y="77.0"/>
+<position x="53.5" y="115.5"/>
 <dimension x="20.0" y="20.0"/>
 <fill color="#FFFFFF"/>
 </graphics>
@@ -148,7 +148,7 @@ Istruttoria@inviaRichiesta+start</text>
 Istruttoria@integraRichiesta+start</text>
 </name>
 <graphics>
-<position x="403.5" y="75.5"/>
+<position x="403.5" y="121.5"/>
 <dimension x="20.0" y="20.0"/>
 <fill color="#FFFFFF"/>
 </graphics>
@@ -159,7 +159,7 @@ Istruttoria@integraRichiesta+start</text>
 Verifica@richiestaIntegrazione+start</text>
 </name>
 <graphics>
-<position x="228.5" y="104.5"/>
+<position x="228.5" y="90.0"/>
 <dimension x="20.0" y="20.0"/>
 <fill color="#FFFFFF"/>
 </graphics>
@@ -170,7 +170,7 @@ Verifica@richiestaIntegrazione+start</text>
 Istruttoria@inviaRichiesta+pi_abort</text>
 </name>
 <graphics>
-<position x="491.0" y="11.0"/>
+<position x="491.0" y="186.0"/>
 <dimension x="20.0" y="20.0"/>
 <fill color="#FFFFFF"/>
 </graphics>
@@ -181,7 +181,7 @@ Istruttoria@inviaRichiesta+pi_abort</text>
 Erogazione@rigettaRichiesta+complete</text>
 </name>
 <graphics>
-<position x="491.0" y="116.0"/>
+<position x="491.0" y="81.0"/>
 <dimension x="20.0" y="20.0"/>
 <fill color="#FFFFFF"/>
 </graphics>
@@ -192,7 +192,7 @@ Erogazione@rigettaRichiesta+complete</text>
 Erogazione@accogliRichiesta+start</text>
 </name>
 <graphics>
-<position x="403.5" y="153.5"/>
+<position x="403.5" y="51.0"/>
 <dimension x="20.0" y="20.0"/>
 <fill color="#FFFFFF"/>
 </graphics>
@@ -203,7 +203,7 @@ Erogazione@accogliRichiesta+start</text>
 Inoltro@inoltraRichiesta+pi_abort</text>
 </name>
 <graphics>
-<position x="491.0" y="186.0"/>
+<position x="491.0" y="11.0"/>
 <dimension x="20.0" y="20.0"/>
 <fill color="#FFFFFF"/>
 </graphics>
@@ -214,7 +214,7 @@ Inoltro@inoltraRichiesta+pi_abort</text>
 Inoltro@inoltraRichiesta+complete</text>
 </name>
 <graphics>
-<position x="316.0" y="146.0"/>
+<position x="316.0" y="53.5"/>
 <dimension x="20.0" y="20.0"/>
 <fill color="#FFFFFF"/>
 </graphics>
@@ -225,7 +225,7 @@ Inoltro@inoltraRichiesta+complete</text>
 Erogazione@rigettaRichiesta+start</text>
 </name>
 <graphics>
-<position x="403.5" y="118.5"/>
+<position x="403.5" y="86.5"/>
 <dimension x="20.0" y="20.0"/>
 <fill color="#FFFFFF"/>
 </graphics>
@@ -236,7 +236,7 @@ Erogazione@rigettaRichiesta+start</text>
 Erogazione@accogliRichiesta+complete</text>
 </name>
 <graphics>
-<position x="491.0" y="151.0"/>
+<position x="491.0" y="46.0"/>
 <dimension x="20.0" y="20.0"/>
 <fill color="#FFFFFF"/>
 </graphics>
@@ -247,7 +247,7 @@ Erogazione@accogliRichiesta+complete</text>
 Inoltro@inoltraRichiesta+start</text>
 </name>
 <graphics>
-<position x="228.5" y="139.5"/>
+<position x="228.5" y="55.0"/>
 <dimension x="20.0" y="20.0"/>
 <fill color="#FFFFFF"/>
 </graphics>
@@ -258,7 +258,7 @@ Inoltro@inoltraRichiesta+start</text>
 Istruttoria@integraRichiesta+pi_abort</text>
 </name>
 <graphics>
-<position x="491.0" y="81.0"/>
+<position x="491.0" y="116.0"/>
 <dimension x="20.0" y="20.0"/>
 <fill color="#FFFFFF"/>
 </graphics>
@@ -269,7 +269,7 @@ Istruttoria@integraRichiesta+pi_abort</text>
 Istruttoria@integraRichiesta+complete</text>
 </name>
 <graphics>
-<position x="491.0" y="46.0"/>
+<position x="491.0" y="151.0"/>
 <dimension x="20.0" y="20.0"/>
 <fill color="#FFFFFF"/>
 </graphics>
@@ -280,12 +280,12 @@ Istruttoria@integraRichiesta+complete</text>
 Verifica@richiestaIntegrazione+complete</text>
 </name>
 <graphics>
-<position x="316.0" y="91.0"/>
+<position x="316.0" y="103.5"/>
 <dimension x="20.0" y="20.0"/>
 <fill color="#FFFFFF"/>
 </graphics>
 </transition>
-<arc id="arc27" source="node2" target="node14">
+<arc id="arc27" source="node6" target="node12">
 <name>
 <text>
 1</text>
@@ -295,7 +295,7 @@ Verifica@richiestaIntegrazione+complete</text>
 normal</text>
 </arctype>
 </arc>
-<arc id="arc28" source="node9" target="node23">
+<arc id="arc28" source="node14" target="node8">
 <name>
 <text>
 1</text>
@@ -305,7 +305,7 @@ normal</text>
 normal</text>
 </arctype>
 </arc>
-<arc id="arc29" source="node15" target="node1">
+<arc id="arc29" source="node7" target="node20">
 <name>
 <text>
 1</text>
@@ -315,7 +315,7 @@ normal</text>
 normal</text>
 </arctype>
 </arc>
-<arc id="arc30" source="node7" target="node20">
+<arc id="arc30" source="node21" target="node4">
 <name>
 <text>
 1</text>
@@ -325,7 +325,7 @@ normal</text>
 normal</text>
 </arctype>
 </arc>
-<arc id="arc31" source="node4" target="node17">
+<arc id="arc31" source="node5" target="node18">
 <name>
 <text>
 1</text>
@@ -335,7 +335,7 @@ normal</text>
 normal</text>
 </arctype>
 </arc>
-<arc id="arc32" source="node17" target="node11">
+<arc id="arc32" source="node5" target="node21">
 <name>
 <text>
 1</text>
@@ -345,35 +345,25 @@ normal</text>
 normal</text>
 </arctype>
 </arc>
-<arc id="arc33" source="node8" target="node25">
-<name>
-<text>
-1</text>
-</name>
-<arctype>
-<text>
-normal</text>
-</arctype>
-</arc>
-<arc id="arc34" source="node25" target="node9">
+<arc id="arc33" source="node25" target="node9">
 <name>
 <text>
 1</text>
 </name>
 <graphics>
-<position x="447.25" y="39.5"/>
-<position x="403.5" y="41.5"/>
-<position x="359.75" y="44.5"/>
-<position x="316.0" y="53.0"/>
-<position x="272.25" y="56.5"/>
-<position x="228.5" y="78.5"/>
+<position x="447.25" y="157.0"/>
+<position x="403.5" y="152.0"/>
+<position x="359.75" y="150.5"/>
+<position x="316.0" y="142.5"/>
+<position x="272.25" y="139.5"/>
+<position x="228.5" y="116.0"/>
 </graphics>
 <arctype>
 <text>
 normal</text>
 </arctype>
 </arc>
-<arc id="arc35" source="node9" target="node15">
+<arc id="arc34" source="node22" target="node11">
 <name>
 <text>
 1</text>
@@ -383,7 +373,7 @@ normal</text>
 normal</text>
 </arctype>
 </arc>
-<arc id="arc36" source="node5" target="node21">
+<arc id="arc35" source="node8" target="node24">
 <name>
 <text>
 1</text>
@@ -393,17 +383,13 @@ normal</text>
 normal</text>
 </arctype>
 </arc>
-<arc id="arc37" source="node6" target="node16">
+<arc id="arc36" source="node7" target="node19">
 <name>
 <text>
 1</text>
 </name>
 <graphics>
-<position x="141.0" y="61.5"/>
-<position x="184.75" y="46.0"/>
-<position x="228.5" y="38.0"/>
-<position x="272.25" y="21.0"/>
-<position x="316.0" y="19.5"/>
+<position x="316.0" y="27.5"/>
 <position x="359.75" y="15.0"/>
 <position x="403.5" y="14.0"/>
 <position x="447.25" y="10.5"/>
@@ -413,7 +399,7 @@ normal</text>
 normal</text>
 </arctype>
 </arc>
-<arc id="arc38" source="node13" target="node6">
+<arc id="arc37" source="node12" target="node9">
 <name>
 <text>
 1</text>
@@ -423,7 +409,7 @@ normal</text>
 normal</text>
 </arctype>
 </arc>
-<arc id="arc39" source="node12" target="node9">
+<arc id="arc38" source="node15" target="node1">
 <name>
 <text>
 1</text>
@@ -433,7 +419,7 @@ normal</text>
 normal</text>
 </arctype>
 </arc>
-<arc id="arc40" source="node1" target="node26">
+<arc id="arc39" source="node9" target="node23">
 <name>
 <text>
 1</text>
@@ -443,7 +429,7 @@ normal</text>
 normal</text>
 </arctype>
 </arc>
-<arc id="arc41" source="node8" target="node24">
+<arc id="arc40" source="node3" target="node22">
 <name>
 <text>
 1</text>
@@ -453,7 +439,7 @@ normal</text>
 normal</text>
 </arctype>
 </arc>
-<arc id="arc42" source="node16" target="node11">
+<arc id="arc41" source="node23" target="node7">
 <name>
 <text>
 1</text>
@@ -463,7 +449,7 @@ normal</text>
 normal</text>
 </arctype>
 </arc>
-<arc id="arc43" source="node26" target="node2">
+<arc id="arc42" source="node19" target="node11">
 <name>
 <text>
 1</text>
@@ -473,7 +459,7 @@ normal</text>
 normal</text>
 </arctype>
 </arc>
-<arc id="arc44" source="node6" target="node12">
+<arc id="arc43" source="node4" target="node17">
 <name>
 <text>
 1</text>
@@ -483,7 +469,7 @@ normal</text>
 normal</text>
 </arctype>
 </arc>
-<arc id="arc45" source="node22" target="node11">
+<arc id="arc44" source="node10" target="node13">
 <name>
 <text>
 1</text>
@@ -493,7 +479,7 @@ normal</text>
 normal</text>
 </arctype>
 </arc>
-<arc id="arc46" source="node24" target="node11">
+<arc id="arc45" source="node2" target="node14">
 <name>
 <text>
 1</text>
@@ -503,7 +489,7 @@ normal</text>
 normal</text>
 </arctype>
 </arc>
-<arc id="arc47" source="node14" target="node8">
+<arc id="arc46" source="node26" target="node2">
 <name>
 <text>
 1</text>
@@ -513,7 +499,7 @@ normal</text>
 normal</text>
 </arctype>
 </arc>
-<arc id="arc48" source="node5" target="node18">
+<arc id="arc47" source="node18" target="node3">
 <name>
 <text>
 1</text>
@@ -523,7 +509,7 @@ normal</text>
 normal</text>
 </arctype>
 </arc>
-<arc id="arc49" source="node18" target="node3">
+<arc id="arc48" source="node8" target="node25">
 <name>
 <text>
 1</text>
@@ -533,7 +519,7 @@ normal</text>
 normal</text>
 </arctype>
 </arc>
-<arc id="arc50" source="node10" target="node13">
+<arc id="arc49" source="node24" target="node11">
 <name>
 <text>
 1</text>
@@ -543,33 +529,17 @@ normal</text>
 normal</text>
 </arctype>
 </arc>
-<arc id="arc51" source="node20" target="node5">
-<name>
-<text>
-1</text>
-</name>
-<arctype>
-<text>
-normal</text>
-</arctype>
-</arc>
-<arc id="arc52" source="node21" target="node4">
-<name>
-<text>
-1</text>
-</name>
-<arctype>
-<text>
-normal</text>
-</arctype>
-</arc>
-<arc id="arc53" source="node7" target="node19">
+<arc id="arc50" source="node6" target="node16">
 <name>
 <text>
 1</text>
 </name>
 <graphics>
-<position x="316.0" y="172.0"/>
+<position x="141.0" y="133.0"/>
+<position x="184.75" y="150.5"/>
+<position x="228.5" y="158.5"/>
+<position x="272.25" y="175.5"/>
+<position x="316.0" y="177.0"/>
 <position x="359.75" y="181.0"/>
 <position x="403.5" y="182.5"/>
 <position x="447.25" y="186.0"/>
@@ -579,7 +549,7 @@ normal</text>
 normal</text>
 </arctype>
 </arc>
-<arc id="arc54" source="node19" target="node11">
+<arc id="arc51" source="node13" target="node6">
 <name>
 <text>
 1</text>
@@ -589,7 +559,7 @@ normal</text>
 normal</text>
 </arctype>
 </arc>
-<arc id="arc55" source="node3" target="node22">
+<arc id="arc52" source="node20" target="node5">
 <name>
 <text>
 1</text>
@@ -599,7 +569,37 @@ normal</text>
 normal</text>
 </arctype>
 </arc>
-<arc id="arc56" source="node23" target="node7">
+<arc id="arc53" source="node1" target="node26">
+<name>
+<text>
+1</text>
+</name>
+<arctype>
+<text>
+normal</text>
+</arctype>
+</arc>
+<arc id="arc54" source="node17" target="node11">
+<name>
+<text>
+1</text>
+</name>
+<arctype>
+<text>
+normal</text>
+</arctype>
+</arc>
+<arc id="arc55" source="node9" target="node15">
+<name>
+<text>
+1</text>
+</name>
+<arctype>
+<text>
+normal</text>
+</arctype>
+</arc>
+<arc id="arc56" source="node16" target="node11">
 <name>
 <text>
 1</text>

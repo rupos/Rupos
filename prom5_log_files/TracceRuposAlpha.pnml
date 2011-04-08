@@ -12,7 +12,7 @@ Petrinet mined from TracceRupos.mxml</text>
 {[A@a+start]} --&gt; {[A@a+complete, A@a+pi_abort]}</text>
 </name>
 <graphics>
-<position x="97.25" y="71.0"/>
+<position x="97.25" y="73.0"/>
 <dimension x="17.5" y="17.5"/>
 </graphics>
 </place>
@@ -22,7 +22,7 @@ Petrinet mined from TracceRupos.mxml</text>
 {[C@c+start]} --&gt; {[C@c+pi_abort, C@c+complete]}</text>
 </name>
 <graphics>
-<position x="447.25" y="32.0"/>
+<position x="447.25" y="65.5"/>
 <dimension x="17.5" y="17.5"/>
 </graphics>
 </place>
@@ -32,7 +32,7 @@ Petrinet mined from TracceRupos.mxml</text>
 {[B@b+start]} --&gt; {[B@b+pi_abort, B@b+complete]}</text>
 </name>
 <graphics>
-<position x="272.25" y="49.5"/>
+<position x="272.25" y="32.0"/>
 <dimension x="17.5" y="17.5"/>
 </graphics>
 </place>
@@ -42,7 +42,7 @@ Petrinet mined from TracceRupos.mxml</text>
 {[A@a+complete, B@b+complete]} --&gt; {[C@c+start]}</text>
 </name>
 <graphics>
-<position x="359.75" y="71.0"/>
+<position x="359.75" y="62.5"/>
 <dimension x="17.5" y="17.5"/>
 </graphics>
 </place>
@@ -52,7 +52,7 @@ Petrinet mined from TracceRupos.mxml</text>
 {[A@a+complete]} --&gt; {[C@c+start, B@b+start]}</text>
 </name>
 <graphics>
-<position x="184.75" y="42.0"/>
+<position x="184.75" y="46.0"/>
 <dimension x="17.5" y="17.5"/>
 </graphics>
 </place>
@@ -62,7 +62,7 @@ Petrinet mined from TracceRupos.mxml</text>
 Start</text>
 </name>
 <graphics>
-<position x="9.75" y="69.5"/>
+<position x="9.75" y="71.5"/>
 <dimension x="17.5" y="17.5"/>
 </graphics>
 <initialMarking>
@@ -86,7 +86,7 @@ End</text>
 B@b+pi_abort</text>
 </name>
 <graphics>
-<position x="491.0" y="81.0"/>
+<position x="491.0" y="11.0"/>
 <dimension x="20.0" y="20.0"/>
 <fill color="#FFFFFF"/>
 </graphics>
@@ -97,7 +97,7 @@ B@b+pi_abort</text>
 C@c+start</text>
 </name>
 <graphics>
-<position x="403.5" y="39.5"/>
+<position x="403.5" y="70.5"/>
 <dimension x="20.0" y="20.0"/>
 <fill color="#FFFFFF"/>
 </graphics>
@@ -108,7 +108,7 @@ C@c+start</text>
 A@a+start</text>
 </name>
 <graphics>
-<position x="53.5" y="69.5"/>
+<position x="53.5" y="71.5"/>
 <dimension x="20.0" y="20.0"/>
 <fill color="#FFFFFF"/>
 </graphics>
@@ -119,7 +119,7 @@ A@a+start</text>
 A@a+complete</text>
 </name>
 <graphics>
-<position x="141.0" y="60.0"/>
+<position x="141.0" y="62.0"/>
 <dimension x="20.0" y="20.0"/>
 <fill color="#FFFFFF"/>
 </graphics>
@@ -130,7 +130,7 @@ A@a+complete</text>
 B@b+complete</text>
 </name>
 <graphics>
-<position x="316.0" y="63.5"/>
+<position x="316.0" y="47.0"/>
 <dimension x="20.0" y="20.0"/>
 <fill color="#FFFFFF"/>
 </graphics>
@@ -141,7 +141,7 @@ B@b+complete</text>
 C@c+pi_abort</text>
 </name>
 <graphics>
-<position x="491.0" y="46.0"/>
+<position x="491.0" y="81.0"/>
 <dimension x="20.0" y="20.0"/>
 <fill color="#FFFFFF"/>
 </graphics>
@@ -152,7 +152,7 @@ C@c+pi_abort</text>
 B@b+start</text>
 </name>
 <graphics>
-<position x="228.5" y="46.5"/>
+<position x="228.5" y="30.0"/>
 <dimension x="20.0" y="20.0"/>
 <fill color="#FFFFFF"/>
 </graphics>
@@ -163,7 +163,7 @@ B@b+start</text>
 C@c+complete</text>
 </name>
 <graphics>
-<position x="491.0" y="11.0"/>
+<position x="491.0" y="46.0"/>
 <dimension x="20.0" y="20.0"/>
 <fill color="#FFFFFF"/>
 </graphics>
@@ -179,7 +179,7 @@ A@a+pi_abort</text>
 <fill color="#FFFFFF"/>
 </graphics>
 </transition>
-<arc id="arc17" source="node6" target="node10">
+<arc id="arc17" source="node11" target="node5">
 <name>
 <text>
 1</text>
@@ -189,13 +189,109 @@ A@a+pi_abort</text>
 normal</text>
 </arctype>
 </arc>
-<arc id="arc18" source="node1" target="node16">
+<arc id="arc18" source="node16" target="node7">
+<name>
+<text>
+1</text>
+</name>
+<arctype>
+<text>
+normal</text>
+</arctype>
+</arc>
+<arc id="arc19" source="node6" target="node10">
+<name>
+<text>
+1</text>
+</name>
+<arctype>
+<text>
+normal</text>
+</arctype>
+</arc>
+<arc id="arc20" source="node15" target="node7">
+<name>
+<text>
+1</text>
+</name>
+<arctype>
+<text>
+normal</text>
+</arctype>
+</arc>
+<arc id="arc21" source="node10" target="node1">
+<name>
+<text>
+1</text>
+</name>
+<arctype>
+<text>
+normal</text>
+</arctype>
+</arc>
+<arc id="arc22" source="node12" target="node4">
+<name>
+<text>
+1</text>
+</name>
+<arctype>
+<text>
+normal</text>
+</arctype>
+</arc>
+<arc id="arc23" source="node4" target="node9">
+<name>
+<text>
+1</text>
+</name>
+<arctype>
+<text>
+normal</text>
+</arctype>
+</arc>
+<arc id="arc24" source="node13" target="node7">
+<name>
+<text>
+1</text>
+</name>
+<arctype>
+<text>
+normal</text>
+</arctype>
+</arc>
+<arc id="arc25" source="node3" target="node12">
+<name>
+<text>
+1</text>
+</name>
+<arctype>
+<text>
+normal</text>
+</arctype>
+</arc>
+<arc id="arc26" source="node5" target="node9">
 <name>
 <text>
 1</text>
 </name>
 <graphics>
-<position x="141.0" y="86.5"/>
+<position x="228.5" y="56.0"/>
+<position x="272.25" y="66.0"/>
+<position x="316.0" y="72.0"/>
+<position x="359.75" y="86.0"/>
+</graphics>
+<arctype>
+<text>
+normal</text>
+</arctype>
+</arc>
+<arc id="arc27" source="node1" target="node16">
+<name>
+<text>
+1</text>
+</name>
+<graphics>
+<position x="141.0" y="88.0"/>
 <position x="184.75" y="103.0"/>
 <position x="228.5" y="110.0"/>
 <position x="272.25" y="113.5"/>
@@ -209,7 +305,7 @@ normal</text>
 normal</text>
 </arctype>
 </arc>
-<arc id="arc19" source="node16" target="node7">
+<arc id="arc28" source="node2" target="node15">
 <name>
 <text>
 1</text>
@@ -219,159 +315,63 @@ normal</text>
 normal</text>
 </arctype>
 </arc>
-<arc id="arc20" source="node11" target="node4">
+<arc id="arc29" source="node9" target="node2">
+<name>
+<text>
+1</text>
+</name>
+<arctype>
+<text>
+normal</text>
+</arctype>
+</arc>
+<arc id="arc30" source="node3" target="node8">
 <name>
 <text>
 1</text>
 </name>
 <graphics>
-<position x="184.75" y="69.0"/>
+<position x="316.0" y="21.0"/>
+<position x="359.75" y="11.0"/>
+<position x="403.5" y="14.0"/>
+<position x="447.25" y="15.0"/>
+</graphics>
+<arctype>
+<text>
+normal</text>
+</arctype>
+</arc>
+<arc id="arc31" source="node2" target="node13">
+<name>
+<text>
+1</text>
+</name>
+<arctype>
+<text>
+normal</text>
+</arctype>
+</arc>
+<arc id="arc32" source="node14" target="node3">
+<name>
+<text>
+1</text>
+</name>
+<arctype>
+<text>
+normal</text>
+</arctype>
+</arc>
+<arc id="arc33" source="node11" target="node4">
+<name>
+<text>
+1</text>
+</name>
+<graphics>
+<position x="184.75" y="70.5"/>
 <position x="228.5" y="79.5"/>
-<position x="272.25" y="87.5"/>
-<position x="316.0" y="88.5"/>
+<position x="272.25" y="87.0"/>
+<position x="316.0" y="87.0"/>
 </graphics>
-<arctype>
-<text>
-normal</text>
-</arctype>
-</arc>
-<arc id="arc21" source="node15" target="node7">
-<name>
-<text>
-1</text>
-</name>
-<arctype>
-<text>
-normal</text>
-</arctype>
-</arc>
-<arc id="arc22" source="node14" target="node3">
-<name>
-<text>
-1</text>
-</name>
-<arctype>
-<text>
-normal</text>
-</arctype>
-</arc>
-<arc id="arc23" source="node8" target="node7">
-<name>
-<text>
-1</text>
-</name>
-<arctype>
-<text>
-normal</text>
-</arctype>
-</arc>
-<arc id="arc24" source="node3" target="node8">
-<name>
-<text>
-1</text>
-</name>
-<graphics>
-<position x="316.0" y="38.5"/>
-<position x="359.75" y="47.5"/>
-<position x="403.5" y="64.5"/>
-<position x="447.25" y="77.0"/>
-</graphics>
-<arctype>
-<text>
-normal</text>
-</arctype>
-</arc>
-<arc id="arc25" source="node5" target="node9">
-<name>
-<text>
-1</text>
-</name>
-<graphics>
-<position x="228.5" y="21.5"/>
-<position x="272.25" y="14.5"/>
-<position x="316.0" y="16.0"/>
-<position x="359.75" y="24.0"/>
-</graphics>
-<arctype>
-<text>
-normal</text>
-</arctype>
-</arc>
-<arc id="arc26" source="node11" target="node5">
-<name>
-<text>
-1</text>
-</name>
-<arctype>
-<text>
-normal</text>
-</arctype>
-</arc>
-<arc id="arc27" source="node10" target="node1">
-<name>
-<text>
-1</text>
-</name>
-<arctype>
-<text>
-normal</text>
-</arctype>
-</arc>
-<arc id="arc28" source="node9" target="node2">
-<name>
-<text>
-1</text>
-</name>
-<arctype>
-<text>
-normal</text>
-</arctype>
-</arc>
-<arc id="arc29" source="node2" target="node13">
-<name>
-<text>
-1</text>
-</name>
-<arctype>
-<text>
-normal</text>
-</arctype>
-</arc>
-<arc id="arc30" source="node13" target="node7">
-<name>
-<text>
-1</text>
-</name>
-<arctype>
-<text>
-normal</text>
-</arctype>
-</arc>
-<arc id="arc31" source="node2" target="node15">
-<name>
-<text>
-1</text>
-</name>
-<arctype>
-<text>
-normal</text>
-</arctype>
-</arc>
-<arc id="arc32" source="node3" target="node12">
-<name>
-<text>
-1</text>
-</name>
-<arctype>
-<text>
-normal</text>
-</arctype>
-</arc>
-<arc id="arc33" source="node4" target="node9">
-<name>
-<text>
-1</text>
-</name>
 <arctype>
 <text>
 normal</text>
@@ -397,7 +397,7 @@ normal</text>
 normal</text>
 </arctype>
 </arc>
-<arc id="arc36" source="node12" target="node4">
+<arc id="arc36" source="node8" target="node7">
 <name>
 <text>
 1</text>

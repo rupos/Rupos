@@ -122,13 +122,18 @@ public class ReplayFitnessPlugin {
 		remainingTokens = 0;
 
 		int replayedTraces = 0;
+		int i =0;
 		for (XTrace trace : log) {
 			List<XEventClass> list = getList(trace, classes);
 			try {
+			    System.out.println("Replay :" + ++i);
 				List<Transition> sequence = replayer.replayTrace(marking, list, setting);
 				updateFitness(net, marking, sequence, semantics);
 				replayedTraces++;
+			    System.out.println("Replayed");
+
 			} catch (Exception ex) {
+			    System.out.println("Failed");
 				context.log("Replay of trace " + trace + " failed: " + ex.getMessage());
 			}
 		}
