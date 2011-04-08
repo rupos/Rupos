@@ -101,7 +101,9 @@ public class MainCLI {
 		    // importNetPlugin.invoke(0, context1, "../prom5_log_files/TracceRuposAlpha.pnml");
 		    // importNetPlugin.invoke(0, context1, "../prom5_log_files/TracceRuposWoped.pnml");
 		    // importNetPlugin.invoke(0, context1, "../prom5_log_files/TracceRuposLTS5.pnml");
-		      importNetPlugin.invoke(0, context1, "../prom5_log_files/InviaFlussoWoped.pnml");
+		    //  importNetPlugin.invoke(0, context1, "../prom5_log_files/InviaFlussoWoped.pnml");
+		      importNetPlugin.invoke(0, context1, "../prom5_log_files/InviaFlussoWoped3.pnml");
+		     // importNetPlugin.invoke(0, context1, "../prom5_log_files/InviaFlussoPNEPC.pnml");
 		      // importNetPlugin.invoke(0, context1, "../prom5_log_files/invioFlussoAlpha.pnml");
 		    // importNetPlugin.invoke(0, context1, "../prom5_log_files/invioFlussoLTS5BAG.pnml");
 		    // importNetPlugin.invoke(0, context1, "../prom5_log_files/ProcRuposAlpha.pnml");
