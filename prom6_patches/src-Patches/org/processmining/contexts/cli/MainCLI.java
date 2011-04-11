@@ -28,7 +28,7 @@ import org.processmining.plugins.petrinet.replayfitness.ReplayFitness;
 import org.processmining.plugins.petrinet.replay.ReplayAction;
 import org.processmining.plugins.petrinet.replayfitness.ReplayFitnessSetting;
 import org.processmining.plugins.petrinet.replayfitness.TotalFitnessResult;
-
+import org.processmining.plugins.petrinet.replayfitness.TotalPerformanceResult;
 import java.util.Properties;
 
 public class MainCLI {
@@ -96,13 +96,13 @@ public class MainCLI {
 		    System.out.println(importNetPlugin);
 		    System.out.println("------------------------------");
 		    context1 = context.createChildContext("Import Net");
-		    // importNetPlugin.invoke(0, context1, "../prom5_log_files/sequence_prom6.pnml");
+		    importNetPlugin.invoke(0, context1, "../prom5_log_files/sequence_prom6.pnml");
 		    // importNetPlugin.invoke(0, context1, "../prom5_log_files/par.pnml");
 		    // importNetPlugin.invoke(0, context1, "../prom5_log_files/TracceRuposAlpha.pnml");
 		    // importNetPlugin.invoke(0, context1, "../prom5_log_files/TracceRuposWoped.pnml");
 		    // importNetPlugin.invoke(0, context1, "../prom5_log_files/TracceRuposLTS5.pnml");
 		    //  importNetPlugin.invoke(0, context1, "../prom5_log_files/InviaFlussoWoped.pnml");
-		      importNetPlugin.invoke(0, context1, "../prom5_log_files/InviaFlussoWoped3.pnml");
+		    //  importNetPlugin.invoke(0, context1, "../prom5_log_files/InviaFlussoWoped3.pnml");
 		     // importNetPlugin.invoke(0, context1, "../prom5_log_files/InviaFlussoPNEPC.pnml");
 		      // importNetPlugin.invoke(0, context1, "../prom5_log_files/invioFlussoAlpha.pnml");
 		    // importNetPlugin.invoke(0, context1, "../prom5_log_files/invioFlussoLTS5BAG.pnml");
@@ -121,13 +121,13 @@ public class MainCLI {
 		    System.out.println(openLogPlugin);
 		    System.out.println("------------------------------");
 		    context1 = context.createChildContext("Result of Import Log Error");
-		    // openLogPlugin.invoke(0, context1, "../prom5_log_files/sequence.mxml");
+		     openLogPlugin.invoke(0, context1, "../prom5_log_files/sequence.mxml");
 		    // openLogPlugin.invoke(0, context1, "../prom5_log_files/choice.mxml");
 		    // openLogPlugin.invoke(0, context1, "../prom5_log_files/errors.mxml");
 		    // openLogPlugin.invoke(0, context1, "../prom5_log_files/par.mxml");
 		    // openLogPlugin.invoke(0, context1, "../prom5_log_files/rec.mxml");
 		     // openLogPlugin.invoke(0, context1, "../prom5_log_files/TracceRupos.mxml");
-		    openLogPlugin.invoke(0, context1, "../prom5_log_files/InviaFlusso.mxml");
+		    //openLogPlugin.invoke(0, context1, "../prom5_log_files/InviaFlusso.mxml");
 		    // openLogPlugin.invoke(0, context1, "../prom5_log_files/ProcRupos.mxml");
 		    context1.getResult().synchronize();
 		    org.deckfour.xes.model.XLog errors = (org.deckfour.xes.model.XLog)context1.getResult().getResult(0);
@@ -176,7 +176,7 @@ public class MainCLI {
 		    // System.out.println("------------------------------");
 
 
-		    System.exit(0);
+		   // System.exit(0);
 
 		    System.out.println("------------------------------");
 		    System.out.println(performancePlugin);
@@ -187,10 +187,10 @@ public class MainCLI {
 		    context1.getResult().synchronize();
 		    System.out.println("------------------------------");
 		    PluginExecutionResult res3 = context1.getResult();
-		    System.out.println("Obtained " + res2.getSize() + " results");
+		    System.out.println("Obtained " + res3.getSize() + " results");
 		    System.out.println("------------------------------");
-		    Object output = res2.getResult(0);
-		    // System.out.println(output);
+		    TotalPerformanceResult output = res3.getResult(0);
+		    System.out.println(output);
 		    System.out.println("------------------------------");
 		} catch (Throwable t) {
 			t.printStackTrace();
