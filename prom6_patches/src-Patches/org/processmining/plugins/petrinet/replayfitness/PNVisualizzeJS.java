@@ -16,8 +16,8 @@ import org.processmining.models.semantics.petrinet.Marking;
 
 public class PNVisualizzeJS {
 
-	private int lworld=1800;
-	private int hworld=400;
+	private int lworld=800;
+	private int hworld=300;
 	private String place="";
 	private String tran="";
 	private String arc="";
@@ -28,9 +28,8 @@ public class PNVisualizzeJS {
 		+ "<script src=\"joint.dia.pn.min.js\" type=\"text/javascript\"></script>"
 		+ "</head><body><div id=\"world\"></div>"
 		+ "<script type=\"text/javascript\"> "
-		+ "var pn = Joint.dia.pn;\n "
-		+ "Joint.paper(\"world\", "+lworld+", "+hworld+");\n " +
-		"var arrow = pn.arrow; ";
+		+ "var pn = Joint.dia.pn;\n ";
+	
 	private String foot = "</script></body></html>";
 	private String all = "var all = [";
 
@@ -39,6 +38,12 @@ public class PNVisualizzeJS {
 	}
 
 	public void inserPlace(String name, int token, int xx, int yy){
+		if(xx>lworld){
+			lworld=xx+50;
+		}
+		if(yy>hworld){
+			hworld=yy+50;
+		}
 		if(xx<20){
 			xx=24;
 		}
@@ -56,6 +61,12 @@ public class PNVisualizzeJS {
 	}
 
 	public void inserPlace(String name, int xx, int yy){
+		if(xx>lworld){
+			lworld=xx+50;
+		}
+		if(yy>hworld){
+			hworld=yy+50;
+		}
 		if(xx<20){
 			xx=24;
 		}
@@ -81,10 +92,13 @@ public class PNVisualizzeJS {
 
 	}
 
-
-
-
 	public void inserPlace(String name, int xx, int yy, String color,String occ){
+		if(xx>lworld){
+			lworld=xx+50;
+		}
+		if(yy>hworld){
+			hworld=yy+50;
+		}
 		if(xx<20){
 			xx=24;
 		}
@@ -110,7 +124,14 @@ public class PNVisualizzeJS {
 
 
 	}
+
 	public void inserTransiction(String name, int xx, int yy, String color){
+		if(xx>lworld){
+			lworld=xx+50;
+		}
+		if(yy>hworld){
+			hworld=yy+50;
+		}
 		if(xx<20){
 			xx=24;
 		}
@@ -130,6 +151,12 @@ public class PNVisualizzeJS {
 
 
 	public void inserTransiction(String name, int xx, int yy){
+		if(xx>lworld){
+			lworld=xx+50;
+		}
+		if(yy>hworld){
+			hworld=yy+50;
+		}
 		if(xx<20){
 			xx=24;
 		}
@@ -161,11 +188,14 @@ public class PNVisualizzeJS {
 
 	public void toFile(TotalFitnessResult Result) {
 		FileWriter w;
+		String head2 = "Joint.paper(\"world\", "+lworld+", "+hworld+");\n "
+		+"var arrow = pn.arrow; ";
 		try {
 			w = new FileWriter("../javascrips/conformance.html");
 			BufferedWriter b = new BufferedWriter(w);
-			all+=all.substring(0, all.length()-1)+"];\n ";
+			//all+=all.substring(0, all.length()-1)+"];\n ";
 			b.write(head);
+			b.write(head2);
 			b.write(place);
 			b.write(tran);
 			//b.write(all);
@@ -188,12 +218,15 @@ public class PNVisualizzeJS {
 	}
 
 	public void toFile() {
+		String head2 = "Joint.paper(\"world\", "+lworld+", "+hworld+");\n "
+		+"var arrow = pn.arrow; ";
 		FileWriter w;
 		try {
 			w = new FileWriter("../javascrips/conformance.html");
 			BufferedWriter b = new BufferedWriter(w);
-			all+=all.substring(0, all.length()-1)+"];\n ";
+			//all+=all.substring(0, all.length()-1)+"];\n ";
 			b.write(head);
+			b.write(head2);
 			b.write(place);
 			b.write(tran);
 			//b.write(all);
