@@ -216,6 +216,7 @@ public class ReplayPerformancePlugin {
 			}
 		}
 	
+		System.out.println(i++);
 		this.listResult.add(performance);
 	//	System.out.println("*****************************************");
 	//	System.out.println(i++);

@@ -1,5 +1,6 @@
 package org.processmining.plugins.petrinet.replayfitness;
 
+import java.awt.Point;
 import java.awt.geom.Point2D;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -38,41 +39,19 @@ public class PNVisualizzeJS {
 	}
 
 	public void inserPlace(String name, int token, int xx, int yy){
-		if(xx>lworld){
-			lworld=xx+50;
-		}
-		if(yy>hworld){
-			hworld=yy+50;
-		}
-		if(xx<20){
-			xx=24;
-		}
-		if(yy<50){
-			yy=50;
-		}
+		Point coord = updateworld(xx,yy);
 		String label=name;
 
 		name=name.replaceAll("\\W", "");
 
-		place +="var "+name+" = pn.Place.create({position: {x: "+xx+", y: "+yy+"}, label: \""+label+"\", tokens: "+token+"});\n ";
+		place +="var "+name+" = pn.Place.create({position: {x: "+coord.x+", y: "+coord.y+"}, label: \""+label+"\", tokens: "+token+"});\n ";
 		all+=name+",";
 
 
 	}
 
 	public void inserPlace(String name, int xx, int yy){
-		if(xx>lworld){
-			lworld=xx+50;
-		}
-		if(yy>hworld){
-			hworld=yy+50;
-		}
-		if(xx<20){
-			xx=24;
-		}
-		if(yy<50){
-			yy=50;
-		}
+		Point coord = updateworld(xx,yy);
 		int token=0;
 		String label="";
 		if ((name.equals("Start"))||(name.equals("End"))){
@@ -85,7 +64,7 @@ public class PNVisualizzeJS {
 
 		name=name.replaceAll("\\W", "");
 
-		place +="var "+name+" = pn.Place.create({position: {x: "+xx+", y: "+yy+"}, label: \""+label+"\", tokens: "+token+"});\n ";
+		place +="var "+name+" = pn.Place.create({position: {x: "+coord.x+", y: "+coord.y+"}, label: \""+label+"\", tokens: "+token+"});\n ";
 		all+=name+",";
 
 
@@ -93,18 +72,7 @@ public class PNVisualizzeJS {
 	}
 
 	public void inserPlace(String name, int xx, int yy, String color,String occ){
-		if(xx>lworld){
-			lworld=xx+50;
-		}
-		if(yy>hworld){
-			hworld=yy+50;
-		}
-		if(xx<20){
-			xx=24;
-		}
-		if(yy<50){
-			yy=50;
-		}
+		Point coord = updateworld(xx,yy);
 		int token=0;
 		String label="";
 		if ((name.equals("Start"))||(name.equals("End"))){
@@ -118,7 +86,7 @@ public class PNVisualizzeJS {
 
 		name=name.replaceAll("\\W", "");
 
-		place +="var "+name+" = pn.Place.create({position: {x: "+xx+", y: "+yy+"}, label: \""+label+"\", tokens: "+token+", attrs: {stroke: \""+color+"\" , fill : \"white\" } });\n ";
+		place +="var "+name+" = pn.Place.create({position: {x: "+coord.x+", y: "+coord.y+"}, label: \""+label+"\", tokens: "+token+", attrs: {stroke: \""+color+"\" , fill : \"white\" } });\n ";
 		all+=name+",";
 
 
@@ -151,23 +119,12 @@ public class PNVisualizzeJS {
 
 
 	public void inserTransiction(String name, int xx, int yy){
-		if(xx>lworld){
-			lworld=xx+50;
-		}
-		if(yy>hworld){
-			hworld=yy+50;
-		}
-		if(xx<20){
-			xx=24;
-		}
-		if(yy<20){
-			yy=24;
-		}
+		Point coord = updateworld(xx,yy);
 		String label=name;
 
 		name=name.replaceAll("\\W", "");
 
-		tran +="var "+name+" = pn.Event.create({rect: {x: "+xx+", y: "+yy+" , width: 7, height: 50}, label: \""+label+"\"});\n ";
+		tran +="var "+name+" = pn.Event.create({rect: {x: "+coord.x+", y: "+coord.y+" , width: 7, height: 50}, label: \""+label+"\"});\n ";
 		all+=name+",";
 
 
@@ -345,6 +302,24 @@ public class PNVisualizzeJS {
 		}
 		
 		return out;
+	}
+	
+	public Point updateworld(int xx, int yy){
+		if(xx>lworld){
+			lworld=xx+50;
+		}
+		if(yy>hworld){
+			hworld=yy+50;
+		}
+		if(xx<20){
+			xx=24;
+		}
+		if(yy<50){
+			yy=50;
+		}
+		
+		return new Point(xx,yy);
+		
 	}
 	public String toHTMLfromTR(FitnessResult totalResult){
 		String ret="</p>";
