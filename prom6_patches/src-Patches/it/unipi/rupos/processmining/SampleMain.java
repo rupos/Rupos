@@ -6,18 +6,26 @@ import org.deckfour.xes.model.XLog;
 import org.deckfour.xes.model.XTrace;
 import org.processmining.plugins.petrinet.replayfitness.ReplayFitnessSetting;
 import org.processmining.plugins.petrinet.replayfitness.TotalFitnessResult;
+import org.processmining.plugins.petrinet.replayfitness.TotalPerformanceResult;
 
 public class SampleMain {
     public static void main(String [] args) throws Exception {
 	
+    	//String logFile = "../prom5_log_files/TracceRupos.mxml";
+    	//String netFile = "../prom5_log_files/TracceRuposAlpha.pnml";
+    	String logFile = "../prom5_log_files/InviaFlusso.mxml";
+    	String netFile = "../prom5_log_files/InviaFlussoWoped.pnml";
+    	//String logFile = "../prom5_log_files/sequence.mxml";
+    	//String netFile = "../prom5_log_files/sequence_prom6.pnml";
+    	
 	ProMManager manager = new ProMFactory().createManager();
-	PetriNetEngine engine = manager.createPetriNetEngine("../prom5_log_files/TracceRuposAlpha.pnml");
+	PetriNetEngine engine = manager.createPetriNetEngine(netFile);
 	System.out.println(engine);
 
-	engine = manager.createPetriNetEngine("../prom5_log_files/TracceRuposAlpha.pnml");
+	engine = manager.createPetriNetEngine(netFile);
 	System.out.println(engine);
 
-	XLog log = manager.openLog("../prom5_log_files/TracceRupos.mxml");
+	XLog log = manager.openLog(logFile);
 	System.out.println("Log size: " + log.size());
 
 	ReplayFitnessSetting settings = engine.suggestSettings(log);
@@ -33,13 +41,24 @@ public class SampleMain {
 	System.out.println("Fitness for a single TRACE");
 
 	long startFitness2 = System.currentTimeMillis();
+	int i=0;
+	int maxIter = 10;
 	for (XTrace trace:log) {
-	    fitness = engine.getFitness(log.get(0), settings);
+	    fitness = engine.getFitness(trace, settings);
 	    // System.out.println("Fitness: " + fitness);
+	    if (++i > maxIter)
+	    	break;
 	}
 	long endFitness2 = System.currentTimeMillis();
 
+	long startPerformance= System.currentTimeMillis();
+	TotalPerformanceResult performance = engine.getPerformance(log, settings);
+	System.out.println(performance);
+	long endPerformance = System.currentTimeMillis();
+
 	System.out.println("Time fitness single call " + (endFitness - startFitness));
 	System.out.println("Time fitness multiple calls " + (endFitness2 - startFitness2));
+	
+	manager.closeContext();
     }
 }

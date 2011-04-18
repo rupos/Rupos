@@ -1,5 +1,6 @@
 package org.processmining.contexts.cli;
 
+import java.util.concurrent.CancellationException;
 import java.util.concurrent.ExecutionException;
 import java.lang.InterruptedException;
 
@@ -57,7 +58,7 @@ public class ProMManager {
 		alphaPlugin = plugin;
 	    else if ("FitnessDetailsSettings".equals(plugin.getName()))
 		fitnessPlugin = plugin;
-	    else if ("PerformanceDetails".equals(plugin.getName()))
+	    else if ("PerformanceDetailsSettings".equals(plugin.getName()))
 		performancePlugin = plugin;
 	    else if ("Import Petri net from PNML file".equals(plugin.getName()))
 		importNetPlugin = plugin;
@@ -96,6 +97,9 @@ public class ProMManager {
 	if (suggestPlugin == null) {
 	    System.out.println("Plugin SuggestSettings not found");
 	}
+
+	context = context.createChildContext("MainContext");
+	
 	System.out.println("End Initializazion 1");
 	return this;
     }
@@ -116,6 +120,7 @@ public class ProMManager {
 	System.out.println("------------------------------");
 
 	PetriNetEngine res1 = new PetriNetEngine(this, net, startMarking);
+	context1.getParentContext().deleteChild(context1);
 	return res1;
     }
 
@@ -126,7 +131,9 @@ public class ProMManager {
 	PluginContext context1 = context.createChildContext("Result of Import Log Error");
 	openLogPlugin.invoke(0, context1, logFile);
 	context1.getResult().synchronize();
-	return (XLog)context1.getResult().getResult(0);
+	XLog res = (XLog)context1.getResult().getResult(0);
+	context1.getParentContext().deleteChild(context1);
+	return res;
     }
 
     public ReplayFitnessSetting suggestSettings(Petrinet net, XLog log) throws ExecutionException,InterruptedException {
@@ -136,7 +143,9 @@ public class ProMManager {
 	PluginContext context1 = context.createChildContext("Result of suggest settings");
 	suggestPlugin.invoke(0, context1, log, net);
 	context1.getResult().synchronize();
-	return (ReplayFitnessSetting)context1.getResult().getResult(0);
+	ReplayFitnessSetting res = (ReplayFitnessSetting)context1.getResult().getResult(0);
+	context1.getParentContext().deleteChild(context1);
+	return res;
     }
 
     public TotalFitnessResult getFitness(Petrinet net, XLog log, ReplayFitnessSetting settings)  throws ExecutionException,InterruptedException {
@@ -156,6 +165,32 @@ public class ProMManager {
 	
 	context1.getParentContext().deleteChild(context1);
 	return fitness;
+    }
+
+	public TotalPerformanceResult getPerformance(Petrinet net, XLog log,
+			ReplayFitnessSetting settings) throws CancellationException, ExecutionException, InterruptedException {
+		System.out.println("------------------------------");
+		System.out.println("Performance Details");
+		System.out.println("------------------------------");
+		PluginContext context1 = context.createChildContext("Performance Checking");
+
+		performancePlugin.invoke(0, context1, log, net, settings);
+		context1.getResult().synchronize();
+		System.out.println("------------------------------");
+		PluginExecutionResult res2 = context1.getResult();
+		System.out.println("Obtained " + res2.getSize() + " results");
+		System.out.println("------------------------------");
+		TotalPerformanceResult performance = res2.getResult(0);
+		System.out.println("------------------------------");
+		
+		context1.getParentContext().deleteChild(context1);
+		return performance;
+	}
+
+	public void closeContext() {
+//    	for ( PluginContext  c: globalContext.getMainPluginContext().getChildContexts()) {
+//    		globalContext.getMainPluginContext().deleteChild(c);
+//		}
     }
 
 }

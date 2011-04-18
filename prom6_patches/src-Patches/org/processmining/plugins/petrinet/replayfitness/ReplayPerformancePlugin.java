@@ -55,9 +55,8 @@ import org.processmining.plugins.petrinet.replay.Replayer;
 import com.fluxicon.slickerbox.factory.SlickerDecorator;
 
 public class ReplayPerformancePlugin {
-	private XEventClasses eventClasses = null;
-
-
+	@Plugin(name = "PerformanceDetailsSettings", returnLabels = { "Performance Total" }, returnTypes = { TotalPerformanceResult.class }, parameterLabels = {}, userAccessible = true)
+	@UITopiaVariant(affiliation = UITopiaVariant.EHV, author = "T. Yuliani and H.M.W. Verbeek", email = "h.m.w.verbeek@tue.nl")
 	public TotalPerformanceResult getPerformanceDetails(PluginContext context, XLog log, Petrinet net, ReplayFitnessSetting setting) {
 
 		Marking marking;
@@ -88,9 +87,10 @@ public class ReplayPerformancePlugin {
 			List<XEventClass> list = getList(trace, classes);
 			try {
 				List<Transition> sequence = replayer.replayTrace(marking, list, setting);
-				updatePerformance(net, marking, sequence, semantics, trace);
+				updatePerformance(net, marking, sequence, semantics, trace, performance, map);
 				replayedTraces++;
 			} catch (Exception ex) {
+				ex.printStackTrace();
 				context.log("Replay of trace " + trace + " failed: " + ex.getMessage());
 			}
 		}
@@ -105,7 +105,7 @@ public class ReplayPerformancePlugin {
 
 	
 
-	private void updatePerformance(Petrinet net, Marking initMarking, List<Transition> sequence, PetrinetSemantics semantics, XTrace trace) {
+	private void updatePerformance(Petrinet net, Marking initMarking, List<Transition> sequence, PetrinetSemantics semantics, XTrace trace, TotalPerformanceResult totalResult, Map<Transition, XEventClass> map) {
 		// if (trace.size() != sequence.size())
 		//     System.exit(1);
 
@@ -129,12 +129,21 @@ public class ReplayPerformancePlugin {
 		}
 
 
+		int iTrace = -1;
 		for (int iTrans=0; iTrans<sequence.size(); iTrans++) {
 			Transition transition = sequence.get(iTrans);
-			XAttributeTimestampImpl date1  = (XAttributeTimestampImpl)(trace.get(iTrans).getAttributes().get("time:timestamp"));
+			
+			
+			if (map.containsKey(transition)) {
+				iTrace+=1;
+			}
+			
+			XEvent event = trace.get(iTrace);
+			XAttributeTimestampImpl date1  = (XAttributeTimestampImpl)(event.getAttributes().get("time:timestamp"));
 			long d2 = date1.getValue().getTime();
 			float deltaTime = d2-d1;
 			d1 = d2;
+
 
 			boolean fittingTransition = true;
 			Collection<PetrinetEdge<? extends PetrinetNode, ? extends PetrinetNode>> preset = net
@@ -216,17 +225,8 @@ public class ReplayPerformancePlugin {
 			}
 		}
 	
-		System.out.println(i++);
-		this.listResult.add(performance);
-	//	System.out.println("*****************************************");
-	//	System.out.println(i++);
-	//	System.out.println("*****************************************");
-	//	System.out.println("");
-	//	System.out.println(performance);
-		
+		totalResult.getList().add(performance);
 	}
-
-	int i=1;
 
 	private List<XEventClass> getList(XTrace trace, XEventClasses classes) {
 		List<XEventClass> list = new ArrayList<XEventClass>();
@@ -237,11 +237,9 @@ public class ReplayPerformancePlugin {
 	}
 
 	private XEventClasses getEventClasses(XLog log) {
-		if (eventClasses == null) {
-			XEventClassifier classifier = XLogInfoImpl.STANDARD_CLASSIFIER;
-			XLogInfo summary = XLogInfoFactory.createLogInfo(log, classifier);
-			eventClasses = summary.getEventClasses(classifier);
-		}
+		XEventClassifier classifier = XLogInfoImpl.STANDARD_CLASSIFIER;
+		XLogInfo summary = XLogInfoFactory.createLogInfo(log, classifier);
+		XEventClasses eventClasses = summary.getEventClasses(classifier);
 		return eventClasses;
 	}
 
@@ -267,8 +265,8 @@ public class ReplayPerformancePlugin {
 		setting.setAction(ReplayAction.INSERT_DISABLED_MISMATCH, true);
 	}
 
-	List<Map<Place,PerformanceResult>> listResult;
-	PerformanceResult totalResult;
+	//List<Map<Place,PerformanceResult>> listResult;
+	//PerformanceResult totalResult;
 
 
 	// Rupos public methos
@@ -281,14 +279,7 @@ public class ReplayPerformancePlugin {
 		context.showWizard("Configure Fitness Settings", true, true, ui.initComponents());
 		ui.setWeights();
 
-		listResult = new Vector<Map<Place,PerformanceResult>>();
-		totalResult = new PerformanceResult();
-
-		getPerformanceDetails(context, log, net, setting);
-
-		TotalPerformanceResult total = new TotalPerformanceResult();
-		total.setList(listResult);
-		total.setTotal(totalResult);
+		TotalPerformanceResult total = getPerformanceDetails(context, log, net, setting);
 
 		return total;
 	}
@@ -298,18 +289,9 @@ public class ReplayPerformancePlugin {
 	public TotalPerformanceResult getPerformanceDetails(PluginContext context, XLog log, Petrinet net) {
 		ReplayFitnessSetting setting = new ReplayFitnessSetting();
 		suggestActions(setting, log, net);
-		listResult = new Vector<Map<Place,PerformanceResult>>();
-		totalResult = new PerformanceResult();
-
-		getPerformanceDetails(context, log, net, setting);
-
-		TotalPerformanceResult total = new TotalPerformanceResult();
-		total.setList(listResult);
-		total.setTotal(totalResult);
+		TotalPerformanceResult total = getPerformanceDetails(context, log, net, setting);
 
 		return total;
-
-		//return getPerformanceDetails(context, log, net, setting);
 	}
 
 

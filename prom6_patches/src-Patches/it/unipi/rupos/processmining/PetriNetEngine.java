@@ -9,9 +9,11 @@ import org.deckfour.xes.model.XTrace;
 import org.deckfour.xes.model.impl.XLogImpl;
 import org.deckfour.xes.model.impl.XAttributeMapImpl;
 import org.processmining.plugins.petrinet.replayfitness.ReplayFitnessSetting;
+import org.processmining.plugins.petrinet.replayfitness.TotalPerformanceResult;
 
 import org.processmining.plugins.petrinet.replayfitness.TotalFitnessResult;
 
+import java.util.concurrent.CancellationException;
 import java.util.concurrent.ExecutionException;
 import java.lang.InterruptedException;
 
@@ -39,4 +41,9 @@ public class PetriNetEngine {
 	log.add(trace);
 	return manager.getFitness(this.net, log, settings);
     }
+
+	public TotalPerformanceResult getPerformance(XLog log,
+			ReplayFitnessSetting settings) throws CancellationException, ExecutionException, InterruptedException {
+		return manager.getPerformance(this.net, log, settings);
+	}
 }
