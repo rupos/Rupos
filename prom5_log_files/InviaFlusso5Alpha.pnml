@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<pnml>
+<net id="workflownet" type="http://www.informatik.hu-berlin.de/top/pnml/basicPNML.rng">
+    <place id="place_0">
+        <graphics>
+            <position x="330" y="197" />
+            <dimension x="13" y="13" />
+        </graphics>
+        <name>
+            <text>pend</text>
+         </name>
+    </place>
+    <place id="place_1">
+        <graphics>
+            <position x="75" y="28" />
+            <dimension x="36" y="37" />
+        </graphics>
+        <name>
+            <text>pstart</text>
+         </name>
+        <initialMarking>
+            <text>1</text>
+         </initialMarking>
+    </place>
+    <place id="place_2">
+        <graphics>
+            <position x="330" y="101" />
+            <dimension x="13" y="13" />
+        </graphics>
+        <name>
+            <text>[[1], [0]]</text>
+         </name>
+    </place>
+    <place id="place_3">
+        <graphics>
+            <position x="160" y="114" />
+            <dimension x="13" y="13" />
+        </graphics>
+        <name>
+            <text>[[0], [2, 1]]</text>
+         </name>
+    </place>
+    <transition id="trans_0">
+        <graphics>
+            <position  x="245" y="160" />
+            <dimension x="110" y="28" />
+        </graphics>
+        <name>
+            <text>SanitaRupos@inviaFlusso\npi_abort</text>
+         </name>
+        <toolspecific tool="ProM" version="5.2">
+            <logevent>
+                <name>SanitaRupos@inviaFlusso</name>
+                <type>pi_abort</type>
+            </logevent>
+        </toolspecific>
+    </transition>
+    <transition id="trans_1">
+        <graphics>
+            <position  x="245" y="114" />
+            <dimension x="110" y="28" />
+        </graphics>
+        <name>
+            <text>SanitaRupos@inviaFlusso\ncomplete</text>
+         </name>
+        <toolspecific tool="ProM" version="5.2">
+            <logevent>
+                <name>SanitaRupos@inviaFlusso</name>
+                <type>complete</type>
+            </logevent>
+        </toolspecific>
+    </transition>
+    <transition id="trans_2">
+        <graphics>
+            <position  x="75" y="104" />
+            <dimension x="110" y="28" />
+        </graphics>
+        <name>
+            <text>SanitaRupos@inviaFlusso\nstart</text>
+         </name>
+        <toolspecific tool="ProM" version="5.2">
+            <logevent>
+                <name>SanitaRupos@inviaFlusso</name>
+                <type>start</type>
+            </logevent>
+        </toolspecific>
+    </transition>
+    <arc id="arc_0" source="trans_0" target="place_0">
+        <toolspecific tool="ProM" version="5.2">
+            <spline>
+                <point x="277" y="175" />
+                <point x="292" y="181" />
+                <point x="308" y="188" />
+                <point x="318" y="193" />
+                <end x="323" y="195" />
+            </spline>
+        </toolspecific>
+    </arc>
+    <arc id="arc_1" source="place_3" target="trans_0">
+        <toolspecific tool="ProM" version="5.2">
+            <spline>
+                <point x="165" y="120" />
+                <point x="171" y="125" />
+                <point x="180" y="132" />
+                <point x="189" y="137" />
+                <point x="193" y="140" />
+                <point x="197" y="142" />
+                <point x="201" y="144" />
+                <end x="206" y="146" />
+            </spline>
+        </toolspecific>
+    </arc>
+    <arc id="arc_2" source="place_2" target="trans_2">
+        <toolspecific tool="ProM" version="5.2">
+            <spline>
+                <point x="323" y="99" />
+                <point x="317" y="96" />
+                <point x="308" y="93" />
+                <point x="301" y="91" />
+                <point x="245" y="82" />
+                <point x="181" y="87" />
+                <point x="135" y="94" />
+                <end x="130" y="94" />
+            </spline>
+        </toolspecific>
+    </arc>
+    <arc id="arc_3" source="trans_1" target="place_2">
+        <toolspecific tool="ProM" version="5.2">
+            <spline>
+                <point x="300" y="106" />
+                <point x="307" y="105" />
+                <point x="312" y="104" />
+                <point x="317" y="103" />
+                <end x="322" y="103" />
+            </spline>
+        </toolspecific>
+    </arc>
+    <arc id="arc_4" source="trans_2" target="place_3">
+        <toolspecific tool="ProM" version="5.2">
+            <spline>
+                <point x="130" y="111" />
+                <point x="137" y="112" />
+                <point x="142" y="112" />
+                <point x="147" y="113" />
+                <end x="152" y="114" />
+            </spline>
+        </toolspecific>
+    </arc>
+    <arc id="arc_5" source="place_3" target="trans_1">
+        <toolspecific tool="ProM" version="5.2">
+            <spline>
+                <point x="167" y="114" />
+                <point x="171" y="114" />
+                <point x="177" y="114" />
+                <point x="184" y="114" />
+                <end x="189" y="114" />
+            </spline>
+        </toolspecific>
+    </arc>
+  <toolspecific tool="ProM" version="5.2">
+    <cluster name="SanitaRupos@inviaFlusso">
+      <trans>trans_2</trans>
+      <trans>trans_1</trans>
+      <trans>trans_0</trans>
+    </cluster>
+  </toolspecific>
+</net>
+</pnml>
