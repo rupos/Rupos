@@ -5,7 +5,12 @@ import org.processmining.models.semantics.petrinet.Marking;
 import org.processmining.contexts.cli.ProMManager;
 
 import org.deckfour.xes.model.XLog;
+import org.deckfour.xes.model.XTrace;
+import org.deckfour.xes.model.impl.XLogImpl;
+import org.deckfour.xes.model.impl.XAttributeMapImpl;
 import org.processmining.plugins.petrinet.replayfitness.ReplayFitnessSetting;
+
+import org.processmining.plugins.petrinet.replayfitness.TotalFitnessResult;
 
 import java.util.concurrent.ExecutionException;
 import java.lang.InterruptedException;
@@ -23,5 +28,15 @@ public class PetriNetEngine {
 
     public ReplayFitnessSetting suggestSettings(XLog log) throws ExecutionException,InterruptedException {
 	return manager.suggestSettings(this.net, log);
+    }
+
+    public TotalFitnessResult getFitness(XLog log, ReplayFitnessSetting settings)  throws ExecutionException,InterruptedException {
+	return manager.getFitness(this.net, log, settings);
+    }
+
+    public TotalFitnessResult getFitness(XTrace trace, ReplayFitnessSetting settings)  throws ExecutionException,InterruptedException {
+	XLog log = new XLogImpl(new XAttributeMapImpl());
+	log.add(trace);
+	return manager.getFitness(this.net, log, settings);
     }
 }

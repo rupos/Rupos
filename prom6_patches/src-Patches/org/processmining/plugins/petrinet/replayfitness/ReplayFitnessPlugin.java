@@ -51,15 +51,16 @@ import org.processmining.plugins.petrinet.replay.Replayer;
 import com.fluxicon.slickerbox.factory.SlickerDecorator;
 
 public class ReplayFitnessPlugin {
-
-        //tokens
-	private int producedTokens;
-	private int missingTokens;
-	private int consumedTokens;
-	private int remainingTokens;
-        //
-
-	private XEventClasses eventClasses = null;
+    ReplayFitness convertDetails(TotalFitnessResult result) {
+	FitnessResult summary = result.getTotal();
+	ReplayFitness res = new ReplayFitness();
+	res.set(summary.getProducedTokens(),
+		summary.getConsumedTokens(),
+		summary.getMissingMarking().size(),
+		summary.getRemainingMarking().size(),
+		"");
+	return res;
+    }
 
 	@Plugin(name = "Fitness", returnLabels = { "Fitness" }, returnTypes = { ReplayFitness.class }, parameterLabels = {}, userAccessible = true)
 	@UITopiaVariant(affiliation = UITopiaVariant.EHV, author = "T. Yuliani and H.M.W. Verbeek", email = "h.m.w.verbeek@tue.nl")
@@ -88,25 +89,17 @@ public class ReplayFitnessPlugin {
 		 * .class, context, log, net); } catch (ConnectionCannotBeObtained ex) {
 		 * context.log("Log and Petri net are not connected"); return null; }
 		 */
-		Marking marking;
-
-		try {
-			InitialMarkingConnection connection = context.getConnectionManager().getFirstConnection(
-					InitialMarkingConnection.class, context, net);
-			marking = connection.getObjectWithRole(InitialMarkingConnection.MARKING);
-		} catch (ConnectionCannotBeObtained ex) {
-			context.log("Petri net lacks initial marking");
-			return null;
-		}
-
-		return getFitness(context, log, net, marking, setting);
+		TotalFitnessResult res = getFitnessDetails(context, log, net, setting);
+		return this.convertDetails(res);
 	}
 
 	
 	
-	public ReplayFitness getFitness(PluginContext context, XLog log, Petrinet net, Marking marking,
-			ReplayFitnessSetting setting) {
-		ReplayFitness fitness = new ReplayFitness(0.0, "");
+	public TotalFitnessResult getFitnessDetails(PluginContext context, XLog log, Petrinet net, Marking marking, ReplayFitnessSetting setting) {
+		TotalFitnessResult totalResult = new TotalFitnessResult();
+		totalResult.setTotal(new FitnessResult());
+		totalResult.setList(new Vector<FitnessResult>());
+
 		XEventClasses classes = getEventClasses(log);
 		Map<Transition, XEventClass> map = getMapping(classes, net);
 		context.getConnectionManager().addConnection(new LogPetrinetConnectionImpl(log, classes, net, map));
@@ -116,11 +109,6 @@ public class ReplayFitnessPlugin {
 		Replayer<ReplayFitnessCost> replayer = new Replayer<ReplayFitnessCost>(context, net, semantics, map,
 				ReplayFitnessCost.addOperator);
 
-		producedTokens = 0;
-		consumedTokens = 0;
-		missingTokens = 0;
-		remainingTokens = 0;
-
 		int replayedTraces = 0;
 		int i =0;
 		for (XTrace trace : log) {
@@ -128,7 +116,7 @@ public class ReplayFitnessPlugin {
 			try {
 			    System.out.println("Replay :" + ++i);
 				List<Transition> sequence = replayer.replayTrace(marking, list, setting);
-				updateFitness(net, marking, sequence, semantics);
+				updateFitness(net, marking, sequence, semantics, totalResult);
 				replayedTraces++;
 			    System.out.println("Replayed");
 
@@ -139,17 +127,15 @@ public class ReplayFitnessPlugin {
 		}
 
 		String text = "(based on a successful replay of " + replayedTraces + " out of " + log.size() + " traces)";
-		fitness.set(producedTokens, consumedTokens, missingTokens, remainingTokens, text);
-		ReplayFitnessConnection connection = new ReplayFitnessConnection(fitness, log, net);
-		context.getConnectionManager().addConnection(connection);
-		//rupos total fitness
-		totalResult.set(producedTokens, consumedTokens, missingTokens, remainingTokens);
+		// ReplayFitnessConnection connection = new ReplayFitnessConnection(fitness, log, net);
+		// context.getConnectionManager().addConnection(connection);
+		totalResult.getTotal().updateFitness();
 
-		return fitness;
+		return totalResult;
 	}
 
 
-    private void addArcUsage(Arc arc, FitnessResult fitnessResult) {
+    private void addArcUsage(Arc arc, FitnessResult fitnessResult, FitnessResult totalResult) {
 	Integer numUsage = totalResult.getMapArc().get(arc);
 	totalResult.getMapArc().put(arc, numUsage == null ? 1 : numUsage+1);
 	numUsage = fitnessResult.getMapArc().get(arc);
@@ -157,16 +143,16 @@ public class ReplayFitnessPlugin {
     }
 
 
-	private void updateFitness(Petrinet net, Marking initMarking, List<Transition> sequence, PetrinetSemantics semantics) {
+    private void updateFitness(Petrinet net, Marking initMarking, List<Transition> sequence, PetrinetSemantics semantics, TotalFitnessResult totalResult) {
 		Marking marking = new Marking(initMarking);
-		producedTokens += marking.size();
-		
+		int producedTokens = marking.size();
+		int consumedTokens = 0;
 		int producedTrace  = marking.size();
 		int consumedTrace = 0;
 		
 		int missingTrace=0;
 		FitnessResult tempFitnessResult = new FitnessResult();
-		listResult.add(tempFitnessResult);
+		totalResult.getList().add(tempFitnessResult);
 
 		for (Transition transition : sequence) {
 		    boolean fittingTransition = true;
@@ -175,7 +161,7 @@ public class ReplayFitnessPlugin {
 			for (PetrinetEdge<? extends PetrinetNode, ? extends PetrinetNode> edge : preset) {
 				if (edge instanceof Arc) {
 					Arc arc = (Arc) edge;
-					addArcUsage(arc, tempFitnessResult);
+					addArcUsage(arc, tempFitnessResult, totalResult.getTotal());
 					Place place = (Place) arc.getSource();
 					int consumed = arc.getWeight();
 					int missing = 0;
@@ -188,12 +174,11 @@ public class ReplayFitnessPlugin {
 					}
 					// Rupos patches
 					for (int i = 0; i < missing; i++) {
-					    totalResult.getMissingMarking().add(place);
+					    totalResult.getTotal().getMissingMarking().add(place);
 					    tempFitnessResult.getMissingMarking().add(place);
 					}
 					consumedTokens += consumed;
 					consumedTrace += consumed;
-					missingTokens += missing;
 					missingTrace +=missing;
 					//se sono mancati token, questa transizione non ha fittato per questa traccia
 					if (missing>0) fittingTransition = false;
@@ -204,7 +189,7 @@ public class ReplayFitnessPlugin {
 			for (PetrinetEdge<? extends PetrinetNode, ? extends PetrinetNode> edge : postset) {
 				if (edge instanceof Arc) {
 					Arc arc = (Arc) edge;
-					addArcUsage(arc, tempFitnessResult);
+					addArcUsage(arc, tempFitnessResult, totalResult.getTotal());
 					Place place = (Place) arc.getTarget();
 					int produced = arc.getWeight();
 					for (int i = 0; i < produced; i++) {
@@ -215,8 +200,8 @@ public class ReplayFitnessPlugin {
 				}
 			}
 			if (!fittingTransition) {
-			    Integer numTraceNotFittingForTransaction = totalResult.getMapTransition().get(transition);
-			    totalResult.getMapTransition().put(transition, numTraceNotFittingForTransaction == null ? 1 : numTraceNotFittingForTransaction+1);
+			    Integer numTraceNotFittingForTransaction = totalResult.getTotal().getMapTransition().get(transition);
+			    totalResult.getTotal().getMapTransition().put(transition, numTraceNotFittingForTransaction == null ? 1 : numTraceNotFittingForTransaction+1);
 			    //sulla singola traccia, il numero di tracce che non fittano la transizione è 0 o 1
 			    tempFitnessResult.getMapTransition().put(transition, 1);
 			}
@@ -224,16 +209,22 @@ public class ReplayFitnessPlugin {
 		}
 		consumedTokens += marking.size();
 		consumedTrace += marking.size();
-		remainingTokens += marking.isEmpty() ? 0 : marking.size() - 1;
+		int remainingTokens = marking.isEmpty() ? 0 : marking.size() - 1;
 
 		// Rupos patches
-		totalResult.getRemainingMarking().addAll(marking);
+		totalResult.getTotal().getRemainingMarking().addAll(marking);
 		tempFitnessResult.getRemainingMarking().addAll(marking);
 	    
-		//calcola la fitness
-		tempFitnessResult.set(producedTrace,consumedTrace,missingTrace,marking.isEmpty() ? 0 : marking.size() - 1);
-	  
-		//this.remainingMarking.addAll(marking);
+		//calcola la fitness del singolo trace
+		tempFitnessResult.setProducedTokens(producedTokens);
+		tempFitnessResult.setConsumedTokens(consumedTokens);
+
+		// Per il totale
+		totalResult.getTotal().setProducedTokens(totalResult.getTotal().getProducedTokens() + producedTokens);
+		totalResult.getTotal().setConsumedTokens(totalResult.getTotal().getConsumedTokens() + consumedTokens);
+		
+		// Calcola la fitness per il singolo trace
+		tempFitnessResult.updateFitness();
 	}
 
 	private List<XEventClass> getList(XTrace trace, XEventClasses classes) {
@@ -245,12 +236,10 @@ public class ReplayFitnessPlugin {
 	}
 
 	private XEventClasses getEventClasses(XLog log) {
-		if (eventClasses == null) {
-			XEventClassifier classifier = XLogInfoImpl.STANDARD_CLASSIFIER;
-			XLogInfo summary = XLogInfoFactory.createLogInfo(log, classifier);
-			eventClasses = summary.getEventClasses(classifier);
-		}
-		return eventClasses;
+	    XEventClassifier classifier = XLogInfoImpl.STANDARD_CLASSIFIER;
+	    XLogInfo summary = XLogInfoFactory.createLogInfo(log, classifier);
+	    XEventClasses eventClasses = summary.getEventClasses(classifier);
+	    return eventClasses;
 	}
 
 	private Map<Transition, XEventClass> getMapping(XEventClasses classes, Petrinet net) {
@@ -305,14 +294,6 @@ public class ReplayFitnessPlugin {
 		}
 	}
 
-    // Rupos properties
-  //  Marking remainingMarking = null;
-   // Marking missingMarking = null;
-    
-    List<FitnessResult> listResult;
-    FitnessResult totalResult;
-    
-
     // Rupos public methos
     @Plugin(name = "FitnessDetails", returnLabels = { "Fitness Total" }, returnTypes = { TotalFitnessResult.class }, parameterLabels = {}, userAccessible = true)
     @UITopiaVariant(affiliation = UITopiaVariant.EHV, author = "T. Yuliani and H.M.W. Verbeek", email = "h.m.w.verbeek@tue.nl")
@@ -323,22 +304,10 @@ public class ReplayFitnessPlugin {
 	context.showWizard("Configure Fitness Settings", true, true, ui.initComponents());
 	ui.setWeights();
 
-	listResult = new Vector<FitnessResult>();
-	totalResult = new FitnessResult();
-    
-	getFitness(context, log, net, setting);
+	TotalFitnessResult totalResult = getFitnessDetails(context, log, net, setting);
 	
-	TotalFitnessResult total = new TotalFitnessResult();
-	total.setList(listResult);
-	total.setTotal(totalResult);
 	
-	//da cambiare
-	
-	return total;
-	//return new Object[]{getFitness(context, log, net, setting),
-	//		    this.remainingMarking,
-	//		    this.missingMarking
-	//};
+	return totalResult;
     }
 
     @Plugin(name = "FitnessDetails", returnLabels = { "Fitness Total" }, returnTypes = { TotalFitnessResult.class }, parameterLabels = {}, userAccessible = true)
@@ -355,19 +324,19 @@ public class ReplayFitnessPlugin {
     @Plugin(name = "FitnessDetailsSettings", returnLabels = { "Fitness Total" }, returnTypes = { TotalFitnessResult.class }, parameterLabels = {}, userAccessible = true)
 	@UITopiaVariant(affiliation = UITopiaVariant.EHV, author = "T. Yuliani and H.M.W. Verbeek", email = "h.m.w.verbeek@tue.nl")
 	public TotalFitnessResult getFitnessDetails(PluginContext context, XLog log, Petrinet net, ReplayFitnessSetting setting) {
-	suggestActions(setting, log, net);
 
-	listResult = new Vector<FitnessResult>();
-	totalResult = new FitnessResult();
-    
-	getFitness(context, log, net, setting);
-	
-	TotalFitnessResult total = new TotalFitnessResult();
-	total.setList(listResult);
-	total.setTotal(totalResult);
-	
-	PNVisualizzeJS js = new PNVisualizzeJS();
-	js.generateJS(net, total);
+		Marking marking;
+
+		try {
+			InitialMarkingConnection connection = context.getConnectionManager().getFirstConnection(
+					InitialMarkingConnection.class, context, net);
+			marking = connection.getObjectWithRole(InitialMarkingConnection.MARKING);
+		} catch (ConnectionCannotBeObtained ex) {
+			context.log("Petri net lacks initial marking");
+			return null;
+		}
+
+		TotalFitnessResult total = getFitnessDetails(context, log, net, marking, setting);
 	
 	return total;
     }

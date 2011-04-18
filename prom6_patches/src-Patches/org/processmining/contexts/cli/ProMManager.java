@@ -137,4 +137,22 @@ public class ProMManager {
 	context1.getResult().synchronize();
 	return (ReplayFitnessSetting)context1.getResult().getResult(0);
     }
+
+    public TotalFitnessResult getFitness(Petrinet net, XLog log, ReplayFitnessSetting settings)  throws ExecutionException,InterruptedException {
+	System.out.println("------------------------------");
+	System.out.println("Fitness Details");
+	System.out.println("------------------------------");
+	PluginContext context1 = context.createChildContext("Fitness Checking");
+
+	fitnessPlugin.invoke(0, context1, log, net, settings);
+	context1.getResult().synchronize();
+	System.out.println("------------------------------");
+	PluginExecutionResult res2 = context1.getResult();
+	System.out.println("Obtained " + res2.getSize() + " results");
+	System.out.println("------------------------------");
+	TotalFitnessResult fitness = res2.getResult(0);
+	System.out.println("------------------------------");
+	return fitness;
+    }
+
 }

@@ -12,6 +12,8 @@ public class FitnessResult {
 	private double fitness;
 	private Marking remainingMarking = null;
 	private Marking missingMarking = null;
+    private int consumedTokens = 0;
+    private int producedTokens = 0;
 	private Map<Transition, Integer> mapTransition; 
 	private Map<Arc, Integer> mapArc;
 	private String ret = System.getProperty("line.separator");
@@ -21,7 +23,8 @@ public class FitnessResult {
     	missingMarking = new Marking();
     	mapTransition = new HashMap<Transition, Integer>();
     	mapArc = new HashMap<Arc, Integer>(); 
-    	
+    	consumedTokens = 0;
+    	producedTokens = 0;
     }
     
     
@@ -56,8 +59,22 @@ public class FitnessResult {
 	public void setMapArc(Map<Arc, Integer> mapArc) {
 		this.mapArc = mapArc;
 	} 
-	public void set(int producedTokens, int consumedTokens, int missingTokens, int remainingTokens) {
-		fitness = 1.0 - missingTokens / (2.0 * consumedTokens) - remainingTokens / (2.0 * producedTokens);
+
+    public int getConsumedTokens() {
+	return consumedTokens;
+    }
+    public void setConsumedTokens(int value) {
+	consumedTokens = value;
+    }
+    public int getProducedTokens() {
+	return producedTokens;
+    }
+    public void setProducedTokens(int value) {
+	producedTokens = value;
+    }
+
+	public void updateFitness() {
+	    fitness = 1.0 - missingMarking.size() / (2.0 * consumedTokens) - remainingMarking.size() / (2.0 * producedTokens);
 		
 	}
     
