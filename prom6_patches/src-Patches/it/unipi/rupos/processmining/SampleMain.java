@@ -13,10 +13,10 @@ public class SampleMain {
 	
     	//String logFile = "../prom5_log_files/TracceRupos.mxml";
     	//String netFile = "../prom5_log_files/TracceRuposAlpha.pnml";
-    	//String logFile = "../prom5_log_files/InviaFlusso.mxml";
-    	//String netFile = "../prom5_log_files/InviaFlussoWoped.pnml";
-    	String logFile = "/home/spagnolo1/rupos_new/Rupos/prom5_log_files/InviaFlusso.mxml";
-    	String netFile = "/home/spagnolo1/rupos_new/Rupos/prom5_log_files/InviaFlussoWoped.pnml";
+    	String logFile = "../prom5_log_files/InviaFlusso.mxml";
+    	String netFile = "../prom5_log_files/InviaFlussoWoped.pnml";
+    	//String logFile = "/home/spagnolo1/rupos_new/Rupos/prom5_log_files/InviaFlusso.mxml";
+    	//String netFile = "/home/spagnolo1/rupos_new/Rupos/prom5_log_files/InviaFlussoWoped.pnml";
     	
     	//String logFile = "../prom5_log_files/sequence.mxml";
     	//String netFile = "../prom5_log_files/sequence_prom6.pnml";
