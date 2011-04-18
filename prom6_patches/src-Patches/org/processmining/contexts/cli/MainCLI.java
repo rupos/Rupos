@@ -196,7 +196,7 @@ public class MainCLI {
 			t.printStackTrace();
 			System.exit(1);
 		}
-		System.exit(0);
+		//System.exit(0);
 		return null;
 	}
 
