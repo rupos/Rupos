@@ -15,6 +15,10 @@ import org.processmining.models.graphbased.directed.petrinet.elements.Place;
 import org.processmining.models.graphbased.directed.petrinet.elements.Transition;
 import org.processmining.models.semantics.petrinet.Marking;
 
+/**
+ * @author spagnolo1
+ *
+ */
 public class PNVisualizzeJS {
 
 	private int lworld=800;
@@ -30,7 +34,7 @@ public class PNVisualizzeJS {
 		+ "</head><body><div id=\"world\"></div>"
 		+ "<script type=\"text/javascript\"> "
 		+ "var pn = Joint.dia.pn;\n ";
-	
+
 	private String foot = "</script></body></html>";
 	private String all = "var all = [";
 
@@ -38,6 +42,13 @@ public class PNVisualizzeJS {
 
 	}
 
+
+	/**Inserisce un place
+	 * @param name: nome del place 
+	 * @param token: numero di token
+	 * @param xx: coordinate posizione x
+	 * @param yy: coordinate posizione y
+	 */
 	public void inserPlace(String name, int token, int xx, int yy){
 		Point coord = updateworld(xx,yy);
 		String label=name;
@@ -50,6 +61,11 @@ public class PNVisualizzeJS {
 
 	}
 
+	/** Inserisce un place e se questo ha il nome Start token=1
+	 * @param name: nome del place
+	 * @param xx: coordinate posizione x
+	 * @param yy: coordinate posizione y
+	 */
 	public void inserPlace(String name, int xx, int yy){
 		Point coord = updateworld(xx,yy);
 		int token=0;
@@ -71,6 +87,13 @@ public class PNVisualizzeJS {
 
 	}
 
+	/** Inserisce un place
+	 * @param name: nome del place
+	 * @param xx: coordinate posizione x
+	 * @param yy: coordinate posizione y
+	 * @param color: colore del place
+	 * @param occ: aggiunge la stringa alla label
+	 */
 	public void inserPlace(String name, int xx, int yy, String color,String occ){
 		Point coord = updateworld(xx,yy);
 		int token=0;
@@ -93,44 +116,47 @@ public class PNVisualizzeJS {
 
 	}
 
+	/** Inserisce una transizione 
+	 * @param name: nome della transizione
+	 * @param xx: coordinata x
+	 * @param yy: coordinata y
+	 * @param color: colore transizione
+	 */
 	public void inserTransiction(String name, int xx, int yy, String color){
-		if(xx>lworld){
-			lworld=xx+50;
-		}
-		if(yy>hworld){
-			hworld=yy+50;
-		}
-		if(xx<20){
-			xx=24;
-		}
-		if(yy<20){
-			yy=24;
-		}
-		String label=name;
-
-		name=name.replaceAll("\\W", "");
-
-		tran +="var "+name+" = pn.Event.create({rect: {x: "+xx+", y: "+yy+" , width: 7, height: 50}, label: \""+label+"\", attrs: { stroke: \"black\", fill: \""+color+"\" }});\n ";
-		all+=name+",";
-
-
-
-	}
-
-
-	public void inserTransiction(String name, int xx, int yy){
 		Point coord = updateworld(xx,yy);
 		String label=name;
 
 		name=name.replaceAll("\\W", "");
 
-		tran +="var "+name+" = pn.Event.create({rect: {x: "+coord.x+", y: "+coord.y+" , width: 7, height: 50}, label: \""+label+"\"});\n ";
+		tran +="var "+name+" = pn.Event.create({rect: {x: "+coord.x+", y: "+coord.y+" , width: 7, height: 50}, label: \""+label+"\", attrs: { stroke: \"black\", fill: \""+color+"\" }});\n ";
 		all+=name+",";
 
 
 
 	}
 
+	/** Inserisce una transizione 
+	 * @param name: nome della transizione
+	 * @param xx: coordinata x
+	 * @param yy: coordinata y
+	 */
+	public void inserTransiction(String name, int xx, int yy){
+		/*Point coord = updateworld(xx,yy);
+		String label=name;
+
+		name=name.replaceAll("\\W", "");
+
+		tran +="var "+name+" = pn.Event.create({rect: {x: "+coord.x+", y: "+coord.y+" , width: 7, height: 50}, label: \""+label+"\"});\n ";
+		all+=name+",";*/
+		this.inserTransiction(name, xx, yy, "white");
+
+	}
+
+	/**Inserisci una connessione
+	 * @param in Input connessione
+	 * @param out Output connessione
+	 * @param label Etichetta
+	 */
 	public void inserArrow(String in, String out, String label){
 
 
@@ -143,12 +169,16 @@ public class PNVisualizzeJS {
 	}
 
 
-	public void toFile(TotalFitnessResult Result) {
+	/** Scrivi su file la rete
+	 * @param path del file
+	 * @param Result Struttura dati TotalFitnessResult contenente i risultati della fitness
+	 */
+	public void toFile(String path, TotalFitnessResult Result) {
 		FileWriter w;
 		String head2 = "Joint.paper(\"world\", "+lworld+", "+hworld+");\n "
 		+"var arrow = pn.arrow; ";
 		try {
-			w = new FileWriter("../javascrips/conformance.html");
+			w = new FileWriter(path);
 			BufferedWriter b = new BufferedWriter(w);
 			//all+=all.substring(0, all.length()-1)+"];\n ";
 			b.write(head);
@@ -158,7 +188,7 @@ public class PNVisualizzeJS {
 			//b.write(all);
 			b.write(arc);
 			b.write("</script>");
-			
+
 			//b.write(this.toHTMLfromTR(Result.total));
 			b.write(this.toHTMLfromFRT(Result));
 			b.write("</body></html>");
@@ -174,12 +204,15 @@ public class PNVisualizzeJS {
 
 	}
 
-	public void toFile() {
+	/**Scrivi su file la rete di petri
+	 * @param path del file
+	 */
+	public void toFile(String path) {
 		String head2 = "Joint.paper(\"world\", "+lworld+", "+hworld+");\n "
 		+"var arrow = pn.arrow; ";
 		FileWriter w;
 		try {
-			w = new FileWriter("../javascrips/conformance.html");
+			w = new FileWriter(path);
 			BufferedWriter b = new BufferedWriter(w);
 			//all+=all.substring(0, all.length()-1)+"];\n ";
 			b.write(head);
@@ -199,7 +232,10 @@ public class PNVisualizzeJS {
 
 	}
 
-	public void generateJSR(FitnessResult totalResult){
+	/**
+	 *Inserisce gli archi attraversati con etichetta il numero di attraversamenti
+	 */
+	private void generateJSR(FitnessResult totalResult){
 
 		for (Arc c : totalResult.getMapArc().keySet()){
 
@@ -213,10 +249,9 @@ public class PNVisualizzeJS {
 	}
 
 
-	/**
-	 * @param net
-	 * @param totalResult 
-	 * @param context
+	/**Genera una pagina html in cui vengono visualizzate le informazioni di conformance
+	 * @param net rete di petri
+	 * @param totalResult informazioni di conformance
 	 */
 	public void generateJS(PetrinetGraph net, TotalFitnessResult Result){
 		FitnessResult totalResult = Result.total;
@@ -251,16 +286,16 @@ public class PNVisualizzeJS {
 			Point2D xy = (Point2D) ts.getAttributeMap().get(AttributeMap.POSITION);
 			int x = (int) xy.getX();
 			int y = (int) xy.getY();
-			
+
 			for (Transition tsx : totalResult.getMapTransition().keySet()){
-				
+
 				if(tsx.equals(ts)){
 					this.inserTransiction(ts.getLabel(),x,y,"orange");
 					flag=false;
 				}
 			}
 			if(flag){
-			this.inserTransiction(ts.getLabel(),x,y);
+				this.inserTransiction(ts.getLabel(),x,y);
 			}
 			flag=true;
 			/*Collection<PetrinetEdge<? extends PetrinetNode, ? extends PetrinetNode>> outset = net
@@ -286,25 +321,26 @@ public class PNVisualizzeJS {
 		}
 
 		this.generateJSR(totalResult); //archi con peso
-		this.toFile(Result);
+		this.toFile("../javascrips/conformance.html", Result);
 	}
-	public String toHTMLfromFRT(TotalFitnessResult tt){
+
+	private String toHTMLfromFRT(TotalFitnessResult tt){
 		String ret="</p>";
 		String out = this.toHTMLfromTR(tt.getTotal());
 		Integer index = 1;
 		for(FitnessResult f : tt.getList()){
-			  
-			    out += "<p>------------ Traccia n."+(index++)+" ------------"+ret;
-			  out +=this.toHTMLfromTR(f); 
-			   out += "<p>-----------------------------------"+ret;
-			
-			
+
+			out += "<p>------------ Traccia n."+(index++)+" ------------"+ret;
+			out +=this.toHTMLfromTR(f); 
+			out += "<p>-----------------------------------"+ret;
+
+
 		}
-		
+
 		return out;
 	}
-	
-	public Point updateworld(int xx, int yy){
+
+	private Point updateworld(int xx, int yy){
 		if(xx>lworld){
 			lworld=xx+50;
 		}
@@ -317,25 +353,25 @@ public class PNVisualizzeJS {
 		if(yy<50){
 			yy=50;
 		}
-		
+
 		return new Point(xx,yy);
-		
+
 	}
-	public String toHTMLfromTR(FitnessResult totalResult){
+	private String toHTMLfromTR(FitnessResult totalResult){
 		String ret="</p>";
 		String tot ="<p> Fitness totale:" +totalResult.getFitness()+"</p>";
 		tot+="<p> Missing Marking:"+totalResult.getMissingMarking()+ret;
 		tot+="<p> Remaning Marking: "+ totalResult.getRemainingMarking()+ret;
 		tot+="<p> Transizioni che non fittano:"+ret;
 		for (Transition t : totalResult.getMapTransition().keySet()){
-		    Integer i = totalResult.getMapTransition().get(t);
-		    tot +="<p>       "+t+" : "+i+" tracce"+ret;
+			Integer i = totalResult.getMapTransition().get(t);
+			tot +="<p>       "+t+" : "+i+" tracce"+ret;
 		}
 		tot+="<p> Attivazioni degli archi:"+ret;
 		for (Arc a : totalResult.getMapArc().keySet()){
-		    String asString = "<p> FROM "+a.getSource()+" TO "+a.getTarget();
-		    Integer i = totalResult.getMapArc().get(a);
-		    tot += "     "+asString+" : "+i+" attivazioni"+ret;
+			String asString = "<p> FROM "+a.getSource()+" TO "+a.getTarget();
+			Integer i = totalResult.getMapArc().get(a);
+			tot += "     "+asString+" : "+i+" attivazioni"+ret;
 		}
 		return tot;
 	}	

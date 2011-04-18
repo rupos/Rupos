@@ -40,6 +40,8 @@ public class ProMManager {
     PluginDescriptor suggestPlugin = null;
     CLIContext globalContext = null;
     PluginContext context = null;
+    
+    
 
     @Plugin(name = "ProMManager", parameterLabels = {}, returnLabels = {}, returnTypes = {}, userAccessible = false)
     @Bootable
@@ -94,7 +96,6 @@ public class ProMManager {
 	if (suggestPlugin == null) {
 	    System.out.println("Plugin SuggestSettings not found");
 	}
-
 	System.out.println("End Initializazion 1");
 	return this;
     }
@@ -152,6 +153,8 @@ public class ProMManager {
 	System.out.println("------------------------------");
 	TotalFitnessResult fitness = res2.getResult(0);
 	System.out.println("------------------------------");
+	
+	context1.getParentContext().deleteChild(context1);
 	return fitness;
     }
 
