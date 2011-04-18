@@ -372,6 +372,14 @@ public class ReplayFitnessPlugin {
 	return total;
     }
 
+    @Plugin(name = "FitnessSuggestSettings", returnLabels = { "Settings" }, returnTypes = { ReplayFitnessSetting.class }, parameterLabels = {}, userAccessible = true)
+    @UITopiaVariant(affiliation = UITopiaVariant.EHV, author = "T. Yuliani and H.M.W. Verbeek", email = "h.m.w.verbeek@tue.nl")
+    public ReplayFitnessSetting suggestSettings(PluginContext context, XLog log, Petrinet net) {
+	ReplayFitnessSetting settings = new ReplayFitnessSetting();
+	suggestActions(settings, log, net);
+	return settings;
+    }
+
     @Visualizer
 	@Plugin(name = "Fitness Result Visualizer", parameterLabels = "String", returnLabels = "Label of String", returnTypes = JComponent.class)
 	public static JComponent visualize(PluginContext context, TotalFitnessResult tovisualize) {

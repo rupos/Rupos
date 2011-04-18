@@ -18,6 +18,7 @@ import org.processmining.framework.plugin.PluginExecutionResult;
 import org.processmining.models.graphbased.directed.petrinet.Petrinet;
 import org.processmining.models.semantics.petrinet.Marking;
 import org.deckfour.xes.model.XLog;
+import org.processmining.plugins.petrinet.replayfitness.ReplayFitnessSetting;
 
 import org.processmining.plugins.petrinet.replayfitness.ReplayFitness;
 import org.processmining.plugins.petrinet.replay.ReplayAction;
@@ -36,6 +37,7 @@ public class ProMManager {
     PluginDescriptor fitnessPlugin = null;
     PluginDescriptor importNetPlugin = null;
     PluginDescriptor performancePlugin = null;
+    PluginDescriptor suggestPlugin = null;
     CLIContext globalContext = null;
     PluginContext context = null;
 
@@ -57,6 +59,8 @@ public class ProMManager {
 		performancePlugin = plugin;
 	    else if ("Import Petri net from PNML file".equals(plugin.getName()))
 		importNetPlugin = plugin;
+	    else if ("FitnessSuggestSettings".equals(plugin.getName()))
+		suggestPlugin = plugin;
 	    else
 		continue;
 	    if (false) {
@@ -87,6 +91,9 @@ public class ProMManager {
 	if (performancePlugin == null) {
 	    System.out.println("Plugin Performance not found");
 	}
+	if (suggestPlugin == null) {
+	    System.out.println("Plugin SuggestSettings not found");
+	}
 
 	System.out.println("End Initializazion 1");
 	return this;
@@ -107,7 +114,7 @@ public class ProMManager {
 	Marking startMarking = res.getResult(1);
 	System.out.println("------------------------------");
 
-	PetriNetEngine res1 = new PetriNetEngine(net, startMarking);
+	PetriNetEngine res1 = new PetriNetEngine(this, net, startMarking);
 	return res1;
     }
 
@@ -119,5 +126,15 @@ public class ProMManager {
 	openLogPlugin.invoke(0, context1, logFile);
 	context1.getResult().synchronize();
 	return (XLog)context1.getResult().getResult(0);
+    }
+
+    public ReplayFitnessSetting suggestSettings(Petrinet net, XLog log) throws ExecutionException,InterruptedException {
+	System.out.println("------------------------------");
+	System.out.println("Suggest settings");
+	System.out.println("------------------------------");
+	PluginContext context1 = context.createChildContext("Result of suggest settings");
+	suggestPlugin.invoke(0, context1, log, net);
+	context1.getResult().synchronize();
+	return (ReplayFitnessSetting)context1.getResult().getResult(0);
     }
 }
