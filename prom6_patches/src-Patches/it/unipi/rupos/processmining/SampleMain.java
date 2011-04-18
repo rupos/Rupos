@@ -13,8 +13,11 @@ public class SampleMain {
 	
     	//String logFile = "../prom5_log_files/TracceRupos.mxml";
     	//String netFile = "../prom5_log_files/TracceRuposAlpha.pnml";
-    	String logFile = "../prom5_log_files/InviaFlusso.mxml";
-    	String netFile = "../prom5_log_files/InviaFlussoWoped.pnml";
+    	//String logFile = "../prom5_log_files/InviaFlusso.mxml";
+    	//String netFile = "../prom5_log_files/InviaFlussoWoped.pnml";
+    	String logFile = "/home/spagnolo1/rupos_new/Rupos/prom5_log_files/InviaFlusso.mxml";
+    	String netFile = "/home/spagnolo1/rupos_new/Rupos/prom5_log_files/InviaFlussoWoped.pnml";
+    	
     	//String logFile = "../prom5_log_files/sequence.mxml";
     	//String netFile = "../prom5_log_files/sequence_prom6.pnml";
     	
@@ -50,14 +53,31 @@ public class SampleMain {
 	    	break;
 	}
 	long endFitness2 = System.currentTimeMillis();
-
+	
+	
+	System.out.println("Time fitness single call " + (endFitness - startFitness));
+	System.out.println("Time fitness multiple calls " + (endFitness2 - startFitness2));
+	
+	
 	long startPerformance= System.currentTimeMillis();
 	TotalPerformanceResult performance = engine.getPerformance(log, settings);
 	System.out.println(performance);
 	long endPerformance = System.currentTimeMillis();
 
-	System.out.println("Time fitness single call " + (endFitness - startFitness));
-	System.out.println("Time fitness multiple calls " + (endFitness2 - startFitness2));
+	long startPerformance2 = System.currentTimeMillis();
+	 i=0;
+	 maxIter = 10;
+	for (XTrace trace:log) {
+	    fitness = engine.getFitness(trace, settings);
+	    // System.out.println("Fitness: " + fitness);
+	    if (++i > maxIter)
+	    	break;
+	}
+	long endPerformance2 = System.currentTimeMillis();
+
+	
+	System.out.println("Time Performance single call " + (endPerformance - startPerformance));
+	System.out.println("Time Performance multiple calls " + (endPerformance2 - startPerformance2));
 	
 	manager.closeContext();
     }

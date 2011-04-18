@@ -202,7 +202,7 @@ public class MainCLI {
 
 	public static void main(String[] args) throws Exception {
 	    Boot.VERBOSE = Level.NONE;
-	    Boot.boot(MainCLI.class, CLIPluginContext.class, args);
+	  Object ss =  Boot.boot(MainCLI.class, CLIPluginContext.class, args);
 	}
 
     public static void loadSettings(ReplayFitnessSetting setting) {

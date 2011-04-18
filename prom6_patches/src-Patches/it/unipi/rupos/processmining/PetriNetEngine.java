@@ -42,8 +42,14 @@ public class PetriNetEngine {
 	return manager.getFitness(this.net, log, settings);
     }
 
-	public TotalPerformanceResult getPerformance(XLog log,
+    public TotalPerformanceResult getPerformance(XLog log,
 			ReplayFitnessSetting settings) throws CancellationException, ExecutionException, InterruptedException {
+		return manager.getPerformance(this.net, log, settings);
+	}
+    public TotalPerformanceResult getPerformance(XTrace trace,
+			ReplayFitnessSetting settings) throws CancellationException, ExecutionException, InterruptedException {
+    	XLog log = new XLogImpl(new XAttributeMapImpl());
+    	log.add(trace);
 		return manager.getPerformance(this.net, log, settings);
 	}
 }
