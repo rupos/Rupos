@@ -4,20 +4,30 @@ import org.processmining.contexts.cli.ProMFactory;
 import org.processmining.contexts.cli.ProMManager;
 import org.deckfour.xes.model.XLog;
 import org.deckfour.xes.model.XTrace;
+import org.processmining.plugins.petrinet.replay.ReplayAction;
 import org.processmining.plugins.petrinet.replayfitness.ReplayFitnessSetting;
 import org.processmining.plugins.petrinet.replayfitness.TotalFitnessResult;
 import org.processmining.plugins.petrinet.replayfitness.TotalPerformanceResult;
 
+/**
+ * @author Dipartimento di Informatica - Rupos
+ *
+ */
 public class SampleMain {
     public static void main(String [] args) throws Exception {
 	
     	//String logFile = "../prom5_log_files/TracceRupos.mxml";
     	//String netFile = "../prom5_log_files/TracceRuposAlpha.pnml";
-    	String logFile = "../prom5_log_files/InviaFlusso.mxml";
-    	String netFile = "../prom5_log_files/InviaFlussoWoped.pnml";
-    	//String logFile = "/home/spagnolo1/rupos_new/Rupos/prom5_log_files/InviaFlusso.mxml";
-    	//String netFile = "/home/spagnolo1/rupos_new/Rupos/prom5_log_files/InviaFlussoWoped.pnml";
+    	//String logFile = "../prom5_log_files/InviaFlusso.mxml";
+    	//String netFile = "../prom5_log_files/InviaFlussoWoped.pnml";
+    	//String logFile = "../prom5_log_files/InviaFlusso.mxml";
+    	//String netFile = "../prom5_log_files/InviaFlussoWoped.pnml";
     	
+	String logFile = "../prom5_log_files/recursionprove3.mxml";
+    	String netFile = "../prom5_log_files/ReteAdHocRicorsionePerformacexProm6.pnml";
+	//String netFile = "../prom5_log_files/ReteAdHocRicorsionePerformace3xProm6.pnml";
+        //String logFile = "../prom5_log_files/sequence.mxml";
+    	//String netFile = "../prom5_log_files/seqAlphahiddenx6.pnml";
     	//String logFile = "../prom5_log_files/sequence.mxml";
     	//String netFile = "../prom5_log_files/sequence_prom6.pnml";
     	
@@ -33,7 +43,14 @@ public class SampleMain {
 
 	ReplayFitnessSetting settings = engine.suggestSettings(log);
 	System.out.println("Settings: " + settings);
-
+	settings.setAction(ReplayAction.INSERT_ENABLED_MATCH, true);
+	settings.setAction(ReplayAction.INSERT_ENABLED_INVISIBLE, true);
+	settings.setAction(ReplayAction.REMOVE_HEAD, false);
+	settings.setAction(ReplayAction.INSERT_ENABLED_MISMATCH, false);
+	settings.setAction(ReplayAction.INSERT_DISABLED_MATCH, false);
+	settings.setAction(ReplayAction.INSERT_DISABLED_MISMATCH, false);
+	
+	
 	long startFitness = System.currentTimeMillis();
 	TotalFitnessResult fitness = engine.getFitness(log, settings);
 	long endFitness = System.currentTimeMillis();

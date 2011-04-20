@@ -24,7 +24,10 @@ import org.processmining.plugins.petrinet.replayfitness.TotalPerformanceResult;
 
 import org.processmining.contexts.cli.CLIPluginContext;
 import org.processmining.contexts.cli.CLIContext;
-
+/**
+ * @author Dipartimento di Informatica - Rupos
+ *
+ */
 public class ProMFactory {
     static public PluginDescriptor openLogPlugin = null;
     static PluginDescriptor alphaPlugin = null;
@@ -32,6 +35,10 @@ public class ProMFactory {
     static PluginDescriptor importNetPlugin = null;
     static PluginDescriptor performancePlugin = null;
 
+    /**Permette di inizializzare il framework ProM
+     * @return ProMManager
+     * @throws Exception
+     */
     public ProMManager createManager() throws Exception {
 	    Boot.VERBOSE = Level.NONE;
 	    Object res = Boot.boot(ProMManager.class, CLIPluginContext.class, new String[]{});

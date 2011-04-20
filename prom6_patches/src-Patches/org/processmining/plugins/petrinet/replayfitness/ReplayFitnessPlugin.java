@@ -316,9 +316,11 @@ public class ReplayFitnessPlugin {
 	ReplayFitnessSetting setting = new ReplayFitnessSetting();
 	suggestActions(setting, log, net);
 
-	return getFitnessDetails(context, log, net, setting);
-    }
+	TotalFitnessResult total = getFitnessDetails(context, log, net, setting);
+	
 
+	return total;
+    }
 
 
     @Plugin(name = "FitnessDetailsSettings", returnLabels = { "Fitness Total" }, returnTypes = { TotalFitnessResult.class }, parameterLabels = {}, userAccessible = true)
@@ -337,6 +339,9 @@ public class ReplayFitnessPlugin {
 		}
 
 		TotalFitnessResult total = getFitnessDetails(context, log, net, marking, setting);
+	//visualizza i dati 
+	PNVisualizzeJS js = new PNVisualizzeJS();
+	js.generateJS(net, total);
 	
 	return total;
     }

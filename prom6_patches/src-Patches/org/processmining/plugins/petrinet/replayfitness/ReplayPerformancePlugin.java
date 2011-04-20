@@ -151,6 +151,7 @@ public class ReplayPerformancePlugin {
 
 			Set<Place> places = new HashSet<Place>();
 			places.addAll(marking);
+			List<Transition> futureTrans = sequence.subList(iTrans, sequence.size());
 			for (Place place : places) {
 				PerformanceResult result = null;
 				if (performance.containsKey(place))
@@ -164,11 +165,19 @@ public class ReplayPerformancePlugin {
 
 				// Transitions denending on the current place
 				int maxMarking = 0;
+				int minTransitionDistanceInFuture = futureTrans.size();
 				for (PetrinetEdge<? extends PetrinetNode, ? extends PetrinetNode> edge : net.getOutEdges(place)) {
 					if (! (edge instanceof Arc))
 						continue;
 					Arc arc = (Arc) edge;
 					Transition trs = (Transition)arc.getTarget();
+					int trsPos = futureTrans.indexOf(trs);
+					if (trsPos < 0)
+						continue;
+					if (trsPos > minTransitionDistanceInFuture)
+						continue;
+					minTransitionDistanceInFuture = trsPos;
+						
 					// Transition preset
 					int minMarking = placeMarking;
 					for (PetrinetEdge<? extends PetrinetNode, ? extends PetrinetNode> edge1 : net.getInEdges(trs)) {
@@ -179,7 +188,8 @@ public class ReplayPerformancePlugin {
 						int tokens = marking.occurrences(p1);
 						minMarking = Math.min(minMarking, tokens);
 					}
-					maxMarking = Math.max(maxMarking, minMarking);
+					//maxMarking = Math.max(maxMarking, minMarking);
+					maxMarking = minMarking;
 				}
 				// maxMarking < placeMarking
 				// maxMarking is the consumable tokens

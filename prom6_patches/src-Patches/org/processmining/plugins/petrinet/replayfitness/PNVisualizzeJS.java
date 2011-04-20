@@ -16,7 +16,7 @@ import org.processmining.models.graphbased.directed.petrinet.elements.Transition
 import org.processmining.models.semantics.petrinet.Marking;
 
 /**
- * @author spagnolo1
+ * @author Dipartimento di Informatica - Rupos
  *
  */
 public class PNVisualizzeJS {
@@ -148,7 +148,7 @@ public class PNVisualizzeJS {
 
 		tran +="var "+name+" = pn.Event.create({rect: {x: "+coord.x+", y: "+coord.y+" , width: 7, height: 50}, label: \""+label+"\"});\n ";
 		all+=name+",";*/
-		this.inserTransiction(name, xx, yy, "white");
+		this.inserTransiction(name, xx, yy, "black");
 
 	}
 
