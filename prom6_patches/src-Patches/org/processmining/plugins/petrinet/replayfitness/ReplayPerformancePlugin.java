@@ -87,6 +87,7 @@ public class ReplayPerformancePlugin {
 			List<XEventClass> list = getList(trace, classes);
 			try {
 				List<Transition> sequence = replayer.replayTrace(marking, list, setting);
+				sequence = sortHiddenTransection(net, sequence, map);
 				updatePerformance(net, marking, sequence, semantics, trace, performance, map);
 				replayedTraces++;
 			} catch (Exception ex) {
@@ -104,6 +105,53 @@ public class ReplayPerformancePlugin {
 	
 
 	
+
+	private List<Transition> sortHiddenTransection(Petrinet net, List<Transition> sequence,
+			Map<Transition, XEventClass> map) {
+		for (int i=1; i<sequence.size(); i++) {
+			Transition current = sequence.get(i);
+			Transition prev = sequence.get(i-1);
+			// Do not move visible transitions
+			if (map.containsKey(current)) {
+				continue;
+			}
+			Set<Place> presetCurrent = new HashSet<Place>();
+			Set<Place> postsetPrev = new HashSet<Place>();
+			for (PetrinetEdge<? extends PetrinetNode, ? extends PetrinetNode> edge : net.getInEdges(current)) {
+				if (! (edge instanceof Arc))
+					continue;
+				Arc arc = (Arc) edge;
+				Place place = (Place)arc.getSource();
+				presetCurrent.add(place);
+			}
+			for (PetrinetEdge<? extends PetrinetNode, ? extends PetrinetNode> edge : net.getOutEdges(prev)) {
+				if (! (edge instanceof Arc))
+					continue;
+				Arc arc = (Arc) edge;
+				Place place = (Place)arc.getTarget();
+				postsetPrev.add(place);
+			}
+			
+			// Intersection
+			Set<Place> intersection = new HashSet<Place>();
+			for (Place place : postsetPrev) {
+				if (presetCurrent.contains(place))
+					intersection.add(place);
+			}
+			if (intersection.size() > 0)
+				continue;
+			
+			// Swap Transitions
+			sequence.remove(i-1);
+			sequence.add(i, prev);
+		}
+		return sequence;
+	}
+
+
+
+
+
 
 	private void updatePerformance(Petrinet net, Marking initMarking, List<Transition> sequence, PetrinetSemantics semantics, XTrace trace, TotalPerformanceResult totalResult, Map<Transition, XEventClass> map) {
 		// if (trace.size() != sequence.size())

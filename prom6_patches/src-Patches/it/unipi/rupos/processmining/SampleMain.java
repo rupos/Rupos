@@ -52,23 +52,17 @@ public class SampleMain {
 	
 	
 	long startFitness = System.currentTimeMillis();
-	TotalFitnessResult fitness = engine.getFitness(log, settings);
+	// TotalFitnessResult fitness = engine.getFitness(log, settings);
+	// System.out.println("Fitness: " + fitness);
 	long endFitness = System.currentTimeMillis();
 
-	System.out.println("Fitness: " + fitness);
 
 
 	System.out.println("Fitness for a single TRACE");
 
 	long startFitness2 = System.currentTimeMillis();
-	int i=0;
-	int maxIter = 10;
-	for (XTrace trace:log) {
-	    fitness = engine.getFitness(trace, settings);
-	    // System.out.println("Fitness: " + fitness);
-	    if (++i > maxIter)
-	    	break;
-	}
+	TotalFitnessResult fitness = engine.getFitness(log.get(0), settings);
+	System.out.println("Fitness: " + fitness);
 	long endFitness2 = System.currentTimeMillis();
 	
 	
@@ -77,19 +71,13 @@ public class SampleMain {
 	
 	
 	long startPerformance= System.currentTimeMillis();
-	TotalPerformanceResult performance = engine.getPerformance(log, settings);
-	System.out.println(performance);
+	// TotalPerformanceResult performance = engine.getPerformance(log, settings);
+	// System.out.println(performance);
 	long endPerformance = System.currentTimeMillis();
 
 	long startPerformance2 = System.currentTimeMillis();
-	 i=0;
-	 maxIter = 10;
-	for (XTrace trace:log) {
-	    fitness = engine.getFitness(trace, settings);
-	    // System.out.println("Fitness: " + fitness);
-	    if (++i > maxIter)
-	    	break;
-	}
+	TotalPerformanceResult performance = engine.getPerformance(log.get(0), settings);
+	System.out.println("Fitness: " + performance);
 	long endPerformance2 = System.currentTimeMillis();
 
 	

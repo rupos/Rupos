@@ -90,6 +90,6 @@ public class PetriNetEngine {
 			ReplayFitnessSetting settings) throws CancellationException, ExecutionException, InterruptedException {
     	XLog log = new XLogImpl(new XAttributeMapImpl());
     	log.add(trace);
-		return manager.getPerformance(this.net, log, settings);
-	}
+	return manager.getPerformance(this.net, log, settings);
+    }
 }
