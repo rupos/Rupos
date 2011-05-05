@@ -110,40 +110,46 @@ public class ReplayPerformancePlugin {
 			Map<Transition, XEventClass> map) {
 		for (int i=1; i<sequence.size(); i++) {
 			Transition current = sequence.get(i);
-			Transition prev = sequence.get(i-1);
 			// Do not move visible transitions
 			if (map.containsKey(current)) {
-				continue;
+			    continue;
 			}
 			Set<Place> presetCurrent = new HashSet<Place>();
-			Set<Place> postsetPrev = new HashSet<Place>();
 			for (PetrinetEdge<? extends PetrinetNode, ? extends PetrinetNode> edge : net.getInEdges(current)) {
-				if (! (edge instanceof Arc))
-					continue;
-				Arc arc = (Arc) edge;
-				Place place = (Place)arc.getSource();
-				presetCurrent.add(place);
+			    if (! (edge instanceof Arc))
+				continue;
+			    Arc arc = (Arc) edge;
+			    Place place = (Place)arc.getSource();
+			    presetCurrent.add(place);
 			}
-			for (PetrinetEdge<? extends PetrinetNode, ? extends PetrinetNode> edge : net.getOutEdges(prev)) {
+
+			int k = i-1;
+			while (k >= 0) {
+			    Transition prev = sequence.get(k);
+			    Set<Place> postsetPrev = new HashSet<Place>();
+			    for (PetrinetEdge<? extends PetrinetNode, ? extends PetrinetNode> edge : net.getOutEdges(prev)) {
 				if (! (edge instanceof Arc))
-					continue;
+				    continue;
 				Arc arc = (Arc) edge;
 				Place place = (Place)arc.getTarget();
 				postsetPrev.add(place);
-			}
+			    }
 			
-			// Intersection
-			Set<Place> intersection = new HashSet<Place>();
-			for (Place place : postsetPrev) {
+			    // Intersection
+			    Set<Place> intersection = new HashSet<Place>();
+			    for (Place place : postsetPrev) {
 				if (presetCurrent.contains(place))
-					intersection.add(place);
-			}
-			if (intersection.size() > 0)
-				continue;
+				    intersection.add(place);
+			    }
+			    if (intersection.size() > 0)
+				break;
 			
-			// Swap Transitions
-			sequence.remove(i-1);
-			sequence.add(i, prev);
+			    // Swap Transitions
+			    sequence.remove(k);
+			    sequence.add(k+1, prev);
+
+			    k-=1;
+			}
 		}
 		return sequence;
 	}
