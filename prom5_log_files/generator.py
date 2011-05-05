@@ -73,14 +73,14 @@ class Sequence:
         self.p = p
     def gen(self, t):
         res = ""
-        exceptions = [Entry("Draft")]#, Entry("Study")]
+       # exceptions = [Entry("Draft")]#, Entry("Study")]
         for a in self.l:
             (res1, t) = a.gen(t)
             res += res1
-            if random.random() < self.p:
-                a1 = exceptions[random.randint(0, len(exceptions) - 1)]
-                (res1, t) =a1.gen(t)
-                res += res1
+          #  if random.random() < self.p:
+           #     a1 = exceptions[random.randint(0, len(exceptions) - 1)]
+            #    (res1, t) =a1.gen(t)
+             #   res += res1
         return (res, t)
         
 
@@ -92,31 +92,44 @@ def gen_sequence(t):
 
     acts = Sequence([
              Entry("RegisterUser"),
-             Par([
-                     Entry("Draft"),
-                     Entry("Study")
-                    ]),
-              Recursion(
-                    Sequence([
-                       # Entry("Restart"),
-                           Par([
-                                  Entry("Draft"),  
-                                  Entry("Study")
-				
-                                  ])
-                           ])
-                   )
+	
+             	
+
+	
+	       Recursion(
+		 
+               Sequence([                        
+          	   Par([
+          	           Entry("Draft"),
+          	           Entry("Study")
+          	         ]),
 		
-             , Recursion(
-                    Sequence([
+			Entry("Restart")
+ 			]))
+			
+		   ,Entry("Rejected")
+		 
+            #  Recursion(
+                 #   Sequence([
+                       # Entry("Restart"),
+                  #         Par([
+                  #                Entry("Draft"),  
+                  #                Entry("Study")
+		##		
+                 #                 ])
+                #           ])
+              #     )
+		
+           #  , Recursion(
+                   # Sequence([
                         #Entry("Draft")
 			 #,
-                            Par([
-                                   Entry("Study"), 
-                                    Entry("Draft")
-                                    ])
-                          ])
-                   )
+                        #    Par([
+                     #              Entry("Study"), 
+                        #            Entry("Draft")
+                             #       ])
+                       #   ])
+                #   )
 # #             Recursion(
 # #                  Sequence([
 # #             #         Entry("Restart"),
@@ -129,7 +142,7 @@ def gen_sequence(t):
 # Sequence([ 
 #            Entry("Review"), 
 #              # Choice([
-                     ,Entry("Published")
+                     ,Entry("End")
 #                     # ,Entry("Rejected")
 #                     # ])
 # ], p=0.1)

@@ -339,9 +339,6 @@ public class ReplayFitnessPlugin {
 		}
 
 		TotalFitnessResult total = getFitnessDetails(context, log, net, marking, setting);
-	//visualizza i dati 
-	PNVisualizzeJS js = new PNVisualizzeJS();
-	js.generateJS(net, total);
 	
 	return total;
     }

@@ -19,6 +19,10 @@ import org.processmining.models.semantics.petrinet.Marking;
  * @author Dipartimento di Informatica - Rupos
  *
  */
+/**
+ * @author spagnolo1
+ *
+ */
 public class PNVisualizzeJS {
 
 	private int lworld=800;
@@ -43,49 +47,8 @@ public class PNVisualizzeJS {
 	}
 
 
-	/**Inserisce un place
-	 * @param name: nome del place 
-	 * @param token: numero di token
-	 * @param xx: coordinate posizione x
-	 * @param yy: coordinate posizione y
-	 */
-	public void inserPlace(String name, int token, int xx, int yy){
-		Point coord = updateworld(xx,yy);
-		String label=name;
 
-		name=name.replaceAll("\\W", "");
-
-		place +="var "+name+" = pn.Place.create({position: {x: "+coord.x+", y: "+coord.y+"}, label: \""+label+"\", tokens: "+token+"});\n ";
-		all+=name+",";
-
-
-	}
-
-	/** Inserisce un place e se questo ha il nome Start token=1
-	 * @param name: nome del place
-	 * @param xx: coordinate posizione x
-	 * @param yy: coordinate posizione y
-	 */
-	public void inserPlace(String name, int xx, int yy){
-		Point coord = updateworld(xx,yy);
-		int token=0;
-		String label="";
-		if ((name.equals("Start"))||(name.equals("End"))){
-			label=name;
-		}
-		if ((name.trim() == "Start")){
-			token=1;
-		}
-
-
-		name=name.replaceAll("\\W", "");
-
-		place +="var "+name+" = pn.Place.create({position: {x: "+coord.x+", y: "+coord.y+"}, label: \""+label+"\", tokens: "+token+"});\n ";
-		all+=name+",";
-
-
-
-	}
+	
 
 	/** Inserisce un place
 	 * @param name: nome del place
@@ -95,9 +58,10 @@ public class PNVisualizzeJS {
 	 * @param occ: aggiunge la stringa alla label
 	 */
 	public void inserPlace(String name, int xx, int yy, String color,String occ){
+		
 		Point coord = updateworld(xx,yy);
-		int token=0;
 		String label="";
+		int token=0;
 		if ((name.equals("Start"))||(name.equals("End"))){
 			label+=name;
 		}
@@ -105,17 +69,28 @@ public class PNVisualizzeJS {
 			token=1;
 		}
 		label+=" "+occ;
-
-
 		name=name.replaceAll("\\W", "");
-
-		place +="var "+name+" = pn.Place.create({position: {x: "+coord.x+", y: "+coord.y+"}, label: \""+label+"\", tokens: "+token+", attrs: {stroke: \""+color+"\" , fill : \"white\" } });\n ";
-		all+=name+",";
-
+		this.inserPlace(name, label, token, coord.x, coord.y, color);
 
 
 	}
+	
+	
+	/** Inserisce un place
+	 * @param name: nome del place
+	 * @param label del place
+	 * @param token del place
+	  * @param xx: coordinate posizione x
+	 * @param yy: coordinate posizione y
+	 * @param color: colore del place
+	 * @param occ: aggiunge la stringa alla label
+	 */
+	public void inserPlace(String name,String label,int token, int xx, int yy, String color){
+		
+		place +="var "+name+" = pn.Place.create({position: {x: "+xx+", y: "+yy+"}, label: \""+label+"\", tokens: "+token+", attrs: {stroke: \""+color+"\" , fill : \"white\" } });\n ";
+		//all+=name+",";
 
+	}
 	/** Inserisce una transizione 
 	 * @param name: nome della transizione
 	 * @param xx: coordinata x
@@ -141,13 +116,7 @@ public class PNVisualizzeJS {
 	 * @param yy: coordinata y
 	 */
 	public void inserTransiction(String name, int xx, int yy){
-		/*Point coord = updateworld(xx,yy);
-		String label=name;
-
-		name=name.replaceAll("\\W", "");
-
-		tran +="var "+name+" = pn.Event.create({rect: {x: "+coord.x+", y: "+coord.y+" , width: 7, height: 50}, label: \""+label+"\"});\n ";
-		all+=name+",";*/
+		
 		this.inserTransiction(name, xx, yy, "black");
 
 	}
@@ -169,7 +138,7 @@ public class PNVisualizzeJS {
 	}
 
 
-	/** Scrivi su file la rete
+	/** Scrivi su file html la rete con i risultati annessi
 	 * @param path del file
 	 * @param Result Struttura dati TotalFitnessResult contenente i risultati della fitness
 	 */
@@ -180,20 +149,16 @@ public class PNVisualizzeJS {
 		try {
 			w = new FileWriter(path);
 			BufferedWriter b = new BufferedWriter(w);
-			//all+=all.substring(0, all.length()-1)+"];\n ";
+		
 			b.write(head);
 			b.write(head2);
 			b.write(place);
 			b.write(tran);
-			//b.write(all);
 			b.write(arc);
 			b.write("</script>");
-
-			//b.write(this.toHTMLfromTR(Result.total));
 			b.write(this.toHTMLfromFRT(Result));
 			b.write("</body></html>");
 
-			//b.write(foot);
 			b.flush();
 			b.close();
 
@@ -204,7 +169,7 @@ public class PNVisualizzeJS {
 
 	}
 
-	/**Scrivi su file la rete di petri
+	/**Scrivi su file solo la rete di petri
 	 * @param path del file
 	 */
 	public void toFile(String path) {
@@ -214,12 +179,12 @@ public class PNVisualizzeJS {
 		try {
 			w = new FileWriter(path);
 			BufferedWriter b = new BufferedWriter(w);
-			//all+=all.substring(0, all.length()-1)+"];\n ";
+		
 			b.write(head);
 			b.write(head2);
 			b.write(place);
 			b.write(tran);
-			//b.write(all);
+		
 			b.write(arc);
 			b.write(foot);
 			b.flush();
@@ -250,10 +215,11 @@ public class PNVisualizzeJS {
 
 
 	/**Genera una pagina html in cui vengono visualizzate le informazioni di conformance
+	 * @param file nome del file nel quale scrivere le informazioni di cornformance
 	 * @param net rete di petri
 	 * @param totalResult informazioni di conformance
 	 */
-	public void generateJS(PetrinetGraph net, TotalFitnessResult Result){
+	public void generateJS(String file, PetrinetGraph net, TotalFitnessResult Result){
 		FitnessResult totalResult = Result.total;
 		for (Place pl : net.getPlaces()) {
 			Object point =	pl.getAttributeMap().get(AttributeMap.POSITION);
@@ -278,7 +244,7 @@ public class PNVisualizzeJS {
 				this.inserPlace(pl.getLabel(), x, y, "red", "-"+String.valueOf(i));
 			}
 			if(i<=0 && ii<=0){
-				this.inserPlace(pl.getLabel(), x, y);
+				this.inserPlace(pl.getLabel(), x, y, "black", "");
 			}
 		}
 		boolean flag=true;
@@ -321,7 +287,7 @@ public class PNVisualizzeJS {
 		}
 
 		this.generateJSR(totalResult); //archi con peso
-		this.toFile("../javascrips/conformance.html", Result);
+		this.toFile(file, Result);
 	}
 
 	private String toHTMLfromFRT(TotalFitnessResult tt){
@@ -376,3 +342,4 @@ public class PNVisualizzeJS {
 		return tot;
 	}	
 }
+
