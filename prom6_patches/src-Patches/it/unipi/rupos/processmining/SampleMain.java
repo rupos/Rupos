@@ -8,6 +8,7 @@ import org.processmining.plugins.petrinet.replay.ReplayAction;
 import org.processmining.plugins.petrinet.replayfitness.ReplayFitnessSetting;
 import org.processmining.plugins.petrinet.replayfitness.TotalFitnessResult;
 import org.processmining.plugins.petrinet.replayfitness.TotalPerformanceResult;
+import org.processmining.plugins.petrinet.replayfitness.PerformanceVisualJS;
 import org.processmining.plugins.petrinet.replayfitness.PNVisualizzeJS;
 
 /**
@@ -26,9 +27,9 @@ public class SampleMain {
     	
 	//String logFile = "../prom5_log_files/provepar.mxml";
     	//String netFile = "../prom5_log_files/provepar3xProm6.pnml";
-	String logFile = "../prom5_log_files/recursionprove3.mxml";
+	//String logFile = "../prom5_log_files/recursionprove3.mxml";
     	String netFile = "../prom5_log_files/ReteAdHocRicorsionePerformacexProm6.pnml";
-	//String netFile = "../prom5_log_files/ReteAdHocRicorsionePerformace3xProm6.pnml";
+	String netFile = "../prom5_log_files/ReteAdHocRicorsionePerformace3xProm6.pnml";
         //String logFile = "../prom5_log_files/sequence.mxml";
     	//String netFile = "../prom5_log_files/seqAlphahiddenx6.pnml";
     	//String logFile = "../prom5_log_files/sequence.mxml";
@@ -87,6 +88,9 @@ public class SampleMain {
 	System.out.println("Fitness: " + performance);
 	long endPerformance2 = System.currentTimeMillis();
 
+	PerformanceVisualJS js2 = new PerformanceVisualJS();
+	js2.generateJS("../javascrips/Performance.html", engine.net, performance.getList().get(0));
+	
 	
 	System.out.println("Time Performance single call " + (endPerformance - startPerformance));
 	System.out.println("Time Performance multiple calls " + (endPerformance2 - startPerformance2));
