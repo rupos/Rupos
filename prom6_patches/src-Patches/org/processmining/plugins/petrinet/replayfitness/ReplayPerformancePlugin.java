@@ -30,6 +30,7 @@ import org.deckfour.xes.model.XEvent;
 import org.deckfour.xes.model.XLog;
 import org.deckfour.xes.model.XTrace;
 import org.deckfour.xes.model.impl.XAttributeTimestampImpl;
+import org.processmining.connections.logmodel.LogPetrinetConnection;
 import org.processmining.connections.logmodel.LogPetrinetConnectionImpl;
 import org.processmining.contexts.uitopia.UIPluginContext;
 import org.processmining.contexts.uitopia.annotations.UITopiaVariant;
@@ -75,7 +76,7 @@ public class ReplayPerformancePlugin {
 		
 		XEventClasses classes = getEventClasses(log);
 		Map<Transition, XEventClass> map = getMapping(classes, net);
-		context.getConnectionManager().addConnection(new LogPetrinetConnectionImpl(log, classes, net, map));
+		LogPetrinetConnection con =context.getConnectionManager().addConnection(new LogPetrinetConnectionImpl(log, classes, net, map));
 
 		PetrinetSemantics semantics = PetrinetSemanticsFactory.regularPetrinetSemantics(Petrinet.class);
 
@@ -88,7 +89,7 @@ public class ReplayPerformancePlugin {
 			try {
 				List<Transition> sequence = replayer.replayTrace(marking, list, setting);
 				sequence = sortHiddenTransection(net, sequence, map);
-				updatePerformance(net, marking, sequence, semantics, trace, performance, map);
+				updatePerformance(net, marking, sequence, semantics, trace, performance, map, con);
 				replayedTraces++;
 			} catch (Exception ex) {
 				ex.printStackTrace();
@@ -159,7 +160,7 @@ public class ReplayPerformancePlugin {
 
 
 
-	private void updatePerformance(Petrinet net, Marking initMarking, List<Transition> sequence, PetrinetSemantics semantics, XTrace trace, TotalPerformanceResult totalResult, Map<Transition, XEventClass> map) {
+	private void updatePerformance(Petrinet net, Marking initMarking, List<Transition> sequence, PetrinetSemantics semantics, XTrace trace, TotalPerformanceResult totalResult, Map<Transition, XEventClass> map, LogPetrinetConnection con) {
 		// if (trace.size() != sequence.size())
 		//     System.exit(1);
 
@@ -186,7 +187,10 @@ public class ReplayPerformancePlugin {
 		int iTrace = -1;
 		for (int iTrans=0; iTrans<sequence.size(); iTrans++) {
 			Transition transition = sequence.get(iTrans);
-			
+			Set<XEventClass> taskSet = con.getActivitiesFor(transition);
+			if(taskSet.isEmpty()&&(iTrace==-1)){ //Initial Invisible task
+				continue;
+			}
 			
 			if (map.containsKey(transition)) {
 				iTrace+=1;

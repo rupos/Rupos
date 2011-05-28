@@ -1,0 +1,2063 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkflowLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://is.tm.tue.nl/research/processmining/WorkflowLog.xsd" description="Sample Guancio Log File">
+  <Source program="Example One from Guancio"/>
+  <Process id="Paper" description="Paper Submission">
+
+
+    <ProcessInstance id="0" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookAir</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-26T16:32:45.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-26T16:07:31.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-26T17:16:21.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-26T18:27:27.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookTrain</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-26T18:04:47.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-26T19:10:48.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="1" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="2" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="3" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-26T19:10:04.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookTrain</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-26T19:31:52.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-26T20:08:16.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="4" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="5" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="6" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="7" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="8" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="9" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="10" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-27T02:23:41.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookTrain</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-27T02:27:33.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-27T03:06:01.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookTrain</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-27T04:24:34.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-27T04:21:56.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-27T05:12:46.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="11" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="12" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookAir</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-27T04:28:23.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-27T04:28:07.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-27T05:08:01.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="13" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="14" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookAir</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-27T06:22:33.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-27T06:08:08.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-27T07:09:48.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="15" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="16" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="17" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookTrain</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-27T09:11:27.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-27T09:32:49.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-27T10:30:11.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookAir</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-27T11:12:26.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-27T11:28:00.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-27T12:26:42.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="18" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-27T10:24:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookTrain</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-27T10:08:34.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-27T11:18:05.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="19" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-27T11:22:04.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookAir</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-27T11:08:48.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-27T12:14:45.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookAir</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-27T13:21:36.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-27T13:29:45.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-27T14:13:46.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="20" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-27T12:32:43.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookTrain</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-27T12:07:00.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-27T13:14:16.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-27T14:21:20.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookTrain</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-27T14:16:43.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-27T15:07:32.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="21" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookTrain</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-27T13:26:24.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-27T13:28:57.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-27T14:19:34.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookAir</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-27T15:29:00.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-27T15:06:29.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-27T16:21:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="22" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="23" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-27T15:33:46.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookTrain</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-27T15:20:18.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-27T16:18:29.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="24" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="25" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="26" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-27T18:31:46.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookTrain</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-27T18:10:51.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-27T19:12:13.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-27T20:07:06.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookAir</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-27T20:13:47.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-27T21:15:48.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="27" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="28" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookTrain</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-27T20:16:06.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-27T20:14:17.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-27T21:24:38.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="29" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="30" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="31" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-27T23:04:02.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookTrain</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-27T23:16:03.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T00:12:47.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T01:17:18.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookAir</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T01:24:14.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T02:27:21.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="32" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="33" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookTrain</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T01:30:35.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T01:25:26.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T02:05:35.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="34" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookTrain</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T02:06:30.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T02:18:04.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T03:11:03.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="35" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="36" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T04:28:43.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookAir</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T04:14:22.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T05:12:07.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T06:18:24.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookTrain</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T06:05:10.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T07:12:44.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="37" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="38" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="39" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookAir</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T07:05:19.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T07:28:47.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T08:31:15.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="40" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T08:28:30.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookAir</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T08:14:19.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T09:26:01.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="41" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T09:20:15.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookTrain</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T09:14:21.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T10:28:59.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T11:11:55.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookTrain</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T11:06:35.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T12:10:02.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="42" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookTrain</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T10:17:02.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T10:11:43.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T11:19:29.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookTrain</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T12:30:06.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T12:25:33.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T13:10:22.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="43" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T11:33:03.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookAir</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T11:05:55.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T12:20:13.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookAir</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T13:13:05.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T13:12:45.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T14:04:50.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="44" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="45" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="46" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="47" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookTrain</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T15:13:51.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T15:20:14.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T16:19:02.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="48" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookTrain</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T16:10:07.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T16:17:44.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T17:19:15.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookTrain</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T18:04:16.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T18:13:52.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T19:30:27.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="49" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T17:27:39.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookTrain</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T17:21:30.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T18:33:17.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T19:15:27.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookAir</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T19:32:47.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T20:15:49.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="50" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="51" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="52" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T20:12:37.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookTrain</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T20:32:52.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T21:13:11.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T22:12:08.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookTrain</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T22:25:39.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T23:22:56.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="53" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="54" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T22:20:16.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookTrain</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T22:04:44.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T23:32:13.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookAir</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-29T00:25:05.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-29T00:21:03.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-29T01:11:31.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="55" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookTrain</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T23:05:45.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-28T23:26:16.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-29T00:14:21.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookTrain</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-29T01:32:38.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-29T01:16:01.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-29T02:14:54.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="56" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookAir</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-29T00:06:58.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-29T00:26:16.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-29T01:23:46.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookTrain</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-29T02:16:26.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-29T02:27:44.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-29T03:29:30.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="57" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="58" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookAir</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-29T02:19:52.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-29T02:26:31.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-29T03:11:24.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookTrain</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-29T04:16:01.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-29T04:13:46.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-29T05:30:51.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="59" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="60" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="61" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="62" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="63" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-29T07:26:29.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookAir</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-29T07:25:16.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-29T08:23:50.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-29T09:07:41.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookTrain</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-29T09:27:03.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-29T10:08:06.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="64" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-29T08:16:05.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookAir</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-29T08:06:08.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-29T09:29:53.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-29T10:11:58.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookAir</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-29T10:24:07.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-29T11:33:49.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="65" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="66" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-29T10:16:39.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookTrain</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-29T10:08:24.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-29T11:10:00.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-29T12:20:22.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookAir</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-29T12:32:08.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-29T13:15:37.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="67" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="68" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="69" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="70" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="71" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="72" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-29T16:33:54.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookTrain</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-29T16:17:14.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-29T17:05:37.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookAir</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-29T18:04:29.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-29T18:11:06.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-29T19:17:13.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="73" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="74" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookAir</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-29T18:05:33.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-29T18:11:42.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-29T19:13:16.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="75" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="76" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="77" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-29T21:10:42.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookAir</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-29T21:16:18.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-29T22:22:16.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="78" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-29T22:30:28.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookTrain</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-29T22:22:04.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-29T23:06:13.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookTrain</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-30T00:30:41.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-30T00:33:13.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-30T01:33:42.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="79" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-29T23:16:08.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookTrain</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-29T23:31:42.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-30T00:18:31.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-30T01:21:46.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookTrain</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-30T01:17:53.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-30T02:31:55.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="80" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-30T00:29:27.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookTrain</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-30T00:28:44.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-30T01:31:34.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookAir</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-30T02:25:48.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-30T02:05:49.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-30T03:24:11.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="81" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookAir</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-30T01:16:16.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-30T01:25:32.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-30T02:25:42.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="82" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="83" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="84" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-30T04:28:08.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookAir</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-30T04:23:15.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-30T05:07:13.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookTrain</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-30T06:16:45.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-30T06:12:22.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-30T07:17:38.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="85" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="86" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-30T06:23:58.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookTrain</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-30T06:26:06.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-30T07:08:41.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="87" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="88" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-30T08:20:04.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookTrain</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-30T08:12:57.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-30T09:09:58.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="89" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="90" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="91" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="92" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-30T12:12:28.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookTrain</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-30T12:13:36.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-30T13:16:29.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-30T14:15:19.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookAir</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-30T14:21:18.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-30T15:24:59.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="93" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="94" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="95" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="96" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="97" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookAir</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-30T17:15:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-30T17:22:03.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-30T18:31:24.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookCar</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-30T19:23:27.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>BookAir</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-30T19:18:06.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Payment</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-05-30T20:25:04.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="98" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="99" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+  </Process>
+</WorkflowLog>
+

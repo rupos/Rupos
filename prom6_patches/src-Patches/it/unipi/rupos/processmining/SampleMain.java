@@ -27,8 +27,10 @@ public class SampleMain {
     	
 	//String logFile = "../prom5_log_files/provepar.mxml";
     	//String netFile = "../prom5_log_files/provepar3xProm6.pnml";
-	String logFile = "../prom5_log_files/recursionprove3.mxml";
-    	String netFile = "../prom5_log_files/ReteAdHocRicorsionePerformacexProm6.pnml";
+	//String logFile = "../prom5_log_files/Export_Protocollo.xes";
+    	//String netFile = "../prom5_log_files/porva.pnml";
+	String logFile = "../prom5_log_files/wsfmexample.mxml";
+    	String netFile = "../prom5_log_files/booking.pnml";
 	//String netFile = "../prom5_log_files/ReteAdHocRicorsionePerformace3xProm6.pnml";
         //String logFile = "../prom5_log_files/sequence.mxml";
     	//String netFile = "../prom5_log_files/seqAlphahiddenx6.pnml";

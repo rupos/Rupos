@@ -243,7 +243,7 @@ public class PerformanceVisualJS {
 					" frame.toFront(); label[0].toFront(); label[1].toFront(); label[2].toFront(); blanket.toFront(); };\n";
 			b.write(popup);
 			b.write("</script>");
-			b.write(this.toHTMLfromFRT(Result));
+			b.write(this.toHTMLfromMPP(Result));
 			b.write("</body></html>");
 
 			b.flush();
@@ -410,6 +410,33 @@ public class PerformanceVisualJS {
 	    }
 
 
+		return out;
+	}
+	
+	
+	private String toHTMLfromMPP(Map<Place, PerformanceResult> Result ){
+		String start = "<table border=\"2px\" style=\"width: 100%\">";
+		String end ="</table>";
+		String placen ="<td>Name Place</td>\n";
+		String waitt="<td>WaitTime</td>\n";
+		String synct="<td>SyncTime</td>\n";
+		String sogtime="<td>SoggTime</td>\n";
+		
+		String out = "";
+		
+		Iterator it = Result.entrySet().iterator();
+	    while (it.hasNext()) {
+	        Map.Entry pairs = (Map.Entry)it.next();
+	        Place place =(Place) pairs.getKey();
+	        PerformanceResult perRes = (PerformanceResult) pairs.getValue();
+	        placen+="<td>"+place.getLabel()+"</td>\n";
+	        waitt += "<td>"+perRes.waitTime+"</td>\n";
+	        synct += "<td>"+perRes.synchTime+"</td>\n";
+	        sogtime += "<td>"+perRes.time+"</td>\n";
+	        
+	    }
+
+	    out=start+"<tr>"+placen+"</tr>"+"<tr>"+waitt+"</tr>"+"<tr>"+synct+"</tr>"+"<tr>"+sogtime+"</tr>"+end;
 		return out;
 	}
 
