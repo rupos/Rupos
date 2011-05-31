@@ -89,7 +89,7 @@ public class ReplayPerformancePlugin {
 			try {
 				List<Transition> sequence = replayer.replayTrace(marking, list, setting);
 				sequence = sortHiddenTransection(net, sequence, map);
-				updatePerformance(net, marking, sequence, semantics, trace, performance, map, con);
+				updatePerformance(net, marking, sequence, semantics, trace, performance, map);
 				replayedTraces++;
 			} catch (Exception ex) {
 				ex.printStackTrace();
@@ -160,7 +160,7 @@ public class ReplayPerformancePlugin {
 
 
 
-	private void updatePerformance(Petrinet net, Marking initMarking, List<Transition> sequence, PetrinetSemantics semantics, XTrace trace, TotalPerformanceResult totalResult, Map<Transition, XEventClass> map, LogPetrinetConnection con) {
+	private void updatePerformance(Petrinet net, Marking initMarking, List<Transition> sequence, PetrinetSemantics semantics, XTrace trace, TotalPerformanceResult totalResult, Map<Transition, XEventClass> map) {
 		// if (trace.size() != sequence.size())
 		//     System.exit(1);
 
@@ -187,18 +187,15 @@ public class ReplayPerformancePlugin {
 		int iTrace = -1;
 		for (int iTrans=0; iTrans<sequence.size(); iTrans++) {
 			Transition transition = sequence.get(iTrans);
-			Set<XEventClass> taskSet = con.getActivitiesFor(transition);
-			if(taskSet.isEmpty()&&(iTrace==-1)){ //Initial Invisible task
-				continue;
-			}
-			
+			long d2=d1;
 			if (map.containsKey(transition)) {
 				iTrace+=1;
 			}
-			
+			if(iTrace>=0){
 			XEvent event = trace.get(iTrace);
 			XAttributeTimestampImpl date1  = (XAttributeTimestampImpl)(event.getAttributes().get("time:timestamp"));
-			long d2 = date1.getValue().getTime();
+			d2 = date1.getValue().getTime();
+			}
 			float deltaTime = d2-d1;
 			d1 = d2;
 
