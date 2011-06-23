@@ -29,8 +29,8 @@ public class SampleMain {
     	//String netFile = "../prom5_log_files/provepar3xProm6.pnml";
 	//String logFile = "../prom5_log_files/Export_Protocollo.xes";
     	//String netFile = "../prom5_log_files/porva.pnml";
-	String logFile = "../prom5_log_files/wsfmexample.mxml";
-    	String netFile = "../prom5_log_files/booking.pnml";
+	String logFile = "../prom5_log_files/wsfm.mxml";
+    	String netFile = "../prom5_log_files/residency.pnml";
 	//String netFile = "../prom5_log_files/ReteAdHocRicorsionePerformace3xProm6.pnml";
         //String logFile = "../prom5_log_files/sequence.mxml";
     	//String netFile = "../prom5_log_files/seqAlphahiddenx6.pnml";
@@ -53,13 +53,13 @@ public class SampleMain {
 	settings.setAction(ReplayAction.INSERT_ENABLED_INVISIBLE, true);
 	settings.setAction(ReplayAction.REMOVE_HEAD, false);
 	settings.setAction(ReplayAction.INSERT_ENABLED_MISMATCH, false);
-	settings.setAction(ReplayAction.INSERT_DISABLED_MATCH, false);
+	settings.setAction(ReplayAction.INSERT_DISABLED_MATCH, true);
 	settings.setAction(ReplayAction.INSERT_DISABLED_MISMATCH, false);
 	
 	
 	long startFitness = System.currentTimeMillis();
-	 TotalFitnessResult fitness = engine.getFitness(log, settings);
-	// System.out.println("Fitness: " + fitness);
+	 TotalFitnessResult fitness = engine.getFitness(log.get(0), settings);
+	 System.out.println("Fitness: " + fitness);
 	long endFitness = System.currentTimeMillis();
 
 	//visualizza i dati di conformance con nella pagina html 
@@ -70,14 +70,14 @@ public class SampleMain {
 
 	System.out.println("Fitness for a single TRACE");
 
-	long startFitness2 = System.currentTimeMillis();
-	fitness = engine.getFitness(log.get(0), settings);
-	System.out.println("Fitness: " + fitness);
-	long endFitness2 = System.currentTimeMillis();
+	//long startFitness2 = System.currentTimeMillis();
+	//fitness = engine.getFitness(log.get(0), settings);
+	//System.out.println("Fitness: " + fitness);
+	//long endFitness2 = System.currentTimeMillis();
 	
 	
 	System.out.println("Time fitness single call " + (endFitness - startFitness));
-	System.out.println("Time fitness multiple calls " + (endFitness2 - startFitness2));
+	//System.out.println("Time fitness multiple calls " + (endFitness2 - startFitness2));
 	
 	
 	long startPerformance= System.currentTimeMillis();
@@ -86,7 +86,7 @@ public class SampleMain {
 	long endPerformance = System.currentTimeMillis();
 
 	long startPerformance2 = System.currentTimeMillis();
-	TotalPerformanceResult performance = engine.getPerformance(log.get(4), settings);
+	TotalPerformanceResult performance = engine.getPerformance(log.get(3), settings);
 	System.out.println("Fitness: " + performance);
 	long endPerformance2 = System.currentTimeMillis();
 
