@@ -30,6 +30,7 @@ import org.deckfour.xes.model.XEvent;
 import org.deckfour.xes.model.XLog;
 import org.deckfour.xes.model.XTrace;
 import org.deckfour.xes.model.impl.XAttributeTimestampImpl;
+import org.processmining.connections.logmodel.LogPetrinetConnection;
 import org.processmining.connections.logmodel.LogPetrinetConnectionImpl;
 import org.processmining.contexts.uitopia.UIPluginContext;
 import org.processmining.contexts.uitopia.annotations.UITopiaVariant;
@@ -75,7 +76,7 @@ public class ReplayPerformancePlugin {
 		
 		XEventClasses classes = getEventClasses(log);
 		Map<Transition, XEventClass> map = getMapping(classes, net);
-		context.getConnectionManager().addConnection(new LogPetrinetConnectionImpl(log, classes, net, map));
+		LogPetrinetConnection con =context.getConnectionManager().addConnection(new LogPetrinetConnectionImpl(log, classes, net, map));
 
 		PetrinetSemantics semantics = PetrinetSemanticsFactory.regularPetrinetSemantics(Petrinet.class);
 
@@ -186,15 +187,15 @@ public class ReplayPerformancePlugin {
 		int iTrace = -1;
 		for (int iTrans=0; iTrans<sequence.size(); iTrans++) {
 			Transition transition = sequence.get(iTrans);
-			
-			
+			long d2=d1;
 			if (map.containsKey(transition)) {
 				iTrace+=1;
 			}
-			
+			if(iTrace>=0){
 			XEvent event = trace.get(iTrace);
 			XAttributeTimestampImpl date1  = (XAttributeTimestampImpl)(event.getAttributes().get("time:timestamp"));
-			long d2 = date1.getValue().getTime();
+			d2 = date1.getValue().getTime();
+			}
 			float deltaTime = d2-d1;
 			d1 = d2;
 

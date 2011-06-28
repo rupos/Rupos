@@ -91,7 +91,7 @@ def gen_sequence(t):
   #           ])
 
     acts = Sequence([
-             Entry("RegisterUser"),
+           #  Entry("RegisterUser"),
 	
              	
 
@@ -100,14 +100,14 @@ def gen_sequence(t):
 		 
                Sequence([                        
           	   Par([
-          	           Entry("Draft"),
-          	           Entry("Study")
+          	           Entry("BookAir"),
+          	           Entry("BookCar")
           	         ]),
 		
-			Entry("Restart")
+			Entry("Payment")
  			]))
 			
-		   ,Entry("Rejected")
+		#    ,Entry("Rejected")
 		 
             #  Recursion(
                  #   Sequence([
@@ -142,7 +142,7 @@ def gen_sequence(t):
 # Sequence([ 
 #            Entry("Review"), 
 #              # Choice([
-                     ,Entry("End")
+             #           ,Entry("End")
 #                     # ,Entry("Rejected")
 #                     # ])
 # ], p=0.1)
