@@ -15,6 +15,7 @@ import org.processmining.framework.plugin.annotations.Plugin;
 import org.processmining.framework.util.CommandLineArgumentList;
 import org.processmining.framework.plugin.PluginExecutionResult;
 
+import org.processmining.models.connections.GraphLayoutConnection;
 import org.processmining.models.graphbased.directed.petrinet.Petrinet;
 import org.processmining.models.semantics.petrinet.Marking;
 import org.deckfour.xes.model.XLog;
@@ -128,7 +129,7 @@ public class ProMManager {
 		Petrinet net = res.getResult(0);
 		Marking startMarking = res.getResult(1);
 		System.out.println("------------------------------");
-
+		//GraphLayoutConnection layout = res.getResult(2);
 		PetriNetEngine res1 = new PetriNetEngine(this, net, startMarking);
 		context1.getParentContext().deleteChild(context1);
 		return res1;
@@ -237,6 +238,13 @@ public class ProMManager {
 	}
 
 	public void closeContext() {
+		// for ( PluginContext c:
+		// globalContext.getMainPluginContext().getChildContexts()) {
+		// globalContext.getMainPluginContext().deleteChild(c);
+		// }
+	}
+	public PluginContext getPluginContext() {
+		return this.context;
 		// for ( PluginContext c:
 		// globalContext.getMainPluginContext().getChildContexts()) {
 		// globalContext.getMainPluginContext().deleteChild(c);

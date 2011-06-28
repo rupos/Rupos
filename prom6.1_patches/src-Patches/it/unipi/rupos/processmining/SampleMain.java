@@ -8,8 +8,8 @@ import org.processmining.plugins.petrinet.replay.ReplayAction;
 import org.processmining.plugins.petrinet.replayfitness.ReplayFitnessSetting;
 import org.processmining.plugins.petrinet.replayfitness.TotalFitnessResult;
 import org.processmining.plugins.petrinet.replayfitness.TotalPerformanceResult;
-//import org.processmining.plugins.petrinet.replayfitness.PerformanceVisualJS;
-//import org.processmining.plugins.petrinet.replayfitness.PNVisualizzeJS;
+import org.processmining.plugins.petrinet.replayfitness.PerformanceVisualJS;
+import org.processmining.plugins.petrinet.replayfitness.PNVisualizzeJS;
 
 /**
  * @author Dipartimento di Informatica - Rupos
@@ -63,8 +63,8 @@ public class SampleMain {
 	long endFitness = System.currentTimeMillis();
 
 	//visualizza i dati di conformance con nella pagina html 
-	//PNVisualizzeJS js = new PNVisualizzeJS();
-	//js.generateJS("../javascrips/conformance.html", engine.net, fitness);
+	PNVisualizzeJS js = new PNVisualizzeJS(manager.getPluginContext().getConnectionManager());
+	js.generateJS("../javascrips/conformance.html", engine.net, fitness);
 	
 
 
@@ -90,8 +90,8 @@ public class SampleMain {
 	System.out.println("Fitness: " + performance);
 	long endPerformance2 = System.currentTimeMillis();
 
-	//PerformanceVisualJS js2 = new PerformanceVisualJS();
-	//js2.generateJS("../javascrips/Performance.html", engine.net, performance.getList().get(0));
+	PerformanceVisualJS js2 = new PerformanceVisualJS(manager.getPluginContext().getConnectionManager());
+	js2.generateJS("../javascrips/Performance.html", engine.net, performance.getList().get(0));
 	
 	
 	System.out.println("Time Performance single call " + (endPerformance - startPerformance));
