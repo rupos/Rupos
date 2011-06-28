@@ -12,8 +12,14 @@ files = [f.strip() for f in files if f.strip()!=""]
 destDir = sys.argv[1] 
 os.mkdir(destDir)
 
+os.popen2("svn co --ignore-externals https://svn.win.tue.nl/repos/prom/Framework/trunk/ " + destDir + "/ProM")[1].read()
+
+print "Downloaded ProM"
+
 i = 0
 for f in files:
     os.popen2("svn co --ignore-externals https://svn.win.tue.nl/repos/prom/Packages/"+f + "/Trunk " + destDir + "/" + f)[1].read()
     i += 1
     print "Downloaded ", f, "%d/%d"%(i, len(files))
+
+
