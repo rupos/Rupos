@@ -1,0 +1,217 @@
+<project name="ProM" default="Compile ProM Sources">
+	<description>
+        Build file for XProM.
+		
+		The default target compiles all sources that need compiling, dependend on the repository checked out by the user.
+		After compiling, jar files are put in the /dist folder.
+		
+		The release target releases the jar files into the /current folder. It first acquires SVN locks on the files, then copies
+		them from the /dist folder to the /release folder and finally commits them to the snv repository. Note that this is not
+		done using an atomic commit (yet).
+		
+    </description>
+	<!-- set global properties for this build -->
+	<property name="src" location="src" />
+	<property name="build" location="bindist" />
+	<property name="doc" location="doc" />
+	<property name="lib" location="lib" />
+	<property name="stdlib" location="stdlib" />
+	<property name="current" location="current" />
+	<property name="dist" location="dist" />
+	<property name="version" value="0.9-alpha" />
+	<property name="project" value="ProM" />
+
+	<!-- Compilation macro 
+	 This Macro compiles the sources is one ${src}-... folder. 
+	 Two arguments are required: 
+	   
+	   module, which should be "Plugins", "Framework", "Models" or "Plugins".
+	   
+	   dependson, which should be a (semi)colon separated list of jar files to be added to the classpath. Note that by default,
+	   the jars in the lib folder are added, as well as the java standard libraries and the build folder. (build folder first, then
+	   java standard, then libraries and finally the dependson).
+	     
+	 The sources are compiled into the ${build} folder.
+	 -->
+	<macrodef name="compile">
+		<!-- module, should be "plugins", "framework", "models", or "contexts" -->
+		<attribute name="module" />
+		<attribute name="dependson" />
+		<sequential>
+			<!-- Compile the java code from ${src}-@{module} into ${build} -->
+			<javac srcdir="${src}-@{module}" destdir="${build}" nowarn="false" verbose="no" debug="true" debuglevel="lines,vars,source" deprecation="yes" source="1.6" target="1.6">
+				<classpath>
+					<pathelement path="${build}" />
+					<pathelement path="${java.class.path}" />
+					<fileset dir=".">
+						<include name="lib/**/*.jar" />
+					</fileset>
+					<fileset dir="../prom61_origin/ProM/dist/">
+						<include name="*.jar" />
+					</fileset>
+					<fileset dir="../prom61_origin/ProM/lib/">
+						<include name="*.jar" />
+					</fileset>
+					<fileset dir="../prom61_origin/PetriNets/dist/">
+						<include name="*.jar" />
+					</fileset>
+					<pathelement path="@{dependson}" />
+
+					<fileset dir="../prom61_origin/PetriNetReplayer/dist/">
+						<include name="*.jar" />
+					</fileset>
+
+				</classpath>
+				<!-- Check for unsafe operations -->
+				<compilerarg value="-Xlint:unchecked" />
+			</javac>
+
+		</sequential>
+	</macrodef>
+
+	<!-- Copy macro
+	This Macro copies  compiled binaries from the ${dist} folder to the correct ${current}//project folder.
+	One argument is required, namely module, which should be "Plugins", "Framework, "Models" or "Contexts".
+	-->
+	<macrodef name="copytocurrent">
+		<!-- module, should be "Framework", "Models", or "Contexts" -->
+		<attribute name="module" />
+		<sequential>
+			<copy file="${dist}//${project}-@{module}.jar" tofile="${current}//${project}-@{module}//${project}-@{module}.jar" overwrite="true" />
+		</sequential>
+	</macrodef>
+
+	<!-- Jar macro 
+	This Macro builds a jar file from compiled sources in the ${dist} folder.
+	Two argument are required:
+	   module, which should be "Plugins", "Framework", "Models" or "Plugins".
+	   package, which should be "plugins", "framework", "models" or "plugins".
+	The jar files are built with a date-postfix and copied onto (possibly existing) files without the postfix.
+	-->
+	<macrodef name="makejar">
+		<!-- module, should be "plugins", "framework", "models", or "contexts" -->
+		<attribute name="module" />
+		<attribute name="package" />
+		<sequential>
+			<!-- Create the distribution directory -->
+			<!-- Put everything in ${build} into the MyProject-${DSTAMP}.jar file -->
+			<jar jarfile="${dist}/${project}-@{module}-${DSTAMP}.jar">
+				<fileset dir="${build}">
+					<include name="org//processmining//@{package}//**" />
+					<exclude name="test**" />
+				</fileset>
+				<fileset dir="${src}-@{Module}">
+					<include name="org//processmining//@{package}//**" />
+					<exclude name="test**" />
+				</fileset>
+				<manifest>
+					<attribute name="Built-By" value="${user.name}" />
+					<attribute name="Specification-Title" value="${project}-@{module}" />
+					<attribute name="Specification-Version" value="${version}" />
+					<attribute name="Specification-Vendor" value="www.processmining.org" />
+					<attribute name="Implementation-Title" value="${project}" />
+					<attribute name="Implementation-Version" value="${version} ${TODAY}" />
+					<attribute name="Implementation-Vendor" value="www.processmining.org" />
+					<attribute name="Sealed" value="false" />
+				</manifest>
+			</jar>
+			<copy file="${dist}/${project}-@{module}-${DSTAMP}.jar" tofile="${dist}/${project}-@{module}.jar" overwrite="true" />
+		</sequential>
+	</macrodef>
+
+
+	<!-- clean all binaries and distributions -->
+	<target name="clean" description="clean up" id="1">
+		<!-- Delete the ${build} and ${dist} directory trees -->
+		<delete dir="${build}" />
+		<delete dir="${dist}" />
+	</target>
+
+	<!-- build all sources (requires the framework, models and contexts to have been built.) -->
+	<target name="Compile ProM Sources" depends="init,compile-patches" description="compile the XProM sources">
+		<!-- Nothing to do here, everything is handled in targets this release depends on -->
+	</target>
+
+
+	<!-- create the project's javadoc from all existing sources. Note that only org.processmining.** is included -->
+	<target name="Create ProM Javadoc" description="Generated javadoc">
+		<javadoc packagenames="org.processmining.**" useexternalfile="true" defaultexcludes="yes" destdir="${doc}" author="true" version="true" verbose="false" use="true" windowtitle="${project}">
+			<fileset dir=".">
+				<include name="src-*/**" />
+				<exclude name="src-*/test/**" />
+				<exclude name="**/*.jj" />
+				<exclude name="**/*.jjt" />
+			</fileset>
+		</javadoc>
+	</target>
+
+	<!-- export distribution archive -->
+
+	<!-- initialization (create dirs and timestamp) -->
+	<target name="init">
+		<echo message="Bytecode format: ${bytecode_format}" />
+		<!-- Create the time stamp -->
+		<tstamp />
+		<!-- Create the build directory structure used by compile -->
+		<mkdir dir="${build}" />
+		<mkdir dir="${dist}" />
+		<!-- Check if the framework should be built. 
+		This is the case is the file ${stdlib}//${project}-Framework//${project}-Framework.jar does not exist
+		-->
+		<condition property="build_Patches">
+			<not>
+				<available file="${stdlib}//${project}-Patches//${project}-Patches.jar" />
+			</not>
+		</condition>
+		<!-- java version check -->
+		<!-- Write java version -->
+		<echo message="Used javac version: (should be 1.5.0_16 or 1.6.0_07)" />
+		<exec executable="javac" outputproperty="javacVersion">
+			<arg value="-version" />
+		</exec>
+		<echo message="${javacVersion}" />
+		<!-- Fail if wrong javac version is set. -->
+		<!--	<fail unless="javac_ok" message="Wrong javac version!" /> -->
+	</target>
+
+	<!-- build framework (Only executed if build_Framework is set.)-->
+	<target name="compile-patches" depends="init" if="build_Patches">
+		<echo message="Compiling the patches" />
+		<compile module="Patches" dependson="" />
+		<echo message="Making jar" />
+		<makejar module="Patches" package="framework" />
+	</target>
+
+
+	<!-- Copy framework jar file from dist to current-->
+	<target name="copy-patches" depends="compile-patches" if="build_Patches">
+		<copytocurrent module="Patches" />
+	</target>
+
+
+	<macrodef name="buildBinaryArchive">
+		<attribute name="name" />
+		<sequential>
+			<tar destfile="${dist}/@{name}.tar.gz" compression="gzip" longfile="gnu">
+				<tarfileset dir="." prefix="@{name}" mode="755" username="prom" group="prom">
+					<include name="ProM.bat" />
+					<include name="PackageManager.bat" />
+					<include name="ProM.ini" />
+				</tarfileset>
+				<tarfileset dir="${doc}" prefix="@{name}/doc" mode="755" username="prom" group="prom">
+					<include name="**" />
+				</tarfileset>
+				<tarfileset dir="${lib}" prefix="@{name}/lib" mode="755" username="prom" group="prom">
+					<include name="**" />
+				</tarfileset>
+				<tarfileset dir="${dist}" prefix="@{name}/dist" mode="755" username="prom" group="prom">
+					<include name="ProM-Framework.jar" />
+					<include name="ProM-Models.jar" />
+					<include name="ProM-Contexts.jar" />
+					<include name="ProM-Plugins.jar" />
+				</tarfileset>
+			</tar>
+		</sequential>
+	</macrodef>
+
+</project>
