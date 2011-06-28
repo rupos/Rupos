@@ -1,7 +1,9 @@
 package it.unipi.rupos.processmining;
 
-import org.processmining.contexts.cli.ProMFactory;
-import org.processmining.contexts.cli.ProMManager;
+import java.util.prefs.Preferences;
+
+import org.processmining.contexts.embedded.ProMFactory;
+import org.processmining.contexts.embedded.ProMManager;
 import org.deckfour.xes.model.XLog;
 import org.deckfour.xes.model.XTrace;
 import org.processmining.plugins.petrinet.replay.ReplayAction;
@@ -34,9 +36,14 @@ public class SampleMain {
     	//String logFile = "../prom5_log_files/sequence.mxml";
     	//String netFile = "../prom5_log_files/sequence_prom6.pnml";
     	
-	ProMManager manager = new ProMFactory().createManager();
-	PetriNetEngine engine = manager.createPetriNetEngine(netFile);
-	System.out.println(engine);
+    ProMManager manager = new ProMFactory().createManager();
+
+    	
+    PetriNetEngine engine = manager.createPetriNetEngine(netFile);
+    System.out.println(engine);
+    
+    manager.closeContext();
+    
 
 	engine = manager.createPetriNetEngine(netFile);
 	System.out.println(engine);
@@ -93,4 +100,11 @@ public class SampleMain {
 	
 	manager.closeContext();
     }
+
+	private void test() {
+		Class<? extends SampleMain> cl = getClass();
+		Preferences node = Preferences.userNodeForPackage(cl);
+		Boolean.parseBoolean(node.get("guancio", Boolean.FALSE.toString()));
+		return;
+	}
 }

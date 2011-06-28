@@ -1,6 +1,9 @@
-package org.processmining.contexts.cli;
+package org.processmining.contexts.embedded;
 
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.lang.InterruptedException;
 
 import java.lang.Thread;
@@ -29,7 +32,10 @@ import org.processmining.contexts.cli.CLIContext;
  *
  */
 public class ProMFactory {
-    static public PluginDescriptor openLogPlugin = null;
+	ExecutorService executor = Executors.newCachedThreadPool();
+
+	
+	static public PluginDescriptor openLogPlugin = null;
     static PluginDescriptor alphaPlugin = null;
     static PluginDescriptor fitnessPlugin = null;
     static PluginDescriptor importNetPlugin = null;
@@ -45,4 +51,8 @@ public class ProMFactory {
 	    System.out.println("End Initializazion");
 	    return (ProMManager)res;
     }
+
+	public ExecutorService createExecutor() {
+		return executor;
+	}
 }

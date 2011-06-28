@@ -2,7 +2,7 @@ package it.unipi.rupos.processmining;
 
 import org.processmining.models.graphbased.directed.petrinet.Petrinet;
 import org.processmining.models.semantics.petrinet.Marking;
-import org.processmining.contexts.cli.ProMManager;
+import org.processmining.contexts.embedded.ProMManager;
 
 import org.deckfour.xes.model.XLog;
 import org.deckfour.xes.model.XTrace;

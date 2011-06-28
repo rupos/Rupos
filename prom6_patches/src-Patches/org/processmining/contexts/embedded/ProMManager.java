@@ -1,7 +1,9 @@
-package org.processmining.contexts.cli;
+package org.processmining.contexts.embedded;
 
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
 import java.lang.InterruptedException;
 
 import java.lang.Thread;
@@ -22,12 +24,8 @@ import org.processmining.plugins.petrinet.replayfitness.ReplayFitnessSetting;
 
 import org.processmining.plugins.petrinet.replayfitness.ReplayFitness;
 import org.processmining.plugins.petrinet.replay.ReplayAction;
-import org.processmining.plugins.petrinet.replayfitness.ReplayFitnessSetting;
 import org.processmining.plugins.petrinet.replayfitness.TotalFitnessResult;
 import org.processmining.plugins.petrinet.replayfitness.TotalPerformanceResult;
-
-import org.processmining.contexts.cli.CLIPluginContext;
-import org.processmining.contexts.cli.CLIContext;
 
 import it.unipi.rupos.processmining.PetriNetEngine;
 
@@ -42,13 +40,13 @@ public class ProMManager {
 	PluginDescriptor importNetPlugin = null;
 	PluginDescriptor performancePlugin = null;
 	PluginDescriptor suggestPlugin = null;
-	CLIContext globalContext = null;
+	EmbeddedContext globalContext = null;
 	PluginContext context = null;
 
 	@Plugin(name = "ProMManager", parameterLabels = {}, returnLabels = {}, returnTypes = {}, userAccessible = false)
 	@Bootable
 	public Object main(CommandLineArgumentList commandlineArguments) {
-		globalContext = new CLIContext();
+		globalContext = new EmbeddedContext();
 		context = globalContext.getMainPluginContext();
 
 		System.out.println("------------------------------");
@@ -100,8 +98,6 @@ public class ProMManager {
 		if (suggestPlugin == null) {
 			System.out.println("Plugin SuggestSettings not found");
 		}
-
-		context = context.createChildContext("MainContext");
 
 		System.out.println("End Initializazion 1");
 		return this;
@@ -237,6 +233,8 @@ public class ProMManager {
 	}
 
 	public void closeContext() {
+		ExecutorService executor = new ProMFactory().createExecutor();
+		executor.shutdown();
 		// for ( PluginContext c:
 		// globalContext.getMainPluginContext().getChildContexts()) {
 		// globalContext.getMainPluginContext().deleteChild(c);

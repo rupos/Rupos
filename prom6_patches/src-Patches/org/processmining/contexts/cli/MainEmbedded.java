@@ -13,6 +13,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
 
+import org.processmining.contexts.cli.CLIContext;
+import org.processmining.contexts.cli.CLIPluginContext;
 import org.processmining.framework.plugin.PluginContext;
 import org.processmining.framework.plugin.PluginDescriptor;
 import org.processmining.framework.boot.Boot;
@@ -31,7 +33,7 @@ import org.processmining.plugins.petrinet.replayfitness.TotalFitnessResult;
 import org.processmining.plugins.petrinet.replayfitness.TotalPerformanceResult;
 import java.util.Properties;
 
-public class MainCLI {
+public class MainEmbedded {
 	@Plugin(name = "MainCLI", parameterLabels = {}, returnLabels = {}, returnTypes = {}, userAccessible = false)
 	@Bootable
 	public Object main(CommandLineArgumentList commandlineArguments) {
@@ -202,7 +204,7 @@ public class MainCLI {
 
 	public static void main(String[] args) throws Exception {
 	    Boot.VERBOSE = Level.NONE;
-	  Object ss =  Boot.boot(MainCLI.class, CLIPluginContext.class, args);
+	  Object ss =  Boot.boot(MainEmbedded.class, CLIPluginContext.class, args);
 	}
 
     public static void loadSettings(ReplayFitnessSetting setting) {
