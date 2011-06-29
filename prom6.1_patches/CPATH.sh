@@ -53,7 +53,7 @@ CPATH=$CPATH:$PROM_ORIGIN_BASE/PetriNets/dist/PetriNets.jar
 #CPATH=$CPATH:$PROM_ORIGIN_BASE/ETConformance/lib/javailp-1.1.jar
 #CPATH=$CPATH:$PROM_ORIGIN_BASE/ETConformance/dist/ETConformance.jar
 
-CPATH=$CPATH:$PROM_ORIGIN_BASE/Log/dist/BPMN.jar
+CPATH=$CPATH:$PROM_ORIGIN_BASE/BPMN/dist/BPMN.jar
 
 CPATH=$CPATH:$PROM_ORIGIN_BASE/LogDialog/dist/LogDialog.jar
 CPATH=$CPATH:$PROM_ORIGIN_BASE/PetriNetReplayer/dist/PetriNetReplayer.jar
