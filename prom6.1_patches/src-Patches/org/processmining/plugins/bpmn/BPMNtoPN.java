@@ -158,8 +158,24 @@ import org.xmlpull.v1.XmlPullParserFactory;
 				}else{
 					//gateway merge
 					if (g.getGraph().getOutEdges(g).size()==1 && g.getGraph().getInEdges(g).size()>1 ){
+						String out = g.getGraph().getOutEdges(g).iterator().next().getSource().getLabel();
+						String in  = g.getGraph().getOutEdges(g).iterator().next().getTarget().getLabel();
+						Place ps = placeMap.get(out + in);
+						i=0;
+						for (BPMNEdge<? extends BPMNNode, ? extends BPMNNode> s : g.getGraph().getInEdges(g)){
+							String source = s.getSource().getLabel();
+							String target = s.getTarget().getLabel();
 
 
+							Place pst = placeMap.get(source + target);
+							
+							Transition t = net.addTransition(g.getLabel() + "_" + i++,this.subNet );
+							t.setInvisible(true);
+							net.addArc( pst,t, 1, this.subNet);
+							
+							net.addArc(t, ps, this.subNet);
+						
+						}
 					}
 				}
 
@@ -167,10 +183,42 @@ import org.xmlpull.v1.XmlPullParserFactory;
 				if (g.getGatewayType().equals(GatewayType.PARALLEL)) {
 					//gateway parallel fork 
 					if (g.getGraph().getOutEdges(g).size()>1 && g.getGraph().getInEdges(g).size()==1 ){
+						String so = g.getGraph().getInEdges(g).iterator().next().getSource().getLabel();
+						String ta  = g.getGraph().getInEdges(g).iterator().next().getTarget().getLabel();
+						Place ps = placeMap.get(so+ta);
+						Transition t = net.addTransition(g.getLabel() + "_fork",this.subNet );
+						t.setInvisible(true);
+						net.addArc( ps,t, 1, this.subNet);
+						for (BPMNEdge<? extends BPMNNode, ? extends BPMNNode> s : g.getGraph().getOutEdges(g)){
+							String source = s.getSource().getLabel();
+							String target = s.getTarget().getLabel();
+
+
+							Place pst = placeMap.get(source + target);
+							net.addArc(t, pst, 1, this.subNet);
+							
+						}
+						
 
 					}else{
 						//gateway parallel Join 
-						if (g.getGraph().getOutEdges(g).size()>1 && g.getGraph().getInEdges(g).size()==1 ){
+						if (g.getGraph().getOutEdges(g).size()==1 && g.getGraph().getInEdges(g).size()>1 ){
+							String so = g.getGraph().getOutEdges(g).iterator().next().getSource().getLabel();
+							String ta  = g.getGraph().getOutEdges(g).iterator().next().getTarget().getLabel();
+							Place ps = placeMap.get(so+ta);
+							Transition t = net.addTransition(g.getLabel() + "_join",this.subNet );
+							t.setInvisible(true);
+							net.addArc( t,ps, 1, this.subNet);
+							for (BPMNEdge<? extends BPMNNode, ? extends BPMNNode> s : g.getGraph().getInEdges(g)){
+								String source = s.getSource().getLabel();
+								String target = s.getTarget().getLabel();
+
+
+								Place pst = placeMap.get(source + target);
+								net.addArc(pst,t, 1, this.subNet);
+								
+							}
+						
 
 						}
 					}
@@ -297,7 +345,7 @@ import org.xmlpull.v1.XmlPullParserFactory;
 		}
 
 
-		if(maperror!=null){
+		if(!maperror.isEmpty()){
 			new Error(maperror.toString());
 			return false;
 		}
@@ -337,7 +385,7 @@ import org.xmlpull.v1.XmlPullParserFactory;
 			if(gtype.equals(GatewayType.DATABASED) || gtype.equals(GatewayType.PARALLEL)){
 				if(!(g.getGraph().getInEdges(g).size()==1 && g.getGraph().getOutEdges(g).size()>1 )){
 
-					if(!(g.getGraph().getOutEdges(g).size()>1 && g.getGraph().getInEdges(g).size()==1 )){
+					if(!(g.getGraph().getInEdges(g).size()>1 && g.getGraph().getOutEdges(g).size()==1 )){
 						maperror.put(" Gateway non valido troppi archi in entrata o in uscita", g.getId().toString()); 
 					}
 				}
@@ -417,7 +465,7 @@ import org.xmlpull.v1.XmlPullParserFactory;
 		 */
 		int eventType = xpp.getEventType();
 		/*
-		 * Create a fresh PNML object.
+		 * Create a fresh XPDL object.
 		 */
 		Xpdl xpdl = new Xpdl();
 
@@ -428,11 +476,11 @@ import org.xmlpull.v1.XmlPullParserFactory;
 			eventType = xpp.next();
 		}
 		/*
-		 * Check whether start tag corresponds to PNML start tag.
+		 * Check whether start tag corresponds to XPDL start tag.
 		 */
 		if (xpp.getName().equals(xpdl.tag)) {
 			/*
-			 * Yes it does. Import the PNML element.
+			 * Yes it does. Import the XPDL element.
 			 */
 			xpdl.importElement(xpp, xpdl);
 		} else {
