@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://www.wfmc.org/2009/XPDL2.2" xmlns:g360="http://www.global360.com/XPDL2.0alpha" Id="2" Name="Untitled Document 2">
+  <PackageHeader>
+    <XPDLVersion>2.2</XPDLVersion>
+    <Vendor>Global 360</Vendor>
+    <Created>2011-07-05T16:21:47+02:00</Created>
+    <ModificationDate>2011-07-05T16:39:57+02:00</ModificationDate>
+    <LayoutInfo PixelsPerMillimeter="3.78" />
+  </PackageHeader>
+  <ConformanceClass BPMNModelPortabilityConformance="STANDARD" />
+  <Pages>
+    <Page Id="ID-3" Name="Page ID-3" Width="1440" Height="1080">
+      <g360:PageInfo g360:PaperWidth="792.0" g360:PaperHeight="612.0" g360:PaperOrientation="0" g360:MarginBottom="36.0" g360:MarginLeft="36.0" g360:MarginRight="36.0" g360:MarginTop="36.0" />
+    </Page>
+  </Pages>
+  <Pools>
+    <Pool Process="ID-4" Id="ID-5" Orientation="HORIZONTAL" BoundaryVisible="false">
+      <Lanes>
+        <Lane Id="ID-6" ParentLane="ID-5">
+          <NodeGraphicsInfos>
+            <NodeGraphicsInfo ToolId="Sketchpad_BPMN" IsVisible="true" PageId="ID-3" Height="1080.0" Width="1440.0" LaneId="ID-6">
+              <Coordinates XCoordinate="0.0" YCoordinate="0.0" />
+            </NodeGraphicsInfo>
+          </NodeGraphicsInfos>
+        </Lane>
+      </Lanes>
+      <NodeGraphicsInfos>
+        <NodeGraphicsInfo ToolId="Sketchpad_BPMN" IsVisible="true" PageId="ID-3" Height="1080.0" Width="1440.0">
+          <Coordinates XCoordinate="0.0" YCoordinate="0.0" />
+        </NodeGraphicsInfo>
+      </NodeGraphicsInfos>
+    </Pool>
+  </Pools>
+  <WorkflowProcesses>
+    <WorkflowProcess Id="ID-4" Name="ID-4">
+      <ProcessHeader />
+      <Activities>
+        <Activity Id="ID-7" Name="gw1">
+          <Route GatewayType="Exclusive" XORType="Event" />
+          <TransitionRestrictions>
+            <TransitionRestriction>
+              <Split Type="Exclusive">
+                <TransitionRefs>
+                  <TransitionRef Id="ID-17" />
+                  <TransitionRef Id="ID-18" />
+                </TransitionRefs>
+              </Split>
+            </TransitionRestriction>
+          </TransitionRestrictions>
+          <NodeGraphicsInfos>
+            <NodeGraphicsInfo ToolId="Sketchpad_BPMN" IsVisible="true" PageId="ID-3" Height="60.0" Width="60.0" LaneId="ID-6">
+              <Coordinates XCoordinate="180.0" YCoordinate="210.0" />
+            </NodeGraphicsInfo>
+          </NodeGraphicsInfos>
+        </Activity>
+        <Activity Id="ID-10" Name="immigra">
+          <NodeGraphicsInfos>
+            <NodeGraphicsInfo ToolId="Sketchpad_BPMN" IsVisible="true" PageId="ID-3" Height="60.0" Width="80.0" LaneId="ID-6">
+              <Coordinates XCoordinate="280.0" YCoordinate="90.0" />
+            </NodeGraphicsInfo>
+          </NodeGraphicsInfos>
+        </Activity>
+        <Activity Id="ID-11" Name="emigra">
+          <NodeGraphicsInfos>
+            <NodeGraphicsInfo ToolId="Sketchpad_BPMN" IsVisible="true" PageId="ID-3" Height="60.0" Width="80.0" LaneId="ID-6">
+              <Coordinates XCoordinate="290.0" YCoordinate="300.0" />
+            </NodeGraphicsInfo>
+          </NodeGraphicsInfos>
+        </Activity>
+        <Activity Id="ID-12" Name="Start">
+          <Event>
+            <StartEvent Trigger="None" />
+          </Event>
+          <NodeGraphicsInfos>
+            <NodeGraphicsInfo ToolId="Sketchpad_BPMN" IsVisible="true" PageId="ID-3" Height="30.0" Width="30.0" LaneId="ID-6">
+              <Coordinates XCoordinate="60.0" YCoordinate="220.0" />
+            </NodeGraphicsInfo>
+          </NodeGraphicsInfos>
+        </Activity>
+        <Activity Id="ID-13" Name="end">
+          <Event>
+            <EndEvent Result="None" />
+          </Event>
+          <NodeGraphicsInfos>
+            <NodeGraphicsInfo ToolId="Sketchpad_BPMN" IsVisible="true" PageId="ID-3" Height="30.0" Width="30.0" LaneId="ID-6">
+              <Coordinates XCoordinate="610.0" YCoordinate="240.0" />
+            </NodeGraphicsInfo>
+          </NodeGraphicsInfos>
+        </Activity>
+        <Activity Id="ID-14" Name="gw2">
+          <Route GatewayType="Exclusive" XORType="Data" MarkerVisible="true" />
+          <NodeGraphicsInfos>
+            <NodeGraphicsInfo ToolId="Sketchpad_BPMN" IsVisible="true" PageId="ID-3" Height="60.0" Width="60.0" LaneId="ID-6">
+              <Coordinates XCoordinate="480.0" YCoordinate="210.0" />
+            </NodeGraphicsInfo>
+          </NodeGraphicsInfos>
+        </Activity>
+        <Activity Id="ID-16" Name="message">
+          <Event>
+            <IntermediateEvent Trigger="Message">
+              <TriggerResultMessage />
+            </IntermediateEvent>
+          </Event>
+          <NodeGraphicsInfos>
+            <NodeGraphicsInfo ToolId="Sketchpad_BPMN" IsVisible="true" PageId="ID-3" Height="30.0" Width="30.0" LaneId="ID-6">
+              <Coordinates XCoordinate="200.0" YCoordinate="330.0" />
+            </NodeGraphicsInfo>
+          </NodeGraphicsInfos>
+        </Activity>
+      </Activities>
+      <Transitions>
+        <Transition Id="ID-19" From="ID-10" To="ID-14">
+          <ConnectorGraphicsInfos>
+            <ConnectorGraphicsInfo ToolId="Sketchpad_BPMN" IsVisible="true" PageId="ID-3">
+              <Coordinates XCoordinate="360.5" YCoordinate="145.81265258789062" />
+              <Coordinates XCoordinate="492.09527587890625" YCoordinate="228.90472412109375" />
+            </ConnectorGraphicsInfo>
+          </ConnectorGraphicsInfos>
+        </Transition>
+        <Transition Id="ID-20" From="ID-11" To="ID-14">
+          <ConnectorGraphicsInfos>
+            <ConnectorGraphicsInfo ToolId="Sketchpad_BPMN" IsVisible="true" PageId="ID-3">
+              <Coordinates XCoordinate="370.5" YCoordinate="310.7213439941406" />
+              <Coordinates XCoordinate="490.5924072265625" YCoordinate="250.5924072265625" />
+            </ConnectorGraphicsInfo>
+          </ConnectorGraphicsInfos>
+        </Transition>
+        <Transition Id="ID-15" From="ID-12" To="ID-7">
+          <ConnectorGraphicsInfos>
+            <ConnectorGraphicsInfo ToolId="Sketchpad_BPMN" IsVisible="true" PageId="ID-3">
+              <Coordinates XCoordinate="89.98696899414062" YCoordinate="235.6251678466797" />
+              <Coordinates XCoordinate="181.5551300048828" YCoordinate="239.4448699951172" />
+            </ConnectorGraphicsInfo>
+          </ConnectorGraphicsInfos>
+        </Transition>
+        <Transition Id="ID-18" From="ID-7" To="ID-10">
+          <ConnectorGraphicsInfos>
+            <ConnectorGraphicsInfo ToolId="Sketchpad_BPMN" IsVisible="true" PageId="ID-3">
+              <Coordinates XCoordinate="224.96522521972656" YCoordinate="224.96522521972656" />
+              <Coordinates XCoordinate="293.3382263183594" YCoordinate="150.5" />
+            </ConnectorGraphicsInfo>
+          </ConnectorGraphicsInfos>
+        </Transition>
+        <Transition Id="ID-21" From="ID-14" To="ID-13">
+          <ConnectorGraphicsInfos>
+            <ConnectorGraphicsInfo ToolId="Sketchpad_BPMN" IsVisible="true" PageId="ID-3">
+              <Coordinates XCoordinate="537.0204467773438" YCoordinate="243.97958374023438" />
+              <Coordinates XCoordinate="610.1163330078125" YCoordinate="253.13565063476562" />
+            </ConnectorGraphicsInfo>
+          </ConnectorGraphicsInfos>
+        </Transition>
+        <Transition Id="ID-17" From="ID-7" To="ID-16">
+          <ConnectorGraphicsInfos>
+            <ConnectorGraphicsInfo ToolId="Sketchpad_BPMN" IsVisible="true" PageId="ID-3">
+              <Coordinates XCoordinate="211.89407348632812" YCoordinate="269.1059265136719" />
+              <Coordinates XCoordinate="214.3866424560547" YCoordinate="330.0125427246094" />
+            </ConnectorGraphicsInfo>
+          </ConnectorGraphicsInfos>
+        </Transition>
+        <Transition Id="ID-22" From="ID-16" To="ID-11">
+          <ConnectorGraphicsInfos>
+            <ConnectorGraphicsInfo ToolId="Sketchpad_BPMN" IsVisible="true" PageId="ID-3">
+              <Coordinates XCoordinate="229.88905334472656" YCoordinate="343.178955078125" />
+              <Coordinates XCoordinate="290.5" YCoordinate="335.7657470703125" />
+            </ConnectorGraphicsInfo>
+          </ConnectorGraphicsInfos>
+        </Transition>
+      </Transitions>
+    </WorkflowProcess>
+  </WorkflowProcesses>
+  <ExtendedAttributes>
+    <ExtendedAttribute Name="Creator" Value="Sketchpad BPMN v1.4 A5" />
+    <ExtendedAttribute Name="System" Value="Global 360" />
+  </ExtendedAttributes>
+</Package>
+

@@ -168,13 +168,13 @@ import org.xmlpull.v1.XmlPullParserFactory;
 
 
 							Place pst = placeMap.get(source + target);
-							
+
 							Transition t = net.addTransition(g.getLabel() + "_" + i++,this.subNet );
 							t.setInvisible(true);
 							net.addArc( pst,t, 1, this.subNet);
-							
+
 							net.addArc(t, ps, this.subNet);
-						
+
 						}
 					}
 				}
@@ -196,9 +196,9 @@ import org.xmlpull.v1.XmlPullParserFactory;
 
 							Place pst = placeMap.get(source + target);
 							net.addArc(t, pst, 1, this.subNet);
-							
+
 						}
-						
+
 
 					}else{
 						//gateway parallel Join 
@@ -216,15 +216,39 @@ import org.xmlpull.v1.XmlPullParserFactory;
 
 								Place pst = placeMap.get(source + target);
 								net.addArc(pst,t, 1, this.subNet);
-								
+
 							}
-						
+
 
 						}
 					}
 				}else{
 					//gateway event-based
 					if (g.getGatewayType().equals(GatewayType.EVENTBASED)) {
+						//Exclusive event gateway 
+						if (g.getGraph().getOutEdges(g).size()>1 && g.getGraph().getInEdges(g).size()==1 ){
+							String so = g.getGraph().getInEdges(g).iterator().next().getSource().getLabel();
+							String ta  = g.getGraph().getInEdges(g).iterator().next().getTarget().getLabel();
+							Place ps = placeMap.get(so+ta);
+							int i=0;
+							for (BPMNEdge<? extends BPMNNode, ? extends BPMNNode> s : g.getGraph().getOutEdges(g)){
+								String source = s.getSource().getLabel();
+								String target = s.getTarget().getLabel();
+
+
+								Place pst = placeMap.get(source + target);
+
+								Transition t = net.addTransition(g.getLabel() + "_" + i++,this.subNet );
+								t.setInvisible(true);
+								net.addArc( t,pst, 1, this.subNet);
+
+								net.addArc( ps,t , this.subNet);
+
+							}
+
+
+						}
+
 
 					}
 				}
@@ -278,6 +302,29 @@ import org.xmlpull.v1.XmlPullParserFactory;
 
 				}
 
+			}
+			if (e.getEventType().equals(EventType.INTERMEDIATE) && !e.getEventTrigger().equals(EventTrigger.NONE)) {
+				
+				
+
+				Transition t = net.addTransition(e.getLabel(), this.subNet);			
+							
+
+				
+				String g = e.getGraph().getInEdges(e).iterator().next().getSource().getLabel();
+				String s  = e.getGraph().getInEdges(e).iterator().next().getTarget().getLabel();
+				Place ps_pre = placeMap.get(g+s);
+				
+				
+				g  = e.getGraph().getOutEdges(e).iterator().next().getSource().getLabel();
+				s  = e.getGraph().getOutEdges(e).iterator().next().getTarget().getLabel();
+				Place ps_post = placeMap.get(g+s);
+				
+				net.addArc(ps_pre,t, 1, this.subNet);
+				net.addArc(t,ps_post, 1, this.subNet);
+				
+				
+				
 			}
 
 		}
@@ -366,6 +413,9 @@ import org.xmlpull.v1.XmlPullParserFactory;
 			if (c.getGraph().getInEdges(c).size()!=1 || c.getGraph().getOutEdges(c).size()!=1){
 				maperror.put("Attività non valida troppi archi", c.getId().toString());
 			}
+			if(c.getLabel().isEmpty()){
+				maperror.put("manca il nome dell'attività", c.toString()); 
+			}
 		}
 	}
 
@@ -378,7 +428,9 @@ import org.xmlpull.v1.XmlPullParserFactory;
 			case  INCLUSIVE :   maperror.put("Gateway non valido", g.getId().toString());    break;
 			case COMPLEX : maperror.put(" Gateway non valido", g.getId().toString()); break;
 			}
-
+			if(g.getLabel().isEmpty()){
+				maperror.put("manca il nome del gateway", g.toString()); 
+			}
 
 			//fork or decision gateways have an in-degree of one and an out-degree of more than one,
 			//join or merge gateways have an out-degree of one and an in-degree of more than one
@@ -386,7 +438,7 @@ import org.xmlpull.v1.XmlPullParserFactory;
 				if(!(g.getGraph().getInEdges(g).size()==1 && g.getGraph().getOutEdges(g).size()>1 )){
 
 					if(!(g.getGraph().getInEdges(g).size()>1 && g.getGraph().getOutEdges(g).size()==1 )){
-						maperror.put(" Gateway non valido troppi archi in entrata o in uscita", g.getId().toString()); 
+						maperror.put(" Gateway non valido troppi archi in entrata o in uscita", g.getLabel()); 
 					}
 				}
 
@@ -403,15 +455,18 @@ import org.xmlpull.v1.XmlPullParserFactory;
 
 			if(trigger==null)
 				trigger=EventTrigger.NONE;
-				switch (trigger) {
-				case COMPENSATION :   maperror.put("Evento non valido", e.getId().toString());    break;
-				case LINK : maperror.put("Evento non valido", e.getId().toString()); break;
-				case CONDITIONAL : maperror.put("Evento non valido", e.getId().toString()); break;
-				case SIGNAL : maperror.put("Evento non valido", e.getId().toString()); break;
+			switch (trigger) {
+			case COMPENSATION :   maperror.put("Evento non valido", e.getId().toString());    break;
+			case LINK : maperror.put("Evento non valido", e.getId().toString()); break;
+			case CONDITIONAL : maperror.put("Evento non valido", e.getId().toString()); break;
+			case SIGNAL : maperror.put("Evento non valido", e.getId().toString()); break;
 
 
-				}
-			
+			}
+
+			if(e.getLabel().isEmpty()){
+				maperror.put("manca il nome dell'evento", e.toString()); 
+			}
 			//se trovo start o end che non sono di tipo NONE
 			if(type.equals(EventType.START) || type.equals(EventType.END)){
 				if (!trigger.equals(EventTrigger.NONE)){
@@ -440,7 +495,7 @@ import org.xmlpull.v1.XmlPullParserFactory;
 			}
 			//  non-exception intermediate events have an in-degree of one and an out-degree of one
 			if(type.equals(EventType.INTERMEDIATE) &&  !trigger.equals(EventTrigger.ERROR)){
-				if(e.getGraph().getInEdges(e).size()==1 && e.getGraph().getOutEdges(e).size()==1){
+				if(e.getGraph().getInEdges(e).size()!=1 && e.getGraph().getOutEdges(e).size()!=1){
 					maperror.put("Evento  con piu di un arco", e.getId().toString());
 				}
 			}
