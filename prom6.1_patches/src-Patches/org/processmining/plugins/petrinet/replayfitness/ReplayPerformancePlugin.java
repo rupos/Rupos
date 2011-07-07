@@ -72,6 +72,17 @@ public class ReplayPerformancePlugin {
 		}
 
 
+         return   getPerformanceDetails(context, log, net, setting,marking);
+	}
+
+	
+	@Plugin(name = "PerformanceDetailsSettingsWithMarking", returnLabels = { "Performance Total" }, returnTypes = { TotalPerformanceResult.class }, parameterLabels = {}, userAccessible = true)
+	@UITopiaVariant(affiliation = UITopiaVariant.EHV, author = "T. Yuliani and H.M.W. Verbeek", email = "h.m.w.verbeek@tue.nl")
+	public TotalPerformanceResult getPerformanceDetails(PluginContext context, XLog log, Petrinet net, ReplayFitnessSetting setting,Marking marking ) {
+
+		
+
+
 		TotalPerformanceResult performance = new TotalPerformanceResult();
 		
 		XEventClasses classes = getEventClasses(log);
@@ -102,7 +113,6 @@ public class ReplayPerformancePlugin {
 		return performance;
 	}
 
-	
 	
 
 	

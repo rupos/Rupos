@@ -13,6 +13,7 @@
       <g360:PageInfo g360:PaperWidth="792.0" g360:PaperHeight="612.0" g360:PaperOrientation="0" g360:MarginBottom="36.0" g360:MarginLeft="36.0" g360:MarginRight="36.0" g360:MarginTop="36.0" />
     </Page>
   </Pages>
+  <DataStores />
   <Pools>
     <Pool Process="ID-2" Id="ID-3" Orientation="HORIZONTAL" BoundaryVisible="false">
       <Lanes>
@@ -126,14 +127,14 @@
             </NodeGraphicsInfo>
           </NodeGraphicsInfos>
         </Activity>
-        <Activity Id="ID-18" Name="Data">
+        <Activity Id="ID-18" Name="DataCollection">
           <NodeGraphicsInfos>
             <NodeGraphicsInfo ToolId="Sketchpad_BPMN" IsVisible="true" PageId="ID-1" Height="60.0" Width="80.0" LaneId="ID-4">
               <Coordinates XCoordinate="370.0" YCoordinate="230.0" />
             </NodeGraphicsInfo>
           </NodeGraphicsInfos>
         </Activity>
-        <Activity Id="ID-19" Name="change">
+        <Activity Id="ID-19" Name="ChangeResidence">
           <NodeGraphicsInfos>
             <NodeGraphicsInfo ToolId="Sketchpad_BPMN" IsVisible="true" PageId="ID-1" Height="60.0" Width="80.0" LaneId="ID-4">
               <Coordinates XCoordinate="690.0" YCoordinate="180.0" />

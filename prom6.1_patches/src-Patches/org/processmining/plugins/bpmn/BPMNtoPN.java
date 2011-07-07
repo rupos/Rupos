@@ -1,20 +1,32 @@
 package org.processmining.plugins.bpmn;
 
+import java.awt.geom.Point2D;
+import java.awt.geom.Rectangle2D;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import javax.swing.SwingConstants;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 import org.deckfour.xes.model.XLog;
+import org.jgraph.graph.GraphConstants;
+import org.jgraph.graph.AttributeMap.SerializablePoint2D;
 import org.processmining.contexts.uitopia.annotations.UIImportPlugin;
 import org.processmining.framework.abstractplugins.AbstractImportPlugin;
+import org.processmining.framework.connections.ConnectionCannotBeObtained;
 import org.processmining.framework.plugin.PluginContext;
 import org.processmining.framework.plugin.annotations.Plugin;
 import org.processmining.models.connections.GraphLayoutConnection;
+import org.processmining.models.graphbased.AttributeMap;
 import org.processmining.models.graphbased.NodeID;
+import org.processmining.models.graphbased.directed.AbstractDirectedGraphEdge;
+import org.processmining.models.graphbased.directed.AbstractDirectedGraphNode;
+import org.processmining.models.graphbased.directed.DirectedGraph;
 import org.processmining.models.graphbased.directed.bpmn.BPMNDiagram;
 import org.processmining.models.graphbased.directed.bpmn.BPMNDiagramFactory;
 import org.processmining.models.graphbased.directed.bpmn.BPMNEdge;
@@ -34,13 +46,19 @@ import org.processmining.models.graphbased.directed.petrinet.elements.Place;
 import org.processmining.models.graphbased.directed.petrinet.elements.Transition;
 import org.processmining.models.graphbased.directed.petrinet.impl.PetrinetFactory;
 import org.processmining.models.graphbased.directed.petrinet.impl.PetrinetImpl;
+import org.processmining.models.jgraph.ProMJGraph;
+import org.processmining.models.jgraph.ProMJGraphVisualizer;
+import org.processmining.models.jgraph.elements.ProMGraphPort;
 import org.processmining.models.semantics.petrinet.Marking;
 import org.processmining.plugins.xpdl.Xpdl;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
 
+import com.jgraph.layout.JGraphFacade;
+import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
+
 @Plugin(name = "Import BPMN model from XPDL 2.1 file to PetriNet", parameterLabels = { "Filename" }, returnLabels = {
-		"Petri Net", "Marking",  "BPMNDiagram" }, returnTypes = { Petrinet.class, Marking.class, BPMNDiagram.class })
+		"Petri Net", "Marking",  "BPMNDiagram", "Traslate Result" }, returnTypes = { Petrinet.class, Marking.class, BPMNDiagram.class,TraslateBPMNResult.class })
 		@UIImportPlugin(description = "XPDL 2.1 files to PN", extensions = { "xpdl" })
 		public class BPMNtoPN extends AbstractImportPlugin {
 
@@ -79,9 +97,9 @@ import org.xmlpull.v1.XmlPullParserFactory;
 
 		Boolean well = this.isWellFormed(bpmn);
 
-		Object result = this.BPMN2Translate(bpmn);
+		
 
-		return result;
+		return this.BPMN2Translate(context,bpmn);
 	}
 
 	private void translateTask(BPMNDiagram bpmn, Map<String, Place> placeMap,
@@ -90,10 +108,10 @@ import org.xmlpull.v1.XmlPullParserFactory;
 		for (Activity c : bpmn.getActivities()) {
 			String id = c.getLabel();
 
-			Transition t = net.addTransition(id + "_start", this.subNet);
+			Transition t = net.addTransition(id + "+start", this.subNet);
 			Place p = net.addPlace(id, this.subNet);
 			Arc a = net.addArc(t, p, 1, this.subNet);
-			Transition t1 = net.addTransition(id + "_complete", this.subNet);
+			Transition t1 = net.addTransition(id + "+complete", this.subNet);
 			Arc a1 = net.addArc(p, t1, 1, this.subNet);
 
 			for (BPMNEdge<? extends BPMNNode, ? extends BPMNNode> s : c
@@ -123,7 +141,7 @@ import org.xmlpull.v1.XmlPullParserFactory;
 
 	private void translateGateway(BPMNDiagram bpmn,	Map<String, Place> placeMap, PetrinetGraph net) {
 		for (Gateway g : bpmn.getGateways()) {
-			//gateway databased
+			//gateway data-based
 			if (g.getGatewayType().equals(GatewayType.DATABASED)) {
 				int i = 0;
 				Map<String, Transition> tranMap = new HashMap<String, Transition>();
@@ -261,9 +279,9 @@ import org.xmlpull.v1.XmlPullParserFactory;
 			if (e.getEventType().equals(EventType.START) && e.getEventTrigger().equals(EventTrigger.NONE)) {
 
 				// Place p = new Place(e.getLabel(), net);
-				Place p = net.addPlace(e.getLabel(), this.subNet);
+				Place p = net.addPlace("p"+e.getLabel(), this.subNet);
 
-				Transition t = net.addTransition(e.getLabel(), this.subNet);
+				Transition t = net.addTransition("t_"+e.getLabel(), this.subNet);
 				t.setInvisible(true);
 				Arc a = net.addArc(p, t, 1, this.subNet);
 				marking.add(p, 1);
@@ -335,18 +353,25 @@ import org.xmlpull.v1.XmlPullParserFactory;
 	 * @param bpmn
 	 * @return
 	 */
-	private Object BPMN2Translate(BPMNDiagram bpmn) {
+	private Object BPMN2Translate(PluginContext c ,BPMNDiagram bpmn) {
 		Map<String, Place> placeMap = new HashMap<String, Place>();
+		
 
 		PetrinetGraph net = PetrinetFactory.newPetrinet(bpmn.getLabel());
 		Marking marking = new Marking();
-
+		
+		
+		
 		for (Flow g : bpmn.getFlows()) {
 			String f = g.getSource().getLabel();
 			String z = g.getTarget().getLabel();
 
 			Place p = net.addPlace(f + z, this.subNet);
 			placeMap.put(f + z, p);
+			
+		//	layout.setPosition(p,
+		//			new Point2D.Double() + 10, boundingBox.getFirst().y
+		//					+ displacement.y));
 		}
 
 		translateTask(bpmn, placeMap, net);
@@ -354,15 +379,143 @@ import org.xmlpull.v1.XmlPullParserFactory;
 		translateGateway(bpmn, placeMap, net);
 
 		translateEvent(bpmn, placeMap, net, marking);
-
-		Object[] objects = new Object[3];
+		
+		TraslateBPMNResult result = new TraslateBPMNResult(bpmn, (Petrinet) net, marking, placeMap);
+		Object[] objects = new Object[4];
 		objects[0] = net;
 		objects[1] = marking;
 		objects[2] = bpmn;
+		objects[3] = result;
+		
+		GraphLayoutConnection layout = new GraphLayoutConnection(net);
+		try {
+			layout = c.getConnectionManager().getFirstConnection(GraphLayoutConnection.class, c, net);
+		} catch (ConnectionCannotBeObtained e) {
+			// TODO Auto-generated catch block
+			/*
+			 * Get a jgraph for this graph.
+			 */
+			//context.log("[Animation] Create layout for " + graph.hashCode());
+			ProMJGraph jgraph = ProMJGraphVisualizer.instance().visualizeGraph(c, net).getGraph();
+			/*
+			 * Layout this jgraph.
+			 */
+			JGraphFacade facade = new JGraphFacade(jgraph);
+			layOutFMJGraph(net, jgraph, facade);
+			System.out.print("");
+		}
 		return objects;
+		//return result;
 
 	}
 
+	private void layOutFMJGraph(
+			DirectedGraph<? extends AbstractDirectedGraphNode, ? extends AbstractDirectedGraphEdge<?, ?>> graph,
+			ProMJGraph jgraph, JGraphFacade facade) {
+		JGraphHierarchicalLayout layout = new JGraphHierarchicalLayout();
+		layout.setDeterministic(false);
+		layout.setCompactLayout(false);
+		layout.setFineTuning(true);
+		layout.setParallelEdgeSpacing(20);
+		layout.setOrientation(graph.getAttributeMap().get(AttributeMap.PREF_ORIENTATION, SwingConstants.SOUTH));
+
+		facade.setOrdered(true);
+		facade.setEdgePromotion(true);
+		facade.setIgnoresCellsInGroups(false);
+		facade.setIgnoresHiddenCells(false);
+		facade.setIgnoresUnconnectedCells(false);
+		facade.setDirected(false);
+		facade.resetControlPoints();
+
+		facade.run(layout, false);
+
+		fixParallelTransitions(facade, 15);
+
+		Map<?, ?> nested = facade.createNestedMap(true, false);
+
+		jgraph.getGraphLayoutCache().edit(nested);
+		jgraph.setUpdateLayout(layout);
+	}
+	private void fixParallelTransitions(JGraphFacade facade, double spacing) {
+		ArrayList<Object> edges = getEdges(facade);
+		for (Object edge : edges) {
+			List<Object> points = getPoints(facade, edge);
+			if (points.size() != 2) {
+				continue;
+			}
+			Object sourceCell = facade.getSource(edge);
+			Object targetCell = facade.getTarget(edge);
+			Object sourcePort = facade.getSourcePort(edge);
+			Object targetPort = facade.getTargetPort(edge);
+			Object[] between = facade.getEdgesBetween(sourcePort, targetPort, false);
+			if ((between.length == 1) && !(sourcePort == targetPort)) {
+				continue;
+			}
+			Rectangle2D sCP = facade.getBounds(sourceCell);
+			Rectangle2D tCP = facade.getBounds(targetCell);
+			Point2D sPP = GraphConstants.getOffset(((ProMGraphPort) sourcePort).getAttributes());
+
+			if (sPP == null) {
+				sPP = new Point2D.Double(sCP.getCenterX(), sCP.getCenterY());
+			}
+			Point2D tPP = GraphConstants.getOffset(((ProMGraphPort) targetPort).getAttributes());
+			// facade.getBounds(sourcePort);
+
+			if (tPP == null) {
+				tPP = new Point2D.Double(tCP.getCenterX(), tCP.getCenterY());
+			}
+
+			if (sourcePort == targetPort) {
+				assert (sPP.equals(tPP));
+				double x = sPP.getX();
+				double y = sPP.getY();
+				for (int i = 2; i < between.length + 2; i++) {
+					List<Point2D> newPoints = new ArrayList<Point2D>(5);
+					newPoints.add(new Point2D.Double(x - (spacing + i * spacing), y));
+					newPoints.add(new Point2D.Double(x - (spacing + i * spacing), y - (spacing + i * spacing)));
+					newPoints.add(new Point2D.Double(x, y - (2 * spacing + i * spacing)));
+					newPoints.add(new Point2D.Double(x + (spacing + i * spacing), y - (spacing + i * spacing)));
+					newPoints.add(new Point2D.Double(x + (spacing), y - (spacing / 2 + i * spacing)));
+					facade.setPoints(between[i - 2], newPoints);
+				}
+
+				continue;
+			}
+
+			double dx = (sPP.getX()) - (tPP.getX());
+			double dy = (sPP.getY()) - (tPP.getY());
+			double mx = (tPP.getX()) + dx / 2.0;
+			double my = (tPP.getY()) + dy / 2.0;
+			double slope = Math.sqrt(dx * dx + dy * dy);
+			for (int i = 0; i < between.length; i++) {
+				List<Point2D> newPoints = new ArrayList<Point2D>(3);
+				double pos = 2 * i - (between.length - 1);
+				if (facade.getSourcePort(between[i]) == sourcePort) {
+					newPoints.add(sPP);
+					newPoints.add(tPP);
+				} else {
+					newPoints.add(tPP);
+					newPoints.add(sPP);
+				}
+				if (pos != 0) {
+					pos = pos / 2;
+					double x = mx + pos * spacing * dy / slope;
+					double y = my - pos * spacing * dx / slope;
+					newPoints.add(1, new SerializablePoint2D.Double(x, y));
+				}
+				facade.setPoints(between[i], newPoints);
+			}
+		}
+	}
+	@SuppressWarnings("unchecked")
+	private ArrayList<Object> getEdges(JGraphFacade facade) {
+		return new ArrayList<Object>(facade.getEdges());
+	}
+
+	@SuppressWarnings("unchecked")
+	private List<Object> getPoints(JGraphFacade facade, Object edge) {
+		return facade.getPoints(edge);
+	}
 
 	private Boolean isWellFormed(BPMNDiagram bpmn){
 		Map<String,String> maperror = new HashMap<String, String>();

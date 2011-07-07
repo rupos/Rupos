@@ -1,0 +1,3050 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkflowLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://is.tm.tue.nl/research/processmining/WorkflowLog.xsd" description="Sample Guancio Log File">
+  <Source program="Example One from Guancio"/>
+  <Process id="Paper" description="Paper Submission">
+
+
+    <ProcessInstance id="0" description="PaperOne">
+        <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-01T16:14:56.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-01T16:31:19.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+       <AuditTrailEntry>
+	<WorkflowModelElement>Emigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-01T17:24:33.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Emigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-01T17:37:10.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-01T17:25:27.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-01T17:35:21.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-01T17:42:41.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="1" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="2" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-01T16:14:56.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-01T16:31:19.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-01T16:15:27.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-01T16:45:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-01T17:05:21.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-01T17:42:41.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="3" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-01T17:09:09.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-01T17:22:25.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Emigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-01T17:04:33.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Emigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-01T17:37:10.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-01T18:25:08.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-01T18:31:41.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="4" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-01T18:24:45.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-01T18:50:35.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-01T18:24:21.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-01T18:53:02.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-01T19:13:29.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-01T19:40:57.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="5" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-01T19:07:07.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-01T19:25:14.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-01T19:18:17.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-01T19:34:59.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-01T20:15:00.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-01T20:47:31.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="6" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="7" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-01T20:59:54.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-01T21:29:10.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-01T21:04:58.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-01T21:22:46.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-01T22:03:54.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-01T22:46:08.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="8" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-01T21:59:26.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-01T22:03:20.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-01T21:57:44.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-01T22:01:17.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-01T23:01:49.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-01T23:10:03.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="9" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>Emigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-01T23:19:34.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Emigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-01T23:51:22.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-01T23:17:08.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-01T23:38:38.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-02T00:09:44.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-02T00:53:23.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-02T01:13:21.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-02T01:17:47.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-02T01:25:54.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-02T01:53:11.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-02T01:59:45.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-02T02:25:46.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="10" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="11" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="12" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="13" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="14" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="15" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-02T05:13:57.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-02T05:14:32.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-02T05:13:02.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-02T05:30:53.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-02T06:07:34.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-02T06:09:46.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="16" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>Emigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-02T06:16:31.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Emigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-02T06:23:10.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-02T06:13:21.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-02T06:37:27.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-02T07:17:08.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-02T07:35:32.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-02T07:57:27.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-02T08:46:55.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Emigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-02T08:00:32.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Emigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-02T08:49:06.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-02T09:02:45.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-02T09:09:24.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="17" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="18" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="19" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="20" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>Emigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-02T10:12:42.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Emigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-02T10:28:50.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-02T10:10:17.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-02T10:33:38.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-02T11:17:35.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-02T11:40:16.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="21" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>Emigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-02T11:12:20.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Emigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-02T11:24:22.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-02T11:09:08.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-02T11:19:11.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-02T12:14:06.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-02T12:26:02.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="22" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-02T12:07:17.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-02T12:38:52.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-02T12:16:10.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-02T12:27:26.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-02T13:15:02.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-02T13:31:14.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-02T13:59:09.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-02T14:00:53.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-02T14:11:53.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-02T14:49:19.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-02T15:12:11.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-02T15:30:20.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="23" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="24" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="25" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="26" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-02T16:02:20.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-02T16:41:20.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Emigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-02T16:19:04.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Emigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-02T16:37:56.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-02T16:58:00.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-02T17:35:54.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-02T18:13:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-02T18:49:15.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-02T18:25:53.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-02T18:27:11.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-02T19:02:33.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-02T19:47:59.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="27" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="28" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>Emigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-02T18:17:38.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Emigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-02T18:24:04.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-02T18:05:50.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-02T18:42:07.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-02T19:18:00.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-02T19:27:11.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="29" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="30" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-02T20:01:54.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-02T20:33:15.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-02T20:20:09.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-02T20:43:38.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-02T21:18:15.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-02T21:51:09.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="31" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="32" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="33" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="34" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="35" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="36" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-03T02:22:01.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-03T02:41:26.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Emigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-03T02:18:30.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Emigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-03T02:41:11.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-03T03:02:27.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-03T03:20:14.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="37" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="38" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="39" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-03T05:04:46.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-03T05:14:55.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-03T05:11:51.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-03T05:41:23.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-03T06:15:30.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-03T06:31:12.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-03T07:05:19.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-03T07:19:16.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-03T07:04:29.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-03T07:50:51.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-03T08:03:29.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-03T08:39:38.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="40" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-03T06:15:34.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-03T06:25:20.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Emigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-03T06:11:20.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Emigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-03T06:32:09.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-03T07:13:42.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-03T07:28:47.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="41" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-03T07:14:25.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-03T07:45:02.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-03T07:01:31.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-03T07:04:31.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-03T08:06:37.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-03T08:28:09.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-03T09:09:46.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-03T09:40:55.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Emigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-03T09:21:10.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Emigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-03T09:24:09.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-03T10:03:55.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-03T10:22:39.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="42" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="43" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="44" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>Emigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-03T10:07:45.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Emigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-03T10:16:21.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-03T10:12:41.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-03T10:15:06.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-03T11:18:49.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-03T11:53:09.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Emigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-03T12:11:51.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Emigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-03T12:26:21.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-03T12:17:10.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-03T12:32:29.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-03T13:05:37.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-03T13:10:26.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="45" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-03T11:08:57.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-03T11:19:20.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Emigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-03T11:07:51.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Emigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-03T11:31:25.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-03T12:03:12.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-03T12:55:12.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="46" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>Emigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-03T12:06:47.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Emigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-03T12:08:23.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-03T12:08:19.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-03T12:50:43.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-03T13:23:25.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-03T13:49:06.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="47" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="48" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="49" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="50" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-03T16:22:44.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-03T16:52:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-03T16:13:02.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-03T16:31:11.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-03T17:18:01.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-03T17:47:56.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="51" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-03T17:02:49.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-03T17:31:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-03T17:10:02.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-03T17:19:16.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-03T18:18:22.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-03T18:23:49.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-03T19:23:03.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-03T19:46:00.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-03T19:04:41.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-03T19:12:29.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-03T20:15:26.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-03T20:20:18.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="52" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-03T18:24:58.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-03T18:35:48.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Emigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-03T18:20:44.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Emigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-03T18:43:45.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-03T19:16:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-03T19:23:35.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="53" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="54" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="55" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-03T20:57:21.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-03T21:18:14.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Emigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-03T21:16:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Emigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-03T21:49:43.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-03T22:24:37.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-03T22:34:32.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="56" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="57" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-03T23:22:49.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-03T23:24:22.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-03T23:21:37.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-03T23:45:13.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-03T23:56:57.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-04T00:38:38.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="58" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>Emigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-04T00:03:56.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Emigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-04T00:20:05.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-04T00:00:05.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-04T00:22:07.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-04T01:10:30.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-04T01:41:25.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-04T01:59:14.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-04T02:41:33.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-04T02:25:14.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-04T02:39:36.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-04T03:25:32.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-04T03:55:15.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="59" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="60" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="61" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-04T02:56:55.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-04T03:15:27.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-04T03:19:36.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-04T03:43:42.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-04T04:03:14.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-04T04:53:43.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-04T05:23:06.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-04T05:55:04.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Emigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-04T05:01:15.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Emigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-04T05:25:07.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-04T06:02:38.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-04T06:51:27.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="62" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="63" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="64" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="65" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="66" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="67" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-04T09:00:44.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-04T09:33:59.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Emigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-04T09:06:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Emigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-04T09:24:30.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-04T09:59:50.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-04T10:48:50.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-04T10:56:39.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-04T11:31:03.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-04T11:06:30.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-04T11:23:31.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-04T12:21:57.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-04T12:48:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="68" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="69" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="70" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="71" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="72" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="73" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="74" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>Emigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-04T16:16:38.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Emigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-04T16:50:57.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-04T16:18:28.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-04T16:35:44.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-04T17:17:39.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-04T17:52:20.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="75" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-04T17:24:10.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-04T17:45:57.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-04T17:20:57.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-04T17:26:22.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-04T18:03:42.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-04T18:23:03.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-04T18:57:28.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-04T19:01:23.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-04T19:05:58.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-04T19:38:14.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-04T20:14:04.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-04T20:47:03.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="76" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-04T18:11:30.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-04T18:37:58.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Emigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-04T18:12:42.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Emigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-04T18:27:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-04T18:58:05.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-04T18:58:30.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="77" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="78" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="79" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="80" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>Emigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-04T21:59:29.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Emigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-04T22:10:09.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-04T22:21:54.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-04T22:35:27.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-04T23:00:31.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-04T23:45:30.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="81" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-04T23:00:12.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-04T23:45:13.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-04T23:25:14.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-04T23:25:37.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-05T00:26:30.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-05T00:33:33.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-05T01:03:42.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-05T01:33:50.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-05T01:16:44.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-05T01:39:36.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-05T01:59:55.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-05T02:09:31.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="82" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-05T00:16:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-05T00:21:13.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-05T00:15:56.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-05T00:30:01.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-05T01:07:28.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-05T01:08:53.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="83" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="84" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="85" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-05T03:23:26.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-05T03:34:16.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Emigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-05T03:14:42.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Emigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-05T03:33:13.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-05T04:00:59.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-05T04:08:24.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="86" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-05T04:07:47.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-05T04:29:18.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Emigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-05T04:17:42.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Emigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-05T04:50:44.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-05T05:24:13.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-05T05:38:32.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-05T06:00:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-05T06:28:28.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-05T06:08:15.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-05T06:10:12.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-05T07:10:43.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-05T07:18:03.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="87" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-05T05:16:57.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-05T05:18:28.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-05T05:13:47.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-05T05:15:24.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-05T06:09:05.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-05T06:12:52.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-05T07:13:08.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-05T07:37:12.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-05T07:09:27.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-05T07:13:19.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-05T08:20:22.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-05T08:24:13.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="88" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-05T06:08:58.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-05T06:45:35.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-05T06:16:35.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-05T06:18:27.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-05T07:25:48.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-05T07:28:58.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="89" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="90" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="91" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="92" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-05T10:12:34.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-05T10:40:12.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-05T10:19:36.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-05T10:33:44.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-05T11:14:45.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-05T11:19:15.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-05T12:05:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-05T12:44:11.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-05T12:25:41.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-05T12:45:26.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-05T13:04:08.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-05T13:55:11.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="93" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="94" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-05T12:14:21.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-05T12:48:06.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-05T12:07:30.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-05T12:26:53.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-05T13:16:34.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-05T13:34:15.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="95" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-05T13:19:39.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-05T13:21:35.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Emigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-05T13:21:24.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Emigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-05T13:49:45.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-05T14:08:34.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-05T14:54:29.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-05T15:24:37.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-05T15:30:24.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Emigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-05T15:07:24.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Emigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-05T15:11:35.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-05T16:25:08.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-05T16:50:29.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="96" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>Emigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-05T14:19:19.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Emigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-05T14:33:08.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-05T14:03:26.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-05T14:21:57.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-05T15:10:54.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-05T15:29:44.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="97" description="PaperOne">
+      
+    </ProcessInstance>
+
+
+    <ProcessInstance id="98" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-05T16:25:02.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-05T16:48:29.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Emigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-05T16:23:07.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Emigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-05T16:41:03.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-05T17:24:24.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-05T17:28:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    <ProcessInstance id="99" description="PaperOne">
+      
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-05T17:23:40.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-05T17:40:27.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-05T16:57:59.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-05T17:14:36.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-05T18:01:29.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-05T18:08:18.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-05T19:04:12.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-05T19:51:29.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-05T19:16:48.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-05T19:41:04.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-05T20:20:06.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-05T20:50:15.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+  </Process>
+</WorkflowLog>
+

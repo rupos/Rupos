@@ -322,6 +322,16 @@ public class ReplayFitnessPlugin {
 	return total;
     }
 
+    @Plugin(name = "FitnessDetailsSettingsWithMarking", returnLabels = { "Fitness Total" }, returnTypes = { TotalFitnessResult.class }, parameterLabels = {}, userAccessible = true)
+	@UITopiaVariant(affiliation = UITopiaVariant.EHV, author = "T. Yuliani and H.M.W. Verbeek", email = "h.m.w.verbeek@tue.nl")
+	public TotalFitnessResult getFitnessDetails(PluginContext context, XLog log, Petrinet net, ReplayFitnessSetting setting, Marking marking) {
+
+
+
+		TotalFitnessResult total = getFitnessDetails(context, log, net, marking, setting);
+	
+	return total;
+    }
 
     @Plugin(name = "FitnessDetailsSettings", returnLabels = { "Fitness Total" }, returnTypes = { TotalFitnessResult.class }, parameterLabels = {}, userAccessible = true)
 	@UITopiaVariant(affiliation = UITopiaVariant.EHV, author = "T. Yuliani and H.M.W. Verbeek", email = "h.m.w.verbeek@tue.nl")
@@ -357,5 +367,6 @@ public class ReplayFitnessPlugin {
 		return StringVisualizer.visualize(context, tovisualize.toString());
 	}
     
+   
     
 }

@@ -10,6 +10,7 @@ import org.processmining.plugins.petrinet.replayfitness.TotalFitnessResult;
 import org.processmining.plugins.petrinet.replayfitness.TotalPerformanceResult;
 import org.processmining.plugins.petrinet.replayfitness.PerformanceVisualJS;
 import org.processmining.plugins.petrinet.replayfitness.PNVisualizzeJS;
+import org.processmining.plugins.bpmn.TraslateBPMNResult;
 
 /**
  * @author Dipartimento di Informatica - Rupos
@@ -29,8 +30,9 @@ public class SampleMain {
     	//String netFile = "../prom5_log_files/provepar3xProm6.pnml";
 	//String logFile = "../prom5_log_files/Export_Protocollo.xes";
     	//String netFile = "../prom5_log_files/porva.pnml";
-	String logFile = "../prom5_log_files/wsfmexample.mxml";
-    	String netFile = "../prom5_log_files/booking.pnml";
+	String logFile = "../prom5_log_files/wsfm.mxml";
+    	String netFile = "../prom5_log_files/residency.pnml";
+        String BpmnFile = "../prom5_log_files/Residency.xpdl";
 	//String netFile = "../prom5_log_files/ReteAdHocRicorsionePerformace3xProm6.pnml";
         //String logFile = "../prom5_log_files/sequence.mxml";
     	//String netFile = "../prom5_log_files/seqAlphahiddenx6.pnml";
@@ -58,21 +60,21 @@ public class SampleMain {
 	
 	
 	long startFitness = System.currentTimeMillis();
-	 TotalFitnessResult fitness = engine.getFitness(log, settings);
+	// TotalFitnessResult fitness = engine.getFitness(log, settings);
 	// System.out.println("Fitness: " + fitness);
 	long endFitness = System.currentTimeMillis();
 
 	//visualizza i dati di conformance con nella pagina html 
-	PNVisualizzeJS js = new PNVisualizzeJS(manager.getPluginContext().getConnectionManager());
-	js.generateJS("../javascrips/conformance.html", engine.net, fitness);
+	//PNVisualizzeJS js = new PNVisualizzeJS(manager.getPluginContext().getConnectionManager());
+	//js.generateJS("../javascrips/conformance.html", engine.net, fitness);
 	
 
 
 	System.out.println("Fitness for a single TRACE");
 
 	long startFitness2 = System.currentTimeMillis();
-	fitness = engine.getFitness(log.get(0), settings);
-	System.out.println("Fitness: " + fitness);
+	//fitness = engine.getFitness(log.get(0), settings);
+	//System.out.println("Fitness: " + fitness);
 	long endFitness2 = System.currentTimeMillis();
 	
 	
@@ -86,16 +88,51 @@ public class SampleMain {
 	long endPerformance = System.currentTimeMillis();
 
 	long startPerformance2 = System.currentTimeMillis();
-	TotalPerformanceResult performance = engine.getPerformance(log.get(4), settings);
-	System.out.println("Fitness: " + performance);
+	//TotalPerformanceResult performance = engine.getPerformance(log.get(3), settings);
+	//System.out.println("Fitness: " + performance);
 	long endPerformance2 = System.currentTimeMillis();
 
-	PerformanceVisualJS js2 = new PerformanceVisualJS(manager.getPluginContext().getConnectionManager());
-	js2.generateJS("../javascrips/Performance.html", engine.net, performance.getList().get(0));
+	//PerformanceVisualJS js2 = new PerformanceVisualJS(manager.getPluginContext().getConnectionManager());
+	//js2.generateJS("../javascrips/Performance.html", engine.net, performance.getList().get(0));
 	
 	
 	System.out.println("Time Performance single call " + (endPerformance - startPerformance));
 	System.out.println("Time Performance multiple calls " + (endPerformance2 - startPerformance2));
+
+
+	//traslate BPMN to  PN
+
+	TraslateBPMNResult traslate = manager.bpmnTOpn(BpmnFile);
+	System.out.println(traslate);
+
+
+	ReplayFitnessSetting settings2 = manager.suggestSettings(traslate.getPetri(), log);
+	settings2.setAction(ReplayAction.INSERT_ENABLED_MATCH, true);
+	settings2.setAction(ReplayAction.INSERT_ENABLED_INVISIBLE, true);
+	settings2.setAction(ReplayAction.REMOVE_HEAD, false);
+	settings2.setAction(ReplayAction.INSERT_ENABLED_MISMATCH, false);
+	settings2.setAction(ReplayAction.INSERT_DISABLED_MATCH, true);
+	settings2.setAction(ReplayAction.INSERT_DISABLED_MISMATCH, false);
+		
+	TotalFitnessResult fitnesstrasl = manager.getFitness(traslate.getPetri(), log, settings2, traslate.getMarking());
+	
+	System.out.println(fitnesstrasl);
+	
+	 
+	TotalPerformanceResult performance1 = manager.getPerformance(traslate.getPetri(), log.get(3), settings2, traslate.getMarking());
+	System.out.println("Fitness: " + performance1);
+
+	
+
+	PerformanceVisualJS js22 = new PerformanceVisualJS(manager.getPluginContext().getConnectionManager());
+		
+	js22.generateJS("../javascrips/PerformancedaBpmn.html", traslate.getPetri(), performance1.getList().get(0));
+	
+
+
+
+
+
 	
 	manager.closeContext();
     }
