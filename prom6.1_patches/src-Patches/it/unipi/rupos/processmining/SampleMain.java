@@ -130,7 +130,8 @@ public class SampleMain {
 	
 
 
-
+	PNVisualizzeJS js = new PNVisualizzeJS(manager.getPluginContext().getConnectionManager());
+	js.generateJS("../javascrips/conformance.html", traslate.getPetri(), fitnesstrasl);
 
 
 	

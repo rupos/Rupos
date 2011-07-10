@@ -302,9 +302,9 @@ import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 			if (e.getEventType().equals(EventType.END) && e.getEventTrigger().equals(EventTrigger.NONE)) {
 
 
-				Place p = net.addPlace(e.getLabel(), this.subNet);
+				Place p = net.addPlace("p"+e.getLabel(), this.subNet);
 
-				Transition t = net.addTransition(e.getLabel(), this.subNet);
+				Transition t = net.addTransition("t_"+e.getLabel(), this.subNet);
 
 				t.setInvisible(true);
 				Arc a = net.addArc(t, p, 1, this.subNet);
