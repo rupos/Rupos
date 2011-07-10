@@ -3,29 +3,85 @@ package org.processmining.plugins.bpmn;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.swing.JComponent;
+
+import org.processmining.contexts.uitopia.annotations.Visualizer;
+import org.processmining.contexts.util.StringVisualizer;
+import org.processmining.framework.plugin.PluginContext;
+import org.processmining.framework.plugin.Progress;
+import org.processmining.framework.plugin.annotations.Plugin;
+import org.processmining.framework.plugin.annotations.PluginVariant;
 import org.processmining.models.graphbased.directed.bpmn.BPMNDiagram;
+import org.processmining.models.graphbased.directed.bpmn.BPMNNode;
 import org.processmining.models.graphbased.directed.petrinet.Petrinet;
 import org.processmining.models.semantics.petrinet.Marking;
 import org.processmining.models.graphbased.directed.petrinet.elements.Place;
+import org.processmining.models.jgraph.ProMJGraphVisualizer;
+import org.processmining.plugins.petrinet.replayfitness.TotalFitnessResult;
+import org.processmining.plugins.xpdl.Xpdl;
 
 public class TraslateBPMNResult {
-	
+
 	private BPMNDiagram bpmn=null;
 	private Petrinet petri=null;
 	private Marking marking=null;
+	private Map<String, String> error = null;
+
+
 	private Map<String, Place> placeMap = null;
-	
-	 public TraslateBPMNResult(BPMNDiagram b, Petrinet p,Marking m, Map<String, Place> mp){
-		 this.bpmn=b;
-		 this.petri=p;
-		 this.marking=m;
-		 this.placeMap=mp;
-				
+	private Map<String, BPMNNode> id2node = null;
+	private Map<BPMNNode,String> node2id = null;
+
+	public Map<BPMNNode, String> getNode2id() {
+		return node2id;
 	}
-	 public TraslateBPMNResult(Map<String, Place> mp){
-	
-		 this.placeMap=mp;		
+
+
+	public Map<String, BPMNNode> getid2nodeMap() {
+		return id2node;
 	}
+
+	public Map<String, String> getError() {
+		return error;
+	}
+
+
+	public void setError(Map<String, String> error) {
+		this.error = error;
+	}
+
+
+	public void setid2nodeMap(Map<String, BPMNNode> flowidMap) {
+		this.id2node = flowidMap;
+		createNode2id();
+	}
+
+
+	private void createNode2id() {
+		if(!id2node.isEmpty()){
+			node2id = new HashMap<BPMNNode, String>();
+			for(String id : id2node.keySet()){
+				node2id.put(id2node.get(id),id);
+
+			}
+		}
+
+	}
+
+
+	private Xpdl xpdl=null;
+
+	public TraslateBPMNResult(BPMNDiagram b, Petrinet p,Marking m, Map<String, Place> mp, Xpdl x,Map<String, BPMNNode> id2n, Map<String, String> er){
+		this.bpmn=b;
+		this.petri=p;
+		this.marking=m;
+		this.placeMap=mp;
+		this.setXpdl(x);
+		this.id2node=id2n;
+		createNode2id();
+		this.error=er;
+	}
+
 
 	public BPMNDiagram getBpmn() {
 		return bpmn;
@@ -58,19 +114,55 @@ public class TraslateBPMNResult {
 	public void setPlaceMap(Map<String, Place> placeMap) {
 		this.placeMap = placeMap;
 	}
-	
-	
+
+
+	public void setXpdl(Xpdl xpdl) {
+		this.xpdl = xpdl;
+	}
+
+
+	public Xpdl getXpdl() {
+		return xpdl;
+	}
+
+
+
+
+	public String toString() {
+		if(error!=null){
+			if(error.isEmpty()){
+				return error.toString();
+			}
+		}
+		return "TraslateBPMNResult"+"NESSUN ERRORE DA SEGNalare";
+	}
+
+
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
-	
+
 	public String toString(){
 		String res = petri.toString();
 		res+= marking.toString();
 		res+= bpmn.toString();
 		return res;
-		
+
 	} */
-	
-	
+	@Visualizer
+	@Plugin(name = "Traslate Result Visualizer", parameterLabels = {"BPMN Diagram-tring"}, returnLabels = "BPMN Diagram abel of tring", returnTypes = JComponent.class)
+	/*@PluginVariant(requiredParameterLabels = { 0 })
+	public static JComponent visualize(PluginContext context, TraslateBPMNResult tovisualize) {
+		return StringVisualizer.visualize(context, tovisualize.toString());
+		//return ProMJGraphVisualizer.instance().visualizeGraph(context, tovisualize.getBpmn());
+	}*/
+
+	@PluginVariant(requiredParameterLabels = { 0 })
+	public static JComponent visualize(PluginContext context, TraslateBPMNResult tovisualize) {
+		Progress progress = context.getProgress();
+		BPMNTraslatePanel panel = new BPMNTraslatePanel(context, progress,tovisualize);
+		return panel;
+		//return ProMJGraphVisualizer.instance().visualizeGraph(context,tovisualize.getBpmn() );
+	}
+
 
 }

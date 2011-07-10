@@ -22,6 +22,7 @@ import org.processmining.framework.connections.ConnectionCannotBeObtained;
 import org.processmining.framework.plugin.PluginContext;
 import org.processmining.framework.plugin.annotations.Plugin;
 import org.processmining.models.connections.GraphLayoutConnection;
+import org.processmining.models.connections.petrinets.behavioral.InitialMarkingConnection;
 import org.processmining.models.graphbased.AttributeMap;
 import org.processmining.models.graphbased.NodeID;
 import org.processmining.models.graphbased.directed.AbstractDirectedGraphEdge;
@@ -50,6 +51,8 @@ import org.processmining.models.jgraph.ProMJGraph;
 import org.processmining.models.jgraph.ProMJGraphVisualizer;
 import org.processmining.models.jgraph.elements.ProMGraphPort;
 import org.processmining.models.semantics.petrinet.Marking;
+import org.processmining.plugins.petrinet.replay.ReplayAction;
+import org.processmining.plugins.petrinet.replayfitness.ReplayFitnessSetting;
 import org.processmining.plugins.xpdl.Xpdl;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
@@ -58,7 +61,7 @@ import com.jgraph.layout.JGraphFacade;
 import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 
 @Plugin(name = "Import BPMN model from XPDL 2.1 file to PetriNet", parameterLabels = { "Filename" }, returnLabels = {
-		"Petri Net", "Marking",  "BPMNDiagram", "Traslate Result" }, returnTypes = { Petrinet.class, Marking.class, BPMNDiagram.class,TraslateBPMNResult.class })
+		"Petri Net", "Marking",  "BPMNDiagram", "Traslate Result","xpdl","ReplayFitnessSetting" }, returnTypes = { Petrinet.class, Marking.class, BPMNDiagram.class,TraslateBPMNResult.class,Xpdl.class,ReplayFitnessSetting.class })
 		@UIImportPlugin(description = "XPDL 2.1 files to PN", extensions = { "xpdl" })
 		public class BPMNtoPN extends AbstractImportPlugin {
 
@@ -84,22 +87,22 @@ import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 		 */
 		BPMNDiagram bpmn = BPMNDiagramFactory.newBPMNDiagram(filename);
 		Map<String, BPMNNode> id2node = new HashMap<String, BPMNNode>();
-
+		
 		/*
 		 * Initialize the BPMN diagram from the XPDL element.
 		 */
-		xpdl.convertToBpmn(bpmn, id2node);
+		xpdl.convertToBpmn(bpmn, id2node );
 
 		/*
 		 * Set the label of the BPMN diagram.
 		 */
 		context.getFutureResult(0).setLabel(filename);
 
-		Boolean well = this.isWellFormed(bpmn);
+		Map<String,String> error = this.isWellFormed(bpmn);
 
 		
 
-		return this.BPMN2Translate(context,bpmn);
+		return this.BPMN2Translate(context,bpmn,xpdl,id2node,error);
 	}
 
 	private void translateTask(BPMNDiagram bpmn, Map<String, Place> placeMap,
@@ -126,13 +129,14 @@ import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 			}
 			for (BPMNEdge<? extends BPMNNode, ? extends BPMNNode> s : c
 					.getGraph().getOutEdges(c)) {
+				if(s instanceof Flow){
 				String source = s.getSource().getLabel();
 				String target = s.getTarget().getLabel();
 
 				Place pst = placeMap.get(source + target);
 
 				Arc st = net.addArc(t1, pst, 1, this.subNet);
-
+				}
 			}
 
 		}
@@ -353,7 +357,7 @@ import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 	 * @param bpmn
 	 * @return
 	 */
-	private Object BPMN2Translate(PluginContext c ,BPMNDiagram bpmn) {
+	private Object BPMN2Translate(PluginContext c ,BPMNDiagram bpmn, Xpdl xpdl, Map<String, BPMNNode> id2node, Map<String,String> error) {
 		Map<String, Place> placeMap = new HashMap<String, Place>();
 		
 
@@ -369,9 +373,7 @@ import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 			Place p = net.addPlace(f + z, this.subNet);
 			placeMap.put(f + z, p);
 			
-		//	layout.setPosition(p,
-		//			new Point2D.Double() + 10, boundingBox.getFirst().y
-		//					+ displacement.y));
+		
 		}
 
 		translateTask(bpmn, placeMap, net);
@@ -380,13 +382,35 @@ import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 
 		translateEvent(bpmn, placeMap, net, marking);
 		
-		TraslateBPMNResult result = new TraslateBPMNResult(bpmn, (Petrinet) net, marking, placeMap);
-		Object[] objects = new Object[4];
+		layoutcreate(c,net);
+		
+		TraslateBPMNResult result = new TraslateBPMNResult(bpmn, (Petrinet) net, marking, placeMap,xpdl,id2node,error);
+		Object[] objects = new Object[6];
 		objects[0] = net;
 		objects[1] = marking;
 		objects[2] = bpmn;
 		objects[3] = result;
+		objects[4] = xpdl;
 		
+		c.addConnection(new InitialMarkingConnection(net, marking));
+		
+		
+		ReplayFitnessSetting settings = new ReplayFitnessSetting();
+		System.out.println("Settings: " + settings);
+		settings.setAction(ReplayAction.INSERT_ENABLED_MATCH, true);
+		settings.setAction(ReplayAction.INSERT_ENABLED_INVISIBLE, true);
+		settings.setAction(ReplayAction.REMOVE_HEAD, false);
+		settings.setAction(ReplayAction.INSERT_ENABLED_MISMATCH, false);
+		settings.setAction(ReplayAction.INSERT_DISABLED_MATCH, true);
+		settings.setAction(ReplayAction.INSERT_DISABLED_MISMATCH, false);
+		objects[5] = settings;
+		return objects;
+		//return result;
+
+	}
+
+	private void layoutcreate(PluginContext c, PetrinetGraph net){
+
 		GraphLayoutConnection layout = new GraphLayoutConnection(net);
 		try {
 			layout = c.getConnectionManager().getFirstConnection(GraphLayoutConnection.class, c, net);
@@ -402,13 +426,9 @@ import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 			 */
 			JGraphFacade facade = new JGraphFacade(jgraph);
 			layOutFMJGraph(net, jgraph, facade);
-			System.out.print("");
+			System.out.print("Creata Layout della PetriNet");
 		}
-		return objects;
-		//return result;
-
 	}
-
 	private void layOutFMJGraph(
 			DirectedGraph<? extends AbstractDirectedGraphNode, ? extends AbstractDirectedGraphEdge<?, ?>> graph,
 			ProMJGraph jgraph, JGraphFacade facade) {
@@ -517,7 +537,7 @@ import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 		return facade.getPoints(edge);
 	}
 
-	private Boolean isWellFormed(BPMNDiagram bpmn){
+	private Map<String,String> isWellFormed(BPMNDiagram bpmn){
 		Map<String,String> maperror = new HashMap<String, String>();
 		//  Elementi BPMN che possono essere mappati:
 		//  Event-Start  End != NONE
@@ -545,12 +565,9 @@ import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 		}
 
 
-		if(!maperror.isEmpty()){
-			new Error(maperror.toString());
-			return false;
-		}
-		else
-			return true;
+		
+			return maperror;
+		
 
 
 	}
@@ -560,11 +577,11 @@ import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 		for (Activity c : bpmn.getActivities()) {
 
 			if(c.isBCompensation() || c.isBMultiinstance()){
-				maperror.put("Attività non valida", c.getId().toString());
+				maperror.put("Attività non valida", c.getLabel());
 			}
 			// activities  events have an in-degree of one and an out-degree of one
 			if (c.getGraph().getInEdges(c).size()!=1 || c.getGraph().getOutEdges(c).size()!=1){
-				maperror.put("Attività non valida troppi archi", c.getId().toString());
+				maperror.put("Attività non valida troppi archi", c.getLabel());
 			}
 			if(c.getLabel().isEmpty()){
 				maperror.put("manca il nome dell'attività", c.toString()); 
@@ -578,8 +595,8 @@ import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 			GatewayType gtype = g.getGatewayType();
 
 			switch (gtype) {
-			case  INCLUSIVE :   maperror.put("Gateway non valido", g.getId().toString());    break;
-			case COMPLEX : maperror.put(" Gateway non valido", g.getId().toString()); break;
+			case  INCLUSIVE :   maperror.put("Gateway non valido", g.getLabel());    break;
+			case COMPLEX : maperror.put(" Gateway non valido", g.getLabel()); break;
 			}
 			if(g.getLabel().isEmpty()){
 				maperror.put("manca il nome del gateway", g.toString()); 
@@ -609,10 +626,10 @@ import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 			if(trigger==null)
 				trigger=EventTrigger.NONE;
 			switch (trigger) {
-			case COMPENSATION :   maperror.put("Evento non valido", e.getId().toString());    break;
-			case LINK : maperror.put("Evento non valido", e.getId().toString()); break;
-			case CONDITIONAL : maperror.put("Evento non valido", e.getId().toString()); break;
-			case SIGNAL : maperror.put("Evento non valido", e.getId().toString()); break;
+			case COMPENSATION :   maperror.put("Evento non valido", e.getLabel());    break;
+			case LINK : maperror.put("Evento non valido", e.getLabel()); break;
+			case CONDITIONAL : maperror.put("Evento non valido", e.getLabel()); break;
+			case SIGNAL : maperror.put("Evento non valido", e.getLabel()); break;
 
 
 			}
@@ -623,33 +640,33 @@ import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 			//se trovo start o end che non sono di tipo NONE
 			if(type.equals(EventType.START) || type.equals(EventType.END)){
 				if (!trigger.equals(EventTrigger.NONE)){
-					maperror.put("Evento non valido", e.getId().toString());
+					maperror.put("Evento non valido", e.getLabel());
 				}
 			}
 
 			// start events and exception events have an in-degree of zero and an out-degree of one
 			if(type.equals(EventType.START) && ( trigger.equals(EventTrigger.ERROR) || trigger.equals(EventTrigger.NONE) )){
 				if(e.getGraph().getInEdges(e).size()!=0){
-					maperror.put("Errore Evento start con ramo in entrata", e.getId().toString());
+					maperror.put("Errore Evento start con ramo in entrata", e.getLabel());
 				}
 				if(e.getGraph().getOutEdges(e).size()!=1){
-					maperror.put("Errore Evento start senza o con troppi rami in uscita", e.getId().toString());
+					maperror.put("Errore Evento start senza o con troppi rami in uscita", e.getLabel());
 				}
 			}
 
 			//end events have an out-degree of zero and an in-degree of one
 			if(type.equals(EventType.END) &&  trigger.equals(EventTrigger.NONE)){
 				if(e.getGraph().getInEdges(e).size()!=1){
-					maperror.put("Errore Evento end senza ramo o con troppi rami in entrata", e.getId().toString());
+					maperror.put("Errore Evento end senza ramo o con troppi rami in entrata", e.getLabel());
 				}
 				if(e.getGraph().getOutEdges(e).size()!=0){
-					maperror.put("Errore Evento end con ramo in uscita", e.getId().toString());
+					maperror.put("Errore Evento end con ramo in uscita", e.getLabel());
 				}
 			}
 			//  non-exception intermediate events have an in-degree of one and an out-degree of one
 			if(type.equals(EventType.INTERMEDIATE) &&  !trigger.equals(EventTrigger.ERROR)){
 				if(e.getGraph().getInEdges(e).size()!=1 && e.getGraph().getOutEdges(e).size()!=1){
-					maperror.put("Evento  con piu di un arco", e.getId().toString());
+					maperror.put("Evento  con piu di un arco", e.getLabel());
 				}
 			}
 
