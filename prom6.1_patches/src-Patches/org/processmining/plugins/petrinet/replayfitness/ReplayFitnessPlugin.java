@@ -127,10 +127,10 @@ public class ReplayFitnessPlugin {
 		}
 
 		String text = "(based on a successful replay of " + replayedTraces + " out of " + log.size() + " traces)";
-		// ReplayFitnessConnection connection = new ReplayFitnessConnection(fitness, log, net);
-		// context.getConnectionManager().addConnection(connection);
+		
 		totalResult.getTotal().updateFitness();
-
+		ReplayFitnessRuposConnection connection = new ReplayFitnessRuposConnection(totalResult, log, net);
+		context.getConnectionManager().addConnection(connection);
 		return totalResult;
 	}
 
@@ -361,11 +361,11 @@ public class ReplayFitnessPlugin {
 	return settings;
     }
 
-    @Visualizer
+    /*@Visualizer
 	@Plugin(name = "Fitness Result Visualizer", parameterLabels = "String", returnLabels = "Label of String", returnTypes = JComponent.class)
 	public static JComponent visualize(PluginContext context, TotalFitnessResult tovisualize) {
 		return StringVisualizer.visualize(context, tovisualize.toString());
-	}
+	}*/
     
    
     

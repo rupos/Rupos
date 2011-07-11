@@ -138,7 +138,7 @@ public class Boot {
 		setReleaseInstalled(PROM_VERSION, RELEASE_PACKAGE);
 	}
 
-	public static Object boot(Class<?> bootClass, Class<? extends PluginContext> pluginContextClass, String... args)			throws Exception {
+	public static Object boot(Class<?> bootClass, Class<? extends PluginContext> pluginContextClass, String[] args)			throws Exception {
 		long start = System.currentTimeMillis();
 		// First instantiate the package manager
 		PackageManager packages = PackageManager.getInstance();

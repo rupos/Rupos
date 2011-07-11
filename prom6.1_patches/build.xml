@@ -67,7 +67,9 @@
 					 <fileset dir="../prom61_origin/Log/dist/">
                                                 <include name="*.jar" />
                                         </fileset>
-
+					<fileset dir="../prom61_origin/LogDialog/dist/">
+                                                <include name="*.jar" />
+                                        </fileset>
 
 				</classpath>
 				<!-- Check for unsafe operations -->

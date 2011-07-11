@@ -149,18 +149,7 @@
 
     <ProcessInstance id="4" description="PaperOne">
       
-      <AuditTrailEntry>
-	<WorkflowModelElement>Immigration</WorkflowModelElement>
-	<EventType >start</EventType>
-	<Timestamp>2011-06-01T18:24:45.000+01:00</Timestamp>
-	<Originator>Guancio</Originator>
-      </AuditTrailEntry>
-      <AuditTrailEntry>
-	<WorkflowModelElement>Immigration</WorkflowModelElement>
-	<EventType >complete</EventType>
-	<Timestamp>2011-06-01T18:50:35.000+01:00</Timestamp>
-	<Originator>Guancio</Originator>
-      </AuditTrailEntry>
+      
         
       <AuditTrailEntry>
 	<WorkflowModelElement>DataCollection</WorkflowModelElement>
