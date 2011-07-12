@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WorkflowLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://is.tm.tue.nl/research/processmining/WorkflowLog.xsd" description="Sample Guancio Log File">
+  <Source program="Example One from Guancio"/>
+  <Process id="Paper" description="Paper Submission">
+
+
+  
+
+
+    <ProcessInstance id="0" description="PaperOne">
+      
+        <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-01T18:24:45.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>Immigration</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-01T18:50:35.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-01T18:24:21.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>DataCollection</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-01T18:53:02.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >start</EventType>
+	<Timestamp>2011-06-01T19:13:29.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+      <AuditTrailEntry>
+	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
+	<EventType >complete</EventType>
+	<Timestamp>2011-06-01T19:40:57.000+01:00</Timestamp>
+	<Originator>Guancio</Originator>
+      </AuditTrailEntry>
+        
+    </ProcessInstance>
+
+
+    
+
+
+  </Process>
+</WorkflowLog>
+

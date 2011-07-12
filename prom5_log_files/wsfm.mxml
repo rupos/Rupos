@@ -288,19 +288,7 @@
 	<Originator>Guancio</Originator>
       </AuditTrailEntry>
         
-      <AuditTrailEntry>
-	<WorkflowModelElement>Immigration</WorkflowModelElement>
-	<EventType >start</EventType>
-	<Timestamp>2011-06-01T21:57:44.000+01:00</Timestamp>
-	<Originator>Guancio</Originator>
-      </AuditTrailEntry>
-      <AuditTrailEntry>
-	<WorkflowModelElement>Immigration</WorkflowModelElement>
-	<EventType >complete</EventType>
-	<Timestamp>2011-06-01T22:01:17.000+01:00</Timestamp>
-	<Originator>Guancio</Originator>
-      </AuditTrailEntry>
-        
+      
       <AuditTrailEntry>
 	<WorkflowModelElement>ChangeResidence</WorkflowModelElement>
 	<EventType >start</EventType>

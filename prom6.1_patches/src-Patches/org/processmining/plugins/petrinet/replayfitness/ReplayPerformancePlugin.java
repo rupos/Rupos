@@ -109,6 +109,9 @@ public class ReplayPerformancePlugin {
 		}
 
 		String text = "(based on a successful replay of " + replayedTraces + " out of " + log.size() + " traces)";
+		
+		ReplayPerformanceRuposConnection connection = new ReplayPerformanceRuposConnection(performance, log, net);
+		context.getConnectionManager().addConnection(connection);
 
 		return performance;
 	}
@@ -371,11 +374,11 @@ public class ReplayPerformancePlugin {
 
 
 
-	@Visualizer
+	/*@Visualizer
 	@Plugin(name = "Performance Result Visualizer", parameterLabels = "String", returnLabels = "Label of String", returnTypes = JComponent.class)
 	public static JComponent visualize(PluginContext context, TotalPerformanceResult tovisualize) {
 		return StringVisualizer.visualize(context, tovisualize.toString());
-	}
+	}*/
 
 
 }

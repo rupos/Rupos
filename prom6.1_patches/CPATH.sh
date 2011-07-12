@@ -45,7 +45,7 @@ CPATH=$CPATH:$PROM_ORIGIN_BASE/Log/dist/InteractiveVisualization.jar
 
 
 CPATH=$CPATH:$PROM_ORIGIN_BASE/OSService/dist/OSService.jar
-CPATH=$CPATH:$PROM_ORIGIN_BASE/TransitionSystems/dist/TransitionSystems.jar
+#CPATH=$CPATH:$PROM_ORIGIN_BASE/TransitionSystems/dist/TransitionSystems.jar
 CPATH=$CPATH:$PROM_ORIGIN_BASE/PetriNets/dist/PetriNets.jar
 #CPATH=$CPATH:$PROM_ORIGIN_BASE/LogAbstractions/dist/LogAbstractions.jar
 #CPATH=$CPATH:$PROM_ORIGIN_BASE/AlphaMiner/dist/AlphaMiner.jar

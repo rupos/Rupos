@@ -7,7 +7,7 @@ import org.processmining.framework.plugin.annotations.Plugin;
 import org.processmining.models.graphbased.directed.petrinet.Petrinet;
 
 
-@Plugin(name = "Fitness Petrinet Log Connection Factory", parameterLabels = { "Fitness", "Log", "Petrinet" }, returnTypes = ReplayFitnessConnection.class, returnLabels = "Fitness Petrinet Log connection", userAccessible = false)
+@Plugin(name = "Fitness Petrinet Log Connection Factory", parameterLabels = { "Fitness", "Log", "Petrinet" }, returnTypes = ReplayFitnessRuposConnection.class, returnLabels = "Fitness Rupos Petrinet Log connection", userAccessible = false)
 @ConnectionObjectFactory
 public class ReplayFitnessRuposConnection extends AbstractConnection {
 
@@ -16,7 +16,7 @@ public class ReplayFitnessRuposConnection extends AbstractConnection {
 	public static String XLOG = "XLog";
 
 	public ReplayFitnessRuposConnection(TotalFitnessResult fitness, XLog log, Petrinet net) {
-		super("FitnessConnection");
+		super("FitnessRuposConnection");
 		put(FITNESS, fitness);
 		put(XLOG, log);
 		put(PNET, net);
