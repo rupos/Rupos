@@ -21,4 +21,18 @@ public class PerformanceResult {
 		res += synchTime + " \n";
 		return res;
 	}
+	public int getTokenCount() {
+		return tokenCount;
+	}
+	public float getTime() {
+		return time;
+	}
+	public float getWaitTime() {
+		return waitTime;
+	}
+	public float getSynchTime() {
+		return synchTime;
+	}
+	
+	
 }

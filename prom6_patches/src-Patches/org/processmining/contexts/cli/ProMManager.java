@@ -2,6 +2,7 @@ package org.processmining.contexts.cli;
 
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.ExecutionException;
+import java.io.File;
 import java.lang.InterruptedException;
 
 import java.lang.Thread;
@@ -42,6 +43,7 @@ public class ProMManager {
 	PluginDescriptor importNetPlugin = null;
 	PluginDescriptor performancePlugin = null;
 	PluginDescriptor suggestPlugin = null;
+	PluginDescriptor exportLogPlugin;
 	CLIContext globalContext = null;
 	PluginContext context = null;
 
@@ -66,6 +68,8 @@ public class ProMManager {
 				importNetPlugin = plugin;
 			else if ("FitnessSuggestSettings".equals(plugin.getName()))
 				suggestPlugin = plugin;
+			else if ("Export Log to MXML File".equals(plugin.getName()))
+				exportLogPlugin = plugin;
 			else
 				continue;
 			if (false) {
@@ -236,6 +240,27 @@ public class ProMManager {
 		return performance;
 	}
 
+	/**
+	 * @param logFile
+	 * @return
+	 * @throws ExecutionException
+	 * @throws InterruptedException
+	 */
+	public XLog exportLog(XLog log, File dest) throws ExecutionException,
+			InterruptedException {
+		System.out.println("------------------------------");
+		System.out.println("export Log");
+		System.out.println("------------------------------");
+		PluginContext context1 = context
+				.createChildContext("Result of Import Log Error");
+		exportLogPlugin.invoke(0, context1, log, dest);
+		context1.getResult().synchronize();
+		XLog res = (XLog) context1.getResult().getResult(0);
+		context1.getParentContext().deleteChild(context1);
+		return res;
+	}
+
+	
 	public void closeContext() {
 		// for ( PluginContext c:
 		// globalContext.getMainPluginContext().getChildContexts()) {

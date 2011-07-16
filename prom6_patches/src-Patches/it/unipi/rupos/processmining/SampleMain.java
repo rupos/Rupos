@@ -53,7 +53,7 @@ public class SampleMain {
 	settings.setAction(ReplayAction.INSERT_ENABLED_INVISIBLE, true);
 	settings.setAction(ReplayAction.REMOVE_HEAD, false);
 	settings.setAction(ReplayAction.INSERT_ENABLED_MISMATCH, false);
-	settings.setAction(ReplayAction.INSERT_DISABLED_MATCH, false);
+	settings.setAction(ReplayAction.INSERT_DISABLED_MATCH, true);
 	settings.setAction(ReplayAction.INSERT_DISABLED_MISMATCH, false);
 	
 	
