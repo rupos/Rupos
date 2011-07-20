@@ -170,7 +170,6 @@
         <Transition Id="ID-15" From="ID-7" To="ID-8">
           <ConnectorGraphicsInfos>
             <ConnectorGraphicsInfo ToolId="Sketchpad_BPMN" IsVisible="true" PageId="ID-1">
-              <Coordinates XCoordinate="250.5" YCoordinate="180.5" />
               <Coordinates XCoordinate="250.0" YCoordinate="180.0" />
               <Coordinates XCoordinate="326.2894592285156" YCoordinate="96.28947448730469" />
             </ConnectorGraphicsInfo>

@@ -31,10 +31,10 @@ public class BPMNTraslatePanel extends JPanel{
 		JComponent netPNView = ProMJGraphVisualizer.instance().visualizeGraph(context, result.getPetri());
 		JComponent netBPMNView = ProMJGraphVisualizer.instance().visualizeGraph(context, result.getBpmn());
 		
-		JComponent ErrorView = visualizestring(result.getError().toString());
+		JComponent ErrorView = visualizestring("<html>"+result.getError().toString()+"</html>");
 		
 
-		double size[][] = { { TableLayoutConstants.FILL }, { TableLayoutConstants.FILL,  TableLayoutConstants.FILL,30} };
+		double size[][] = { { TableLayoutConstants.FILL }, { TableLayoutConstants.FILL,  TableLayoutConstants.FILL,150} };
 		setLayout(new TableLayout(size));
 		
 		add(netBPMNView, "0, 0");

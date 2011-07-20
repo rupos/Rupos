@@ -1,5 +1,6 @@
 package org.processmining.plugins.bpmn;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -25,7 +26,7 @@ public class TraslateBPMNResult {
 	private BPMNDiagram bpmn=null;
 	private Petrinet petri=null;
 	private Marking marking=null;
-	private Map<String, String> error = null;
+	private Collection<String> error = null;
 
 
 	private Map<String, Place> placeMap = null;
@@ -41,12 +42,12 @@ public class TraslateBPMNResult {
 		return id2node;
 	}
 
-	public Map<String, String> getError() {
+	public Collection<String> getError() {
 		return error;
 	}
 
 
-	public void setError(Map<String, String> error) {
+	public void setError(Collection<String> error) {
 		this.error = error;
 	}
 
@@ -71,7 +72,7 @@ public class TraslateBPMNResult {
 
 	private Xpdl xpdl=null;
 
-	public TraslateBPMNResult(BPMNDiagram b, Petrinet p,Marking m, Map<String, Place> mp, Xpdl x,Map<String, BPMNNode> id2n, Map<String, String> er){
+	public TraslateBPMNResult(BPMNDiagram b, Petrinet p,Marking m, Map<String, Place> mp, Xpdl x,Map<String, BPMNNode> id2n,Collection<String> er){
 		this.bpmn=b;
 		this.petri=p;
 		this.marking=m;

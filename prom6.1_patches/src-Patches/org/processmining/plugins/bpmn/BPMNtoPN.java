@@ -8,6 +8,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Vector;
 
 import javax.swing.SwingConstants;
 import javax.swing.filechooser.FileFilter;
@@ -39,6 +40,7 @@ import org.processmining.models.graphbased.directed.bpmn.elements.Event.EventTri
 import org.processmining.models.graphbased.directed.bpmn.elements.Gateway.GatewayType;
 import org.processmining.models.graphbased.directed.bpmn.elements.Flow;
 import org.processmining.models.graphbased.directed.bpmn.elements.Gateway;
+import org.processmining.models.graphbased.directed.bpmn.elements.SubProcess;
 import org.processmining.models.graphbased.directed.petrinet.Petrinet;
 import org.processmining.models.graphbased.directed.petrinet.PetrinetGraph;
 import org.processmining.models.graphbased.directed.petrinet.elements.Arc;
@@ -87,7 +89,7 @@ import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 		 */
 		BPMNDiagram bpmn = BPMNDiagramFactory.newBPMNDiagram(filename);
 		Map<String, BPMNNode> id2node = new HashMap<String, BPMNNode>();
-		
+
 		/*
 		 * Initialize the BPMN diagram from the XPDL element.
 		 */
@@ -98,9 +100,9 @@ import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 		 */
 		context.getFutureResult(0).setLabel(filename);
 
-		Map<String,String> error = this.isWellFormed(bpmn);
+		Collection<String> error = this.isWellFormed(bpmn);
 
-		
+
 
 		return this.BPMN2Translate(context,bpmn,xpdl,id2node,error);
 	}
@@ -130,12 +132,12 @@ import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 			for (BPMNEdge<? extends BPMNNode, ? extends BPMNNode> s : c
 					.getGraph().getOutEdges(c)) {
 				if(s instanceof Flow){
-				String source = s.getSource().getLabel();
-				String target = s.getTarget().getLabel();
+					String source = s.getSource().getLabel();
+					String target = s.getTarget().getLabel();
 
-				Place pst = placeMap.get(source + target);
+					Place pst = placeMap.get(source + target);
 
-				Arc st = net.addArc(t1, pst, 1, this.subNet);
+					Arc st = net.addArc(t1, pst, 1, this.subNet);
 				}
 			}
 
@@ -326,27 +328,27 @@ import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 
 			}
 			if (e.getEventType().equals(EventType.INTERMEDIATE) && !e.getEventTrigger().equals(EventTrigger.NONE)) {
-				
-				
+
+
 
 				Transition t = net.addTransition(e.getLabel(), this.subNet);			
-							
 
-				
+
+
 				String g = e.getGraph().getInEdges(e).iterator().next().getSource().getLabel();
 				String s  = e.getGraph().getInEdges(e).iterator().next().getTarget().getLabel();
 				Place ps_pre = placeMap.get(g+s);
-				
-				
+
+
 				g  = e.getGraph().getOutEdges(e).iterator().next().getSource().getLabel();
 				s  = e.getGraph().getOutEdges(e).iterator().next().getTarget().getLabel();
 				Place ps_post = placeMap.get(g+s);
-				
+
 				net.addArc(ps_pre,t, 1, this.subNet);
 				net.addArc(t,ps_post, 1, this.subNet);
-				
-				
-				
+
+
+
 			}
 
 		}
@@ -357,23 +359,23 @@ import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 	 * @param bpmn
 	 * @return
 	 */
-	private Object BPMN2Translate(PluginContext c ,BPMNDiagram bpmn, Xpdl xpdl, Map<String, BPMNNode> id2node, Map<String,String> error) {
+	private Object BPMN2Translate(PluginContext c ,BPMNDiagram bpmn, Xpdl xpdl, Map<String, BPMNNode> id2node, Collection<String> error) {
 		Map<String, Place> placeMap = new HashMap<String, Place>();
-		
+
 
 		PetrinetGraph net = PetrinetFactory.newPetrinet(bpmn.getLabel());
 		Marking marking = new Marking();
-		
-		
-		
+
+
+		//gli argchi del diagramma BPMN diventano piazze della rete BPMN
 		for (Flow g : bpmn.getFlows()) {
 			String f = g.getSource().getLabel();
 			String z = g.getTarget().getLabel();
 
 			Place p = net.addPlace(f + z, this.subNet);
 			placeMap.put(f + z, p);
-			
-		
+
+
 		}
 
 		translateTask(bpmn, placeMap, net);
@@ -381,9 +383,9 @@ import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 		translateGateway(bpmn, placeMap, net);
 
 		translateEvent(bpmn, placeMap, net, marking);
-		
+
 		layoutcreate(c,net);
-		
+
 		TraslateBPMNResult result = new TraslateBPMNResult(bpmn, (Petrinet) net, marking, placeMap,xpdl,id2node,error);
 		Object[] objects = new Object[6];
 		objects[0] = net;
@@ -391,10 +393,10 @@ import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 		objects[2] = bpmn;
 		objects[3] = result;
 		objects[4] = xpdl;
-		
+
 		c.addConnection(new InitialMarkingConnection(net, marking));
-		
-		
+
+
 		ReplayFitnessSetting settings = new ReplayFitnessSetting();
 		System.out.println("Settings: " + settings);
 		settings.setAction(ReplayAction.INSERT_ENABLED_MATCH, true);
@@ -419,7 +421,7 @@ import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 			/*
 			 * Get a jgraph for this graph.
 			 */
-			//context.log("[Animation] Create layout for " + graph.hashCode());
+
 			ProMJGraph jgraph = ProMJGraphVisualizer.instance().visualizeGraph(c, net).getGraph();
 			/*
 			 * Layout this jgraph.
@@ -431,7 +433,7 @@ import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 	}
 	private void layOutFMJGraph(
 			DirectedGraph<? extends AbstractDirectedGraphNode, ? extends AbstractDirectedGraphEdge<?, ?>> graph,
-			ProMJGraph jgraph, JGraphFacade facade) {
+					ProMJGraph jgraph, JGraphFacade facade) {
 		JGraphHierarchicalLayout layout = new JGraphHierarchicalLayout();
 		layout.setDeterministic(false);
 		layout.setCompactLayout(false);
@@ -537,9 +539,9 @@ import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 		return facade.getPoints(edge);
 	}
 
-	private Map<String,String> isWellFormed(BPMNDiagram bpmn){
-		Map<String,String> maperror = new HashMap<String, String>();
-		//  Elementi BPMN che possono essere mappati:
+	private Collection<String> isWellFormed(BPMNDiagram bpmn){
+		Collection<String> maperror = new Vector<String>();
+		//  Elementi BPMN che non possono essere mappati:
 		//  Event-Start  End != NONE
 		//  IntermediateCompensation-Event 
 		//  EndCompensation-Event 
@@ -552,54 +554,142 @@ import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 		ActivityWellFormed(bpmn,maperror);
 
 		//every object is on a path from a start event or an exception event to an end event
-
+		pathFromStartToEnd(bpmn,maperror);
 		//if Q is a set of well-formed core BPMN processes and the relation HR is a Direct Acyclic Graph, HR* is a connected graph
+		//Controlliamo che nn ci siano sotto processi che vengono invocati da più attività o che un sotto processo figlio invochi un sottoprocesso padre
+		acyclicSubProcess(bpmn,maperror);
+		
 
 		// Nessuna SequenceFlow deve essere collegata allo stesso elemento
 		for(Flow g : bpmn.getFlows()) {
 			BPMNNode s = g.getSource();
 			BPMNNode t = g.getTarget();
 			if(s.equals(t)){
-				maperror.put("SequenceFlow connessa allo stesso elemento", "flow_s->t");
+				maperror.add(s.getLabel()+"SequenceFlow connessa allo stesso elemento+flow_s->t");
 			}
 		}
 
 
-		
-			return maperror;
-		
+
+		return maperror;
+
 
 
 	}
 
-	private void ActivityWellFormed(BPMNDiagram bpmn, Map<String, String> maperror) {
+	private void acyclicSubProcess(BPMNDiagram bpmn, Collection<String> maperror) {
+		Collection<SubProcess> subs = bpmn.getSubProcesses();
+		for(SubProcess s : subs){
+			System.out.print(s);
+			isacyclicsubprocess( s , maperror);
+		}
+		
+	}
+
+	private void isacyclicsubprocess(SubProcess s, Collection<String> maperror) {
+		/*if(){
+			
+		}*/
+		
+	}
+
+	private void pathFromStartToEnd(BPMNDiagram bpmn,
+			Collection<String> maperror) {
+		//every object is on a path from a start event or an exception event to an end event
+		for(BPMNNode a : bpmn.getNodes()){
+			pathFromNodeToEnd(a,maperror,a);
+			pathFromNodeToStart(a,maperror,a);
+			
+		}
+
+	}
+
+	private void pathFromNodeToStart(BPMNNode a, Collection<String> maperror,
+			BPMNNode c) {
+		Collection<BPMNEdge<? extends BPMNNode, ? extends BPMNNode>> edges = a.getGraph().getInEdges(a);
+		if(!edges.isEmpty()){
+			for (BPMNEdge<? extends BPMNNode, ? extends BPMNNode> edge : edges){
+				BPMNNode b = edge.getSource();
+				if(b instanceof Event){
+					Event isend = (Event) b;
+					if((isend.getEventType()==EventType.START && isend.getEventTrigger()==EventTrigger.NONE)||(isend.getEventType()==EventType.INTERMEDIATE&& isend.getEventTrigger()==EventTrigger.ERROR)){
+						break;
+					}
+				}
+				if(b==null){
+					maperror.add("il path dell'elemento inizia con start "+c.getLabel());
+				}
+				pathFromNodeToEnd(b,maperror, c);
+			}
+			
+		}else{
+			if(a instanceof Event){
+				Event isstart = (Event) a;
+				if(isstart.getEventType()!=EventType.START && isstart.getEventTrigger()!=EventTrigger.NONE){
+					maperror.add(c.getLabel()+" il path dell'elemento inizia con start ");
+				}
+			}else maperror.add(c.getLabel()+"il path dell'elemento inizia con start ");
+			
+		}	
+		
+	}
+
+	private void pathFromNodeToEnd(BPMNNode a, Collection<String> maperror, BPMNNode c) {
+		Collection<BPMNEdge<? extends BPMNNode, ? extends BPMNNode>> edges = a.getGraph().getOutEdges(a);
+		if(!edges.isEmpty()){
+			for (BPMNEdge<? extends BPMNNode, ? extends BPMNNode> edge : edges){
+				BPMNNode b = edge.getTarget();
+				if(b instanceof Event){
+					Event isend = (Event) b;
+					if(isend.getEventType()==EventType.END && isend.getEventTrigger()==EventTrigger.NONE){
+						break;
+					}
+				}
+				if(b==null){
+					maperror.add("il path dell'elemento nn termina con end "+c.getLabel());
+				}
+				pathFromNodeToEnd(b,maperror, c);
+			}
+		}else{
+			if(a instanceof Event){
+				Event isend = (Event) a;
+				if(isend.getEventType()!=EventType.END && isend.getEventTrigger()!=EventTrigger.NONE){
+					maperror.add("il path dell'elemento nn termina con end "+c.getLabel());
+				}
+			}else maperror.add("il path dell'elemento nn termina con end "+c.getLabel());
+			
+		}		
+
+	}
+
+	private void ActivityWellFormed(BPMNDiagram bpmn, Collection<String> maperror) {
 
 		for (Activity c : bpmn.getActivities()) {
 
 			if(c.isBCompensation() || c.isBMultiinstance()){
-				maperror.put("Attività non valida", c.getLabel());
+				maperror.add("Attività non valida "+c.getLabel());
 			}
 			// activities  events have an in-degree of one and an out-degree of one
 			if (c.getGraph().getInEdges(c).size()!=1 || c.getGraph().getOutEdges(c).size()!=1){
-				maperror.put("Attività non valida troppi archi", c.getLabel());
+				maperror.add("Attività non valida troppi archi o troppo pochi "+c.getLabel());
 			}
 			if(c.getLabel().isEmpty()){
-				maperror.put("manca il nome dell'attività", c.toString()); 
+				maperror.add("manca il nome dell'attività "+c.getLabel()); 
 			}
 		}
 	}
 
-	private void GatewayWellFormed(BPMNDiagram bpmn,Map<String,String> maperror ){
+	private void GatewayWellFormed(BPMNDiagram bpmn,Collection<String> maperror ){
 		for (Gateway g : bpmn.getGateways()) {
 			//DATABASED, EVENTBASED, INCLUSIVE, COMPLEX, PARALLEL
 			GatewayType gtype = g.getGatewayType();
 
 			switch (gtype) {
-			case  INCLUSIVE :   maperror.put("Gateway non valido", g.getLabel());    break;
-			case COMPLEX : maperror.put(" Gateway non valido", g.getLabel()); break;
+			case  INCLUSIVE :   maperror.add("Gateway non valido "+g.getLabel());    break;
+			case COMPLEX : maperror.add("Gateway non valido "+g.getLabel()); break;
 			}
 			if(g.getLabel().isEmpty()){
-				maperror.put("manca il nome del gateway", g.toString()); 
+				maperror.add("manca il nome del gateway "+g.getLabel()); 
 			}
 
 			//fork or decision gateways have an in-degree of one and an out-degree of more than one,
@@ -608,7 +698,9 @@ import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 				if(!(g.getGraph().getInEdges(g).size()==1 && g.getGraph().getOutEdges(g).size()>1 )){
 
 					if(!(g.getGraph().getInEdges(g).size()>1 && g.getGraph().getOutEdges(g).size()==1 )){
-						maperror.put(" Gateway non valido troppi archi in entrata o in uscita", g.getLabel()); 
+						
+						maperror.add(" Gateway non valido troppi archi in entrata o in uscita "+g.getLabel()); 
+						
 					}
 				}
 
@@ -616,7 +708,7 @@ import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 		}
 	}
 
-	private void EventWellFormed(BPMNDiagram bpmn,Map<String,String> maperror ){
+	private void EventWellFormed(BPMNDiagram bpmn,Collection<String> maperror ){
 		for (Event e : bpmn.getEvents()){
 			//START, INTERMEDIATE, END;
 			EventType type = e.getEventType();
@@ -626,47 +718,47 @@ import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 			if(trigger==null)
 				trigger=EventTrigger.NONE;
 			switch (trigger) {
-			case COMPENSATION :   maperror.put("Evento non valido", e.getLabel());    break;
-			case LINK : maperror.put("Evento non valido", e.getLabel()); break;
-			case CONDITIONAL : maperror.put("Evento non valido", e.getLabel()); break;
-			case SIGNAL : maperror.put("Evento non valido", e.getLabel()); break;
+			case COMPENSATION :   maperror.add("Evento non valido "+e.getLabel());    break;
+			case LINK : maperror.add("Evento non valido "+e.getLabel()); break;
+			case CONDITIONAL : maperror.add("Evento non valido "+e.getLabel()); break;
+			case SIGNAL : maperror.add("Evento non valido "+e.getLabel()); break;
 
 
 			}
 
 			if(e.getLabel().isEmpty()){
-				maperror.put("manca il nome dell'evento", e.toString()); 
+				maperror.add("manca il nome dell'evento "+e.getLabel()); 
 			}
 			//se trovo start o end che non sono di tipo NONE
 			if(type.equals(EventType.START) || type.equals(EventType.END)){
 				if (!trigger.equals(EventTrigger.NONE)){
-					maperror.put("Evento non valido", e.getLabel());
+					maperror.add("Evento non valido "+e.getLabel());
 				}
 			}
 
 			// start events and exception events have an in-degree of zero and an out-degree of one
 			if(type.equals(EventType.START) && ( trigger.equals(EventTrigger.ERROR) || trigger.equals(EventTrigger.NONE) )){
 				if(e.getGraph().getInEdges(e).size()!=0){
-					maperror.put("Errore Evento start con ramo in entrata", e.getLabel());
+					maperror.add("Errore Evento start con ramo in entrata "+e.getLabel());
 				}
 				if(e.getGraph().getOutEdges(e).size()!=1){
-					maperror.put("Errore Evento start senza o con troppi rami in uscita", e.getLabel());
+					maperror.add("Errore Evento start senza o con troppi rami in uscita "+e.getLabel());
 				}
 			}
 
 			//end events have an out-degree of zero and an in-degree of one
 			if(type.equals(EventType.END) &&  trigger.equals(EventTrigger.NONE)){
 				if(e.getGraph().getInEdges(e).size()!=1){
-					maperror.put("Errore Evento end senza ramo o con troppi rami in entrata", e.getLabel());
+					maperror.add("Errore Evento end senza ramo o con troppi rami in entrata "+e.getLabel());
 				}
 				if(e.getGraph().getOutEdges(e).size()!=0){
-					maperror.put("Errore Evento end con ramo in uscita", e.getLabel());
+					maperror.add("Errore Evento end con ramo in uscita "+e.getLabel());
 				}
 			}
 			//  non-exception intermediate events have an in-degree of one and an out-degree of one
 			if(type.equals(EventType.INTERMEDIATE) &&  !trigger.equals(EventTrigger.ERROR)){
 				if(e.getGraph().getInEdges(e).size()!=1 && e.getGraph().getOutEdges(e).size()!=1){
-					maperror.put("Evento  con piu di un arco", e.getLabel());
+					maperror.add("Evento  con piu di un arco "+e.getLabel());
 				}
 			}
 
