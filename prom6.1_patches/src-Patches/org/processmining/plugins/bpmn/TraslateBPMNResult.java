@@ -31,9 +31,9 @@ public class TraslateBPMNResult {
 
 	private Map<String, Place> placeMap = null;
 	private Map<String, BPMNNode> id2node = null;
-	private Map<BPMNNode,String> node2id = null;
+	private Map<String,String> node2id = null;
 
-	public Map<BPMNNode, String> getNode2id() {
+	public Map<String, String> getNode2id() {
 		return node2id;
 	}
 
@@ -60,9 +60,9 @@ public class TraslateBPMNResult {
 
 	private void createNode2id() {
 		if(!id2node.isEmpty()){
-			node2id = new HashMap<BPMNNode, String>();
+			node2id = new HashMap<String, String>();
 			for(String id : id2node.keySet()){
-				node2id.put(id2node.get(id),id);
+				node2id.put(id2node.get(id).getLabel(),id);
 
 			}
 		}

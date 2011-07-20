@@ -66,13 +66,13 @@ public class ReplayPerformanceRuposVisualizze {
 			Petrinet net, XLog log, TotalPerformanceResult tovisualize) {
 		Progress progress = context.getProgress();
 		String  visualize= this.toHTMLfromMPP(tovisualize.getList().get(0));
-		drawfitnessnet(net, tovisualize.getList().get(0),tovisualize.total);
+		drawperformancenet(net, tovisualize.getList().get(0),tovisualize.total);
 		ReplayPerformanceRuposPanel panel = new ReplayPerformanceRuposPanel(context, net, log, progress, visualize);
 		return panel;
 
 
 	}
-	private void drawfitnessnet(Petrinet net, Map<Place, PerformanceResult> Result, PerformanceResult totalResult) {
+	private void drawperformancenet(Petrinet net, Map<Place, PerformanceResult> Result, PerformanceResult totalResult) {
 
 		Map<String,PerformanceResult> name2performance = new HashMap<String, PerformanceResult>();
 

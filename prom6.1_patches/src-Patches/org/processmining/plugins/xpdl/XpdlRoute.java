@@ -146,12 +146,17 @@ public class XpdlRoute extends XpdlElement {
 	}
 
 	public void convertToBpmn(BPMNDiagram bpmn, String id, String name, SubProcess parent, Map<String, BPMNNode> id2node) {
-		GatewayType type = GatewayType.DATABASED;
+		GatewayType type = GatewayType.DATABASED; 
+	
 		if (gatewayType != null) {
 			if (gatewayType.equalsIgnoreCase("XOR")|| gatewayType.equalsIgnoreCase("Exclusive")) {
-				if ((instantiate != null) && (instantiate.equalsIgnoreCase("true"))) {
+				//if (((instantiate != null) && (instantiate.equalsIgnoreCase("true")))) {
+					if(xorType.equalsIgnoreCase("Event")){
 					type = GatewayType.EVENTBASED;
-				}
+					}else if(xorType.equalsIgnoreCase("DATA")){
+					type = GatewayType.DATABASED;
+					}
+				//}
 			} else if (gatewayType.equalsIgnoreCase("AND")|| gatewayType.equalsIgnoreCase("Parallel")) {
 				type = GatewayType.PARALLEL;
 			} else if (gatewayType.equalsIgnoreCase("OR")|| gatewayType.equalsIgnoreCase("Inclusive")) {
