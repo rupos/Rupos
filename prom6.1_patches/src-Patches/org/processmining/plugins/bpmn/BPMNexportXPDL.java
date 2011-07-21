@@ -45,9 +45,9 @@ import org.processmining.models.jgraph.ProMJGraph;
 import org.processmining.models.jgraph.ProMJGraphVisualizer;
 import org.processmining.models.jgraph.elements.ProMGraphPort;
 import org.processmining.models.semantics.petrinet.Marking;
-import org.processmining.plugins.petrinet.replayfitness.FitnessResult;
+import org.processmining.plugins.petrinet.replayfitness.ConformanceResult;
 import org.processmining.plugins.petrinet.replayfitness.PerformanceData;
-import org.processmining.plugins.petrinet.replayfitness.TotalFitnessResult;
+import org.processmining.plugins.petrinet.replayfitness.TotalConformanceResult;
 import org.processmining.plugins.petrinet.replayfitness.TotalPerformanceResult;
 import org.processmining.plugins.xpdl.Xpdl;
 import org.processmining.plugins.xpdl.collections.XpdlArtifacts;
@@ -62,15 +62,15 @@ import org.xmlpull.v1.XmlPullParserFactory;
 import com.jgraph.layout.JGraphFacade;
 import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 
-@Plugin(name = "BPMNexportXPDLwithAnalisysDetails", parameterLabels = { "TraslateBPMNResult", "TotalFitnessResult" , "TotalPerformanceResult"}, returnLabels = { "BPMN conformance" , "XPDL traslate" }, returnTypes = {
+@Plugin(name = "BPMNexportXPDLwithAnalisysDetails", parameterLabels = { "TraslateBPMNResult", "TotalConformanceResult" , "TotalPerformanceResult"}, returnLabels = { "BPMN conformance" , "XPDL traslate" }, returnTypes = {
 		BPMNDiagram.class , Xpdl.class }, userAccessible = true)
 		public class BPMNexportXPDL {
 	@UITopiaVariant(affiliation = UITopiaVariant.EHV, author = "GOS", email = "Di.unipi", pack = "BPMN")
 	@PluginVariant(requiredParameterLabels = { 0, 1 }, variantLabel = "Exporting  File Conformance")
-	public Object exportBPMNexportXPDL(PluginContext context, TraslateBPMNResult traslateBpmnresult, TotalFitnessResult totalfitnessresult) throws Exception {
+	public Object exportBPMNexportXPDL(PluginContext context, TraslateBPMNResult traslateBpmnresult, TotalConformanceResult totalconformanceresult) throws Exception {
 
 
-		BPMNDiagram newbpmn = exportConformancetoBPMN(traslateBpmnresult,totalfitnessresult);
+		BPMNDiagram newbpmn = exportConformancetoBPMN(traslateBpmnresult,totalconformanceresult);
 
 
 
@@ -88,17 +88,17 @@ import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 
 	private BPMNDiagram exportConformancetoBPMN(
 			TraslateBPMNResult traslateBpmnresult,
-			TotalFitnessResult totalfitnessresult) {
+			TotalConformanceResult totalconformanceresult) {
 
 		//clona bpmn
 		BPMNDiagram bpmn =BPMNDiagramFactory.cloneBPMNDiagram(traslateBpmnresult.getBpmn()) ;
 
 		Map<String, Place> MapArc2Place = traslateBpmnresult.getPlaceMap();
-		FitnessResult fitnessresult= totalfitnessresult.getTotal();
-		Marking remaning = fitnessresult.getRemainingMarking();
-		Marking missing = fitnessresult.getMissingMarking();
-		Map<Transition, Integer> transnotfit = fitnessresult.getMapTransition(); 
-		Map<Arc, Integer> attivazionearchi = fitnessresult.getMapArc(); 
+		ConformanceResult conformanceresult= totalconformanceresult.getTotal();
+		Marking remaning = conformanceresult.getRemainingMarking();
+		Marking missing = conformanceresult.getMissingMarking();
+		Map<Transition, Integer> transnotfit = conformanceresult.getMapTransition(); 
+		Map<Arc, Integer> attivazionearchi = conformanceresult.getMapArc(); 
 
 
 		Map<String,Integer> ArchiAttivatiBPMN = new HashMap<String, Integer>();

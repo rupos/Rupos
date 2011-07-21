@@ -150,7 +150,7 @@ public class PNVisualizzeJS {
 	 * @param path del file
 	 * @param Result Struttura dati TotalFitnessResult contenente i risultati della fitness
 	 */
-	public void toFile(String path, TotalFitnessResult Result) {
+	public void toFile(String path, TotalConformanceResult Result) {
 		FileWriter w;
 		String head2 = "Joint.paper(\"world\", "+lworld+", "+hworld+");\n "
 		+"var arrow = pn.arrow; ";
@@ -208,7 +208,7 @@ public class PNVisualizzeJS {
 	/**
 	 *Inserisce gli archi attraversati con etichetta il numero di attraversamenti
 	 */
-	private void generateJSR(FitnessResult totalResult){
+	private void generateJSR(ConformanceResult totalResult){
 
 		for (Arc c : totalResult.getMapArc().keySet()){
 
@@ -227,10 +227,10 @@ public class PNVisualizzeJS {
 	 * @param net rete di petri
 	 * @param totalResult informazioni di conformance
 	 */
-	public void generateJS(String file, PetrinetGraph net, TotalFitnessResult Result){
+	public void generateJS(String file, PetrinetGraph net, TotalConformanceResult Result){
 		GraphLayoutConnection layout = findConnection(cm, net);
 		
-		FitnessResult totalResult = Result.total;
+		ConformanceResult totalResult = Result.total;
 		for (Place pl : net.getPlaces()) {
 			Point2D xy = layout.getPosition(pl);
 		//	Object point =	pl.getAttributeMap().get(AttributeMap.POLYGON_POINTS);
@@ -324,11 +324,11 @@ public class PNVisualizzeJS {
 
 
 
-	private String toHTMLfromFRT(TotalFitnessResult tt){
+	private String toHTMLfromFRT(TotalConformanceResult tt){
 		String ret="</p>";
 		String out = this.toHTMLfromTR(tt.getTotal());
 		Integer index = 1;
-		for(FitnessResult f : tt.getList()){
+		for(ConformanceResult f : tt.getList()){
 
 			out += "<p>------------ Traccia n."+(index++)+" ------------"+ret;
 			out +=this.toHTMLfromTR(f); 
@@ -357,9 +357,9 @@ public class PNVisualizzeJS {
 		return new Point(xx,yy);
 
 	}
-	private String toHTMLfromTR(FitnessResult totalResult){
+	private String toHTMLfromTR(ConformanceResult totalResult){
 		String ret="</p>";
-		String tot ="<p> Fitness totale:" +totalResult.getFitness()+"</p>";
+		String tot ="<p> Fitness totale:" +totalResult.getConformance()+"</p>";
 		tot+="<p> Missing Marking:"+totalResult.getMissingMarking()+ret;
 		tot+="<p> Remaning Marking: "+ totalResult.getRemainingMarking()+ret;
 		tot+="<p> Transizioni che non fittano:"+ret;

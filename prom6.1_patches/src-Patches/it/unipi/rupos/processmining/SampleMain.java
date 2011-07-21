@@ -6,7 +6,7 @@ import org.deckfour.xes.model.XLog;
 import org.deckfour.xes.model.XTrace;
 import org.processmining.plugins.petrinet.replay.ReplayAction;
 import org.processmining.plugins.petrinet.replayfitness.ReplayFitnessSetting;
-import org.processmining.plugins.petrinet.replayfitness.TotalFitnessResult;
+import org.processmining.plugins.petrinet.replayfitness.TotalConformanceResult;
 import org.processmining.plugins.petrinet.replayfitness.TotalPerformanceResult;
 import org.processmining.plugins.petrinet.replayfitness.PerformanceVisualJS;
 import org.processmining.plugins.petrinet.replayfitness.PNVisualizzeJS;
@@ -60,7 +60,7 @@ public class SampleMain {
 	
 	
 	long startFitness = System.currentTimeMillis();
-	// TotalFitnessResult fitness = engine.getFitness(log, settings);
+	// TotalConformanceResult fitness = engine.getConformance(log, settings);
 	// System.out.println("Fitness: " + fitness);
 	long endFitness = System.currentTimeMillis();
 
@@ -70,16 +70,16 @@ public class SampleMain {
 	
 
 
-	System.out.println("Fitness for a single TRACE");
+	System.out.println("Conformance for a single TRACE");
 
 	long startFitness2 = System.currentTimeMillis();
-	//fitness = engine.getFitness(log.get(0), settings);
+	//fitness = engine.getConformance(log.get(0), settings);
 	//System.out.println("Fitness: " + fitness);
 	long endFitness2 = System.currentTimeMillis();
 	
 	
-	System.out.println("Time fitness single call " + (endFitness - startFitness));
-	System.out.println("Time fitness multiple calls " + (endFitness2 - startFitness2));
+	System.out.println("Time Conformance single call " + (endFitness - startFitness));
+	System.out.println("Time Conformance multiple calls " + (endFitness2 - startFitness2));
 	
 	
 	long startPerformance= System.currentTimeMillis();
@@ -89,7 +89,7 @@ public class SampleMain {
 
 	long startPerformance2 = System.currentTimeMillis();
 	//TotalPerformanceResult performance = engine.getPerformance(log.get(3), settings);
-	//System.out.println("Fitness: " + performance);
+	//System.out.println("Conformance: " + performance);
 	long endPerformance2 = System.currentTimeMillis();
 
 	//PerformanceVisualJS js2 = new PerformanceVisualJS(manager.getPluginContext().getConnectionManager());
@@ -114,13 +114,13 @@ public class SampleMain {
 	settings2.setAction(ReplayAction.INSERT_DISABLED_MATCH, true);
 	settings2.setAction(ReplayAction.INSERT_DISABLED_MISMATCH, false);
 		
-	TotalFitnessResult fitnesstrasl = manager.getFitness(traslate.getPetri(), log, settings2, traslate.getMarking());
+	TotalConformanceResult fitnesstrasl = manager.getConformance(traslate.getPetri(), log, settings2, traslate.getMarking());
 	
 	System.out.println(fitnesstrasl);
 	
 	 
 	TotalPerformanceResult performance1 = manager.getPerformance(traslate.getPetri(), log.get(1), settings2, traslate.getMarking());
-	System.out.println("Fitness: " + performance1);
+	System.out.println("Conformance: " + performance1);
 
 	
 

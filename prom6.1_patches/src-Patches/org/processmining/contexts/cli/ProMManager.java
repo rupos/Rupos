@@ -28,7 +28,7 @@ import org.processmining.plugins.petrinet.replayfitness.ReplayFitnessSetting;
 import org.processmining.plugins.petrinet.replayfitness.ReplayFitness;
 import org.processmining.plugins.petrinet.replay.ReplayAction;
 import org.processmining.plugins.petrinet.replayfitness.ReplayFitnessSetting;
-import org.processmining.plugins.petrinet.replayfitness.TotalFitnessResult;
+import org.processmining.plugins.petrinet.replayfitness.TotalConformanceResult;
 import org.processmining.plugins.petrinet.replayfitness.TotalPerformanceResult;
 
 import org.processmining.contexts.cli.CLIPluginContext;
@@ -43,8 +43,8 @@ import it.unipi.rupos.processmining.PetriNetEngine;
 public class ProMManager {
 	PluginDescriptor openLogPlugin = null;
 	PluginDescriptor alphaPlugin = null;
-	PluginDescriptor fitnessPlugin = null;
-	PluginDescriptor fitnessPluginMarki = null;
+	PluginDescriptor conformancePlugin = null;
+	PluginDescriptor conformancePluginMarki = null;
 	PluginDescriptor importNetPlugin = null;
 	PluginDescriptor performancePlugin = null;
 	PluginDescriptor suggestPlugin = null;
@@ -66,8 +66,8 @@ public class ProMManager {
 				openLogPlugin = plugin;
 			else if ("Alpha Miner".equals(plugin.getName()))
 				alphaPlugin = plugin;
-			else if ("FitnessDetailsSettings".equals(plugin.getName()))
-				fitnessPlugin = plugin;
+			else if ("ConformanceDetailsSettings".equals(plugin.getName()))
+				conformancePlugin = plugin;
 			else if ("PerformanceDetailsSettings".equals(plugin.getName()))
 				performancePlugin = plugin;
 			else if ("Import Petri net from PNML file".equals(plugin.getName()))
@@ -76,8 +76,8 @@ public class ProMManager {
 				suggestPlugin = plugin;
 			else if ("Import BPMN model from XPDL 2.1 file to PetriNet".equals(plugin.getName()))
 				BpmnPlugin = plugin;
-			else if ("FitnessDetailsSettingsWithMarking".equals(plugin.getName()))
-				fitnessPluginMarki = plugin;
+			else if ("ConformanceDetailsSettingsWithMarking".equals(plugin.getName()))
+				conformancePluginMarki = plugin;
 			else if ("PerformanceDetailsSettingsWithMarking".equals(plugin.getName()))
 				performancewithMarkingPlugin = plugin;
 			else
@@ -102,8 +102,8 @@ public class ProMManager {
 		if (alphaPlugin == null) {
 			System.out.println("Plugin Alpha not found");
 		}
-		if (fitnessPlugin == null) {
-			System.out.println("Plugin Fitness not found");
+		if (conformancePlugin == null) {
+			System.out.println("Plugin Conformance not found");
 		}
 		if (importNetPlugin == null) {
 			System.out.println("Plugin ImportNet not found");
@@ -117,7 +117,7 @@ public class ProMManager {
 		if (BpmnPlugin == null) {
 			System.out.println("Plugin BpmnPlugin not found");
 		}
-		if (fitnessPluginMarki == null) {
+		if (conformancePluginMarki == null) {
 			System.out.println("Plugin fitness with marking not found");
 		}
 		if (performancewithMarkingPlugin == null) {
@@ -208,42 +208,42 @@ public class ProMManager {
 	 * @throws ExecutionException
 	 * @throws InterruptedException
 	 */
-	public TotalFitnessResult getFitness(Petrinet net, XLog log,
+	public TotalConformanceResult getConformance(Petrinet net, XLog log,
 			ReplayFitnessSetting settings) throws ExecutionException,
 			InterruptedException {
 		System.out.println("------------------------------");
-		System.out.println("Fitness Details");
+		System.out.println("Conformance Details");
 		System.out.println("------------------------------");
-		PluginContext context1 = context.createChildContext("Fitness Checking");
+		PluginContext context1 = context.createChildContext("Conformance Checking");
 
-		fitnessPlugin.invoke(0, context1, log, net, settings);
+		conformancePlugin.invoke(0, context1, log, net, settings);
 		context1.getResult().synchronize();
 		System.out.println("------------------------------");
 		PluginExecutionResult res2 = context1.getResult();
 		System.out.println("Obtained " + res2.getSize() + " results");
 		System.out.println("------------------------------");
-		TotalFitnessResult fitness = res2.getResult(0);
+		TotalConformanceResult fitness = res2.getResult(0);
 		System.out.println("------------------------------");
 
 		context1.getParentContext().deleteChild(context1);
 		return fitness;
 	}
 	
-	public TotalFitnessResult getFitness(Petrinet net, XLog log,
+	public TotalConformanceResult getConformance(Petrinet net, XLog log,
 			ReplayFitnessSetting settings, Marking marking) throws ExecutionException,
 			InterruptedException {
 		System.out.println("------------------------------");
-		System.out.println("Fitness Details");
+		System.out.println("Conformance Details");
 		System.out.println("------------------------------");
-		PluginContext context1 = context.createChildContext("Fitness Checking");
+		PluginContext context1 = context.createChildContext("Conformance Checking");
 
-		fitnessPluginMarki.invoke(0, context1, log, net, settings,marking);
+		conformancePluginMarki.invoke(0, context1, log, net, settings,marking);
 		context1.getResult().synchronize();
 		System.out.println("------------------------------");
 		PluginExecutionResult res2 = context1.getResult();
 		System.out.println("Obtained " + res2.getSize() + " results");
 		System.out.println("------------------------------");
-		TotalFitnessResult fitness = res2.getResult(0);
+		TotalConformanceResult fitness = res2.getResult(0);
 		System.out.println("------------------------------");
 
 		context1.getParentContext().deleteChild(context1);
