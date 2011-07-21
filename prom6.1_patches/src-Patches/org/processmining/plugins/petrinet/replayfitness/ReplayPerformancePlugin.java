@@ -180,16 +180,18 @@ public class ReplayPerformancePlugin {
 		XAttributeTimestampImpl date  = (XAttributeTimestampImpl)(trace.get(0).getAttributes().get("time:timestamp"));
 		long d1 = date.getValue().getTime();
 
-		Map<Place, PerformanceResult> performance = new HashMap<Place, PerformanceResult>();
+		Map<Place, PerformanceData> performance = new HashMap<Place, PerformanceData>();
+		
+		Map<Arc, Integer> maparc = new HashMap<Arc, Integer>();
 
 		Marking marking = new Marking(initMarking);
 
 		for (Place place : marking) {
-			PerformanceResult result = null;
+			PerformanceData result = null;
 			if (performance.containsKey(place))
 				result = performance.get(place);
 			else
-				result = new PerformanceResult();
+				result = new PerformanceData();
 
 			result.addToken();
 
@@ -221,11 +223,11 @@ public class ReplayPerformancePlugin {
 			places.addAll(marking);
 			List<Transition> futureTrans = sequence.subList(iTrans, sequence.size());
 			for (Place place : places) {
-				PerformanceResult result = null;
+				PerformanceData result = null;
 				if (performance.containsKey(place))
 					result = performance.get(place);
 				else
-					result = new PerformanceResult();
+					result = new PerformanceData();
 
 				int placeMarking = marking.occurrences(place);
 				if (placeMarking == 0)
@@ -238,6 +240,7 @@ public class ReplayPerformancePlugin {
 					if (! (edge instanceof Arc))
 						continue;
 					Arc arc = (Arc) edge;
+					
 					Transition trs = (Transition)arc.getTarget();
 					int trsPos = futureTrans.indexOf(trs);
 					if (trsPos < 0)
@@ -252,6 +255,7 @@ public class ReplayPerformancePlugin {
 						if (! (edge1 instanceof Arc))
 							continue;
 						Arc arc1 = (Arc) edge1;
+						
 						Place p1 = (Place)arc1.getSource();
 						int tokens = marking.occurrences(p1);
 						minMarking = Math.min(minMarking, tokens);
@@ -270,6 +274,8 @@ public class ReplayPerformancePlugin {
 			for (PetrinetEdge<? extends PetrinetNode, ? extends PetrinetNode> edge : preset) {
 				if (edge instanceof Arc) {
 					Arc arc = (Arc) edge;
+					//add arc usage 
+					addArcUsage( arc, maparc);
 					Place place = (Place) arc.getSource();
 					int consumed = arc.getWeight();
 					int missing = 0;
@@ -286,25 +292,36 @@ public class ReplayPerformancePlugin {
 			for (PetrinetEdge<? extends PetrinetNode, ? extends PetrinetNode> edge : postset) {
 				if (edge instanceof Arc) {
 					Arc arc = (Arc) edge;
+					//add arc usage
+					addArcUsage( arc, maparc);
 					Place place = (Place) arc.getTarget();
 					int produced = arc.getWeight();
 					for (int i = 0; i < produced; i++) {
 						marking.add(place);
 
-						PerformanceResult result = null;
+						PerformanceData result = null;
 						if (performance.containsKey(place))
 							result = performance.get(place);
 						else
-							result = new PerformanceResult();
+							result = new PerformanceData();
 						result.addToken();
 						performance.put(place, result);
 					}
 				}
 			}
 		}
-	
-		totalResult.getList().add(performance);
+		PerformanceResult pr = new PerformanceResult();
+		pr.setList(performance);
+		pr.setMaparc(maparc);
+		totalResult.getListperformance().add(pr);
+		
 	}
+
+	private void addArcUsage(Arc arc, Map<Arc, Integer> maparc) {
+		Integer numUsage = maparc.get(arc);
+		maparc.put(arc, numUsage == null ? 1 : numUsage+1);
+	}
+
 
 	private List<XEventClass> getList(XTrace trace, XEventClasses classes) {
 		List<XEventClass> list = new ArrayList<XEventClass>();

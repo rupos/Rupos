@@ -46,7 +46,7 @@ import org.processmining.models.jgraph.ProMJGraphVisualizer;
 import org.processmining.models.jgraph.elements.ProMGraphPort;
 import org.processmining.models.semantics.petrinet.Marking;
 import org.processmining.plugins.petrinet.replayfitness.FitnessResult;
-import org.processmining.plugins.petrinet.replayfitness.PerformanceResult;
+import org.processmining.plugins.petrinet.replayfitness.PerformanceData;
 import org.processmining.plugins.petrinet.replayfitness.TotalFitnessResult;
 import org.processmining.plugins.petrinet.replayfitness.TotalPerformanceResult;
 import org.processmining.plugins.xpdl.Xpdl;
@@ -611,7 +611,7 @@ import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 	public Object exportBPMNexportXPDL(PluginContext context, TraslateBPMNResult traslateBpmnresult, TotalPerformanceResult totalPerformanceresult) throws Exception {
 
 
-		BPMNDiagram newbpmn = exportPerformancetoBPMN(traslateBpmnresult,totalPerformanceresult.getList().get(0));
+		BPMNDiagram newbpmn = exportPerformancetoBPMN(traslateBpmnresult,totalPerformanceresult.getListperformance().get(0).getList(),totalPerformanceresult.getListperformance().get(0).getMaparc());
 
 		Xpdl newxpdl =	exportToXpdl(context,traslateBpmnresult.getXpdl(),traslateBpmnresult,newbpmn);
 
@@ -625,7 +625,7 @@ import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 
 	private BPMNDiagram exportPerformancetoBPMN(
 			TraslateBPMNResult traslateBpmnresult,
-			Map<Place,PerformanceResult> Performanceresult) {
+			Map<Place,PerformanceData> Performanceresult, Map<Arc, Integer> maparc) {
 
 		//clona bpmn
 		BPMNDiagram bpmn =BPMNDiagramFactory.cloneBPMNDiagram(traslateBpmnresult.getBpmn()) ;
@@ -638,14 +638,30 @@ import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 		Petrinet net = traslateBpmnresult.getPetri();
 
 		//ogni piazza che attraversiamo in performance result conta i token passati sulla pizza
-		for(Place p : Performanceresult.keySet()){
+		/*for(Place p : Performanceresult.keySet()){
 
 			if(MapArc2Place.containsKey(p.getLabel())){
 
-				PerformanceResult rs=	Performanceresult.get(p);
+				PerformanceData rs=	Performanceresult.get(p);
 				int i = rs.getTokenCount();
 				ArchiAttivatiBPMN.put(p.getLabel(), i);
 			}
+		}*/
+		
+		for(Place p : MapArc2Place.values()){
+			
+			Collection<PetrinetEdge<? extends PetrinetNode, ? extends PetrinetNode>> edges = p.getGraph().getOutEdges(p);
+			int count=0;
+			for(PetrinetEdge<? extends PetrinetNode, ? extends PetrinetNode> edge :edges){
+				Arc a= (Arc) edge;
+				if(maparc.containsKey(a)){
+				Integer i = maparc.get(a);
+				count+=i;
+				}
+			}
+			
+			ArchiAttivatiBPMN.put(p.getLabel(), count);
+			
 		}
 
 
@@ -669,7 +685,7 @@ import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 				Place preplace =  (Place) t.getGraph().getInEdges(t).iterator().next().getSource();
 				//Place postplace =  (Place) t.getGraph().getOutEdges(t).iterator().next().getTarget();
 				String text = "";
-				PerformanceResult ps = getPerfResult(preplace,Performanceresult);
+				PerformanceData ps = getPerfResult(preplace,Performanceresult);
 				if(ps!=null){
 					if(t.getLabel().endsWith("start")){
 						if(ps.getWaitTime()>0){
@@ -724,7 +740,7 @@ import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 				f.getAttributeMap().remove(AttributeMap.SHOWLABEL);
 				f.getAttributeMap().put(AttributeMap.SHOWLABEL,true );
 				f.getAttributeMap().put(AttributeMap.LABEL,i.toString() );
-				
+
 			}
 		}
 
@@ -735,12 +751,12 @@ import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 	}
 
 	private void addsoujandsynctime(
-			Map<Place, PerformanceResult> performanceresult, Transition t, Map<String, String> archibpmnwithsyncperformance) {
+			Map<Place, PerformanceData> performanceresult, Transition t, Map<String, String> archibpmnwithsyncperformance) {
 
 		Collection<PetrinetEdge<? extends PetrinetNode, ? extends PetrinetNode>> inflows = t.getGraph().getInEdges(t);
 		for(PetrinetEdge<? extends PetrinetNode, ? extends PetrinetNode> edge : inflows ){
 			Place source = (Place) edge.getSource();
-			PerformanceResult rs=performanceresult.get(source);
+			PerformanceData rs=performanceresult.get(source);
 			if(rs.getSynchTime()>0){
 				String sourjtime = calcolasojourntime(source,performanceresult);
 				archibpmnwithsyncperformance.put(source.getLabel(),"Sync time: "+String.valueOf(rs.getSynchTime())+"\n Souj time: "+sourjtime );
@@ -760,40 +776,47 @@ import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 	}
 
 	private String calcolasojourntime(PetrinetNode p,
-			Map<Place, PerformanceResult> performanceresult) {
+			Map<Place, PerformanceData> performanceresult) {
 
 		myFloat soujour= new myFloat();
 
-		recursiveaddsoujourtime(soujour,performanceresult,p);
+		recursiveaddsoujourtime(soujour,performanceresult,p,0);
 
 		return String.valueOf(soujour.getFlo());
 	}
 
 	private void recursiveaddsoujourtime(myFloat soujour,
-			Map<Place, PerformanceResult> performanceresult,PetrinetNode  p) {
+			Map<Place, PerformanceData> performanceresult,PetrinetNode  p,int i) {
 
 		for(PetrinetEdge<? extends PetrinetNode, ? extends PetrinetNode> flow : p.getGraph().getInEdges(p)){
 			PetrinetNode sourcenode = flow.getSource();
 			if(sourcenode instanceof Transition ){
 				Transition source = (Transition) flow.getSource();
 				if(source.getLabel().endsWith("_join")){
-					//prendo solo un ramo 
+					//prendo solo un ramo ora devo non mi devo fermare al primo fork che incontro ma al successivo
 					PetrinetNode newsource = source.getGraph().getInEdges(source).iterator().next().getSource();
-					recursiveaddsoujourtime(soujour,performanceresult,newsource);
+					recursiveaddsoujourtime(soujour,performanceresult,newsource,i++);
 				}else{
 					if(!source.getLabel().endsWith("_fork")){
-						recursiveaddsoujourtime(soujour,performanceresult,source);
+						recursiveaddsoujourtime(soujour,performanceresult,source,i);
+					}else{ 
+						//se i è maggiore di 0 significa che sto calcolando un tempo di soggiorno del branch che contiente almeno
+						//un altro branch parallelo nel suo interno
+						if(i>0){
+							recursiveaddsoujourtime(soujour,performanceresult,source,i--);
+						}
+
 					}
 
 				}
 			}else if(sourcenode instanceof Place ){
 				Place source = (Place) flow.getSource();
-				PerformanceResult ps = performanceresult.get(source) ;
+				PerformanceData ps = performanceresult.get(source) ;
 				if(ps!=null){
 					if(ps.getTime()>0){
 						soujour.add(ps.getTime());
 					}
-					recursiveaddsoujourtime(soujour,performanceresult,source);	
+					recursiveaddsoujourtime(soujour,performanceresult,source,i);	
 				}
 
 
@@ -803,8 +826,8 @@ import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 
 	}
 
-	private PerformanceResult getPerfResult(Place preplace,
-			Map<Place, PerformanceResult> performanceresult) {
+	private PerformanceData getPerfResult(Place preplace,
+			Map<Place, PerformanceData> performanceresult) {
 		for(Place p : performanceresult.keySet()){
 			if(p.getLabel().equals(preplace.getLabel())){
 				return performanceresult.get(p);

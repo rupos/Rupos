@@ -119,14 +119,14 @@ public class SampleMain {
 	System.out.println(fitnesstrasl);
 	
 	 
-	TotalPerformanceResult performance1 = manager.getPerformance(traslate.getPetri(), log.get(3), settings2, traslate.getMarking());
+	TotalPerformanceResult performance1 = manager.getPerformance(traslate.getPetri(), log.get(1), settings2, traslate.getMarking());
 	System.out.println("Fitness: " + performance1);
 
 	
 
 	PerformanceVisualJS js22 = new PerformanceVisualJS(manager.getPluginContext().getConnectionManager());
 		
-	js22.generateJS("../javascrips/PerformancedaBpmn.html", traslate.getPetri(), performance1.getList().get(0));
+	js22.generateJS("../javascrips/PerformancedaBpmn.html", traslate.getPetri(), performance1.getListperformance().get(0).getList(),performance1.getListperformance().get(0).getMaparc());
 	
 
 

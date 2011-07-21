@@ -7,33 +7,38 @@ import java.util.Vector;
 import org.processmining.models.graphbased.directed.petrinet.elements.Place;
 
 public class TotalPerformanceResult{
-	PerformanceResult total;
-	List<Map<Place,PerformanceResult>> list;
+	PerformanceData total;
+	
+	List<PerformanceResult> listperformance;
 
 	public TotalPerformanceResult() {
-		this.list = new Vector<Map<Place,PerformanceResult>>();
+		
+		this.listperformance = new Vector<PerformanceResult>();
 	}
 	
-	public PerformanceResult getTotal() {
+	public List<PerformanceResult> getListperformance() {
+		return listperformance;
+	}
+
+	public void setListperformance(List<PerformanceResult> listperformance) {
+		this.listperformance = listperformance;
+	}
+
+	public PerformanceData getTotal() {
 		return total;
 	}
 
-	public void setTotal(PerformanceResult total) {
+	public void setTotal(PerformanceData total) {
 		this.total = total;
 	}
 
-	public List<Map<Place, PerformanceResult>> getList() {
-		return list;
-	}
-
-	public void setList(List<Map<Place, PerformanceResult>> list) {
-		this.list = list;
-	}
+	
 
 	public String toString(){
 		String out = "";
 		int i=0;
-		for(Map<Place, PerformanceResult> pr : list){
+		
+		for(PerformanceResult pr : listperformance){
 			out+="*****************************************\n";
 			out+="Traccia:"+i+++"\n";
 			out+=pr.toString()+"\n";

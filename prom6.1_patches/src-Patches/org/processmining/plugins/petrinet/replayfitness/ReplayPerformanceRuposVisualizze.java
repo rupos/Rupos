@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Set;
 
 import javax.swing.JComponent;
 
@@ -65,27 +66,45 @@ public class ReplayPerformanceRuposVisualizze {
 	private JComponent getVisualizationPanel(PluginContext context,
 			Petrinet net, XLog log, TotalPerformanceResult tovisualize) {
 		Progress progress = context.getProgress();
-		String  visualize= this.toHTMLfromMPP(tovisualize.getList().get(0));
-		drawperformancenet(net, tovisualize.getList().get(0),tovisualize.total);
+		String  visualize= this.toHTMLfromMPP(tovisualize.getListperformance().get(0).getList());
+		drawperformancenet(net, tovisualize.getListperformance().get(0).getList(), tovisualize.getListperformance().get(0).getMaparc());
 		ReplayPerformanceRuposPanel panel = new ReplayPerformanceRuposPanel(context, net, log, progress, visualize);
 		return panel;
 
 
 	}
-	private void drawperformancenet(Petrinet net, Map<Place, PerformanceResult> Result, PerformanceResult totalResult) {
+	private void drawperformancenet(Petrinet net, Map<Place, PerformanceData> Result, Map<Arc, Integer> maparc) {
 
-		Map<String,PerformanceResult> name2performance = new HashMap<String, PerformanceResult>();
+		Map<String,PerformanceData> name2performance = new HashMap<String, PerformanceData>();
 
 		for(Place p : Result.keySet() ){
-			PerformanceResult res = Result.get(p);
+			PerformanceData res = Result.get(p);
 			String name = p.getLabel();
 			name2performance.put(name, res);
+		}
+		
+		
+
+		for(Arc a : maparc.keySet()){
+			String afrom=a.getSource().getLabel();
+			String ato=a.getTarget().getLabel();
+			for(PetrinetEdge<? extends PetrinetNode, ? extends PetrinetNode> newa : net.getEdges()){
+				String from = newa.getSource().getLabel();
+				String to = newa.getTarget().getLabel();
+				if((afrom==from) && (ato==to)){
+					Integer i = maparc.get(a);
+					newa.getAttributeMap().put(AttributeMap.LABEL,i.toString() );
+					newa.getAttributeMap().put(AttributeMap.SHOWLABEL,true );
+				}
+
+			}
+
 		}
 
 		for(Place p : net.getPlaces() ){
 			String name = p.getLabel();
 			if(name2performance.containsKey(name)){
-				PerformanceResult res = name2performance.get(name);
+				PerformanceData res = name2performance.get(name);
 				String r="<html>SyncTime:"+res.synchTime+"<br/>WaitTime:"+res.waitTime+"<br/>SoujourTime:"+res.time+"<br/>CountToken"+res.tokenCount+"</html>";
 				if(res.synchTime>0){
 					p.getAttributeMap().put(AttributeMap.FILLCOLOR, Color.GREEN);
@@ -107,7 +126,7 @@ public class ReplayPerformanceRuposVisualizze {
 
 	}
 
-	private String toHTMLfromMPP(Map<Place, PerformanceResult> Result ){
+	private String toHTMLfromMPP(Map<Place, PerformanceData> Result ){
 		String start = "<table border=\"2px\" style=\"width: 100%\">";
 		String end ="</table>";
 		String placen ="<td>Name Place</td>\n";
@@ -121,7 +140,7 @@ public class ReplayPerformanceRuposVisualizze {
 		while (it.hasNext()) {
 			Map.Entry pairs = (Map.Entry)it.next();
 			Place place =(Place) pairs.getKey();
-			PerformanceResult perRes = (PerformanceResult) pairs.getValue();
+			PerformanceData perRes = (PerformanceData) pairs.getValue();
 			placen+="<td>"+place.getLabel()+"</td>";
 			waitt += "<td>"+perRes.waitTime+"</td>";
 			synct += "<td>"+perRes.synchTime+"</td>";

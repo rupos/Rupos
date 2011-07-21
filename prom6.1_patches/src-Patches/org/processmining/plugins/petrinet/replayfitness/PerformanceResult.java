@@ -1,49 +1,47 @@
 package org.processmining.plugins.petrinet.replayfitness;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Vector;
+
+import org.processmining.models.graphbased.directed.petrinet.elements.Arc;
+import org.processmining.models.graphbased.directed.petrinet.elements.Place;
+
 public class PerformanceResult {
-	int tokenCount = 0;
-	float time = 0;
-	float waitTime = 0;
-	float synchTime = 0;
+	Map<Place,PerformanceData> mapperformance;
+	Map<Arc, Integer> maparc;
 	
-	public float getSynchTime() {
-		return synchTime;
+	public PerformanceResult() {
+		this.mapperformance = new HashMap<Place,PerformanceData>();
+		this.maparc = new HashMap<Arc, Integer>();
 	}
-	public void setSynchTime(float synchTime) {
-		this.synchTime = synchTime;
+
+	public Map<Place, PerformanceData> getList() {
+		return mapperformance;
 	}
-	void addToken() {
-		tokenCount += 1;
+
+	public void setList(Map<Place, PerformanceData> list) {
+		this.mapperformance = list;
 	}
-	void addTime(float deltaTime, float waitTime) {
-		time += deltaTime;
-		this.waitTime += waitTime;
-		this.synchTime += (deltaTime - waitTime);
+
+	public Map<Arc, Integer> getMaparc() {
+		return maparc;
 	}
-	public int getTokenCount() {
-		return tokenCount;
+
+	public void setMaparc(Map<Arc, Integer> maparc) {
+		this.maparc = maparc;
 	}
-	public void setTokenCount(int tokenCount) {
-		this.tokenCount = tokenCount;
-	}
-	public float getTime() {
-		return time;
-	}
-	public void setTime(float time) {
-		this.time = time;
-	}
-	public float getWaitTime() {
-		return waitTime;
-	}
-	public void setWaitTime(float waitTime) {
-		this.waitTime = waitTime;
-	}
+
+	
 	public String toString() {
-		String res = "";
-		res += tokenCount + " \n";
-		res += time + " \n";
-		res += waitTime + " \n";
-		res += synchTime + " \n";
-		return res;
+		return "PerformanceResult=" + mapperformance + "]";
 	}
+	
+	
+	
+	
+	
+	
+
 }
