@@ -16,19 +16,33 @@ public class ConformanceResult {
     private int producedTokens = 0;
 	private Map<Transition, Integer> mapTransition; 
 	private Map<Arc, Integer> mapArc;
+	private String tracename=null;
 	private String ret = System.getProperty("line.separator");
     
-    public ConformanceResult(){
+    public ConformanceResult(String tracenam){
     	remainingMarking = new Marking();
     	missingMarking = new Marking();
     	mapTransition = new HashMap<Transition, Integer>();
     	mapArc = new HashMap<Arc, Integer>(); 
     	consumedTokens = 0;
     	producedTokens = 0;
+    	tracename=tracenam;
     }
     
     
     
+	public String getTracename() {
+		return tracename;
+	}
+
+
+
+	public void setTracename(String tracename) {
+		this.tracename = tracename;
+	}
+
+
+
 	public double getConformance() {
 		return conformance;
 	}
@@ -79,7 +93,9 @@ public class ConformanceResult {
 	}
     
 	public String toString() {
-		String tot = "Conformance totale:" +getConformance()+ret;
+		
+		String tot ="Trace Name:" +getTracename()+ret;
+		tot+= "Conformance totale:" +getConformance()+ret;
 		tot+="Missing Marking:"+getMissingMarking()+ret;
 		tot+="Remaning Marking: "+ getRemainingMarking()+ret;
 		tot+="Transizioni che non fittano:"+ret;

@@ -365,7 +365,7 @@ public class ReplayPerformancePlugin {
 
 
 	// Rupos public methos
-	@Plugin(name = "PerformanceDetails", returnLabels = { "Performance Total" }, returnTypes = { TotalPerformanceResult.class }, parameterLabels = {}, userAccessible = true)
+	@Plugin(name = "PerformanceDetailsUI", returnLabels = { "Performance Total" }, returnTypes = { TotalPerformanceResult.class }, parameterLabels = {}, userAccessible = true)
 	@UITopiaVariant(affiliation = UITopiaVariant.EHV, author = "di.unipi.it", email = "di.unipi.it")
 	public TotalPerformanceResult getPerformanceDetails(UIPluginContext context, XLog log, Petrinet net) {
 		ReplayFitnessSetting setting = new ReplayFitnessSetting();

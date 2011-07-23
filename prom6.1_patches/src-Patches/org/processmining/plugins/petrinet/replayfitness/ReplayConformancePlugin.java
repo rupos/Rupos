@@ -20,6 +20,7 @@ import javax.swing.ScrollPaneConstants;
 import org.deckfour.xes.classification.XEventClass;
 import org.deckfour.xes.classification.XEventClasses;
 import org.deckfour.xes.classification.XEventClassifier;
+import org.deckfour.xes.extension.std.XConceptExtension;
 import org.deckfour.xes.info.XLogInfo;
 import org.deckfour.xes.info.XLogInfoFactory;
 import org.deckfour.xes.info.impl.XLogInfoImpl;
@@ -57,7 +58,7 @@ public class ReplayConformancePlugin {
 	
 	public TotalConformanceResult getConformanceDetails(PluginContext context, XLog log, Petrinet net, Marking marking, ReplayFitnessSetting setting) {
 		TotalConformanceResult totalResult = new TotalConformanceResult();
-		totalResult.setTotal(new ConformanceResult());
+		totalResult.setTotal(new ConformanceResult("Total"));
 		totalResult.setList(new Vector<ConformanceResult>());
 
 		XEventClasses classes = getEventClasses(log);
@@ -76,7 +77,8 @@ public class ReplayConformancePlugin {
 			try {
 			    System.out.println("Replay :" + ++i);
 				List<Transition> sequence = replayer.replayTrace(marking, list, setting);
-				updateConformance(net, marking, sequence, semantics, totalResult);
+				String tracename = getTraceName(trace);
+				updateConformance(net, marking, sequence, semantics, totalResult,tracename);
 				replayedTraces++;
 			    System.out.println("Replayed");
 
@@ -94,7 +96,11 @@ public class ReplayConformancePlugin {
 		return totalResult;
 	}
 
-
+	private static String getTraceName(XTrace trace) {
+		String traceName = XConceptExtension.instance().extractName(trace);
+		return (traceName != null ? traceName : "<unknown>");
+	}
+	
     private void addArcUsage(Arc arc, ConformanceResult fitnessResult, ConformanceResult totalResult) {
 	Integer numUsage = totalResult.getMapArc().get(arc);
 	totalResult.getMapArc().put(arc, numUsage == null ? 1 : numUsage+1);
@@ -103,7 +109,7 @@ public class ReplayConformancePlugin {
     }
 
 
-    private void updateConformance(Petrinet net, Marking initMarking, List<Transition> sequence, PetrinetSemantics semantics, TotalConformanceResult totalResult) {
+    private void updateConformance(Petrinet net, Marking initMarking, List<Transition> sequence, PetrinetSemantics semantics, TotalConformanceResult totalResult, String tracename) {
 		Marking marking = new Marking(initMarking);
 		int producedTokens = marking.size();
 		int consumedTokens = 0;
@@ -111,7 +117,7 @@ public class ReplayConformancePlugin {
 		int consumedTrace = 0;
 		
 		int missingTrace=0;
-		ConformanceResult tempConformanceResult = new ConformanceResult();
+		ConformanceResult tempConformanceResult = new ConformanceResult(tracename);
 		totalResult.getList().add(tempConformanceResult);
 
 		for (Transition transition : sequence) {
@@ -255,13 +261,13 @@ public class ReplayConformancePlugin {
 	}
 
     // Rupos public methos
-    @Plugin(name = "FitnessDetails", returnLabels = { "Fitness Total" }, returnTypes = { TotalConformanceResult.class }, parameterLabels = {}, userAccessible = true)
-    @UITopiaVariant(affiliation = UITopiaVariant.EHV, author = "T. Yuliani and H.M.W. Verbeek", email = "h.m.w.verbeek@tue.nl")
+    @Plugin(name = "ConformaceDetailsUI", returnLabels = { "Conformace Total" }, returnTypes = { TotalConformanceResult.class }, parameterLabels = {}, userAccessible = true)
+    @UITopiaVariant(affiliation = UITopiaVariant.EHV, author = "di.unipi.it", email = "di.unipi.it")
     public TotalConformanceResult getConformanceDetails(UIPluginContext context, XLog log, Petrinet net) {
 	ReplayFitnessSetting setting = new ReplayFitnessSetting();
 	suggestActions(setting, log, net);
 	ReplayFitnessUI ui = new ReplayFitnessUI(setting);
-	context.showWizard("Configure Fitness Settings", true, true, ui.initComponents());
+	context.showWizard("Configure Conformance Settings", true, true, ui.initComponents());
 	ui.setWeights();
 
 	TotalConformanceResult totalResult = getConformanceDetails(context, log, net, setting);

@@ -44,9 +44,8 @@ public class ReplayConformancePluginRuposVisualizze {
 				// connection found. Create all necessary component to instantiate inactive visualization panel
 				XLog log = connection.getObjectWithRole(ReplayFitnessConnection.XLOG);
 				Petrinet netx = connection.getObjectWithRole(ReplayFitnessConnection.PNET);
-				Petrinet net = PetrinetFactory.clonePetrinet(netx);
-				drawfitnessnet(net,tovisualize);
-				return getVisualizationPanel(context, net, log, tovisualize);
+				
+				return getVisualizationPanel(context, netx, log, tovisualize);
 
 			} catch (ConnectionCannotBeObtained e) {
 				// No connections available
@@ -60,94 +59,6 @@ public class ReplayConformancePluginRuposVisualizze {
 
 	}
 
-	private void drawfitnessnet(Petrinet net, TotalConformanceResult tovisualize) {
-		Map<String,Integer> missplacename2occ = new HashMap<String, Integer>();
-		Map<String,Integer> remplacename2occ = new HashMap<String, Integer>();
-
-
-		ConformanceResult totalResult = tovisualize.total;
-
-
-		Map<Arc,Integer> archiattivati =totalResult.getMapArc();
-
-		for(Arc a : archiattivati.keySet()){
-			String afrom=a.getSource().getLabel();
-			String ato=a.getTarget().getLabel();
-			for(PetrinetEdge<? extends PetrinetNode, ? extends PetrinetNode> newa : net.getEdges()){
-				String from = newa.getSource().getLabel();
-				String to = newa.getTarget().getLabel();
-				if((afrom==from) && (ato==to)){
-					Integer i = archiattivati.get(a);
-					newa.getAttributeMap().put(AttributeMap.LABEL,i.toString() );
-					newa.getAttributeMap().put(AttributeMap.TOOLTIP,i.toString() );
-					newa.getAttributeMap().put(AttributeMap.SHOWLABEL,true );
-				}
-
-			}
-
-		}
-
-
-
-		Marking miss = totalResult.getMissingMarking();
-		for(Place p : miss.baseSet()){
-			int i = miss.occurrences(p);
-			missplacename2occ.put(p.getLabel(), i);
-		}
-		Marking rem = totalResult.getRemainingMarking();
-		for(Place p : rem.baseSet()){
-			int i = rem.occurrences(p);
-			remplacename2occ.put(p.getLabel(), i);
-		}
-
-
-		for (Place pl : net.getPlaces()) {
-			int i = 0;
-			int ii =0;
-			if(missplacename2occ.containsKey(pl.getLabel())){
-				i = missplacename2occ.get(pl.getLabel());
-			}
-			if(remplacename2occ.containsKey(pl.getLabel())){
-				ii = remplacename2occ.get(pl.getLabel());
-			}
-			if(ii>0 && i>0){
-				String r=String.valueOf(ii)+"/-"+String.valueOf(i);
-				pl.getAttributeMap().put(AttributeMap.FILLCOLOR, Color.RED);
-				pl.getAttributeMap().remove(AttributeMap.TOOLTIP);
-				pl.getAttributeMap().put(AttributeMap.TOOLTIP, r);
-				pl.getAttributeMap().put(AttributeMap.SHOWLABEL, true);
-				//this.inserPlace(pl.getLabel(), x, y, "red", r);
-			}else if (ii>0 && i<=0){
-				pl.getAttributeMap().put(AttributeMap.FILLCOLOR, Color.RED);
-				pl.getAttributeMap().remove(AttributeMap.TOOLTIP);
-				pl.getAttributeMap().put(AttributeMap.TOOLTIP, String.valueOf(ii));
-				pl.getAttributeMap().put(AttributeMap.SHOWLABEL, true);
-				//this.inserPlace(pl.getLabel(), x, y, "red", String.valueOf(ii));
-			}else if (i>0 && ii<=0){
-				//this.inserPlace(pl.getLabel(), x, y, "red", "-"+String.valueOf(i));
-				pl.getAttributeMap().put(AttributeMap.FILLCOLOR, Color.RED);
-				pl.getAttributeMap().remove(AttributeMap.TOOLTIP);
-				pl.getAttributeMap().put(AttributeMap.TOOLTIP, String.valueOf(-i));
-				pl.getAttributeMap().put(AttributeMap.SHOWLABEL, true);
-			}
-
-
-		}
-		for (Transition ts : net.getTransitions()) {
-
-			for (Transition tsx : totalResult.getMapTransition().keySet()){
-
-				if(tsx.getLabel().equals(ts.getLabel())){
-					ts.getAttributeMap().put(AttributeMap.FILLCOLOR, Color.ORANGE);
-				}
-			}
-		}
-
-
-
-
-
-	}
 
 	private JComponent getVisualizationPanel(PluginContext context,
 			Petrinet net, XLog log, TotalConformanceResult tovisualize) {

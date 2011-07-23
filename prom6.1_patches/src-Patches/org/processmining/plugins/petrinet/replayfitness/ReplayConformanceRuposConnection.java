@@ -11,13 +11,13 @@ import org.processmining.models.graphbased.directed.petrinet.Petrinet;
 @ConnectionObjectFactory
 public class ReplayConformanceRuposConnection extends AbstractConnection {
 
-	public static String FITNESS = "Fitness";
+	public static String CONFORMANCE = "Conformance";
 	public static String PNET = "Petrinet";
 	public static String XLOG = "XLog";
 
-	public ReplayConformanceRuposConnection(TotalConformanceResult fitness, XLog log, Petrinet net) {
-		super("ConfromanceRuposConnection");
-		put(FITNESS, fitness);
+	public ReplayConformanceRuposConnection(TotalConformanceResult conformance, XLog log, Petrinet net) {
+		super("ConformanceRuposConnection");
+		put(CONFORMANCE, conformance);
 		put(XLOG, log);
 		put(PNET, net);
 	}
