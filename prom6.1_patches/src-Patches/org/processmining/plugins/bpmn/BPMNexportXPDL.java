@@ -62,8 +62,8 @@ import org.xmlpull.v1.XmlPullParserFactory;
 import com.jgraph.layout.JGraphFacade;
 import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 
-@Plugin(name = "BPMNexportXPDLwithAnalisysDetails", parameterLabels = { "TraslateBPMNResult", "TotalConformanceResult" , "TotalPerformanceResult"}, returnLabels = { "BPMN conformance" , "XPDL traslate" }, returnTypes = {
-		BPMNDiagram.class , Xpdl.class }, userAccessible = true)
+@Plugin(name = "BPMNexportXPDLwithAnalisysDetails", parameterLabels = { "TraslateBPMNResult", "TotalConformanceResult" , "TotalPerformanceResult"}, returnLabels = { "BPMN conformance traslate" }, returnTypes = {
+		BPMNexportResult.class }, userAccessible = true)
 		public class BPMNexportXPDL {
 	@UITopiaVariant(affiliation = UITopiaVariant.EHV, author = "GOS", email = "Di.unipi", pack = "BPMN")
 	@PluginVariant(requiredParameterLabels = { 0, 1 }, variantLabel = "Exporting  File Conformance")
@@ -72,17 +72,17 @@ import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 
 		BPMNDiagram newbpmn = exportConformancetoBPMN(traslateBpmnresult,totalconformanceresult);
 
-
-
-
-
 		Xpdl newxpdl =	exportToXpdl(context,traslateBpmnresult.getXpdl(),traslateBpmnresult,newbpmn);
 
 		Object[] objects = new Object[2];
 		objects[0] = newbpmn;
 		objects[1] = newxpdl;
+		
+		BPMNexportResult result = new BPMNexportResult(traslateBpmnresult, totalconformanceresult);
+		result.setBPMNtraslate(newbpmn);
+		result.setXpdltraslate(newxpdl);
 
-		return objects;
+		return result;
 
 	}
 
@@ -116,23 +116,7 @@ import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 
 			}
 			ArchiAttivatiBPMN.put(p.getLabel(), att);
-			/*int attarco=0;
-			int left=0;
-			int right=0;
-			for(Arc a : attivazionearchi.keySet()){
-				PetrinetNode source = a.getSource();
-				PetrinetNode target = a.getTarget();
-				if(source.equals(p) || target.equals(p)){
-					if(source instanceof Place && target instanceof Transition){
-						int att = attivazionearchi.get(a);
-						right = (att > right) ? att : right;
-					}
-
-				}
-
-			}
-
-			arcplaceatt.put(p.getLabel(), right);*/
+			
 		}
 
 		//transizioni che nn fittano
@@ -235,7 +219,7 @@ import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 		//clono xpdl 
 		String export = "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n" + xpdl.exportElement();
 		InputStream input = new ByteArrayInputStream(export.getBytes());
-		Xpdl newxpdl = importXpdlFromStream( input, xpdl.getName()+"_expot");
+		Xpdl newxpdl = importXpdlFromStream( input, xpdl.getName()+"_export");
 		Map<String,String> archiAttivatiBPMN = new HashMap<String, String>();
 
 		String Pageid = newxpdl.getPages().getList().get(0).getId();
@@ -381,8 +365,7 @@ import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 			setass.getList().add(newassociation);				
 		}
 		newxpdl.setAssociations(setass);
-		//newxpdl.getAssociations();
-
+	
 
 		/*for(Transition t : transnotfit.keySet()){
 			if(!t.isInvisible()){
@@ -619,7 +602,12 @@ import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 		objects[0] = newbpmn;
 		objects[1] = newxpdl;
 
-		return objects;
+		//return objects;
+		BPMNexportResult result = new BPMNexportResult(traslateBpmnresult, totalPerformanceresult);
+		result.setBPMNtraslate(newbpmn);
+		result.setXpdltraslate(newxpdl);
+
+		return result;
 
 	}
 
@@ -801,7 +789,7 @@ import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 						recursiveaddsoujourtime(soujour,performanceresult,source,i);
 					}else{ 
 						//se i è maggiore di 0 significa che sto calcolando un tempo di soggiorno del branch che contiente almeno
-						//un altro branch parallelo nel suo interno
+						//un altro branch parallelo nel suo interno manca ancora per i cicli
 						if(i>0){
 							recursiveaddsoujourtime(soujour,performanceresult,source,i--);
 						}

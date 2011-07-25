@@ -42,8 +42,8 @@ public class ReplayConformancePluginRuposVisualizze {
 						ReplayConformanceRuposConnection.class, context, tovisualize);
 
 				// connection found. Create all necessary component to instantiate inactive visualization panel
-				XLog log = connection.getObjectWithRole(ReplayFitnessConnection.XLOG);
-				Petrinet netx = connection.getObjectWithRole(ReplayFitnessConnection.PNET);
+				XLog log = connection.getObjectWithRole(ReplayConformanceRuposConnection.XLOG);
+				Petrinet netx = connection.getObjectWithRole(ReplayConformanceRuposConnection.PNET);
 				
 				return getVisualizationPanel(context, netx, log, tovisualize);
 

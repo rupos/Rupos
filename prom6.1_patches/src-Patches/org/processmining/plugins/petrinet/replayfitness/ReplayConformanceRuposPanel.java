@@ -53,7 +53,7 @@ public class ReplayConformanceRuposPanel extends JPanel{
 			XLog log, Progress progress, TotalConformanceResult tovisualize) {
 
 		Petrinet netx = PetrinetFactory.clonePetrinet(net);
-		drawfitnessnet(netx,tovisualize.total);
+		drawfitnessnet(netx,tovisualize.getTotal());
 		netPNView = ProMJGraphVisualizer.instance().visualizeGraph(context, netx);
 
 		JComponent logView = new LogViewUI(log);
@@ -160,7 +160,7 @@ public class ReplayConformanceRuposPanel extends JPanel{
 	public  JComponent tabtrace(final TotalConformanceResult tcr, final Petrinet net, final PluginContext context) {
 		
 		JPanel jp = new JPanel();
-	
+		JPanel jp1 = new JPanel();
 		 tab = new JTable(new AbstractTableModel() {
 		
 			private static final long serialVersionUID = -2176731961693608635L;
@@ -193,8 +193,10 @@ public class ReplayConformanceRuposPanel extends JPanel{
 				return false; 
 			}
 		});
-		jp.setLayout(new BoxLayout(jp, BoxLayout.PAGE_AXIS));
 		
+		 jp.setLayout(new BoxLayout(jp, BoxLayout.Y_AXIS));
+		 jp1.setLayout(new BoxLayout(jp1, BoxLayout.X_AXIS));
+		 
 		JScrollPane scrollpane = new JScrollPane(tab); 
 		scrollpane.setOpaque(false);
 		scrollpane.getViewport().setOpaque(false);
@@ -220,8 +222,9 @@ public class ReplayConformanceRuposPanel extends JPanel{
 		button.setFont(new Font("Monospaced", Font.PLAIN, 12));
 		button2.setFont(new Font("Monospaced", Font.PLAIN, 12));
 		
-		jp.add(button,BorderLayout.NORTH);
-		jp.add(button2,BorderLayout.WEST);
+		jp1.add(button,BorderLayout.NORTH);
+		jp1.add(button2,BorderLayout.WEST);
+		jp.add(jp1);
 		jp.add(scrollpane,BorderLayout.SOUTH);
 		
 		button2.addActionListener(new ActionListener() {

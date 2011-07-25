@@ -18,7 +18,7 @@ import org.processmining.models.graphbased.directed.petrinet.Petrinet;
 import org.processmining.models.semantics.petrinet.Marking;
 import org.processmining.models.graphbased.directed.petrinet.elements.Place;
 import org.processmining.models.jgraph.ProMJGraphVisualizer;
-import org.processmining.plugins.petrinet.replayfitness.TotalFitnessResult;
+import org.processmining.plugins.petrinet.replayfitness.TotalConformanceResult;
 import org.processmining.plugins.xpdl.Xpdl;
 
 public class TraslateBPMNResult {
