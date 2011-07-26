@@ -23,6 +23,7 @@ import javax.swing.ScrollPaneConstants;
 import org.deckfour.xes.classification.XEventClass;
 import org.deckfour.xes.classification.XEventClasses;
 import org.deckfour.xes.classification.XEventClassifier;
+import org.deckfour.xes.extension.std.XConceptExtension;
 import org.deckfour.xes.info.XLogInfo;
 import org.deckfour.xes.info.XLogInfoFactory;
 import org.deckfour.xes.info.impl.XLogInfoImpl;
@@ -98,10 +99,13 @@ public class ReplayPerformancePlugin {
 		for (XTrace trace : log) {
 			List<XEventClass> list = getList(trace, classes);
 			try {
+				System.out.println("Replay :"+replayedTraces);
 				List<Transition> sequence = replayer.replayTrace(marking, list, setting);
 				sequence = sortHiddenTransection(net, sequence, map);
-				updatePerformance(net, marking, sequence, semantics, trace, performance, map);
+				String tracename = getTraceName(trace);
+				updatePerformance(net, marking, sequence, semantics, trace, performance, map, tracename);
 				replayedTraces++;
+				System.out.println("Replayed");
 			} catch (Exception ex) {
 				ex.printStackTrace();
 				context.log("Replay of trace " + trace + " failed: " + ex.getMessage());
@@ -117,7 +121,10 @@ public class ReplayPerformancePlugin {
 	}
 
 	
-
+	private static String getTraceName(XTrace trace) {
+		String traceName = XConceptExtension.instance().extractName(trace);
+		return (traceName != null ? traceName : "<unknown>");
+	}
 	
 
 	private List<Transition> sortHiddenTransection(Petrinet net, List<Transition> sequence,
@@ -173,7 +180,7 @@ public class ReplayPerformancePlugin {
 
 
 
-	private void updatePerformance(Petrinet net, Marking initMarking, List<Transition> sequence, PetrinetSemantics semantics, XTrace trace, TotalPerformanceResult totalResult, Map<Transition, XEventClass> map) {
+	private void updatePerformance(Petrinet net, Marking initMarking, List<Transition> sequence, PetrinetSemantics semantics, XTrace trace, TotalPerformanceResult totalResult, Map<Transition, XEventClass> map, String tracename) {
 		// if (trace.size() != sequence.size())
 		//     System.exit(1);
 
@@ -310,7 +317,7 @@ public class ReplayPerformancePlugin {
 				}
 			}
 		}
-		PerformanceResult pr = new PerformanceResult();
+		PerformanceResult pr = new PerformanceResult(tracename);
 		pr.setList(performance);
 		pr.setMaparc(maparc);
 		totalResult.getListperformance().add(pr);

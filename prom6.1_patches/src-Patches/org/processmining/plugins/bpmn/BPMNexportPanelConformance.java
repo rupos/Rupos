@@ -104,7 +104,7 @@ public class BPMNexportPanelConformance extends JPanel{
 		add (netPNView, "1, 5, 5, 5"); // Bottom
 
 		add (tab, "5, 3      "); // Right
-		add (logView, "3, 3, c, c"); // Center
+		add (logView, "3, 3      "); // Center
 
 
 	}

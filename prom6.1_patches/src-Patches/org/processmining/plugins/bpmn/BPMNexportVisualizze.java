@@ -7,18 +7,13 @@ import org.processmining.contexts.uitopia.UIPluginContext;
 import org.processmining.contexts.uitopia.annotations.UITopiaVariant;
 import org.processmining.contexts.uitopia.annotations.Visualizer;
 import org.processmining.framework.connections.ConnectionCannotBeObtained;
-import org.processmining.framework.plugin.PluginContext;
 import org.processmining.framework.plugin.Progress;
 import org.processmining.framework.plugin.annotations.Plugin;
 import org.processmining.framework.plugin.annotations.PluginVariant;
 import org.processmining.framework.plugin.events.Logger.MessageLevel;
-import org.processmining.models.graphbased.directed.bpmn.BPMNDiagram;
 import org.processmining.models.graphbased.directed.petrinet.Petrinet;
 import org.processmining.plugins.petrinet.replayfitness.ReplayConformanceRuposConnection;
-import org.processmining.plugins.petrinet.replayfitness.ReplayConformanceRuposPanel;
-import org.processmining.plugins.petrinet.replayfitness.ReplayFitnessConnection;
-import org.processmining.plugins.petrinet.replayfitness.TotalConformanceResult;
-import org.processmining.plugins.petrinet.replayfitness.TotalPerformanceResult;
+
 
 
 @Visualizer

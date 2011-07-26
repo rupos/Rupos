@@ -5,7 +5,7 @@ import java.awt.Color;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-import java.util.Set;
+
 
 import javax.swing.JComponent;
 
@@ -26,9 +26,8 @@ import org.processmining.models.graphbased.directed.petrinet.PetrinetEdge;
 import org.processmining.models.graphbased.directed.petrinet.PetrinetNode;
 import org.processmining.models.graphbased.directed.petrinet.elements.Arc;
 import org.processmining.models.graphbased.directed.petrinet.elements.Place;
-import org.processmining.models.graphbased.directed.petrinet.elements.Transition;
 import org.processmining.models.graphbased.directed.petrinet.impl.PetrinetFactory;
-import org.processmining.models.semantics.petrinet.Marking;
+
 
 @Visualizer
 @Plugin(name = "Performance Result Visualizer", parameterLabels = "Performance Rupos Analisys", returnLabels = "Visualized Performance", returnTypes = JComponent.class)
@@ -43,11 +42,11 @@ public class ReplayPerformanceRuposVisualizze {
 						ReplayPerformanceRuposConnection.class, context, tovisualize);
 
 				// connection found. Create all necessary component to instantiate inactive visualization panel
-				XLog log = connection.getObjectWithRole(ReplayFitnessConnection.XLOG);
-				Petrinet netx = connection.getObjectWithRole(ReplayFitnessConnection.PNET);
-				Petrinet net = PetrinetFactory.clonePetrinet(netx);
+				XLog log = connection.getObjectWithRole(ReplayPerformanceRuposConnection.XLOG);
+				Petrinet netx = connection.getObjectWithRole(ReplayPerformanceRuposConnection.PNET);
+				
 
-				return getVisualizationPanel(context, net, log, tovisualize);
+				return getVisualizationPanel(context, netx, log, tovisualize);
 
 			} catch (ConnectionCannotBeObtained e) {
 				// No connections available
@@ -66,91 +65,13 @@ public class ReplayPerformanceRuposVisualizze {
 	private JComponent getVisualizationPanel(PluginContext context,
 			Petrinet net, XLog log, TotalPerformanceResult tovisualize) {
 		Progress progress = context.getProgress();
-		String  visualize= this.toHTMLfromMPP(tovisualize.getListperformance().get(0).getList());
-		drawperformancenet(net, tovisualize.getListperformance().get(0).getList(), tovisualize.getListperformance().get(0).getMaparc());
-		ReplayPerformanceRuposPanel panel = new ReplayPerformanceRuposPanel(context, net, log, progress, visualize);
+		
+		ReplayPerformanceRuposPanel panel = new ReplayPerformanceRuposPanel(context, net, log, progress, tovisualize);
+		
 		return panel;
 
 
 	}
-	private void drawperformancenet(Petrinet net, Map<Place, PerformanceData> Result, Map<Arc, Integer> maparc) {
-
-		Map<String,PerformanceData> name2performance = new HashMap<String, PerformanceData>();
-
-		for(Place p : Result.keySet() ){
-			PerformanceData res = Result.get(p);
-			String name = p.getLabel();
-			name2performance.put(name, res);
-		}
-		
-		
-
-		for(Arc a : maparc.keySet()){
-			String afrom=a.getSource().getLabel();
-			String ato=a.getTarget().getLabel();
-			for(PetrinetEdge<? extends PetrinetNode, ? extends PetrinetNode> newa : net.getEdges()){
-				String from = newa.getSource().getLabel();
-				String to = newa.getTarget().getLabel();
-				if((afrom==from) && (ato==to)){
-					Integer i = maparc.get(a);
-					newa.getAttributeMap().put(AttributeMap.LABEL,i.toString() );
-					newa.getAttributeMap().put(AttributeMap.SHOWLABEL,true );
-				}
-
-			}
-
-		}
-
-		for(Place p : net.getPlaces() ){
-			String name = p.getLabel();
-			if(name2performance.containsKey(name)){
-				PerformanceData res = name2performance.get(name);
-				String r="<html>SyncTime:"+res.synchTime+"<br/>WaitTime:"+res.waitTime+"<br/>SoujourTime:"+res.time+"<br/>CountToken"+res.tokenCount+"</html>";
-				if(res.synchTime>0){
-					p.getAttributeMap().put(AttributeMap.FILLCOLOR, Color.GREEN);
-				}else if(res.waitTime>0){
-					p.getAttributeMap().put(AttributeMap.FILLCOLOR, Color.cyan);
-				}else p.getAttributeMap().put(AttributeMap.FILLCOLOR, Color.WHITE);
-				p.getAttributeMap().remove(AttributeMap.TOOLTIP);
-				p.getAttributeMap().put(AttributeMap.TOOLTIP, r);
-				p.getAttributeMap().put(AttributeMap.SHOWLABEL, true);
-				/*for(PetrinetEdge<? extends PetrinetNode, ? extends PetrinetNode> a : p.getGraph().getOutEdges(p)){
-					a.getAttributeMap().put(AttributeMap.FILLCOLOR, Color.RED);
-				}*/
-				
-			}else{
-				p.getAttributeMap().remove(AttributeMap.TOOLTIP);
-			}
-			
-		}
-
-	}
-
-	private String toHTMLfromMPP(Map<Place, PerformanceData> Result ){
-		String start = "<table border=\"2px\" style=\"width: 100%\">";
-		String end ="</table>";
-		String placen ="<td>Name Place</td>\n";
-		String waitt="<td>WaitTime</td>\n";
-		String synct="<td>SyncTime</td>\n";
-		String sogtime="<td>SoggTime</td>\n";
-
-		String out = "";
-
-		Iterator it = Result.entrySet().iterator();
-		while (it.hasNext()) {
-			Map.Entry pairs = (Map.Entry)it.next();
-			Place place =(Place) pairs.getKey();
-			PerformanceData perRes = (PerformanceData) pairs.getValue();
-			placen+="<td>"+place.getLabel()+"</td>";
-			waitt += "<td>"+perRes.waitTime+"</td>";
-			synct += "<td>"+perRes.synchTime+"</td>";
-			sogtime += "<td>"+perRes.time+"</td>";
-
-		}
-
-		out=start+"<tr>"+placen+"</tr>"+"<tr>"+waitt+"</tr>"+"<tr>"+synct+"</tr>"+"<tr>"+sogtime+"</tr>"+end;
-		return "<html>"+out+"</html>";
-	}
-
+	
 
 }

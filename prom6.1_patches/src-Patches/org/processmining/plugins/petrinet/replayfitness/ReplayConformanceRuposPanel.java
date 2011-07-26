@@ -74,7 +74,7 @@ public class ReplayConformanceRuposPanel extends JPanel{
 		add (logView, "1, 5, 5, 5"); // Bottom
 		
 		add (tab, "5, 3      "); // Right
-		add (totalresult, "3, 3, c, c"); // Center
+		add (totalresult, "3, 3      "); // Center
 	
 
 	}
