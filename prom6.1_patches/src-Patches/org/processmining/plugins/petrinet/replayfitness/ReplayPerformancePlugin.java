@@ -361,10 +361,10 @@ public class ReplayPerformancePlugin {
 	private void suggestActions(ReplayFitnessSetting setting, XLog log, Petrinet net) {
 		setting.setAction(ReplayAction.INSERT_ENABLED_MATCH, true);
 		setting.setAction(ReplayAction.INSERT_ENABLED_INVISIBLE, true);
-		setting.setAction(ReplayAction.REMOVE_HEAD, true);
-		setting.setAction(ReplayAction.INSERT_ENABLED_MISMATCH, true);
-		setting.setAction(ReplayAction.INSERT_DISABLED_MATCH, true);
-		setting.setAction(ReplayAction.INSERT_DISABLED_MISMATCH, true);
+		setting.setAction(ReplayAction.REMOVE_HEAD, false);
+		setting.setAction(ReplayAction.INSERT_ENABLED_MISMATCH, false);
+		setting.setAction(ReplayAction.INSERT_DISABLED_MATCH, false);
+		setting.setAction(ReplayAction.INSERT_DISABLED_MISMATCH, false);
 	}
 
 	//List<Map<Place,PerformanceResult>> listResult;
