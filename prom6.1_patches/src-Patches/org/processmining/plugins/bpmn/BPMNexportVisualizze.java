@@ -13,6 +13,7 @@ import org.processmining.framework.plugin.annotations.PluginVariant;
 import org.processmining.framework.plugin.events.Logger.MessageLevel;
 import org.processmining.models.graphbased.directed.petrinet.Petrinet;
 import org.processmining.plugins.petrinet.replayfitness.ReplayConformanceRuposConnection;
+import org.processmining.plugins.petrinet.replayfitness.ReplayPerformanceRuposConnection;
 
 
 
@@ -41,7 +42,23 @@ public class BPMNexportVisualizze {
 					return null;
 				}
 			}else{
-				return null;
+				if(tovisualize.getTotalPerformanceresult()!=null){
+					try {
+						ReplayPerformanceRuposConnection connection = context.getConnectionManager().getFirstConnection(
+								ReplayPerformanceRuposConnection.class, context, tovisualize.getTotalPerformanceresult());
+
+						// connection found. Create all necessary component to instantiate inactive visualization panel
+						XLog log = connection.getObjectWithRole(ReplayPerformanceRuposConnection.XLOG);
+						Petrinet netx = connection.getObjectWithRole(ReplayPerformanceRuposConnection.PNET);
+					
+						return getVisualizationPanelPerf(context, netx, log, tovisualize);
+
+					} catch (ConnectionCannotBeObtained e) {
+						// No connections available
+						context.log("Connection does not exist", MessageLevel.DEBUG);
+						return null;
+					}
+				}else return null;
 			}
 
 		}else{
@@ -51,23 +68,21 @@ public class BPMNexportVisualizze {
 	}
 
 
+	private JComponent getVisualizationPanelPerf(UIPluginContext context,
+			Petrinet netx, XLog log, BPMNexportResult tovisualize) {
+		Progress progress = context.getProgress();
+		BPMNexportPanelPerformance panel = new BPMNexportPanelPerformance(context, netx, log, progress, tovisualize);
+		return panel;
+	}
+
+
 	private JComponent getVisualizationPanel(UIPluginContext context,
 			Petrinet net, XLog log,BPMNexportResult  tovisualize) {
 		Progress progress = context.getProgress();
 
-		if(tovisualize.getTotalconformanceresult()!=null){
+		
 			BPMNexportPanelConformance panel = new BPMNexportPanelConformance(context, net, log, progress, tovisualize);
 			return panel;
-		}else {
-			//if(tovisualize.getTotalPerformanceresult()!=null){
-			//return panel;
-			//}else return null;
-			return null;
-		}
-
-
-
-
 
 
 	}

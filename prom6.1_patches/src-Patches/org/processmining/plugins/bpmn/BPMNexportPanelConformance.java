@@ -54,6 +54,7 @@ import org.processmining.models.jgraph.visualization.ProMJGraphPanel;
 import org.processmining.models.semantics.petrinet.Marking;
 import org.processmining.plugins.log.ui.logdialog.LogViewUI;
 import org.processmining.plugins.petrinet.replayfitness.ConformanceResult;
+import org.processmining.plugins.petrinet.replayfitness.PetriNetDrawUtil;
 import org.processmining.plugins.petrinet.replayfitness.TotalConformanceResult;
 
 import com.fluxicon.slickerbox.components.AutoFocusButton;
@@ -81,7 +82,7 @@ public class BPMNexportPanelConformance extends JPanel{
 
 		TotalConformanceResult tovisualize = export.getTotalconformanceresult();
 		Petrinet netx = PetrinetFactory.clonePetrinet(net);
-		drawfitnessnet(netx,tovisualize.getTotal());
+		PetriNetDrawUtil.drawfitnessnet(netx,tovisualize.getTotal());
 		
 		netPNView = ProMJGraphVisualizer.instance().visualizeGraph(context, netx);
 		netBPMNView= ProMJGraphVisualizer.instance().visualizeGraph(context, export.getBPMNtraslate());
@@ -274,7 +275,7 @@ public class BPMNexportPanelConformance extends JPanel{
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				Petrinet netx = PetrinetFactory.clonePetrinet(net);
-				drawfitnessnet(netx,tcr.getTotal());
+				PetriNetDrawUtil.drawfitnessnet(netx,tcr.getTotal());
 				remove(netPNView);
 				remove(netBPMNView);
 				netPNView = ProMJGraphVisualizer.instance().visualizeGraph(context, netx);
@@ -295,8 +296,8 @@ public class BPMNexportPanelConformance extends JPanel{
 				int i=tab.getSelectedRow();
 				if(i>=0){
 					Petrinet netx = PetrinetFactory.clonePetrinet(net);
-					drawfitnessnet(netx,tcr.getList().get(i));
-					BPMNDiagram bpmnx = exportConformancetoBPMN(export.getTraslateBpmnresult(), tcr.getList().get(i));
+					PetriNetDrawUtil.drawfitnessnet(netx,tcr.getList().get(i));
+					BPMNDiagram bpmnx = BPMNexportUtil.exportConformancetoBPMN(export.getTraslateBpmnresult(), tcr.getList().get(i));
 					remove(netPNView);
 					remove(netBPMNView);
 					netPNView = ProMJGraphVisualizer.instance().visualizeGraph(context, netx);
@@ -314,216 +315,7 @@ public class BPMNexportPanelConformance extends JPanel{
 
 	}
 
-	public  void drawfitnessnet(Petrinet net,ConformanceResult totalResult) {
-
-		Map<String,Integer> missplacename2occ = new HashMap<String, Integer>();
-		Map<String,Integer> remplacename2occ = new HashMap<String, Integer>();
-
-		Map<Arc,Integer> archiattivati =totalResult.getMapArc();
-
-		for(Arc a : archiattivati.keySet()){
-			String afrom=a.getSource().getLabel();
-			String ato=a.getTarget().getLabel();
-			for(PetrinetEdge<? extends PetrinetNode, ? extends PetrinetNode> newa : net.getEdges()){
-				String from = newa.getSource().getLabel();
-				String to = newa.getTarget().getLabel();
-				if((afrom==from) && (ato==to)){
-					Integer i = archiattivati.get(a);
-					newa.getAttributeMap().put(AttributeMap.LABEL,i.toString() );
-					newa.getAttributeMap().put(AttributeMap.TOOLTIP,i.toString() );
-					newa.getAttributeMap().put(AttributeMap.SHOWLABEL,true );
-				}
-
-			}
-
-		}
-
-
-
-		Marking miss = totalResult.getMissingMarking();
-		for(Place p : miss.baseSet()){
-			int i = miss.occurrences(p);
-			missplacename2occ.put(p.getLabel(), i);
-		}
-		Marking rem = totalResult.getRemainingMarking();
-		for(Place p : rem.baseSet()){
-			int i = rem.occurrences(p);
-			remplacename2occ.put(p.getLabel(), i);
-		}
-
-
-		for (Place pl : net.getPlaces()) {
-			int i = 0;
-			int ii =0;
-			if(missplacename2occ.containsKey(pl.getLabel())){
-				i = missplacename2occ.get(pl.getLabel());
-			}
-			if(remplacename2occ.containsKey(pl.getLabel())){
-				ii = remplacename2occ.get(pl.getLabel());
-			}
-			if(ii>0 && i>0){
-				String r=String.valueOf(ii)+"/-"+String.valueOf(i);
-				pl.getAttributeMap().put(AttributeMap.FILLCOLOR, Color.RED);
-				pl.getAttributeMap().remove(AttributeMap.TOOLTIP);
-				pl.getAttributeMap().put(AttributeMap.TOOLTIP, r);
-				pl.getAttributeMap().put(AttributeMap.SHOWLABEL, true);
-				//this.inserPlace(pl.getLabel(), x, y, "red", r);
-			}else if (ii>0 && i<=0){
-				pl.getAttributeMap().put(AttributeMap.FILLCOLOR, Color.RED);
-				pl.getAttributeMap().remove(AttributeMap.TOOLTIP);
-				pl.getAttributeMap().put(AttributeMap.TOOLTIP, String.valueOf(ii));
-				pl.getAttributeMap().put(AttributeMap.SHOWLABEL, true);
-				//this.inserPlace(pl.getLabel(), x, y, "red", String.valueOf(ii));
-			}else if (i>0 && ii<=0){
-				//this.inserPlace(pl.getLabel(), x, y, "red", "-"+String.valueOf(i));
-				pl.getAttributeMap().put(AttributeMap.FILLCOLOR, Color.RED);
-				pl.getAttributeMap().remove(AttributeMap.TOOLTIP);
-				pl.getAttributeMap().put(AttributeMap.TOOLTIP, String.valueOf(-i));
-				pl.getAttributeMap().put(AttributeMap.SHOWLABEL, true);
-			}
-
-
-		}
-		for (Transition ts : net.getTransitions()) {
-
-			for (Transition tsx : totalResult.getMapTransition().keySet()){
-
-				if(tsx.getLabel().equals(ts.getLabel())){
-					ts.getAttributeMap().put(AttributeMap.FILLCOLOR, Color.ORANGE);
-				}
-			}
-		}
-
-
-
-
-
-	}
 	
-	private BPMNDiagram exportConformancetoBPMN(
-			TraslateBPMNResult traslateBpmnresult,
-			ConformanceResult conformanceresult) {
-
-		//clona bpmn
-		BPMNDiagram bpmn =BPMNDiagramFactory.cloneBPMNDiagram(traslateBpmnresult.getBpmn()) ;
-
-		Map<String, Place> MapArc2Place = traslateBpmnresult.getPlaceMap();
-		
-		Marking remaning = conformanceresult.getRemainingMarking();
-		Marking missing = conformanceresult.getMissingMarking();
-		Map<Transition, Integer> transnotfit = conformanceresult.getMapTransition(); 
-		Map<Arc, Integer> attivazionearchi = conformanceresult.getMapArc(); 
-
-
-		Map<String,Integer> ArchiAttivatiBPMN = new HashMap<String, Integer>();
-		Map<String,String> archibpmnwitherrorconformance = new HashMap<String, String>();
-
-
-		//gli archi che attivo sul bpmn sono gli archi uscenti delle piazze "arco"
-		for(Place p : MapArc2Place.values()){
-			int att=0;
-			for (PetrinetEdge<? extends PetrinetNode, ? extends PetrinetNode> egde : p.getGraph().getOutEdges(p)){
-				if(attivazionearchi.containsKey(egde)){
-					att += attivazionearchi.get(egde);
-
-				}
-
-			}
-			ArchiAttivatiBPMN.put(p.getLabel(), att);
-			
-		}
-
-		//transizioni che nn fittano
-		String ret = "<br/>";
-		for(Transition t : transnotfit.keySet()){
-			if(!t.isInvisible()){
-				String tname = t.getLabel();
-				String name = (String) tname.subSequence(0, tname.indexOf("+"));
-				Activity activity = null;
-				//cerco l'attività bpmn a cui collegare l'artifacts
-				for(Activity a: bpmn.getActivities()){
-					if(a.getLabel().equals(name)){
-						activity= a;
-						break;
-					}
-				}
-				String unsoundallert = "";
-				for(Place p :remaning.baseSet()){
-					if(p.getLabel().equals(name)){
-						unsoundallert+=ret+" Task missing competition\n"; 
-					}else if(p.getLabel().startsWith(name)){
-						unsoundallert+=ret+" Task unsound executions\n"; 
-					}else if(p.getLabel().endsWith(name)){
-						unsoundallert+=ret+" Task interrupted executions\n"; 
-					}
-				}
-				for(Place p :missing.baseSet()){
-					if(p.getLabel().equals(name)){
-						unsoundallert+=ret+" Task internal failures"; 
-					}
-				}
-				if(activity!=null){
-					String numtracce = String.valueOf(transnotfit.get(t));
-					String plusname = (String) tname.subSequence( tname.indexOf("+"),tname.length());
-					String label = "<html>Unsound "+plusname+":"+numtracce+" tracce"+unsoundallert+"<html>";
-					Artifacts art =  bpmn.addArtifacts(label, ArtifactType.TEXTANNOATION, null);
-
-					bpmn.addFlowAssociation(art, activity, null);
-
-				}
-			}
-
-		}
-		for(Transition t : traslateBpmnresult.getPetri().getTransitions()){
-			//cerco la transizione del fork
-			if(t.getLabel().endsWith("_fork")){
-				Collection<PetrinetEdge<? extends PetrinetNode, ? extends PetrinetNode>> p = t.getGraph().getOutEdges(t);
-				Vector<String> targ = new Vector<String>();
-				for(PetrinetEdge<? extends PetrinetNode, ? extends PetrinetNode> e : p){
-					Place target = (Place) e.getTarget();
-					targ.add(target.getLabel());
-				}
-				for(String placename: targ ){
-					for(Place place :remaning.baseSet()){
-						if(place.getLabel().equals(placename)){
-							System.out.println(ret+" Fork internal failures");
-							archibpmnwitherrorconformance.put(place.getLabel()," Fork internal failures");
-						}
-
-					}
-				}				
-			}
-		}
-		//metto gli attraversamenti sugli archi bpmn
-		for (Flow f : bpmn.getFlows()){
-			String from = f.getSource().getLabel();
-			String to = f.getTarget().getLabel();
-			if(ArchiAttivatiBPMN.containsKey(from+to)){
-				Integer i = ArchiAttivatiBPMN.get(from+to);
-				if(i>0){
-					f.getAttributeMap().put(AttributeMap.LABEL,i.toString() );
-					f.getAttributeMap().put(AttributeMap.TOOLTIP,i.toString() );
-					f.getAttributeMap().put(AttributeMap.SHOWLABEL,true );
-				}
-
-			}
-			//metto eventuali errore sul arco di fork
-			if(archibpmnwitherrorconformance.containsKey(from+to)){
-
-				String flowerr = archibpmnwitherrorconformance.get(from+to);
-				f.getAttributeMap().remove(AttributeMap.TOOLTIP);
-
-				f.getAttributeMap().put(AttributeMap.TOOLTIP, flowerr);
-				f.getAttributeMap().remove(AttributeMap.SHOWLABEL);
-				f.getAttributeMap().put(AttributeMap.SHOWLABEL,true );
-				f.getAttributeMap().put(AttributeMap.EDGECOLOR, Color.RED);
-
-			}
-		}
-
-		return bpmn;
-
-	}
-
+	
 
 }
