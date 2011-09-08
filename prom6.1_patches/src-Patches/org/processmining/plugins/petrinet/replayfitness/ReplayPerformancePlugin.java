@@ -20,6 +20,7 @@ import javax.swing.ScrollPaneConstants;
 
 
 
+import org.deckfour.uitopia.api.event.TaskListener.InteractionResult;
 import org.deckfour.xes.classification.XEventClass;
 import org.deckfour.xes.classification.XEventClasses;
 import org.deckfour.xes.classification.XEventClassifier;
@@ -51,6 +52,7 @@ import org.processmining.models.graphbased.directed.petrinet.elements.Transition
 import org.processmining.models.semantics.petrinet.Marking;
 import org.processmining.models.semantics.petrinet.PetrinetSemantics;
 import org.processmining.models.semantics.petrinet.impl.PetrinetSemanticsFactory;
+import org.processmining.plugins.connectionfactories.logpetrinet.LogPetrinetConnectionFactoryUI;
 import org.processmining.plugins.petrinet.replay.ReplayAction;
 import org.processmining.plugins.petrinet.replay.Replayer;
 
@@ -72,14 +74,14 @@ public class ReplayPerformancePlugin {
 			return null;
 		}
 
-
-         return   getPerformanceDetails(context, log, net, setting,marking);
+		Map<Transition, XEventClass> map = null;
+         return   getPerformanceDetails(context, log, net, setting,marking,map);
 	}
 
 	
 	@Plugin(name = "PerformanceDetailsSettingsWithMarking", returnLabels = { "Performance Total" }, returnTypes = { TotalPerformanceResult.class }, parameterLabels = {}, userAccessible = true)
 	@UITopiaVariant(affiliation = UITopiaVariant.EHV, author = "di.unipi.it", email = "di.unipi.it")
-	public TotalPerformanceResult getPerformanceDetails(PluginContext context, XLog log, Petrinet net, ReplayFitnessSetting setting,Marking marking ) {
+	public TotalPerformanceResult getPerformanceDetails(PluginContext context, XLog log, Petrinet net, ReplayFitnessSetting setting,Marking marking ,Map<Transition, XEventClass> map) {
 
 		
 
@@ -87,7 +89,11 @@ public class ReplayPerformancePlugin {
 		TotalPerformanceResult performance = new TotalPerformanceResult();
 		
 		XEventClasses classes = getEventClasses(log);
-		Map<Transition, XEventClass> map = getMapping(classes, net);
+		if(map==null){
+			//Map<Transition, XEventClass> 
+			map = getMapping(classes, net);
+			}
+		
 		LogPetrinetConnection con =context.getConnectionManager().addConnection(new LogPetrinetConnectionImpl(log, classes, net, map));
 
 		PetrinetSemantics semantics = PetrinetSemanticsFactory.regularPetrinetSemantics(Petrinet.class);
@@ -378,10 +384,68 @@ public class ReplayPerformancePlugin {
 		ReplayFitnessSetting setting = new ReplayFitnessSetting();
 		suggestActions(setting, log, net);
 		ReplayFitnessUI ui = new ReplayFitnessUI(setting);
-		context.showWizard("Configure Fitness Settings", true, true, ui.initComponents());
-		ui.setWeights();
+		
+		
+		
+		Marking marking;
 
-		TotalPerformanceResult total = getPerformanceDetails(context, log, net, setting);
+		try {
+			InitialMarkingConnection connection = context.getConnectionManager().getFirstConnection(
+					InitialMarkingConnection.class, context, net);
+			marking = connection.getObjectWithRole(InitialMarkingConnection.MARKING);
+		} catch (ConnectionCannotBeObtained ex) {
+			context.log("Petri net lacks initial marking");
+			return null;
+		}
+		//Build and show the UI to make the mapping
+		LogPetrinetConnectionFactoryUI lpcfui = new LogPetrinetConnectionFactoryUI(log, net);
+	
+		//Create map or not according to the button pressed in the UI
+		Map<Transition, XEventClass> map=null;
+		InteractionResult result =null;
+		/*
+		 * The wizard loop.
+		 */
+		boolean sem=true;
+		/*
+		 * Show the current step.
+		 */
+		JComponent mapping = lpcfui.initComponents();
+		JComponent config = ui.initComponents();
+		result = context.showWizard("Mapping Petrinet - Log", true, false, mapping );
+		while (sem) {
+			
+			switch (result) {
+				case NEXT :
+					/*
+					 * Show the next step. 
+					 */
+					result =context.showWizard("Configure Performance Settings", false, true, config);
+					ui.setWeights();
+					break;
+				case PREV :
+					/*
+					 * Move back. 
+					 */
+					result = context.showWizard("Mapping Petrinet - Log", true, false,  mapping);
+					break;
+				case FINISHED :
+					/*
+					 * Return  final step.
+					 */
+					map = lpcfui.getMap();
+					sem=false;
+					break;
+				default :
+					/*
+					 * Should not occur.
+					 */
+					context.log("press Cancel");
+					return null;
+			}
+		}
+		
+		TotalPerformanceResult total = getPerformanceDetails(context, log, net, setting,marking,map);
 
 		return total;
 	}
