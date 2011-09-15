@@ -59,6 +59,9 @@ import org.processmining.plugins.petrinet.replay.Replayer;
 import com.fluxicon.slickerbox.factory.SlickerDecorator;
 
 public class ReplayPerformancePlugin {
+	
+	Map<Transition, XEventClass> map = null;
+	
 	@Plugin(name = "PerformanceDetailsSettings", returnLabels = { "Performance Total" }, returnTypes = { TotalPerformanceResult.class }, parameterLabels = {}, userAccessible = true)
 	@UITopiaVariant(affiliation = UITopiaVariant.EHV, author = "di.unipi.it", email = "di.unipi.it")
 	public TotalPerformanceResult getPerformanceDetails(PluginContext context, XLog log, Petrinet net, ReplayFitnessSetting setting) {
@@ -74,14 +77,14 @@ public class ReplayPerformancePlugin {
 			return null;
 		}
 
-		Map<Transition, XEventClass> map = null;
-         return   getPerformanceDetails(context, log, net, setting,marking,map);
+		 map = null;
+         return   getPerformanceDetails(context, log, net, setting,marking);
 	}
 
 	
 	@Plugin(name = "PerformanceDetailsSettingsWithMarking", returnLabels = { "Performance Total" }, returnTypes = { TotalPerformanceResult.class }, parameterLabels = {}, userAccessible = true)
 	@UITopiaVariant(affiliation = UITopiaVariant.EHV, author = "di.unipi.it", email = "di.unipi.it")
-	public TotalPerformanceResult getPerformanceDetails(PluginContext context, XLog log, Petrinet net, ReplayFitnessSetting setting,Marking marking ,Map<Transition, XEventClass> map) {
+	public TotalPerformanceResult getPerformanceDetails(PluginContext context, XLog log, Petrinet net, ReplayFitnessSetting setting,Marking marking ) {
 
 		
 
@@ -401,7 +404,7 @@ public class ReplayPerformancePlugin {
 		LogPetrinetConnectionFactoryUI lpcfui = new LogPetrinetConnectionFactoryUI(log, net);
 	
 		//Create map or not according to the button pressed in the UI
-		Map<Transition, XEventClass> map=null;
+		map=null;
 		InteractionResult result =null;
 		/*
 		 * The wizard loop.
@@ -445,7 +448,7 @@ public class ReplayPerformancePlugin {
 			}
 		}
 		
-		TotalPerformanceResult total = getPerformanceDetails(context, log, net, setting,marking,map);
+		TotalPerformanceResult total = getPerformanceDetails(context, log, net, setting,marking);
 
 		return total;
 	}
