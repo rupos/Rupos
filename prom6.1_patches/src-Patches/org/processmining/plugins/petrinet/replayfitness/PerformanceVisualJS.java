@@ -7,27 +7,26 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Collection;
-import java.util.Collections;
-import java.util.HashMap;
+
 import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.List;
+
 import java.util.Map;
-import java.util.Vector;
+
 
 import org.processmining.framework.connections.Connection;
 import org.processmining.framework.connections.ConnectionCannotBeObtained;
 import org.processmining.framework.connections.ConnectionID;
 import org.processmining.framework.connections.ConnectionManager;
 import org.processmining.models.connections.GraphLayoutConnection;
-import org.processmining.models.graphbased.AttributeMap;
+
 import org.processmining.models.graphbased.directed.petrinet.PetrinetEdge;
 import org.processmining.models.graphbased.directed.petrinet.PetrinetGraph;
 import org.processmining.models.graphbased.directed.petrinet.PetrinetNode;
 import org.processmining.models.graphbased.directed.petrinet.elements.Arc;
 import org.processmining.models.graphbased.directed.petrinet.elements.Place;
 import org.processmining.models.graphbased.directed.petrinet.elements.Transition;
-import org.processmining.models.semantics.petrinet.Marking;
+
 
 /**
  * @author Dipartimento di Informatica - Rupos
@@ -432,7 +431,16 @@ public class PerformanceVisualJS {
 	private String toHTMLfromFRT(Map<Place, PerformanceData> Result ){
 		String ret="</p>";
 		String out = "";
-		Integer index = 1;
+		for(Map.Entry pairs :Result.entrySet()){
+			Place place =(Place) pairs.getKey();
+			PerformanceData perRes = (PerformanceData) pairs.getValue();
+			out += "<p>------------ Place Name "+place.getLabel()+" ------------"+ret;
+			out += "<p>Wait Time: "+perRes.waitTime+ret;
+			out += "<p>SyncTime Time: "+perRes.synchTime+ret;
+			out += "<p>Soggiorno Time: "+perRes.time+ret;
+			out += "<p>-----------------------------------"+ret;
+		}
+		/*Integer index = 1;
 		Iterator it = Result.entrySet().iterator();
 		while (it.hasNext()) {
 			Map.Entry pairs = (Map.Entry)it.next();
@@ -443,7 +451,7 @@ public class PerformanceVisualJS {
 			out += "<p>SyncTime Time: "+perRes.synchTime+ret;
 			out += "<p>Soggiorno Time: "+perRes.time+ret;
 			out += "<p>-----------------------------------"+ret;
-		}
+		}*/
 
 
 		return out;
@@ -459,8 +467,15 @@ public class PerformanceVisualJS {
 		String sogtime="<td>SoggTime</td>\n";
 
 		String out = "";
-
-		Iterator it = Result.entrySet().iterator();
+		for(Map.Entry pairs:Result.entrySet() ){
+			Place place =(Place) pairs.getKey();
+			PerformanceData perRes = (PerformanceData) pairs.getValue();
+			placen+="<td>"+place.getLabel()+"</td>\n";
+			waitt += "<td>"+perRes.waitTime+"</td>\n";
+			synct += "<td>"+perRes.synchTime+"</td>\n";
+			sogtime += "<td>"+perRes.time+"</td>\n";
+		}
+		/*Iterator it = Result.entrySet().iterator();
 		while (it.hasNext()) {
 			Map.Entry pairs = (Map.Entry)it.next();
 			Place place =(Place) pairs.getKey();
@@ -470,7 +485,7 @@ public class PerformanceVisualJS {
 			synct += "<td>"+perRes.synchTime+"</td>\n";
 			sogtime += "<td>"+perRes.time+"</td>\n";
 
-		}
+		}*/
 
 		out=start+"<tr>"+placen+"</tr>"+"<tr>"+waitt+"</tr>"+"<tr>"+synct+"</tr>"+"<tr>"+sogtime+"</tr>"+end;
 		return out;

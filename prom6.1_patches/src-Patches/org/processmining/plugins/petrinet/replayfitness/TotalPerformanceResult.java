@@ -1,10 +1,8 @@
 package org.processmining.plugins.petrinet.replayfitness;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Vector;
 
-import org.processmining.models.graphbased.directed.petrinet.elements.Place;
 
 public class TotalPerformanceResult{
 	PerformanceData total;

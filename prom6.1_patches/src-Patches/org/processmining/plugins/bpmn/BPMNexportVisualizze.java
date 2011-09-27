@@ -12,8 +12,7 @@ import org.processmining.framework.plugin.annotations.Plugin;
 import org.processmining.framework.plugin.annotations.PluginVariant;
 import org.processmining.framework.plugin.events.Logger.MessageLevel;
 import org.processmining.models.graphbased.directed.petrinet.Petrinet;
-import org.processmining.plugins.petrinet.replayfitness.ReplayConformanceRuposConnection;
-import org.processmining.plugins.petrinet.replayfitness.ReplayPerformanceRuposConnection;
+import org.processmining.plugins.petrinet.replayfitness.ReplayRuposConnection;
 
 
 
@@ -27,12 +26,12 @@ public class BPMNexportVisualizze {
 		if(context instanceof UIPluginContext){
 			if(tovisualize.getTotalconformanceresult()!=null){
 				try {
-					ReplayConformanceRuposConnection connection = context.getConnectionManager().getFirstConnection(
-							ReplayConformanceRuposConnection.class, context, tovisualize.getTotalconformanceresult());
+					ReplayRuposConnection connection = context.getConnectionManager().getFirstConnection(
+							ReplayRuposConnection.class, context, tovisualize.getTotalconformanceresult());
 
 					// connection found. Create all necessary component to instantiate inactive visualization panel
-					XLog log = connection.getObjectWithRole(ReplayConformanceRuposConnection.XLOG);
-					Petrinet netx = connection.getObjectWithRole(ReplayConformanceRuposConnection.PNET);
+					XLog log = connection.getObjectWithRole(ReplayRuposConnection.XLOG);
+					Petrinet netx = connection.getObjectWithRole(ReplayRuposConnection.PNET);
 				
 					return getVisualizationPanel(context, netx, log, tovisualize);
 
@@ -44,12 +43,12 @@ public class BPMNexportVisualizze {
 			}else{
 				if(tovisualize.getTotalPerformanceresult()!=null){
 					try {
-						ReplayPerformanceRuposConnection connection = context.getConnectionManager().getFirstConnection(
-								ReplayPerformanceRuposConnection.class, context, tovisualize.getTotalPerformanceresult());
+						ReplayRuposConnection connection = context.getConnectionManager().getFirstConnection(
+								ReplayRuposConnection.class, context, tovisualize.getTotalPerformanceresult());
 
 						// connection found. Create all necessary component to instantiate inactive visualization panel
-						XLog log = connection.getObjectWithRole(ReplayPerformanceRuposConnection.XLOG);
-						Petrinet netx = connection.getObjectWithRole(ReplayPerformanceRuposConnection.PNET);
+						XLog log = connection.getObjectWithRole(ReplayRuposConnection.XLOG);
+						Petrinet netx = connection.getObjectWithRole(ReplayRuposConnection.PNET);
 					
 						return getVisualizationPanelPerf(context, netx, log, tovisualize);
 

@@ -1,5 +1,6 @@
 package it.unipi.rupos.processmining;
 
+import org.processmining.models.connections.GraphLayoutConnection;
 import org.processmining.models.graphbased.directed.petrinet.Petrinet;
 import org.processmining.models.semantics.petrinet.Marking;
 import org.processmining.contexts.cli.ProMManager;
@@ -11,7 +12,7 @@ import org.deckfour.xes.model.impl.XAttributeMapImpl;
 import org.processmining.plugins.petrinet.replayfitness.ReplayFitnessSetting;
 import org.processmining.plugins.petrinet.replayfitness.TotalPerformanceResult;
 
-import org.processmining.plugins.petrinet.replayfitness.TotalFitnessResult;
+import org.processmining.plugins.petrinet.replayfitness.TotalConformanceResult;
 
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.ExecutionException;
@@ -26,10 +27,12 @@ public class PetriNetEngine {
     ProMManager manager = null;
     Petrinet net = null;
     Marking marking = null;
+   //GraphLayoutConnection layout=null;
     public PetriNetEngine(ProMManager manager, Petrinet net, Marking marking) {
 	this.net = net;
 	this.marking = marking;
 	this.manager = manager;
+	//this.layout = layout;
     }
 
     /**Suggerisce i settings per il replay del log passato per parametro
@@ -49,8 +52,8 @@ public class PetriNetEngine {
      * @throws ExecutionException
      * @throws InterruptedException
      */
-    public TotalFitnessResult getFitness(XLog log, ReplayFitnessSetting settings)  throws ExecutionException,InterruptedException {
-	return manager.getFitness(this.net, log, settings);
+    public TotalConformanceResult getFitness(XLog log, ReplayFitnessSetting settings)  throws ExecutionException,InterruptedException {
+	return manager.getConformance(this.net, log, settings);
     }
 
     /**Restituisce i dati di Fitness per una traccia  dati i settaggi per il replay della rete
@@ -60,10 +63,10 @@ public class PetriNetEngine {
      * @throws ExecutionException
      * @throws InterruptedException
      */
-    public TotalFitnessResult getFitness(XTrace trace, ReplayFitnessSetting settings)  throws ExecutionException,InterruptedException {
+    public TotalConformanceResult getFitness(XTrace trace, ReplayFitnessSetting settings)  throws ExecutionException,InterruptedException {
 	XLog log = new XLogImpl(new XAttributeMapImpl());
 	log.add(trace);
-	return manager.getFitness(this.net, log, settings);
+	return manager.getConformance(this.net, log, settings);
     }
 
     /**Restituisce i dati di Performance per un log  dati i settaggi per il replay della rete

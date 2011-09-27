@@ -2,8 +2,7 @@ package org.processmining.plugins.petrinet.replayfitness;
 
 import java.util.Iterator;
 import java.util.List;
-import org.processmining.models.graphbased.directed.petrinet.elements.Transition;
-import org.processmining.models.graphbased.directed.petrinet.elements.Arc;
+
 
 public class TotalConformanceResult {
 	

@@ -27,7 +27,7 @@ import org.processmining.models.semantics.petrinet.Marking;
 import org.processmining.plugins.petrinet.replayfitness.ReplayFitness;
 import org.processmining.plugins.petrinet.replay.ReplayAction;
 import org.processmining.plugins.petrinet.replayfitness.ReplayFitnessSetting;
-import org.processmining.plugins.petrinet.replayfitness.TotalFitnessResult;
+import org.processmining.plugins.petrinet.replayfitness.TotalConformanceResult;
 import org.processmining.plugins.petrinet.replayfitness.TotalPerformanceResult;
 import java.util.Properties;
 
@@ -165,7 +165,7 @@ public class MainCLI {
 		    PluginExecutionResult res2 = context1.getResult();
 		    System.out.println("Obtained " + res2.getSize() + " results");
 		    System.out.println("------------------------------");
-		    TotalFitnessResult fitness = res2.getResult(0);
+		    TotalConformanceResult fitness = res2.getResult(0);
 		    System.out.println(fitness);
 		    System.out.println("------------------------------");
 		    // Marking remaining = res2.getResult(1);

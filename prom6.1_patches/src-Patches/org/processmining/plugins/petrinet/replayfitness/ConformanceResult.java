@@ -2,7 +2,7 @@ package org.processmining.plugins.petrinet.replayfitness;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Iterator;
+
 
 import org.processmining.models.graphbased.directed.petrinet.elements.Arc;
 import org.processmining.models.graphbased.directed.petrinet.elements.Transition;
@@ -99,20 +99,29 @@ public class ConformanceResult {
 		tot+="Missing Marking:"+getMissingMarking()+ret;
 		tot+="Remaning Marking: "+ getRemainingMarking()+ret;
 		tot+="Transizioni che non fittano:"+ret;
-		Iterator iter = getMapTransition().keySet().iterator();
+		for(Transition t :getMapTransition().keySet()){
+			 Integer i = getMapTransition().get(t);
+			    tot += "     "+t+" : "+i+" tracce"+ret;
+		}
+		/*Iterator iter = getMapTransition().keySet().iterator();
 		while (iter.hasNext()) {
 		    Transition t = (Transition)iter.next();
 		    Integer i = getMapTransition().get(t);
 		    tot += "     "+t+" : "+i+" tracce"+ret;
-		}
+		}*/
 		tot+="Attivazioni degli archi:"+ret;
-		Iterator iterArc = getMapArc().keySet().iterator();
+		for(Arc a :  getMapArc().keySet()){
+			String asString = "FROM "+a.getSource()+" TO "+a.getTarget();
+		    Integer i = getMapArc().get(a);
+		    tot += "     "+asString+" : "+i+" attivazioni"+ret;
+		}
+		/*Iterator iterArc = getMapArc().keySet().iterator();
 		while (iterArc.hasNext()) {
 		    Arc a = (Arc)iterArc.next();
 		    String asString = "FROM "+a.getSource()+" TO "+a.getTarget();
 		    Integer i = getMapArc().get(a);
 		    tot += "     "+asString+" : "+i+" attivazioni"+ret;
-		}
+		}*/
 		return tot;
 	}
 

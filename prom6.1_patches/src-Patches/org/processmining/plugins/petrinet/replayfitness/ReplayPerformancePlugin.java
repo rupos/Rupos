@@ -1,22 +1,17 @@
 package org.processmining.plugins.petrinet.replayfitness;
 
-import java.awt.Color;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Vector;
+
 import java.util.Set;
-import java.util.Date;
 
-
-import javax.swing.BorderFactory;
 import javax.swing.JComponent;
-import javax.swing.JLabel;
-import javax.swing.JScrollPane;
-import javax.swing.ScrollPaneConstants;
+
 
 
 
@@ -32,12 +27,11 @@ import org.deckfour.xes.model.XEvent;
 import org.deckfour.xes.model.XLog;
 import org.deckfour.xes.model.XTrace;
 import org.deckfour.xes.model.impl.XAttributeTimestampImpl;
-import org.processmining.connections.logmodel.LogPetrinetConnection;
+
 import org.processmining.connections.logmodel.LogPetrinetConnectionImpl;
 import org.processmining.contexts.uitopia.UIPluginContext;
 import org.processmining.contexts.uitopia.annotations.UITopiaVariant;
-import org.processmining.contexts.uitopia.annotations.Visualizer;
-import org.processmining.contexts.util.StringVisualizer;
+
 import org.processmining.framework.connections.ConnectionCannotBeObtained;
 import org.processmining.framework.plugin.PluginContext;
 import org.processmining.framework.plugin.annotations.Plugin;
@@ -56,7 +50,6 @@ import org.processmining.plugins.connectionfactories.logpetrinet.LogPetrinetConn
 import org.processmining.plugins.petrinet.replay.ReplayAction;
 import org.processmining.plugins.petrinet.replay.Replayer;
 
-import com.fluxicon.slickerbox.factory.SlickerDecorator;
 
 public class ReplayPerformancePlugin {
 	
@@ -97,7 +90,7 @@ public class ReplayPerformancePlugin {
 			map = getMapping(classes, net);
 			}
 		
-		LogPetrinetConnection con =context.getConnectionManager().addConnection(new LogPetrinetConnectionImpl(log, classes, net, map));
+		context.getConnectionManager().addConnection(new LogPetrinetConnectionImpl(log, classes, net, map));
 
 		PetrinetSemantics semantics = PetrinetSemanticsFactory.regularPetrinetSemantics(Petrinet.class);
 
@@ -121,9 +114,9 @@ public class ReplayPerformancePlugin {
 			}
 		}
 
-		String text = "(based on a successful replay of " + replayedTraces + " out of " + log.size() + " traces)";
+		context.log("(based on a successful replay of " + replayedTraces + " out of " + log.size() + " traces)");
 		
-		ReplayPerformanceRuposConnection connection = new ReplayPerformanceRuposConnection(performance, log, net);
+		ReplayRuposConnection connection = new ReplayRuposConnection(performance, log, net);
 		context.getConnectionManager().addConnection(connection);
 
 		return performance;
@@ -231,7 +224,7 @@ public class ReplayPerformancePlugin {
 			d1 = d2;
 
 
-			boolean fittingTransition = true;
+			//boolean fittingTransition = true;
 			Collection<PetrinetEdge<? extends PetrinetNode, ? extends PetrinetNode>> preset = net
 			.getInEdges(transition);
 
@@ -386,7 +379,7 @@ public class ReplayPerformancePlugin {
 	public TotalPerformanceResult getPerformanceDetails(UIPluginContext context, XLog log, Petrinet net) {
 		ReplayFitnessSetting setting = new ReplayFitnessSetting();
 		suggestActions(setting, log, net);
-		ReplayFitnessUI ui = new ReplayFitnessUI(setting);
+		ReplayRuposUI ui = new ReplayRuposUI(setting);
 		
 		
 		

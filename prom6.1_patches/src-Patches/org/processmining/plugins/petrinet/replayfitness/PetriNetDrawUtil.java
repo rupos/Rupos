@@ -138,7 +138,7 @@ public class PetriNetDrawUtil {
 			String name = p.getLabel();
 			if(name2performance.containsKey(name)){
 				PerformanceData res = name2performance.get(name);
-				String r="<html>SyncTime:"+res.synchTime+"<br/>WaitTime:"+res.waitTime+"<br/>SoujourTime:"+res.time+"<br/>CountToken"+res.tokenCount+"</html>";
+				String r="<html>SyncTime:"+res.synchTime+"<br/>WaitTime:"+res.waitTime+"<br/>SoujourTime:"+res.time+"<br/>CountToken "+res.tokenCount+"</html>";
 				if(res.synchTime>0){
 					p.getAttributeMap().put(AttributeMap.FILLCOLOR, Color.GREEN);
 				}else if(res.waitTime>0){

@@ -1,10 +1,6 @@
 package org.processmining.plugins.petrinet.replayfitness;
 
 
-import java.awt.Color;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
 
 
 import javax.swing.JComponent;
@@ -20,13 +16,8 @@ import org.processmining.framework.plugin.Progress;
 import org.processmining.framework.plugin.annotations.Plugin;
 import org.processmining.framework.plugin.annotations.PluginVariant;
 import org.processmining.framework.plugin.events.Logger.MessageLevel;
-import org.processmining.models.graphbased.AttributeMap;
 import org.processmining.models.graphbased.directed.petrinet.Petrinet;
-import org.processmining.models.graphbased.directed.petrinet.PetrinetEdge;
-import org.processmining.models.graphbased.directed.petrinet.PetrinetNode;
-import org.processmining.models.graphbased.directed.petrinet.elements.Arc;
-import org.processmining.models.graphbased.directed.petrinet.elements.Place;
-import org.processmining.models.graphbased.directed.petrinet.impl.PetrinetFactory;
+
 
 
 @Visualizer
@@ -38,12 +29,12 @@ public class ReplayPerformanceRuposVisualizze {
 	public JComponent visualize(PluginContext context, TotalPerformanceResult tovisualize) {
 		if(context instanceof UIPluginContext){
 			try {
-				ReplayPerformanceRuposConnection connection = context.getConnectionManager().getFirstConnection(
-						ReplayPerformanceRuposConnection.class, context, tovisualize);
+				ReplayRuposConnection connection = context.getConnectionManager().getFirstConnection(
+						ReplayRuposConnection.class, context, tovisualize);
 
 				// connection found. Create all necessary component to instantiate inactive visualization panel
-				XLog log = connection.getObjectWithRole(ReplayPerformanceRuposConnection.XLOG);
-				Petrinet netx = connection.getObjectWithRole(ReplayPerformanceRuposConnection.PNET);
+				XLog log = connection.getObjectWithRole(ReplayRuposConnection.XLOG);
+				Petrinet netx = connection.getObjectWithRole(ReplayRuposConnection.PNET);
 				
 
 				return getVisualizationPanel(context, netx, log, tovisualize);

@@ -1,20 +1,17 @@
 package org.processmining.plugins.petrinet.replayfitness;
 
-import java.awt.Color;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
+
 import java.util.Vector;
 
-import javax.swing.BorderFactory;
 import javax.swing.JComponent;
-import javax.swing.JLabel;
-import javax.swing.JScrollPane;
-import javax.swing.ScrollPaneConstants;
+
 
 
 
@@ -29,14 +26,13 @@ import org.deckfour.xes.info.impl.XLogInfoImpl;
 import org.deckfour.xes.model.XEvent;
 import org.deckfour.xes.model.XLog;
 import org.deckfour.xes.model.XTrace;
-import org.processmining.connections.logmodel.LogPetrinetConnection;
+
 import org.processmining.connections.logmodel.LogPetrinetConnectionImpl;
 import org.processmining.contexts.uitopia.UIPluginContext;
 import org.processmining.contexts.uitopia.annotations.UITopiaVariant;
-import org.processmining.contexts.uitopia.annotations.Visualizer;
-import org.processmining.contexts.util.StringVisualizer;
+
 import org.processmining.framework.connections.ConnectionCannotBeObtained;
-import org.processmining.framework.connections.annotations.ConnectionObjectFactory;
+
 import org.processmining.framework.plugin.PluginContext;
 import org.processmining.framework.plugin.annotations.Plugin;
 import org.processmining.models.connections.petrinets.behavioral.InitialMarkingConnection;
@@ -50,12 +46,12 @@ import org.processmining.models.graphbased.directed.petrinet.elements.Transition
 import org.processmining.models.semantics.petrinet.Marking;
 import org.processmining.models.semantics.petrinet.PetrinetSemantics;
 import org.processmining.models.semantics.petrinet.impl.PetrinetSemanticsFactory;
-import org.processmining.plugins.connectionfactories.logpetrinet.LogPetrinetConnectionFactory;
+
 import org.processmining.plugins.connectionfactories.logpetrinet.LogPetrinetConnectionFactoryUI;
 import org.processmining.plugins.petrinet.replay.ReplayAction;
 import org.processmining.plugins.petrinet.replay.Replayer;
 
-import com.fluxicon.slickerbox.factory.SlickerDecorator;
+
 
 public class ReplayConformancePlugin {
 
@@ -97,10 +93,10 @@ public class ReplayConformancePlugin {
 			}
 		}
 
-		String text = "(based on a successful replay of " + replayedTraces + " out of " + log.size() + " traces)";
+		context.log("(based on a successful replay of " + replayedTraces + " out of " + log.size() + " traces)");
 
 		totalResult.getTotal().updateConformance();
-		ReplayConformanceRuposConnection connection = new ReplayConformanceRuposConnection(totalResult, log, net);
+		ReplayRuposConnection connection = new ReplayRuposConnection(totalResult, log, net);
 		context.getConnectionManager().addConnection(connection);
 		return totalResult;
 	}
@@ -185,7 +181,7 @@ public class ReplayConformancePlugin {
 		consumedTokens += marking.size();
 		consumedTrace += marking.size();
 		int remainingTokens = marking.isEmpty() ? 0 : marking.size() - 1;
-
+		
 		// Rupos patches
 		totalResult.getTotal().getRemainingMarking().addAll(marking);
 		tempConformanceResult.getRemainingMarking().addAll(marking);
@@ -275,7 +271,7 @@ public class ReplayConformancePlugin {
 	public TotalConformanceResult getConformanceDetails(UIPluginContext context, XLog log, Petrinet net) {
 		ReplayFitnessSetting setting = new ReplayFitnessSetting();
 		suggestActions(setting, log, net);
-		ReplayFitnessUI ui = new ReplayFitnessUI(setting);
+		ReplayRuposUI ui = new ReplayRuposUI(setting);
 		//context.showWizard("Configure Conformance Settings", true, false, ui.initComponents());
 		
         
