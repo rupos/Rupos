@@ -29,7 +29,8 @@ import javax.swing.table.AbstractTableModel;
 import org.deckfour.xes.model.XLog;
 import org.processmining.contexts.uitopia.UIPluginContext;
 import org.processmining.framework.plugin.Progress;
-import org.processmining.models.graphbased.directed.bpmn.BPMNDiagram;
+import org.processmining.models.graphbased.directed.bpmn.BPMNDiagramExt;
+import org.processmining.models.graphbased.directed.bpmn.BPMNDiagramExtImpl;
 import org.processmining.models.graphbased.directed.petrinet.Petrinet;
 import org.processmining.models.graphbased.directed.petrinet.elements.Arc;
 import org.processmining.models.graphbased.directed.petrinet.elements.Transition;
@@ -41,6 +42,7 @@ import org.processmining.plugins.petrinet.replayfitness.PetriNetDrawUtil;
 import org.processmining.plugins.petrinet.replayfitness.TotalConformanceResult;
 import org.processmining.plugins.petrinet.replayfitness.TotalPerformanceResult;
 import org.processmining.plugins.xpdl.Xpdl;
+import org.processmining.plugins.xpdl.converter.BPMN2XPDLConversionExt;
 
 import com.fluxicon.slickerbox.components.AutoFocusButton;
 import com.fluxicon.slickerbox.components.SlickerButton;
@@ -55,7 +57,7 @@ public class BPMNexportPanelPerformance extends JPanel {
 	
 	private  JComponent netPNView;
 	private  JComponent netBPMNView;
-	private BPMNDiagram bpmnvisulizated;
+	private BPMNDiagramExt bpmnvisulizated;
 	private JTable tab;
 
 
@@ -195,18 +197,20 @@ public class BPMNexportPanelPerformance extends JPanel {
 				        "XPDL", "xpdl");
 				saveDialog.setFileFilter(filter);
 
-				saveDialog.setSelectedFile(new File(export.getXpdltraslate().getName()+"Summary.xpdl")); 
+				saveDialog.setSelectedFile(new File(export.getBPMNtraslate().getLabel()+"Summary.xpdl")); 
 				if (saveDialog.showSaveDialog(context.getGlobalContext().getUI()) == JFileChooser.APPROVE_OPTION) {
 					File outFile = saveDialog.getSelectedFile();
 					try {
 						BufferedWriter outWriter = new BufferedWriter(new FileWriter(outFile));
 						Xpdl newxpdl=null;
 						try {
-							 newxpdl = BPMNexportUtil.exportToXpdl(context,export.getTraslateBpmnresult().getXpdl(), export.getTraslateBpmnresult(), bpmnvisulizated);
+							BPMN2XPDLConversionExt xpdlConversion = new BPMN2XPDLConversionExt(bpmnvisulizated);
+							newxpdl = xpdlConversion.fills_layout(context);
+						
 						} catch (Exception e1) {
 							
 							//e1.printStackTrace();
-							newxpdl= export.getXpdltraslate();
+							
 						}
 						outWriter.write("<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n" +newxpdl.exportElement());
 						outWriter.flush();

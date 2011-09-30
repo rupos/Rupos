@@ -30,17 +30,22 @@ import org.processmining.models.graphbased.directed.AbstractDirectedGraphEdge;
 import org.processmining.models.graphbased.directed.AbstractDirectedGraphNode;
 import org.processmining.models.graphbased.directed.DirectedGraph;
 import org.processmining.models.graphbased.directed.bpmn.BPMNDiagram;
+import org.processmining.models.graphbased.directed.bpmn.BPMNDiagramExt;
+import org.processmining.models.graphbased.directed.bpmn.BPMNDiagramExtFactory;
 import org.processmining.models.graphbased.directed.bpmn.BPMNDiagramFactory;
 import org.processmining.models.graphbased.directed.bpmn.BPMNEdge;
 import org.processmining.models.graphbased.directed.bpmn.BPMNNode;
 import org.processmining.models.graphbased.directed.bpmn.elements.Activity;
 import org.processmining.models.graphbased.directed.bpmn.elements.Event;
+import org.processmining.models.graphbased.directed.bpmn.elements.Artifacts.ArtifactType;
 import org.processmining.models.graphbased.directed.bpmn.elements.Event.EventType;
 import org.processmining.models.graphbased.directed.bpmn.elements.Event.EventTrigger;
 import org.processmining.models.graphbased.directed.bpmn.elements.Gateway.GatewayType;
+import org.processmining.models.graphbased.directed.bpmn.elements.Artifacts;
 import org.processmining.models.graphbased.directed.bpmn.elements.Flow;
 import org.processmining.models.graphbased.directed.bpmn.elements.Gateway;
 import org.processmining.models.graphbased.directed.bpmn.elements.SubProcess;
+import org.processmining.models.graphbased.directed.bpmn.elements.Swimlane;
 import org.processmining.models.graphbased.directed.petrinet.Petrinet;
 import org.processmining.models.graphbased.directed.petrinet.PetrinetGraph;
 import org.processmining.models.graphbased.directed.petrinet.elements.Arc;
@@ -63,7 +68,7 @@ import com.jgraph.layout.JGraphFacade;
 import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 
 @Plugin(name = "Import BPMN model from XPDL 2.1 file to PetriNet", parameterLabels = { "Filename" }, returnLabels = {
-		"Petri Net", "Marking",  "BPMNDiagram", "Traslate Result","xpdl","ReplayFitnessSetting" }, returnTypes = { Petrinet.class, Marking.class, BPMNDiagram.class,TraslateBPMNResult.class,Xpdl.class,ReplayFitnessSetting.class })
+		"Petri Net", "Marking",  "BPMNDiagram", "Traslate Result","xpdl","ReplayFitnessSetting" }, returnTypes = { Petrinet.class, Marking.class, BPMNDiagramExt.class,TraslateBPMNResult.class,Xpdl.class,ReplayFitnessSetting.class })
 		@UIImportPlugin(description = "XPDL 2.1 files to PN", extensions = { "xpdl" })
 		public class BPMNtoPN extends AbstractImportPlugin {
 
@@ -87,7 +92,7 @@ import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 		 * XPDL file has been imported. Now we need to convert the contents to a
 		 * BPMN diagram.
 		 */
-		BPMNDiagram bpmn = BPMNDiagramFactory.newBPMNDiagram(filename);
+		BPMNDiagramExt bpmn = BPMNDiagramExtFactory.newBPMNDiagram(filename);
 		Map<String, BPMNNode> id2node = new HashMap<String, BPMNNode>();
 
 		/*
@@ -102,6 +107,7 @@ import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 
 		Collection<String> error = this.isWellFormed(bpmn);
 
+		
 
 
 		return this.BPMN2Translate(context,bpmn,xpdl,id2node,error);
@@ -359,7 +365,7 @@ import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 	 * @param bpmn
 	 * @return
 	 */
-	private Object BPMN2Translate(PluginContext c ,BPMNDiagram bpmn, Xpdl xpdl, Map<String, BPMNNode> id2node, Collection<String> error) {
+	private Object BPMN2Translate(PluginContext c ,BPMNDiagramExt bpmn, Xpdl xpdl, Map<String, BPMNNode> id2node, Collection<String> error) {
 		Map<String, Place> placeMap = new HashMap<String, Place>();
 
 
@@ -386,6 +392,7 @@ import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 
 		layoutcreate(c,net);
 
+		
 		TraslateBPMNResult result = new TraslateBPMNResult(bpmn, (Petrinet) net, marking, placeMap,xpdl,id2node,error);
 		Object[] objects = new Object[6];
 		objects[0] = net;
@@ -597,8 +604,10 @@ import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 			Collection<String> maperror) {
 		//every object is on a path from a start event or an exception event to an end event
 		for(BPMNNode a : bpmn.getNodes()){
+			if(!( a instanceof Swimlane)){
 			pathFromNodeToEnd(a,maperror,a);
 			pathFromNodeToStart(a,maperror,a);
+			}
 			
 		}
 
@@ -612,6 +621,7 @@ import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 				BPMNNode b = edge.getSource();
 				if(b instanceof Event){
 					Event isend = (Event) b;
+					if(isend.getEventTrigger()==null){isend.setEventTrigger(EventTrigger.NONE);}
 					if((isend.getEventType()==EventType.START && isend.getEventTrigger()==EventTrigger.NONE)||(isend.getEventType()==EventType.INTERMEDIATE&& isend.getEventTrigger()==EventTrigger.ERROR)){
 						break;
 					}
@@ -619,12 +629,13 @@ import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 				if(b==null){
 					maperror.add("il path dell'elemento inizia con start "+c.getLabel());
 				}
-				pathFromNodeToEnd(b,maperror, c);
+				pathFromNodeToStart(b,maperror, c); ///vero??
 			}
 			
 		}else{
 			if(a instanceof Event){
 				Event isstart = (Event) a;
+				if(isstart.getEventTrigger()==null){isstart.setEventTrigger(EventTrigger.NONE);}
 				if(isstart.getEventType()!=EventType.START && isstart.getEventTrigger()!=EventTrigger.NONE){
 					maperror.add(c.getLabel()+" il path dell'elemento inizia con start ");
 				}
@@ -641,6 +652,7 @@ import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 				BPMNNode b = edge.getTarget();
 				if(b instanceof Event){
 					Event isend = (Event) b;
+					if(isend.getEventTrigger()==null){isend.setEventTrigger(EventTrigger.NONE);}
 					if(isend.getEventType()==EventType.END && isend.getEventTrigger()==EventTrigger.NONE){
 						break;
 					}
@@ -653,6 +665,7 @@ import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 		}else{
 			if(a instanceof Event){
 				Event isend = (Event) a;
+				if(isend.getEventTrigger()==null){isend.setEventTrigger(EventTrigger.NONE);}
 				if(isend.getEventType()!=EventType.END && isend.getEventTrigger()!=EventTrigger.NONE){
 					maperror.add("il path dell'elemento nn termina con end "+c.getLabel());
 				}

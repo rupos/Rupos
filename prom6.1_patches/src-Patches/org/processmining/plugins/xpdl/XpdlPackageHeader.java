@@ -158,4 +158,84 @@ public class XpdlPackageHeader extends XpdlElement {
 		}
 		return s;
 	}
+
+	public XpdlXpdlVersion getVersion() {
+		return version;
+	}
+
+	public void setVersion(XpdlXpdlVersion version) {
+		this.version = version;
+	}
+
+	public XpdlVendor getVendor() {
+		return vendor;
+	}
+
+	public void setVendor(XpdlVendor vendor) {
+		this.vendor = vendor;
+	}
+
+	public XpdlCreated getCreated() {
+		return created;
+	}
+
+	public void setCreated(XpdlCreated created) {
+		this.created = created;
+	}
+
+	public XpdlModificationDate getModificationDate() {
+		return modificationDate;
+	}
+
+	public void setModificationDate(XpdlModificationDate modificationDate) {
+		this.modificationDate = modificationDate;
+	}
+
+	public XpdlDescription getDescription() {
+		return description;
+	}
+
+	public void setDescription(XpdlDescription description) {
+		this.description = description;
+	}
+
+	public XpdlDocumentation getDocumentation() {
+		return documentation;
+	}
+
+	public void setDocumentation(XpdlDocumentation documentation) {
+		this.documentation = documentation;
+	}
+
+	public XpdlPriorityUnit getPriorityUnit() {
+		return priorityUnit;
+	}
+
+	public void setPriorityUnit(XpdlPriorityUnit priorityUnit) {
+		this.priorityUnit = priorityUnit;
+	}
+
+	public XpdlCostUnit getCostUnit() {
+		return costUnit;
+	}
+
+	public void setCostUnit(XpdlCostUnit costUnit) {
+		this.costUnit = costUnit;
+	}
+
+	public XpdlVendorExtensions getVendorExtensions() {
+		return vendorExtensions;
+	}
+
+	public void setVendorExtensions(XpdlVendorExtensions vendorExtensions) {
+		this.vendorExtensions = vendorExtensions;
+	}
+
+	public XpdlLayoutInfo getLayoutInfo() {
+		return layoutInfo;
+	}
+
+	public void setLayoutInfo(XpdlLayoutInfo layoutInfo) {
+		this.layoutInfo = layoutInfo;
+	}
 }

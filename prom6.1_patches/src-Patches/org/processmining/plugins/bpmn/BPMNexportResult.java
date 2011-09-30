@@ -1,6 +1,7 @@
 package org.processmining.plugins.bpmn;
 
-import org.processmining.models.graphbased.directed.bpmn.BPMNDiagram;
+import org.processmining.models.graphbased.directed.bpmn.BPMNDiagramExt;
+import org.processmining.models.graphbased.directed.bpmn.BPMNDiagramExtImpl;
 import org.processmining.plugins.petrinet.replayfitness.TotalConformanceResult;
 import org.processmining.plugins.petrinet.replayfitness.TotalPerformanceResult;
 import org.processmining.plugins.xpdl.Xpdl;
@@ -10,8 +11,8 @@ public class BPMNexportResult {
 	TraslateBPMNResult traslateBpmnresult=null;
 	TotalConformanceResult totalconformanceresult=null;
 	TotalPerformanceResult totalPerformanceresult=null;
-	BPMNDiagram BPMNtraslate= null;
-	Xpdl xpdltraslate=null;
+	BPMNDiagramExt BPMNtraslate= null;
+	
 	
 	public BPMNexportResult(TraslateBPMNResult traslateBpmnresult,
 			TotalConformanceResult totalconformanceresult) {
@@ -27,21 +28,15 @@ public class BPMNexportResult {
 	}
 
 	
-	public BPMNDiagram getBPMNtraslate() {
+	public BPMNDiagramExt getBPMNtraslate() {
 		return BPMNtraslate;
 	}
 
-	public void setBPMNtraslate(BPMNDiagram bPMNtraslate) {
+	public void setBPMNtraslate(BPMNDiagramExt bPMNtraslate) {
 		BPMNtraslate = bPMNtraslate;
 	}
 
-	public Xpdl getXpdltraslate() {
-		return xpdltraslate;
-	}
-
-	public void setXpdltraslate(Xpdl xpdltraslate) {
-		this.xpdltraslate = xpdltraslate;
-	}
+	
 
 	public TraslateBPMNResult getTraslateBpmnresult() {
 		return traslateBpmnresult;

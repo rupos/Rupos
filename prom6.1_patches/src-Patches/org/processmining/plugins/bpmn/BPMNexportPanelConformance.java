@@ -36,7 +36,8 @@ import org.processmining.contexts.uitopia.UIPluginContext;
 import org.processmining.framework.plugin.PluginContext;
 import org.processmining.framework.plugin.Progress;
 import org.processmining.models.graphbased.AttributeMap;
-import org.processmining.models.graphbased.directed.bpmn.BPMNDiagram;
+import org.processmining.models.graphbased.directed.bpmn.BPMNDiagramExt;
+import org.processmining.models.graphbased.directed.bpmn.BPMNDiagramExtImpl;
 import org.processmining.models.graphbased.directed.bpmn.BPMNDiagramFactory;
 import org.processmining.models.graphbased.directed.bpmn.elements.Activity;
 import org.processmining.models.graphbased.directed.bpmn.elements.Artifacts;
@@ -56,6 +57,8 @@ import org.processmining.plugins.log.ui.logdialog.LogViewUI;
 import org.processmining.plugins.petrinet.replayfitness.ConformanceResult;
 import org.processmining.plugins.petrinet.replayfitness.PetriNetDrawUtil;
 import org.processmining.plugins.petrinet.replayfitness.TotalConformanceResult;
+import org.processmining.plugins.xpdl.Xpdl;
+import org.processmining.plugins.xpdl.converter.BPMN2XPDLConversionExt;
 
 import com.fluxicon.slickerbox.components.AutoFocusButton;
 import com.fluxicon.slickerbox.components.SlickerButton;
@@ -245,12 +248,14 @@ public class BPMNexportPanelConformance extends JPanel{
 				        "XPDL", "xpdl");
 				saveDialog.setFileFilter(filter);
 
-				saveDialog.setSelectedFile(new File(export.getXpdltraslate().getName()+"Summary.xpdl")); 
+				saveDialog.setSelectedFile(new File(export.getBPMNtraslate().getLabel()+"Summary.xpdl")); 
 				if (saveDialog.showSaveDialog(context.getGlobalContext().getUI()) == JFileChooser.APPROVE_OPTION) {
 					File outFile = saveDialog.getSelectedFile();
 					try {
 						BufferedWriter outWriter = new BufferedWriter(new FileWriter(outFile));
-						outWriter.write("<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n" +export.getXpdltraslate().exportElement());
+						BPMN2XPDLConversionExt xpdlConversion = new BPMN2XPDLConversionExt(export.getBPMNtraslate());
+						Xpdl newxpdl = xpdlConversion.fills_layout(context);
+						outWriter.write("<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n" +newxpdl.exportElement());
 						outWriter.flush();
 						outWriter.close();
 						JOptionPane.showMessageDialog(context.getGlobalContext().getUI(),
@@ -297,7 +302,7 @@ public class BPMNexportPanelConformance extends JPanel{
 				if(i>=0){
 					Petrinet netx = PetrinetFactory.clonePetrinet(net);
 					PetriNetDrawUtil.drawfitnessnet(netx,tcr.getList().get(i));
-					BPMNDiagram bpmnx = BPMNexportUtil.exportConformancetoBPMN(export.getTraslateBpmnresult(), tcr.getList().get(i));
+					BPMNDiagramExt bpmnx = BPMNexportUtil.exportConformancetoBPMN(export.getTraslateBpmnresult(), tcr.getList().get(i));
 					remove(netPNView);
 					remove(netBPMNView);
 					netPNView = ProMJGraphVisualizer.instance().visualizeGraph(context, netx);

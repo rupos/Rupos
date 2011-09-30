@@ -17,7 +17,7 @@ import org.processmining.plugins.petrinet.replayfitness.ReplayRuposConnection;
 
 
 @Visualizer
-@Plugin(name = "BPMN export Visualizer", parameterLabels = "BPMN export visualizze Conformance or Performance Rupos Analisys", returnLabels = "BPMN export Visualized", returnTypes = JComponent.class)
+@Plugin(name = "BPMN  export Visualizer", parameterLabels = "BPMN export   visualizze Conformance or Performance Rupos Analisys", returnLabels = "BPMN   export Visualized", returnTypes = JComponent.class)
 public class BPMNexportVisualizze {
 
 	@PluginVariant(requiredParameterLabels = { 0 })

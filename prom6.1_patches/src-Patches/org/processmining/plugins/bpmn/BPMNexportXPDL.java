@@ -9,6 +9,8 @@ import org.processmining.framework.plugin.annotations.Plugin;
 import org.processmining.framework.plugin.annotations.PluginVariant;
 
 import org.processmining.models.graphbased.directed.bpmn.BPMNDiagram;
+import org.processmining.models.graphbased.directed.bpmn.BPMNDiagramExt;
+import org.processmining.models.graphbased.directed.bpmn.BPMNDiagramExtImpl;
 
 import org.processmining.plugins.petrinet.replayfitness.TotalConformanceResult;
 import org.processmining.plugins.petrinet.replayfitness.TotalPerformanceResult;
@@ -23,17 +25,14 @@ import org.processmining.plugins.xpdl.Xpdl;
 	public Object exportBPMNexportXPDL(PluginContext context, TraslateBPMNResult traslateBpmnresult, TotalConformanceResult totalconformanceresult) throws Exception {
 
 
-		BPMNDiagram newbpmn = BPMNexportUtil.exportConformancetoBPMN(traslateBpmnresult,totalconformanceresult.getTotal());
+		BPMNDiagramExt newbpmn = BPMNexportUtil.exportConformancetoBPMN(traslateBpmnresult,totalconformanceresult.getTotal());
 
-		Xpdl newxpdl =	BPMNexportUtil.exportToXpdl(context,traslateBpmnresult.getXpdl(),traslateBpmnresult,newbpmn);
-
-		Object[] objects = new Object[2];
-		objects[0] = newbpmn;
-		objects[1] = newxpdl;
+	
+		
 		
 		BPMNexportResult result = new BPMNexportResult(traslateBpmnresult, totalconformanceresult);
 		result.setBPMNtraslate(newbpmn);
-		result.setXpdltraslate(newxpdl);
+		
 
 		return result;
 
@@ -46,20 +45,17 @@ import org.processmining.plugins.xpdl.Xpdl;
 	public Object exportBPMNexportXPDL(PluginContext context, TraslateBPMNResult traslateBpmnresult, TotalPerformanceResult totalPerformanceresult) throws Exception {
 
 
-		//BPMNDiagram newbpmn= exportPerformancetoBPMN(traslateBpmnresult,totalPerformanceresult.getListperformance().get(0).getList(),totalPerformanceresult.getListperformance().get(0).getMaparc());
-
-		BPMNDiagram newbpmn = BPMNexportUtil.exportPerformancetoBPMN(traslateBpmnresult,totalPerformanceresult.getListperformance().get(0).getList(),totalPerformanceresult.getListperformance().get(0).getMaparc());
 		
-		Xpdl newxpdl =	BPMNexportUtil.exportToXpdl(context,traslateBpmnresult.getXpdl(),traslateBpmnresult,newbpmn);
+		BPMNDiagramExt newbpmn = BPMNexportUtil.exportPerformancetoBPMN(traslateBpmnresult,totalPerformanceresult.getListperformance().get(0).getList(),totalPerformanceresult.getListperformance().get(0).getMaparc());
+		
+		
+		
 
-		Object[] objects = new Object[2];
-		objects[0] = newbpmn;
-		objects[1] = newxpdl;
 
 		//return objects;
 		BPMNexportResult result = new BPMNexportResult(traslateBpmnresult, totalPerformanceresult);
 		result.setBPMNtraslate(newbpmn);
-		result.setXpdltraslate(newxpdl);
+		
 
 		return result;
 

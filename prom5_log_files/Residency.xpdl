@@ -4,7 +4,7 @@
     <XPDLVersion>2.2</XPDLVersion>
     <Vendor>Global 360</Vendor>
     <Created>2011-07-05T14:20:45+02:00</Created>
-    <ModificationDate>2011-07-05T14:28:55+02:00</ModificationDate>
+    <ModificationDate>2011-07-10T00:36:36+02:00</ModificationDate>
     <LayoutInfo PixelsPerMillimeter="3.78" />
   </PackageHeader>
   <ConformanceClass BPMNModelPortabilityConformance="STANDARD" />
@@ -17,7 +17,7 @@
   <Pools>
     <Pool Process="ID-2" Id="ID-3" Orientation="HORIZONTAL" BoundaryVisible="false">
       <Lanes>
-        <Lane Id="ID-4" ParentLane="ID-3">
+        <Lane Id="ID-4" Name="namelane" ParentLane="ID-3">
           <NodeGraphicsInfos>
             <NodeGraphicsInfo ToolId="Sketchpad_BPMN" IsVisible="true" PageId="ID-1" Height="1080.0" Width="1440.0" LaneId="ID-4">
               <Coordinates XCoordinate="0.0" YCoordinate="0.0" />
@@ -170,6 +170,7 @@
         <Transition Id="ID-15" From="ID-7" To="ID-8">
           <ConnectorGraphicsInfos>
             <ConnectorGraphicsInfo ToolId="Sketchpad_BPMN" IsVisible="true" PageId="ID-1">
+              <Coordinates XCoordinate="250.5" YCoordinate="180.5" />
               <Coordinates XCoordinate="250.0" YCoordinate="180.0" />
               <Coordinates XCoordinate="326.2894592285156" YCoordinate="96.28947448730469" />
             </ConnectorGraphicsInfo>
@@ -224,11 +225,10 @@
           </ConnectorGraphicsInfos>
         </Transition>
         <Transition Id="ID-20" From="ID-8" To="ID-16">
-          <Condition Type="OTHERWISE" />
           <ConnectorGraphicsInfos>
             <ConnectorGraphicsInfo ToolId="Sketchpad_BPMN" IsVisible="true" PageId="ID-1">
-              <Coordinates XCoordinate="360.8017272949219" YCoordinate="70.80171203613281" />
-              <Coordinates XCoordinate="400.5" YCoordinate="51.10737609863281" />
+              <Coordinates XCoordinate="360.8036804199219" YCoordinate="70.8036880493164" />
+              <Coordinates XCoordinate="400.5" YCoordinate="51.10887908935547" />
             </ConnectorGraphicsInfo>
           </ConnectorGraphicsInfos>
         </Transition>

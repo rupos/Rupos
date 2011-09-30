@@ -3,10 +3,12 @@ package org.processmining.plugins.xpdl;
 import java.util.Arrays;
 import java.util.Map;
 
+import org.processmining.models.graphbased.directed.DirectedGraphNode;
 import org.processmining.models.graphbased.directed.bpmn.BPMNDiagram;
 import org.processmining.models.graphbased.directed.bpmn.BPMNNode;
-import org.processmining.models.graphbased.directed.bpmn.elements.SubProcess;
 import org.processmining.models.graphbased.directed.bpmn.elements.Gateway.GatewayType;
+import org.processmining.models.graphbased.directed.bpmn.elements.SubProcess;
+import org.processmining.models.graphbased.directed.bpmn.elements.Swimlane;
 import org.xmlpull.v1.XmlPullParser;
 
 /**
@@ -137,26 +139,27 @@ public class XpdlRoute extends XpdlElement {
 
 	protected void checkValidity(Xpdl xpdl) {
 		super.checkValidity(xpdl);
-		checkRestriction(xpdl, "GatewayType", gatewayType, Arrays.asList("XOR", "Exclusive", "OR", "Inclusive",
-				"Complex", "AND", "Parallel"), false);
+		checkRestriction(xpdl, "GatewayType", gatewayType,
+				Arrays.asList("XOR", "Exclusive", "OR", "Inclusive", "Complex", "AND", "Parallel"), false);
 		checkRestriction(xpdl, "XORType", xorType, Arrays.asList("Data", "Event"), false);
 		checkRestriction(xpdl, "ExclusiveType", exclusiveType, Arrays.asList("Data", "Event"), false);
 		checkBoolean(xpdl, "Instantiate", instantiate, false);
 		checkBoolean(xpdl, "MarkerVisible", markerVisible, false);
 	}
 
-	public void convertToBpmn(BPMNDiagram bpmn, String id, String name, SubProcess parent, Map<String, BPMNNode> id2node) {
-		GatewayType type = GatewayType.DATABASED; 
-	
+	public void convertToBpmn(BPMNDiagram bpmn, String id, String name, DirectedGraphNode parent,
+			Map<String, BPMNNode> id2node) {
+		GatewayType type = GatewayType.DATABASED;
 		if (gatewayType != null) {
 			if (gatewayType.equalsIgnoreCase("XOR")|| gatewayType.equalsIgnoreCase("Exclusive")) {
-				//if (((instantiate != null) && (instantiate.equalsIgnoreCase("true")))) {
-					if(xorType.equalsIgnoreCase("Event")){
+				/*if ((instantiate != null) && (instantiate.equalsIgnoreCase("true"))) {
+					type = GatewayType.EVENTBASED;
+				}*/
+				if(xorType.equalsIgnoreCase("Event")){
 					type = GatewayType.EVENTBASED;
 					}else if(xorType.equalsIgnoreCase("DATA")){
 					type = GatewayType.DATABASED;
 					}
-				//}
 			} else if (gatewayType.equalsIgnoreCase("AND")|| gatewayType.equalsIgnoreCase("Parallel")) {
 				type = GatewayType.PARALLEL;
 			} else if (gatewayType.equalsIgnoreCase("OR")|| gatewayType.equalsIgnoreCase("Inclusive")) {
@@ -165,6 +168,71 @@ public class XpdlRoute extends XpdlElement {
 				type = GatewayType.COMPLEX;
 			}
 		}
-		id2node.put(id, bpmn.addGateway(name, type, parent));
+		if (parent == null) {
+			id2node.put(id, bpmn.addGateway(name, type));
+		} else {
+			if (parent instanceof Swimlane) {
+				id2node.put(id, bpmn.addGateway(name, type, (Swimlane) parent));
+			} else {
+				id2node.put(id, bpmn.addGateway(name, type, (SubProcess) parent));
+			}
+		}
+
+	}
+
+	public String getGatewayType() {
+		return gatewayType;
+	}
+
+	public void setGatewayType(String gatewayType) {
+		this.gatewayType = gatewayType;
+	}
+
+	public String getXorType() {
+		return xorType;
+	}
+
+	public void setXorType(String xorType) {
+		this.xorType = xorType;
+	}
+
+	public String getExclusiveType() {
+		return exclusiveType;
+	}
+
+	public void setExclusiveType(String exclusiveType) {
+		this.exclusiveType = exclusiveType;
+	}
+
+	public String getInstantiate() {
+		return instantiate;
+	}
+
+	public void setInstantiate(String instantiate) {
+		this.instantiate = instantiate;
+	}
+
+	public String getMarkerVisible() {
+		return markerVisible;
+	}
+
+	public void setMarkerVisible(String markerVisible) {
+		this.markerVisible = markerVisible;
+	}
+
+	public String getIncomingCondition() {
+		return incomingCondition;
+	}
+
+	public void setIncomingCondition(String incomingCondition) {
+		this.incomingCondition = incomingCondition;
+	}
+
+	public String getOutgoingCondition() {
+		return outgoingCondition;
+	}
+
+	public void setOutgoingCondition(String outgoingCondition) {
+		this.outgoingCondition = outgoingCondition;
 	}
 }

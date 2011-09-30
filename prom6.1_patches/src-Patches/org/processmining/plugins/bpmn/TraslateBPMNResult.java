@@ -13,6 +13,7 @@ import org.processmining.framework.plugin.Progress;
 import org.processmining.framework.plugin.annotations.Plugin;
 import org.processmining.framework.plugin.annotations.PluginVariant;
 import org.processmining.models.graphbased.directed.bpmn.BPMNDiagram;
+import org.processmining.models.graphbased.directed.bpmn.BPMNDiagramExt;
 import org.processmining.models.graphbased.directed.bpmn.BPMNNode;
 import org.processmining.models.graphbased.directed.petrinet.Petrinet;
 import org.processmining.models.semantics.petrinet.Marking;
@@ -23,7 +24,8 @@ import org.processmining.plugins.xpdl.Xpdl;
 
 public class TraslateBPMNResult {
 
-	private BPMNDiagram bpmn=null;
+	private BPMNDiagramExt bpmn=null;
+	
 	private Petrinet petri=null;
 	private Marking marking=null;
 	private Collection<String> error = null;
@@ -72,8 +74,8 @@ public class TraslateBPMNResult {
 
 	private Xpdl xpdl=null;
 
-	public TraslateBPMNResult(BPMNDiagram b, Petrinet p,Marking m, Map<String, Place> mp, Xpdl x,Map<String, BPMNNode> id2n,Collection<String> er){
-		this.bpmn=b;
+	public TraslateBPMNResult(BPMNDiagramExt bpmn2, Petrinet p,Marking m, Map<String, Place> mp, Xpdl x,Map<String, BPMNNode> id2n,Collection<String> er){
+		this.bpmn=bpmn2;
 		this.petri=p;
 		this.marking=m;
 		this.placeMap=mp;
@@ -84,11 +86,11 @@ public class TraslateBPMNResult {
 	}
 
 
-	public BPMNDiagram getBpmn() {
+	public BPMNDiagramExt getBpmn() {
 		return bpmn;
 	}
 
-	public void setBpmn(BPMNDiagram bpmn) {
+	public void setBpmn(BPMNDiagramExt bpmn) {
 		this.bpmn = bpmn;
 	}
 

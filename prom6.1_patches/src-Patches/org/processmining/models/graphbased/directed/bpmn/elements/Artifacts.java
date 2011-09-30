@@ -33,8 +33,30 @@ public class Artifacts extends BPMNNode implements Decorated {
 	}
 
 	public Artifacts(
+			AbstractDirectedGraph<BPMNNode, BPMNEdge<? extends BPMNNode, ? extends BPMNNode>> bpmndiagram,String label,  ArtifactType at ) {
+		super(bpmndiagram);
+		fillAttributes(label,at);
+		
+	}
+	
+	public Artifacts(
 			AbstractDirectedGraph<BPMNNode, BPMNEdge<? extends BPMNNode, ? extends BPMNNode>> bpmndiagram,String label,  ArtifactType at, SubProcess parent ) {
 		super(bpmndiagram,parent);
+		fillAttributes(label,at);
+		
+	}
+	
+	public Artifacts(
+			AbstractDirectedGraph<BPMNNode, BPMNEdge<? extends BPMNNode, ? extends BPMNNode>> bpmndiagram,String label,  ArtifactType at, Swimlane parentSwimlane ) {
+		super(bpmndiagram,parentSwimlane);
+		fillAttributes(label,at);
+		
+	}
+	
+	
+
+	private void fillAttributes(String label, ArtifactType at) {
+		
 		this.artifactType = at;
 		getAttributeMap().put(AttributeMap.LABEL, label);
 		//getAttributeMap().put(AttributeMap.SHOWLABEL, false);
@@ -43,8 +65,32 @@ public class Artifacts extends BPMNNode implements Decorated {
 		getAttributeMap().put(AttributeMap.RESIZABLE, true);
 		getAttributeMap().put(AttributeMap.SIZE, new Dimension(stdWidth, stdHeight));
 	}
+	
+	
+	public Swimlane getParentSwimlane() {
+		if (getParent() != null) {
+			if (getParent() instanceof Swimlane)
+				return (Swimlane) getParent();
+			else
+				return null;
+		}
+		return null;
+	}
 
-	@Override
+	public SubProcess getParentSubProcess() {
+		if (getParent() != null) {
+			if (getParent() instanceof SubProcess)
+				return (SubProcess) getParent();
+			else
+				return null;
+		}
+		return null;
+	}
+	
+	
+	
+
+	
 	public void decorate(Graphics2D g2d, double x, double y, double width,
 			double height) {
 		
