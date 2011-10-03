@@ -1,4 +1,4 @@
-package org.processmining.plugins.petrinet.replayfitness;
+package org.processmining.plugins.petrinet.replayfitness.conformance;
 
 import java.util.Iterator;
 import java.util.List;

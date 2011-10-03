@@ -1,4 +1,4 @@
-package org.processmining.plugins.petrinet.replayfitness;
+package org.processmining.plugins.petrinet.replayfitness.util;
 
 import java.awt.Color;
 import java.util.HashMap;
@@ -12,12 +12,14 @@ import org.processmining.models.graphbased.directed.petrinet.elements.Arc;
 import org.processmining.models.graphbased.directed.petrinet.elements.Place;
 import org.processmining.models.graphbased.directed.petrinet.elements.Transition;
 import org.processmining.models.semantics.petrinet.Marking;
+import org.processmining.plugins.petrinet.replayfitness.conformance.ConformanceResult;
+import org.processmining.plugins.petrinet.replayfitness.performance.PerformanceData;
 
 public class PetriNetDrawUtil {
 	
 	
 	
-	public static  void drawfitnessnet(Petrinet net,ConformanceResult totalResult) {
+	public static  void drawconformance(Petrinet net,ConformanceResult totalResult) {
 		Map<String,Integer> missplacename2occ = new HashMap<String, Integer>();
 		Map<String,Integer> remplacename2occ = new HashMap<String, Integer>();
 
@@ -138,10 +140,10 @@ public class PetriNetDrawUtil {
 			String name = p.getLabel();
 			if(name2performance.containsKey(name)){
 				PerformanceData res = name2performance.get(name);
-				String r="<html>SyncTime:"+res.synchTime+"<br/>WaitTime:"+res.waitTime+"<br/>SoujourTime:"+res.time+"<br/>CountToken "+res.tokenCount+"</html>";
-				if(res.synchTime>0){
+				String r="<html>SyncTime:"+res.getSynchTime()+"<br/>WaitTime:"+res.getWaitTime()+"<br/>SoujourTime:"+res.getTime()+"<br/>CountToken "+res.getTokenCount()+"</html>";
+				if(res.getSynchTime()>0){
 					p.getAttributeMap().put(AttributeMap.FILLCOLOR, Color.GREEN);
-				}else if(res.waitTime>0){
+				}else if(res.getWaitTime()>0){
 					p.getAttributeMap().put(AttributeMap.FILLCOLOR, Color.cyan);
 				}else p.getAttributeMap().put(AttributeMap.FILLCOLOR, Color.WHITE);
 				p.getAttributeMap().remove(AttributeMap.TOOLTIP);
@@ -172,9 +174,9 @@ public class PetriNetDrawUtil {
 		for(Place place : Result.keySet()){
 			PerformanceData perRes =	Result.get(place);
 			placen+="<td>"+place.getLabel()+"</td>";
-			waitt += "<td>"+perRes.waitTime+"</td>";
-			synct += "<td>"+perRes.synchTime+"</td>";
-			sogtime += "<td>"+perRes.time+"</td>";
+			waitt += "<td>"+perRes.getWaitTime()+"</td>";
+			synct += "<td>"+perRes.getSynchTime()+"</td>";
+			sogtime += "<td>"+perRes.getTime()+"</td>";
 		}
 
 		out=start+"<tr>"+placen+"</tr>"+"<tr>"+waitt+"</tr>"+"<tr>"+synct+"</tr>"+"<tr>"+sogtime+"</tr>"+end;

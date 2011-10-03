@@ -1,4 +1,4 @@
-package org.processmining.plugins.petrinet.replayfitness;
+package org.processmining.plugins.petrinet.replayfitness.util;
 
 import info.clearthought.layout.TableLayout;
 import info.clearthought.layout.TableLayoutConstants;
@@ -14,6 +14,7 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 import org.processmining.plugins.petrinet.replay.ReplayAction;
+import org.processmining.plugins.petrinet.replayfitness.ReplayFitnessSetting;
 
 import com.fluxicon.slickerbox.components.NiceIntegerSlider;
 import com.fluxicon.slickerbox.components.NiceSlider.Orientation;

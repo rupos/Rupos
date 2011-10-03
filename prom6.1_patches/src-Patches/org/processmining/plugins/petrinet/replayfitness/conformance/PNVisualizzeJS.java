@@ -1,4 +1,4 @@
-package org.processmining.plugins.petrinet.replayfitness;
+package org.processmining.plugins.petrinet.replayfitness.conformance;
 
 import java.awt.Point;
 import java.awt.geom.Point2D;
@@ -229,7 +229,7 @@ public class PNVisualizzeJS {
 	public void generateJS(String file, PetrinetGraph net, TotalConformanceResult Result){
 		GraphLayoutConnection layout = findConnection(cm, net);
 		
-		ConformanceResult totalResult = Result.total;
+		ConformanceResult totalResult = Result.getTotal();
 		for (Place pl : net.getPlaces()) {
 			Point2D xy = layout.getPosition(pl);
 		//	Object point =	pl.getAttributeMap().get(AttributeMap.POLYGON_POINTS);

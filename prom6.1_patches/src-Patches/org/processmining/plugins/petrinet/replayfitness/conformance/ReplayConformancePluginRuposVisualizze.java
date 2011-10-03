@@ -1,4 +1,4 @@
-package org.processmining.plugins.petrinet.replayfitness;
+package org.processmining.plugins.petrinet.replayfitness.conformance;
 
 
 
@@ -16,6 +16,7 @@ import org.processmining.framework.plugin.annotations.Plugin;
 import org.processmining.framework.plugin.annotations.PluginVariant;
 import org.processmining.framework.plugin.events.Logger.MessageLevel;
 import org.processmining.models.graphbased.directed.petrinet.Petrinet;
+import org.processmining.plugins.petrinet.replayfitness.util.ReplayRuposConnection;
 
 
 @Visualizer

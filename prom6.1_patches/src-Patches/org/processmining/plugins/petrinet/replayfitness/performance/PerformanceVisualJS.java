@@ -1,5 +1,5 @@
 
-package org.processmining.plugins.petrinet.replayfitness;
+package org.processmining.plugins.petrinet.replayfitness.performance;
 
 import java.awt.Point;
 import java.awt.geom.Point2D;
@@ -8,7 +8,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Collection;
 
-import java.util.Iterator;
+
 import java.util.LinkedList;
 
 import java.util.Map;

@@ -13,10 +13,13 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
+import javax.swing.SwingConstants;
 
 import org.processmining.framework.plugin.PluginContext;
 import org.processmining.framework.plugin.Progress;
 import org.processmining.models.jgraph.ProMJGraphVisualizer;
+import org.processmining.models.jgraph.visualization.ProMJGraphPanel;
+import org.processmining.plugins.petrinet.replayfitness.util.StringInteractivePanel;
 
 import com.fluxicon.slickerbox.factory.SlickerDecorator;
 
@@ -28,19 +31,22 @@ public class BPMNTraslatePanel extends JPanel{
 	private static final long serialVersionUID = -1078379484400548931L;
 	public BPMNTraslatePanel(PluginContext context,Progress progress, TraslateBPMNResult result) {
 
-		JComponent netPNView = ProMJGraphVisualizer.instance().visualizeGraph(context, result.getPetri());
+		ProMJGraphPanel netPNView = ProMJGraphVisualizer.instance().visualizeGraph(context, result.getPetri());
 		JComponent netBPMNView = ProMJGraphVisualizer.instance().visualizeGraph(context, result.getBpmn());
 		
-		JComponent ErrorView = visualizestring("<html>"+result.getError().toString()+"</html>");
+		//JComponent ErrorView = visualizestring("<html>"+result.getError().toString()+"</html>");
 		
+		StringInteractivePanel  stringpanel = new StringInteractivePanel(netPNView, "Error_Tranform", "<html>"+result.toString()+"</html>");
+			 netPNView.addViewInteractionPanel(stringpanel, SwingConstants.SOUTH);
+				
 
-		double size[][] = { { TableLayoutConstants.FILL }, { TableLayoutConstants.FILL,  TableLayoutConstants.FILL,150} };
+		double size[][] = { { TableLayoutConstants.FILL }, { TableLayoutConstants.FILL,  TableLayoutConstants.FILL} };
 		setLayout(new TableLayout(size));
 		
 		add(netBPMNView, "0, 0");
 		
 		add(netPNView, "0, 1");
-		add(ErrorView, "0, 2");
+		//add(ErrorView, "0, 2");
 		
 	}
 	public static JComponent visualizestring( String tovisualize) {

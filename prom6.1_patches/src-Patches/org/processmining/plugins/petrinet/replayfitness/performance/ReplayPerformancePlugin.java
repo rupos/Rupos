@@ -1,4 +1,4 @@
-package org.processmining.plugins.petrinet.replayfitness;
+package org.processmining.plugins.petrinet.replayfitness.performance;
 
 
 import java.util.ArrayList;
@@ -49,6 +49,10 @@ import org.processmining.models.semantics.petrinet.impl.PetrinetSemanticsFactory
 import org.processmining.plugins.connectionfactories.logpetrinet.LogPetrinetConnectionFactoryUI;
 import org.processmining.plugins.petrinet.replay.ReplayAction;
 import org.processmining.plugins.petrinet.replay.Replayer;
+import org.processmining.plugins.petrinet.replayfitness.ReplayFitnessCost;
+import org.processmining.plugins.petrinet.replayfitness.ReplayFitnessSetting;
+import org.processmining.plugins.petrinet.replayfitness.util.ReplayRuposConnection;
+import org.processmining.plugins.petrinet.replayfitness.util.ReplayRuposUI;
 
 
 public class ReplayPerformancePlugin {
@@ -351,10 +355,15 @@ public class ReplayPerformancePlugin {
 		Map<Transition, XEventClass> map = new HashMap<Transition, XEventClass>();
 
 		for (Transition transition : net.getTransitions()) {
+			boolean visible=false;
 			for (XEventClass eventClass : classes.getClasses()) {
 				if (eventClass.getId().equals(transition.getAttributeMap().get(AttributeMap.LABEL))) {
 					map.put(transition, eventClass);
+					visible=true;
 				}
+			}
+			if(!visible){
+				transition.setInvisible(true);
 			}
 		}
 		return map;

@@ -1,21 +1,11 @@
-package org.processmining.plugins.petrinet.replayfitness;
+package org.processmining.plugins.petrinet.replayfitness.conformance;
 
 import info.clearthought.layout.TableLayout;
-import javax.swing.BorderFactory;
-import javax.swing.BoxLayout;
-import javax.swing.JButton;
-import javax.swing.JComponent;
-import javax.swing.JLabel;
+
+
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.ScrollPaneConstants;
-import javax.swing.table.AbstractTableModel;
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import javax.swing.SwingConstants;
+
 import org.deckfour.xes.model.XLog;
 import org.processmining.framework.plugin.PluginContext;
 import org.processmining.framework.plugin.Progress;
@@ -24,9 +14,14 @@ import org.processmining.models.graphbased.directed.petrinet.elements.Arc;
 import org.processmining.models.graphbased.directed.petrinet.elements.Transition;
 import org.processmining.models.graphbased.directed.petrinet.impl.PetrinetFactory;
 import org.processmining.models.jgraph.ProMJGraphVisualizer;
-import org.processmining.plugins.log.ui.logdialog.LogViewUI;
-import com.fluxicon.slickerbox.components.AutoFocusButton;
-import com.fluxicon.slickerbox.factory.SlickerDecorator;
+import org.processmining.models.jgraph.visualization.ProMJGraphPanel;
+
+
+import org.processmining.plugins.petrinet.replayfitness.util.LogViewInteractivePanel;
+import org.processmining.plugins.petrinet.replayfitness.util.PetriNetDrawUtil;
+import org.processmining.plugins.petrinet.replayfitness.util.StringInteractivePanel;
+
+
 
 public class ReplayConformanceRuposPanel extends JPanel{
 
@@ -34,23 +29,62 @@ public class ReplayConformanceRuposPanel extends JPanel{
 	 * 
 	 */
 	private static final long serialVersionUID = -107889379484400541L;
-	private  JComponent netPNView;
-	private JTable tab;
+	private  ProMJGraphPanel netPNView;
 
-	public ReplayConformanceRuposPanel(PluginContext context, Petrinet net,
-			XLog log, Progress progress, TotalConformanceResult tovisualize) {
+	private LegendConformancePanel legendInteractionPanel;
+	private TotalConformanceResult tovisualize;
+	private Petrinet net;
+	private PluginContext context;
+	private TabTraceConformancePanel tabpanel;
+	private StringInteractivePanel stringpanel;
+	private LogViewInteractivePanel logInteractionPanel;
 
+	public ReplayConformanceRuposPanel(PluginContext c, Petrinet n,
+			XLog log, Progress progress, TotalConformanceResult visualize) {
+		
+		tovisualize=visualize;
+		net=n;
+		context=c;
+
+		inizialize(log);
+	
+
+	}
+
+	
+
+	private void inizialize(XLog log) {
 		Petrinet netx = PetrinetFactory.clonePetrinet(net);
-		PetriNetDrawUtil.drawfitnessnet(netx,tovisualize.getTotal());
+		PetriNetDrawUtil.drawconformance(netx,tovisualize.getTotal());
 		netPNView = ProMJGraphVisualizer.instance().visualizeGraph(context, netx);
 
-		JComponent logView = new LogViewUI(log);
-
-		JComponent totalresult = visualizestring( UItotalResult(tovisualize));
-		JComponent tab = tabtrace(tovisualize,net,context);
+		legendInteractionPanel = new LegendConformancePanel(netPNView, "Legend");
+		netPNView.addViewInteractionPanel(legendInteractionPanel, SwingConstants.SOUTH);
 
 		
-		double border = 1;
+		//JComponent logView = new LogViewUI(log);
+		
+		logInteractionPanel = new LogViewInteractivePanel(netPNView, log);
+		netPNView.addViewInteractionPanel(logInteractionPanel, SwingConstants.SOUTH);
+
+
+		//JComponent totalresult = visualizestring( UItotalResult(tovisualize));
+		//JComponent tab = tabtrace(tovisualize,net,context);
+
+		  stringpanel = new StringInteractivePanel(netPNView, "Data_Result", UItotalResult(tovisualize));
+		 netPNView.addViewInteractionPanel(stringpanel, SwingConstants.SOUTH);
+			
+		 tabpanel = new TabTraceConformancePanel(netPNView, "Change_Trace", tovisualize,this);
+			netPNView.addViewInteractionPanel(tabpanel, SwingConstants.SOUTH);
+			
+		 
+			double size[][] = { { TableLayout.FILL,1 }, { TableLayout.FILL,1  } };
+			setLayout(new TableLayout(size));
+			add(netPNView, "0, 0");
+			
+		//	add(logView, "0, 1");
+		
+		/*double border = 1;
 		double size[][] =
 		{{border, 1, 1, TableLayout.FILL, 1, 200, border},  // Columns
 				{border, 300, 1, TableLayout.FILL, 1, 150, border}}; // Rows
@@ -61,13 +95,12 @@ public class ReplayConformanceRuposPanel extends JPanel{
 		add (netPNView, "1, 1, 5, 1"); // Top
 		add (logView, "1, 5, 5, 5"); // Bottom
 		
-		add (tab, "5, 3      "); // Right
-		add (totalresult, "3, 3      "); // Center
-	
-
+		//add (tab, "5, 3      "); // Right
+		//add (totalresult, "3, 3      "); // Center
+*/		
 	}
 
-	
+
 
 	private String UItotalResult(TotalConformanceResult result){
 
@@ -110,42 +143,8 @@ public class ReplayConformanceRuposPanel extends JPanel{
 		return tot;
 	}	
 
-	public static JComponent visualizestring( String tovisualize) {
-		JScrollPane sp = new JScrollPane();
-		sp.setOpaque(false);
-		sp.getViewport().setOpaque(false);
-		sp.setBorder(BorderFactory.createEmptyBorder());
-		sp.setViewportBorder(BorderFactory.createLineBorder(new Color(10, 10, 10), 2));
-		sp.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-		sp.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
-		SlickerDecorator.instance().decorate(sp.getVerticalScrollBar(), new Color(0, 0, 0, 0),
-				new Color (140, 140, 140), new Color(80, 80, 80));
-		sp.getVerticalScrollBar().setOpaque(false);
-		SlickerDecorator.instance().decorate(sp.getHorizontalScrollBar(), new Color(0, 0, 0, 0),
-				new Color (140, 140, 140), new Color(80, 80, 80));
-		sp.getHorizontalScrollBar().setOpaque(false);
-		/*JTextPane summaryPane = new JTextPane();
-		summaryPane = new JTextPane();
-		summaryPane.setBorder(BorderFactory.createEmptyBorder());
-		summaryPane.setContentType("text/html");
-		// pre-populate the text pane with some teaser message
-		summaryPane.setText("<html><body bgcolor=\"#888888\" text=\"#333333\">"
-				+ "<br><br><br><br><br><center><font face=\"helvetica,arial,sans-serif\" size=\"4\">"
-				+ "Please wait while the summary is created...</font></center></body></html>");
-		summaryPane.setEditable(false);
-		summaryPane.setCaretPosition(0);
-		JScrollPane scrollPane = new JScrollPane(summaryPane);
-		scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-		scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
-
-
-		summaryPane.*/
-		JLabel l = new JLabel(tovisualize);
-		sp.setViewportView(l);
-
-		return sp;
-	}
-	public  JComponent tabtrace(final TotalConformanceResult tcr, final Petrinet net, final PluginContext context) {
+	
+/*	public  JComponent tabtrace(final TotalConformanceResult tcr, final Petrinet net, final PluginContext context) {
 		
 		JPanel jp = new JPanel();
 		JPanel jp1 = new JPanel();
@@ -220,10 +219,12 @@ public class ReplayConformanceRuposPanel extends JPanel{
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				Petrinet netx = PetrinetFactory.clonePetrinet(net);
-				PetriNetDrawUtil.drawfitnessnet(netx,tcr.getTotal());
+				PetriNetDrawUtil.drawconformance(netx,tcr.getTotal());
 				remove(netPNView);
 				 netPNView = ProMJGraphVisualizer.instance().visualizeGraph(context, netx);
-				add (netPNView, "1, 1, 5, 1");
+				 netPNView.addViewInteractionPanel(legendInteractionPanel, SwingConstants.NORTH);
+
+				 add (netPNView, "1, 1, 5, 1");
 				revalidate();
 				repaint();
 				
@@ -238,9 +239,10 @@ public class ReplayConformanceRuposPanel extends JPanel{
 				int i=tab.getSelectedRow();
 				if(i>=0){
 					Petrinet netx = PetrinetFactory.clonePetrinet(net);
-					PetriNetDrawUtil.drawfitnessnet(netx,tcr.getList().get(i));
+					PetriNetDrawUtil.drawconformance(netx,tcr.getList().get(i));
 					remove(netPNView);
 					 netPNView = ProMJGraphVisualizer.instance().visualizeGraph(context, netx);
+					 netPNView.addViewInteractionPanel(legendInteractionPanel, SwingConstants.NORTH);
 
 					
 					add (netPNView, "1, 1, 5, 1");
@@ -254,6 +256,50 @@ public class ReplayConformanceRuposPanel extends JPanel{
 		// scrollpane.add(button,BorderLayout.SOUTH);
 		return jp;///scrollpane;
 
+	}*/
+
+
+
+	public void onerepaint(int i) {
+		// TODO Auto-generated method stub
+		ConformanceResult result = tovisualize.getList().get(i);
+		if(i>=0){
+			Petrinet netx = PetrinetFactory.clonePetrinet(net);
+			PetriNetDrawUtil.drawconformance(netx,result);
+			remove(netPNView);
+			 netPNView = ProMJGraphVisualizer.instance().visualizeGraph(context, netx);
+			 netPNView.addViewInteractionPanel(legendInteractionPanel, SwingConstants.SOUTH);
+			 netPNView.addViewInteractionPanel(stringpanel, SwingConstants.SOUTH);
+				netPNView.addViewInteractionPanel(logInteractionPanel, SwingConstants.SOUTH);
+
+			 netPNView.addViewInteractionPanel(tabpanel, SwingConstants.SOUTH);
+				
+			
+			add (netPNView, "0,0");
+			revalidate();
+			repaint();
+		}
+		
+		
+	}
+
+
+
+	public void fullrepaint() {
+		Petrinet netx = PetrinetFactory.clonePetrinet(net);
+		PetriNetDrawUtil.drawconformance(netx,tovisualize.getTotal());
+		remove(netPNView);
+		 netPNView = ProMJGraphVisualizer.instance().visualizeGraph(context, netx);
+		 netPNView.addViewInteractionPanel(legendInteractionPanel, SwingConstants.SOUTH);
+		 netPNView.addViewInteractionPanel(stringpanel, SwingConstants.SOUTH);
+			netPNView.addViewInteractionPanel(logInteractionPanel, SwingConstants.SOUTH);
+
+		 netPNView.addViewInteractionPanel(tabpanel, SwingConstants.SOUTH);
+			
+		 add (netPNView, "0,0");
+		revalidate();
+		repaint();
+		
 	}
 
 

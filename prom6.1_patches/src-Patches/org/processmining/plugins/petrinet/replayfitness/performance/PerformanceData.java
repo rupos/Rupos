@@ -1,4 +1,4 @@
-package org.processmining.plugins.petrinet.replayfitness;
+package org.processmining.plugins.petrinet.replayfitness.performance;
 
 public class PerformanceData {
 	int tokenCount = 0;

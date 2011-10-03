@@ -28,8 +28,8 @@ import org.processmining.plugins.petrinet.replayfitness.ReplayFitnessSetting;
 import org.processmining.plugins.petrinet.replayfitness.ReplayFitness;
 import org.processmining.plugins.petrinet.replay.ReplayAction;
 import org.processmining.plugins.petrinet.replayfitness.ReplayFitnessSetting;
-import org.processmining.plugins.petrinet.replayfitness.TotalConformanceResult;
-import org.processmining.plugins.petrinet.replayfitness.TotalPerformanceResult;
+import org.processmining.plugins.petrinet.replayfitness.conformance.TotalConformanceResult;
+import org.processmining.plugins.petrinet.replayfitness.performance.TotalPerformanceResult;
 
 import org.processmining.contexts.cli.CLIPluginContext;
 import org.processmining.contexts.cli.CLIContext;

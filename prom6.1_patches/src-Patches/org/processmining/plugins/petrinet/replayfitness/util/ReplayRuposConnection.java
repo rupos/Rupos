@@ -1,4 +1,4 @@
-package org.processmining.plugins.petrinet.replayfitness;
+package org.processmining.plugins.petrinet.replayfitness.util;
 
 import org.deckfour.xes.model.XLog;
 import org.processmining.framework.connections.annotations.ConnectionObjectFactory;
@@ -7,6 +7,8 @@ import org.processmining.framework.plugin.PluginContext;
 import org.processmining.framework.plugin.annotations.Plugin;
 import org.processmining.framework.plugin.annotations.PluginVariant;
 import org.processmining.models.graphbased.directed.petrinet.Petrinet;
+import org.processmining.plugins.petrinet.replayfitness.conformance.TotalConformanceResult;
+import org.processmining.plugins.petrinet.replayfitness.performance.TotalPerformanceResult;
 
 @ConnectionObjectFactory
 @Plugin(name = "Petrinet Log Connection Factory", parameterLabels = { "Performace/Conformance", "Log", "Petrinet" }, returnTypes = ReplayRuposConnection.class, returnLabels = "Rupos Petrinet Log connection", userAccessible = false)
