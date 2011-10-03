@@ -281,7 +281,7 @@ public class BPMN2XPDLConversion {
 				XpdlRoute route = new XpdlRoute("Route");
 				String gatewayTypeStr = getGatewayType(gateway.getGatewayType());
 				route.setGatewayType(gatewayTypeStr);
-				setMarkerVendorSpecific(bpmn.getVendorSpecificSettings(), gateway, route);
+				setMarkerVendorSpecific(gateway, route);
 				xpdlActivity.setRoute(route);
 
 				XpdlTransitionRestrictions transitionRestrictions = new XpdlTransitionRestrictions(
@@ -394,7 +394,7 @@ public class BPMN2XPDLConversion {
 	 * @param gateway
 	 * @param route
 	 */
-	private void setMarkerVendorSpecific(BPMNVendorSettings vendorSettings, Gateway gateway, XpdlRoute route) {
+	private void setMarkerVendorSpecific(Gateway gateway, XpdlRoute route) {
 
 		if (gateway.getGatewayType().equals(GatewayType.INCLUSIVE)) {
 			route.setMarkerVisible(""+gateway.isMarkerVisible());
@@ -416,6 +416,7 @@ public class BPMN2XPDLConversion {
 		} else if (type.equals(GatewayType.PARALLEL)) {
 			typeStr = "AND";
 		} else if (type.equals(GatewayType.INCLUSIVE)) {
+
 			typeStr = "OR";
 		}
 		return typeStr;
