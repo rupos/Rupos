@@ -12,7 +12,7 @@ import org.processmining.contexts.uitopia.annotations.UIExportPlugin;
 import org.processmining.framework.plugin.annotations.Plugin;
 import org.processmining.framework.plugin.annotations.PluginVariant;
 import org.processmining.models.graphbased.directed.petrinet.Petrinet;
-import org.processmining.plugins.bpmn.BPMNexportResult;
+import org.processmining.plugins.bpmn.exporting.BPMNexportResult;
 import org.processmining.plugins.pnml.Pnml;
 import org.processmining.plugins.xpdl.Xpdl;
 import org.processmining.plugins.xpdl.XpdlElement;

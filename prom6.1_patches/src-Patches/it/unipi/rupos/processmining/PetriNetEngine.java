@@ -10,9 +10,9 @@ import org.deckfour.xes.model.XTrace;
 import org.deckfour.xes.model.impl.XLogImpl;
 import org.deckfour.xes.model.impl.XAttributeMapImpl;
 import org.processmining.plugins.petrinet.replayfitness.ReplayFitnessSetting;
-import org.processmining.plugins.petrinet.replayfitness.TotalPerformanceResult;
+import org.processmining.plugins.petrinet.replayfitness.performance.TotalPerformanceResult;
 
-import org.processmining.plugins.petrinet.replayfitness.TotalConformanceResult;
+import org.processmining.plugins.petrinet.replayfitness.conformance.TotalConformanceResult;
 
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.ExecutionException;
