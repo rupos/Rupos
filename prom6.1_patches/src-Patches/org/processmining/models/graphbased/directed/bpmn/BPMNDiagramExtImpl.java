@@ -61,6 +61,8 @@ implements BPMNDiagramExt {
 		BPMNDiagramExt bpmndiagram = (BPMNDiagramExt) graph;
 		HashMap<DirectedGraphElement, DirectedGraphElement> mapping = new HashMap<DirectedGraphElement, DirectedGraphElement>();
 
+		//mapping=(HashMap<DirectedGraphElement, DirectedGraphElement>) super.cloneFrom(graph);
+
 		for (Swimlane s : bpmndiagram.getSwimlanes()) {
 			if(mapping.containsKey(s)){
 				mapping.put(s, addSwimlane(s.getLabel(), (Swimlane) mapping.get(s)));
@@ -69,34 +71,15 @@ implements BPMNDiagramExt {
 			}
 				
 		}
-		
-		for (Activity a : bpmndiagram.getActivities()) {
-			if (a.getParentSubProcess() != null)
-				mapping.put(
-						a,
-						addActivity(a.getLabel(), a.isBLooped(), a.isBAdhoc(), a.isBCompensation(),
-								a.isBMultiinstance(), a.isBCollapsed(), a.getParentSubProcess()));
-			else if (a.getParentSwimlane() != null){
-				if(mapping.containsKey(a.getParentSwimlane())){
-				mapping.put(
-						a,
-						addActivity(a.getLabel(), a.isBLooped(), a.isBAdhoc(), a.isBCompensation(),
-								a.isBMultiinstance(), a.isBCollapsed(), (Swimlane) mapping.get(a.getParentSwimlane())));
-				}
-			}else
-				mapping.put(
-						a,
-						addActivity(a.getLabel(), a.isBLooped(), a.isBAdhoc(), a.isBCompensation(),
-								a.isBMultiinstance(), a.isBCollapsed()));
-		}
 		for (SubProcess s : bpmndiagram.getSubProcesses()) {
-			if (s.getParentSubProcess() != null)
-
+			if (s.getParentSubProcess() != null){
+				if(mapping.containsKey(s.getParentSubProcess())){
 				mapping.put(
 						s,
 						addSubProcess(s.getLabel(), s.isBLooped(), s.isBAdhoc(), s.isBCompensation(),
-								s.isBMultiinstance(), s.isBCollapsed(), s.getParentSubProcess()));
-			else if (s.getParentSwimlane() != null){
+								s.isBMultiinstance(), s.isBCollapsed(), (SubProcess) mapping.get(s.getParentSubProcess())));
+				}
+			}else if (s.getParentSwimlane() != null){
 				if(mapping.containsKey(s.getParentSwimlane())){
 				mapping.put(
 						s,
@@ -110,15 +93,37 @@ implements BPMNDiagramExt {
 						addSubProcess(s.getLabel(), s.isBLooped(), s.isBAdhoc(), s.isBCompensation(),
 								s.isBMultiinstance(), s.isBCollapsed()));
 		}
+		for (Activity a : bpmndiagram.getActivities()) {
+			if (a.getParentSubProcess() != null){
+				if(mapping.containsKey(a.getParentSubProcess())){
+				mapping.put(
+						a,
+						addActivity(a.getLabel(), a.isBLooped(), a.isBAdhoc(), a.isBCompensation(),
+								a.isBMultiinstance(), a.isBCollapsed(), (SubProcess) mapping.get(a.getParentSubProcess())));
+				}
+			}else if (a.getParentSwimlane() != null){
+				if(mapping.containsKey(a.getParentSwimlane())){
+				mapping.put(
+						a,
+						addActivity(a.getLabel(), a.isBLooped(), a.isBAdhoc(), a.isBCompensation(),
+								a.isBMultiinstance(), a.isBCollapsed(), (Swimlane) mapping.get(a.getParentSwimlane())));
+				}
+			}else
+				mapping.put(
+						a,
+						addActivity(a.getLabel(), a.isBLooped(), a.isBAdhoc(), a.isBCompensation(),
+								a.isBMultiinstance(), a.isBCollapsed()));
+		}
+		
 		for (Event e : bpmndiagram.getEvents()) {
-			if (e.getParentSubProcess() != null)
-
+			if (e.getParentSubProcess() != null){
+				if(mapping.containsKey(e.getParentSubProcess())){
 				mapping.put(
 						e,
 						addEvent(e.getLabel(), e.getEventType(), e.getEventTrigger(), e.getEventUse(),
-								e.getParentSubProcess(), e.getBoundingNode()));
-
-			else if (e.getParentSwimlane() != null){
+								(SubProcess) mapping.get(e.getParentSubProcess()), e.getBoundingNode()));
+				}
+			}else if (e.getParentSwimlane() != null){
 				if(mapping.containsKey(e.getParentSwimlane())){
 				mapping.put(
 						e,
@@ -132,10 +137,11 @@ implements BPMNDiagramExt {
 								e.getBoundingNode()));
 		}
 		for (Gateway g : bpmndiagram.getGateways()) {
-			if (g.getParentSubProcess() != null)
-
-				mapping.put(g, addGateway(g.getLabel(), g.getGatewayType(), g.getParentSubProcess()));
-			else if (g.getParentSwimlane() != null){
+			if (g.getParentSubProcess() != null){
+				if(mapping.containsKey(g.getParentSubProcess())){
+				mapping.put(g, addGateway(g.getLabel(), g.getGatewayType(),(SubProcess) mapping.get(g.getParentSubProcess())));
+				}
+			}else if (g.getParentSwimlane() != null){
 				if(mapping.containsKey(g.getParentSwimlane())){
 				mapping.put(g, addGateway(g.getLabel(), g.getGatewayType(),(Swimlane)	 mapping.get( g.getParentSwimlane())));
 				}
@@ -144,12 +150,14 @@ implements BPMNDiagramExt {
 		}
 
 		for (Flow f : bpmndiagram.getFlows()) {
-			if (f.getParentSubProcess() != null)
+			if (f.getParentSubProcess() != null){
+				if(mapping.containsKey(f.getParentSubProcess())){
 				mapping.put(
 						f,
 						addFlow((BPMNNode) mapping.get(f.getSource()), (BPMNNode) mapping.get(f.getTarget()),
-								f.getParentSubProcess(), f.getLabel()));
-			else if (f.getParentSwimlane() != null){
+								(SubProcess) mapping.get(f.getParentSubProcess()), f.getLabel()));
+				}
+			}else if (f.getParentSwimlane() != null){
 				if(mapping.containsKey(f.getParentSwimlane())){
 				mapping.put(
 						f,
@@ -162,8 +170,6 @@ implements BPMNDiagramExt {
 						addFlow((BPMNNode) mapping.get(f.getSource()), (BPMNNode) mapping.get(f.getTarget()),
 								f.getLabel()));
 		}
-		
-		
 		
 		for (Artifacts a : bpmndiagram.getArtifacts()) {
 			
