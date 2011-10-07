@@ -8,6 +8,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Map;
 
 
 import javax.swing.JComponent;
@@ -24,24 +25,31 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 import org.deckfour.xes.model.XLog;
 import org.processmining.contexts.uitopia.UIPluginContext;
-import org.processmining.framework.plugin.Progress;
+import org.processmining.framework.connections.ConnectionCannotBeObtained;
+
+import org.processmining.framework.plugin.events.Logger.MessageLevel;
+import org.processmining.models.graphbased.directed.bpmn.BPMNDiagram;
 import org.processmining.models.graphbased.directed.bpmn.BPMNDiagramExt;
 import org.processmining.models.graphbased.directed.petrinet.Petrinet;
 
+import org.processmining.models.graphbased.directed.petrinet.elements.Place;
 import org.processmining.models.graphbased.directed.petrinet.impl.PetrinetFactory;
 import org.processmining.models.jgraph.ProMJGraphVisualizer;
 import org.processmining.models.jgraph.visualization.ProMJGraphPanel;
+import org.processmining.plugins.bpmn.BPMNtoPNConnection;
+
 import org.processmining.plugins.petrinet.replayfitness.performance.LegendPerfomancePanel;
 import org.processmining.plugins.petrinet.replayfitness.performance.PerformanceResult;
 import org.processmining.plugins.petrinet.replayfitness.performance.TotalPerformanceResult;
 import org.processmining.plugins.petrinet.replayfitness.util.LogViewInteractivePanel;
 import org.processmining.plugins.petrinet.replayfitness.util.PetriNetDrawUtil;
+import org.processmining.plugins.petrinet.replayfitness.util.ReplayRuposConnection;
 import org.processmining.plugins.xpdl.Xpdl;
 import org.processmining.plugins.xpdl.converter.BPMN2XPDLConversionExt;
 
 
 
-public class BPMNexportPanelPerformance extends JPanel {
+public class BPMNMeasuresPanelPerformance extends JPanel {
 
 	/**
 	 * 
@@ -61,28 +69,53 @@ public class BPMNexportPanelPerformance extends JPanel {
 
 	private Petrinet net;
 
-	private BPMNexportResult export;
+	private Map<String, Place> placeMap;
 
 	private TabTracePerfPanel tabinteractivepanel;
+	private BPMNDiagram bpmn;
 
 
-
-	public BPMNexportPanelPerformance(UIPluginContext c, Petrinet n,
-			XLog log, Progress progress, BPMNexportResult e) {
-
+	public BPMNMeasuresPanelPerformance(UIPluginContext c,
+			TotalPerformanceResult resultc) {
+		
+		
 		context=c;
-		net=n;
-		export=e;
-		init(log);
+		try {
+			ReplayRuposConnection connection = context.getConnectionManager().getFirstConnection(
+					ReplayRuposConnection.class, context, resultc);
 
+			// connection found. Create all necessary component to instantiate inactive visualization panel
+			XLog log = connection.getObjectWithRole(ReplayRuposConnection.XLOG);
+			 net= connection.getObjectWithRole(ReplayRuposConnection.PNET);
+		
+			BPMNtoPNConnection connection2 = context.getConnectionManager().getFirstConnection(
+					BPMNtoPNConnection.class, context, net);
 
+			// connection found. Create all necessary component to instantiate inactive visualization panel
+			
+		    bpmn = connection2.getObjectWithRole(BPMNtoPNConnection.BPMN);
+		    placeMap = connection2.getObjectWithRole(BPMNtoPNConnection.MAPARCTOPLACE);
+			
+		    bpmnvisulizated = BPMNDecorateUtil.exportPerformancetoBPMN(bpmn,  resultc.getListperformance().get(0), placeMap,net);
+			
+			 
+				
+				init(log,resultc);
+
+		} catch (ConnectionCannotBeObtained e) {
+			// No connections available
+			context.log("Connection does not exist", MessageLevel.DEBUG);
+			
+		}
 	}
 
 	
 
-	private void init(XLog log) {
-TotalPerformanceResult tovisualize = export.getTotalPerformanceresult();
+	
+
+	private void init(XLog log,TotalPerformanceResult tovisualize) {
 		
+	
 		Petrinet netx = PetrinetFactory.clonePetrinet(net);
 		PetriNetDrawUtil.drawperformancenet(netx, tovisualize.getListperformance().get(0).getList(), tovisualize.getListperformance().get(0).getMaparc());
 		
@@ -91,7 +124,7 @@ TotalPerformanceResult tovisualize = export.getTotalPerformanceresult();
 		legendInteractionPanel = new LegendPerfomancePanel(netPNView, "Legend");
 		netPNView.addViewInteractionPanel(legendInteractionPanel, SwingConstants.NORTH);
 
-		bpmnvisulizated= export.getBPMNtraslate();
+		
 		netBPMNView= ProMJGraphVisualizer.instance().visualizeGraph(context, bpmnvisulizated);
 
 		//JComponent logView = new LogViewUI(log);
@@ -158,7 +191,7 @@ TotalPerformanceResult tovisualize = export.getTotalPerformanceresult();
 		Petrinet netx = PetrinetFactory.clonePetrinet(net);
 		
 		PetriNetDrawUtil.drawperformancenet(netx, performanceResult.getList(), performanceResult.getMaparc());
-		bpmnvisulizated =	BPMNexportUtil.exportPerformancetoBPMN(export.getTraslateBpmnresult(), performanceResult.getList(), performanceResult.getMaparc());
+		bpmnvisulizated =	BPMNDecorateUtil.exportPerformancetoBPMN(bpmn, performanceResult,placeMap,net);
 		
 		remove(netPNView);
 		remove(netBPMNView);

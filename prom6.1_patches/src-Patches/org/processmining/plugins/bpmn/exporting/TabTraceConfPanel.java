@@ -60,10 +60,10 @@ public class TabTraceConfPanel extends JPanel implements MouseListener, MouseMot
 	private JTable tab;
 	private String panelName;
 	private TotalConformanceResult TCR;
-	private BPMNexportPanelConformance panel;
+	private BPMNMeasuresPanelConformance panel;
 	
 	
-	public TabTraceConfPanel(ScalableViewPanel panels, String panelName, TotalConformanceResult tcr, BPMNexportPanelConformance bpanel){
+	public TabTraceConfPanel(ScalableViewPanel panels, String panelName, TotalConformanceResult tcr, BPMNMeasuresPanelConformance bpanel){
 		super(new BorderLayout());
 
 		this.setBorder(BorderFactory.createEmptyBorder());

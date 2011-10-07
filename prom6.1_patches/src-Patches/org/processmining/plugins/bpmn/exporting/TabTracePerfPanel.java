@@ -61,10 +61,10 @@ public class TabTracePerfPanel extends JPanel implements MouseListener, MouseMot
 	private JTable tab;
 	private String panelName;
 	private TotalPerformanceResult TPR;
-	private BPMNexportPanelPerformance panel;
+	private BPMNMeasuresPanelPerformance panel;
 	
 	
-	public TabTracePerfPanel(ScalableViewPanel panels, String panelName, TotalPerformanceResult tpr, BPMNexportPanelPerformance bpanel){
+	public TabTracePerfPanel(ScalableViewPanel panels, String panelName, TotalPerformanceResult tpr, BPMNMeasuresPanelPerformance bpanel){
 		super(new BorderLayout());
 
 		this.setBorder(BorderFactory.createEmptyBorder());

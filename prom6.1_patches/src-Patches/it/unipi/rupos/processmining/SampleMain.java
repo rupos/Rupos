@@ -10,7 +10,7 @@ import org.processmining.plugins.petrinet.replayfitness.conformance.PNVisualizze
 import org.processmining.plugins.petrinet.replayfitness.conformance.TotalConformanceResult;
 import org.processmining.plugins.petrinet.replayfitness.performance.PerformanceVisualJS;
 import org.processmining.plugins.petrinet.replayfitness.performance.TotalPerformanceResult;
-import org.processmining.plugins.bpmn.TraslateBPMNResult;
+
 
 /**
  * @author Dipartimento di Informatica - Rupos
@@ -83,11 +83,11 @@ public class SampleMain {
 	
 	
 	long startPerformance= System.currentTimeMillis();
-	// TotalPerformanceResult performance = engine.getPerformance(log, settings);
-	// System.out.println(performance);
+	 TotalPerformanceResult performance = engine.getPerformance(log, settings);
+	 System.out.println(performance);
 	long endPerformance = System.currentTimeMillis();
 
-	long startPerformance2 = System.currentTimeMillis();
+	/*long startPerformance2 = System.currentTimeMillis();
 	//TotalPerformanceResult performance = engine.getPerformance(log.get(3), settings);
 	//System.out.println("Conformance: " + performance);
 	long endPerformance2 = System.currentTimeMillis();
@@ -103,7 +103,7 @@ public class SampleMain {
 	//traslate BPMN to  PN
 
 	TraslateBPMNResult traslate = manager.bpmnTOpn(BpmnFile);
-	System.out.println(traslate);
+	//System.out.println(traslate);
 
 
 	ReplayFitnessSetting settings2 = manager.suggestSettings(traslate.getPetri(), log);
@@ -116,11 +116,11 @@ public class SampleMain {
 		
 	TotalConformanceResult fitnesstrasl = manager.getConformance(traslate.getPetri(), log, settings2, traslate.getMarking());
 	
-	System.out.println(fitnesstrasl);
+	//System.out.println(fitnesstrasl);
 	
 	 
 	TotalPerformanceResult performance1 = manager.getPerformance(traslate.getPetri(), log.get(1), settings2, traslate.getMarking());
-	System.out.println("Conformance: " + performance1);
+	//System.out.println("Conformance: " + performance1);
 
 	
 
@@ -133,7 +133,7 @@ public class SampleMain {
 	PNVisualizzeJS js = new PNVisualizzeJS(manager.getPluginContext().getConnectionManager());
 	js.generateJS("../javascrips/conformance.html", traslate.getPetri(), fitnesstrasl);
 
-
+*/
 	
 	manager.closeContext();
     }

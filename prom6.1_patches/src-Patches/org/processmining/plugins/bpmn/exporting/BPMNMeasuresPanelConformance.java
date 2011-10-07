@@ -5,6 +5,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Map;
 
 import info.clearthought.layout.TableLayout;
 import info.clearthought.layout.TableLayoutConstants;
@@ -23,27 +24,33 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import org.deckfour.xes.model.XLog;
 import org.processmining.contexts.uitopia.UIPluginContext;
 
-import org.processmining.framework.plugin.Progress;
+import org.processmining.framework.connections.ConnectionCannotBeObtained;
 
+import org.processmining.framework.plugin.events.Logger.MessageLevel;
+
+import org.processmining.models.graphbased.directed.bpmn.BPMNDiagram;
 import org.processmining.models.graphbased.directed.bpmn.BPMNDiagramExt;
 
 import org.processmining.models.graphbased.directed.petrinet.Petrinet;
 
+import org.processmining.models.graphbased.directed.petrinet.elements.Place;
 import org.processmining.models.graphbased.directed.petrinet.impl.PetrinetFactory;
 import org.processmining.models.jgraph.ProMJGraphVisualizer;
 import org.processmining.models.jgraph.visualization.ProMJGraphPanel;
 
-import org.processmining.plugins.bpmn.TraslateBPMNResult;
+import org.processmining.plugins.bpmn.BPMNtoPNConnection;
+
 import org.processmining.plugins.petrinet.replayfitness.conformance.LegendConformancePanel;
 import org.processmining.plugins.petrinet.replayfitness.conformance.TotalConformanceResult;
 import org.processmining.plugins.petrinet.replayfitness.util.LogViewInteractivePanel;
 import org.processmining.plugins.petrinet.replayfitness.util.PetriNetDrawUtil;
+import org.processmining.plugins.petrinet.replayfitness.util.ReplayRuposConnection;
 import org.processmining.plugins.xpdl.Xpdl;
 import org.processmining.plugins.xpdl.converter.BPMN2XPDLConversionExt;
 
 
 
-public class BPMNexportPanelConformance extends JPanel{
+public class BPMNMeasuresPanelConformance extends JPanel{
 
 
 
@@ -58,25 +65,23 @@ public class BPMNexportPanelConformance extends JPanel{
 	
 	private LegendConformancePanel legendInteractionPanel;
 	private LogViewInteractivePanel logInteractionPanel;
+	private Map<String, Place> placeMap;
 	private TotalConformanceResult tovisualize;
 	private UIPluginContext context;
 	private Petrinet net;
 	
-	private TraslateBPMNResult trbpmn;
-	private BPMNDiagramExt bpmn;
+	
+	private BPMNDiagram bpmn;
 	private TabTraceConfPanel tabinteractivepanel;
+	private XLog log;
+	private BPMNDiagramExt bpmnext;
 
 
-	public BPMNexportPanelConformance(UIPluginContext c, Petrinet n,
-			XLog log, Progress progress, BPMNexportResult export) {
+	
 
-		context=c;
-		net=n;
-		trbpmn=export.getTraslateBpmnresult();
-		bpmn=export.getBPMNtraslate();
-		
-		 tovisualize = export.getTotalconformanceresult();
-		Petrinet netx = PetrinetFactory.clonePetrinet(net);
+	
+   public void fill(){
+	   Petrinet netx = PetrinetFactory.clonePetrinet(net);
 		PetriNetDrawUtil.drawconformance(netx,tovisualize.getTotal());
 		
 		netPNView = ProMJGraphVisualizer.instance().visualizeGraph(context, netx);
@@ -84,7 +89,7 @@ public class BPMNexportPanelConformance extends JPanel{
 		netPNView.addViewInteractionPanel(legendInteractionPanel, SwingConstants.NORTH);
 
 		
-		netBPMNView= ProMJGraphVisualizer.instance().visualizeGraph(context, export.getBPMNtraslate());
+		netBPMNView= ProMJGraphVisualizer.instance().visualizeGraph(context, bpmnext);
 
 		//JComponent logView = new LogViewUI(log);
 	
@@ -101,15 +106,48 @@ public class BPMNexportPanelConformance extends JPanel{
 		add(netBPMNView, "0, 0");
 		
 		add(netPNView, "0, 1");
+   }
+	
 
+
+
+	public BPMNMeasuresPanelConformance(UIPluginContext c,
+			TotalConformanceResult resultc) {
 		
+		
+		context=c;
+		try {
+			ReplayRuposConnection connection = context.getConnectionManager().getFirstConnection(
+					ReplayRuposConnection.class, context, resultc);
+
+			// connection found. Create all necessary component to instantiate inactive visualization panel
+			 log = connection.getObjectWithRole(ReplayRuposConnection.XLOG);
+			 net= connection.getObjectWithRole(ReplayRuposConnection.PNET);
+		
+			BPMNtoPNConnection connection2 = context.getConnectionManager().getFirstConnection(
+					BPMNtoPNConnection.class, context, net);
+
+			// connection found. Create all necessary component to instantiate inactive visualization panel
+			
+		    bpmn = connection2.getObjectWithRole(BPMNtoPNConnection.BPMN);
+		    placeMap = connection2.getObjectWithRole(BPMNtoPNConnection.MAPARCTOPLACE);
+			
+			bpmnext = BPMNDecorateUtil.exportConformancetoBPMN(bpmn, net, resultc.getTotal(), placeMap);
+			
+			 tovisualize = resultc;
+				fill();
 
 
+		} catch (ConnectionCannotBeObtained e) {
+			// No connections available
+			context.log("Connection does not exist", MessageLevel.DEBUG);
+			
+		}
 	}
 
-	
 
-	
+
+
 
 
 
@@ -125,7 +163,7 @@ public class BPMNexportPanelConformance extends JPanel{
 			File outFile = saveDialog.getSelectedFile();
 			try {
 				BufferedWriter outWriter = new BufferedWriter(new FileWriter(outFile));
-				BPMN2XPDLConversionExt xpdlConversion = new BPMN2XPDLConversionExt(bpmn);
+				BPMN2XPDLConversionExt xpdlConversion = new BPMN2XPDLConversionExt(bpmnext);
 				Xpdl newxpdl = xpdlConversion.fills_layout(context);
 				outWriter.write("<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n" +newxpdl.exportElement());
 				outWriter.flush();
@@ -146,7 +184,7 @@ public class BPMNexportPanelConformance extends JPanel{
 		// TODO Auto-generated method stub
 		Petrinet netx = PetrinetFactory.clonePetrinet(net);
 		PetriNetDrawUtil.drawconformance(netx,tovisualize.getList().get(i));
-		BPMNDiagramExt bpmnx = BPMNexportUtil.exportConformancetoBPMN(trbpmn, tovisualize.getList().get(i));
+		 bpmnext = BPMNDecorateUtil.exportConformancetoBPMN(bpmn,net, tovisualize.getList().get(i),placeMap);
 		remove(netPNView);
 		remove(netBPMNView);
 		netPNView = ProMJGraphVisualizer.instance().visualizeGraph(context, netx);
@@ -155,7 +193,7 @@ public class BPMNexportPanelConformance extends JPanel{
 		netPNView.addViewInteractionPanel(logInteractionPanel, SwingConstants.SOUTH);
 		netPNView.addViewInteractionPanel(tabinteractivepanel, SwingConstants.SOUTH);
 		
-		netBPMNView = ProMJGraphVisualizer.instance().visualizeGraph(context, bpmnx);
+		netBPMNView = ProMJGraphVisualizer.instance().visualizeGraph(context, bpmnext);
 		//add (netPNView, "1, 5, 5, 5");
 		//add (netBPMNView, "1, 1, 5, 1");
 		add(netBPMNView, "0, 0");
@@ -172,6 +210,7 @@ public class BPMNexportPanelConformance extends JPanel{
 		// TODO Auto-generated method stub
 		Petrinet netx = PetrinetFactory.clonePetrinet(net);
 		PetriNetDrawUtil.drawconformance(netx,tovisualize.getTotal());
+		bpmnext = BPMNDecorateUtil.exportConformancetoBPMN(bpmn,net, tovisualize.getTotal(),placeMap);
 		remove(netPNView);
 		remove(netBPMNView);
 		netPNView = ProMJGraphVisualizer.instance().visualizeGraph(context, netx);
@@ -179,7 +218,7 @@ public class BPMNexportPanelConformance extends JPanel{
 		netPNView.addViewInteractionPanel(logInteractionPanel, SwingConstants.SOUTH);
 		netPNView.addViewInteractionPanel(tabinteractivepanel, SwingConstants.SOUTH);
 		
-		netBPMNView = ProMJGraphVisualizer.instance().visualizeGraph(context, bpmn);
+		netBPMNView = ProMJGraphVisualizer.instance().visualizeGraph(context, bpmnext);
 		
 		add(netBPMNView, "0, 0");
 		
