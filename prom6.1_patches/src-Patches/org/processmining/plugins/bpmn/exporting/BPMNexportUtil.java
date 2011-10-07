@@ -350,13 +350,15 @@ public class BPMNexportUtil {
 			ArchiAttivatiBPMN.put(p.getLabel(), att);
 
 		}
-
+		Petrinet net = traslateBpmnresult.getPetri();
+		Map<Activity,Artifacts> mapActiArtic = new HashMap<Activity, Artifacts>();
 		// transizioni che nn fittano
 		String ret = "<br/>";
-		for (Transition t : transnotfit.keySet()) {
+		for (Transition t : net.getTransitions()) {
 			if (!t.isInvisible()) {
 				String tname = t.getLabel();
 				String name = (String) tname.subSequence(0, tname.indexOf("+"));
+				
 				Activity activity = null;
 				// cerco l'attività bpmn a cui collegare l'artifacts
 				for (Activity a : bpmn.getActivities()) {
@@ -369,9 +371,7 @@ public class BPMNexportUtil {
 				for (Place p : remaning.baseSet()) {
 					if (p.getLabel().equals(name)) {
 						unsoundallert += ret + " Task missing competition\n";
-					} else if (p.getLabel().startsWith(name)) {
-						unsoundallert += ret + " Task unsound executions\n";
-					} else if (p.getLabel().endsWith(name)) {
+					} else if (p.getLabel().startsWith(name) && !tname.endsWith("start") ) {
 						unsoundallert += ret + " Task interrupted executions\n";
 					}
 				}
@@ -379,45 +379,58 @@ public class BPMNexportUtil {
 					if (p.getLabel().equals(name)) {
 						unsoundallert += ret + " Task internal failures";
 					}
+					if(p.getLabel().endsWith(name)&& tname.endsWith("start")){
+						unsoundallert += ret + " Task unsound executions\n";
+					}
 				}
-				if (activity != null) {
-					String numtracce = String.valueOf(transnotfit.get(t));
-					String plusname = (String) tname.subSequence(
-							tname.indexOf("+"), tname.length());
-					String label = "<html>Unsound " + plusname + ":"
-							+ numtracce + " tracce" + unsoundallert + "<html>";
-					Artifacts art = null;
-					if (activity.getParent() == null) {
-						art = bpmn.addArtifacts(label,
-								ArtifactType.TEXTANNOATION);
-					bpmn.addFlowAssociation(art, activity);
+				if (activity != null && unsoundallert!="") {
+					
+					
+						String label = "<html>"+ unsoundallert + "<html>";
+					if(!mapActiArtic.containsKey(activity)){
 
-					} else {
-						if (activity.getParent() instanceof SubProcess) {
+						
+						Artifacts art = null;
+						if (activity.getParent() == null) {
 							art = bpmn.addArtifacts(label,
-									ArtifactType.TEXTANNOATION,
-									activity.getParentSubProcess());
-							bpmn.addFlowAssociation(art, activity,activity.getParentSubProcess());	
+									ArtifactType.TEXTANNOATION);
+							bpmn.addFlowAssociation(art, activity);
+
 						} else {
-							if (activity.getParent() instanceof Swimlane) {
+							if (activity.getParent() instanceof SubProcess) {
 								art = bpmn.addArtifacts(label,
 										ArtifactType.TEXTANNOATION,
-										activity.getParentSwimlane());
-								bpmn.addFlowAssociation(art, activity,activity.getParentSwimlane());
+										activity.getParentSubProcess());
+								bpmn.addFlowAssociation(art, activity,activity.getParentSubProcess());	
+							} else {
+								if (activity.getParent() instanceof Swimlane) {
+									art = bpmn.addArtifacts(label,
+											ArtifactType.TEXTANNOATION,
+											activity.getParentSwimlane());
+									bpmn.addFlowAssociation(art, activity,activity.getParentSwimlane());
+								}
 							}
 						}
+
+						mapActiArtic.put(activity, art);
+					}else{
+						Artifacts art = mapActiArtic.get(activity);
+						label+=art.getLabel();
+						art.getAttributeMap().remove(AttributeMap.LABEL);
+						art.getAttributeMap().put(AttributeMap.LABEL, label);
+						
+
 					}
 
-
 				}
+
 			}
 
-		}
-		for (Transition t : traslateBpmnresult.getPetri().getTransitions()) {
+		
 			// cerco la transizione del fork
 			if (t.getLabel().endsWith("_fork")) {
 				Collection<PetrinetEdge<? extends PetrinetNode, ? extends PetrinetNode>> p = t
-						.getGraph().getOutEdges(t);
+				.getGraph().getOutEdges(t);
 				Vector<String> targ = new Vector<String>();
 				for (PetrinetEdge<? extends PetrinetNode, ? extends PetrinetNode> e : p) {
 					Place target = (Place) e.getTarget();
@@ -428,13 +441,15 @@ public class BPMNexportUtil {
 						if (place.getLabel().equals(placename)) {
 							System.out.println(ret + " Fork internal failures");
 							archibpmnwitherrorconformance.put(place.getLabel(),
-									" Fork internal failures");
+							" Fork internal failures");
 						}
 
 					}
 				}
 			}
 		}
+		
+		
 		// metto gli attraversamenti sugli archi bpmn
 		for (Flow f : bpmn.getFlows()) {
 			String from = f.getSource().getLabel();
