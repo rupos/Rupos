@@ -29,7 +29,7 @@ import org.processmining.plugins.petrinet.replayfitness.util.ReplayRuposConnecti
 
 
 
-@Plugin(name = "BPMNMeasureswithAnalisysDetails", parameterLabels = {  "TotalConformanceResult" , "TotalPerformanceResult" , "ConformanceResult" , "Petrinets"}, returnLabels = { "BPMN  traslate" }, returnTypes = {
+@Plugin(name = "BPMNMeasureswithAnalisysDetails", parameterLabels = {  "TotalConformanceResult" , "TotalPerformanceResult" , "ConformanceResult" , "Petrinets", "PerformanceResult"}, returnLabels = { "BPMN  traslate" }, returnTypes = {
 		BPMNDiagramExt.class }, userAccessible = true)
 		public class MeasuresIntoBPMNPlugin {
 	
@@ -71,7 +71,7 @@ import org.processmining.plugins.petrinet.replayfitness.util.ReplayRuposConnecti
 	}
 
 	@UITopiaVariant(affiliation = UITopiaVariant.EHV, author = "GOS", email = "Di.unipi", pack = "BPMNMeasures")
-	@PluginVariant(requiredParameterLabels = { 2,3 }, variantLabel = "Exporting  Conformance to BPMN")
+	@PluginVariant(requiredParameterLabels = { 3,2 }, variantLabel = "Exporting  Conformance to BPMN")
 	public Object exportBPMNexportXPDL(PluginContext context,Petrinet net, ConformanceResult conformanceresult) throws Exception {
 
 		try {
@@ -139,8 +139,8 @@ import org.processmining.plugins.petrinet.replayfitness.util.ReplayRuposConnecti
 	}
 	
 	@UITopiaVariant(affiliation = UITopiaVariant.EHV, author = "GOS", email = "Di.unipi", pack = "BPMNMeasures")
-	@PluginVariant(requiredParameterLabels = { 1 }, variantLabel = "BPMN Performance traslate")
-	public Object exportBPMNexportXPDL(PluginContext context,  PerformanceResult Performanceresult,Petrinet net) throws Exception {
+	@PluginVariant(requiredParameterLabels = { 3,4 }, variantLabel = "BPMN Performance traslate")
+	public Object exportBPMNexportXPDL(PluginContext context, Petrinet net,PerformanceResult Performanceresult) throws Exception {
 
 		try {
 			

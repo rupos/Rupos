@@ -366,7 +366,7 @@ public class ProMManager {
 		context1.getParentContext().deleteChild(context1);
 		return performance;
 	}
-	public Petrinet getBpmntoPn(BPMNDiagram bpmn) throws CancellationException, ExecutionException, InterruptedException{
+	public PetriNetEngine getBpmntoPn(BPMNDiagram bpmn) throws CancellationException, ExecutionException, InterruptedException{
 		System.out.println("------------------------------");
 		System.out.println("Convert BPMN to Petri Nets");
 		System.out.println("------------------------------");
@@ -375,8 +375,9 @@ public class ProMManager {
 		context1.getResult().synchronize();
 		Petrinet res = (Petrinet) context1.getResult().getResult(0);
 		Marking marking= (Marking) context1.getResult().getResult(1);
+		PetriNetEngine res1 = new PetriNetEngine(this, res, marking);
 		context1.getParentContext().deleteChild(context1);
-		return res;
+		return res1;
 	}
 	//BPMNMeasureswithAnalisysDetails
 	public BPMNDiagramExt getBPMNwithAnalysis(TotalConformanceResult tcr) throws CancellationException, ExecutionException, InterruptedException{
@@ -407,7 +408,7 @@ public class ProMManager {
 		System.out.println("BPMN with performance analysis ");
 		System.out.println("------------------------------");
 		PluginContext context1 = context.createChildContext("Calc Performance");
-		BPMNMeasureswithAnalisysDetails.invoke(0, context1, tcr);
+		BPMNMeasureswithAnalisysDetails.invoke(2, context1, tcr);
 		context1.getResult().synchronize();
 		BPMNDiagramExt res = (BPMNDiagramExt) context1.getResult().getResult(0);
 		context1.getParentContext().deleteChild(context1);
@@ -419,7 +420,7 @@ public class ProMManager {
 		System.out.println("BPMN with performance analysis ");
 		System.out.println("------------------------------");
 		PluginContext context1 = context.createChildContext("Calc Performance");
-		BPMNMeasureswithAnalisysDetails.invoke(0, context1, pn,tcr);
+		BPMNMeasureswithAnalisysDetails.invoke(3, context1, pn,tcr);
 		context1.getResult().synchronize();
 		BPMNDiagramExt res = (BPMNDiagramExt) context1.getResult().getResult(0);
 		context1.getParentContext().deleteChild(context1);
