@@ -2,118 +2,123 @@ package org.processmining.plugins.bpmn;
 
 import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
-import java.io.InputStream;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Vector;
 
 import javax.swing.SwingConstants;
-import javax.swing.filechooser.FileFilter;
-import javax.swing.filechooser.FileNameExtensionFilter;
 
-import org.deckfour.xes.model.XLog;
+
+
 import org.jgraph.graph.GraphConstants;
 import org.jgraph.graph.AttributeMap.SerializablePoint2D;
-import org.processmining.contexts.uitopia.annotations.UIImportPlugin;
-import org.processmining.framework.abstractplugins.AbstractImportPlugin;
+import org.processmining.contexts.uitopia.annotations.UITopiaVariant;
+
 import org.processmining.framework.connections.ConnectionCannotBeObtained;
 import org.processmining.framework.plugin.PluginContext;
 import org.processmining.framework.plugin.annotations.Plugin;
+import org.processmining.framework.plugin.annotations.PluginVariant;
 import org.processmining.models.connections.GraphLayoutConnection;
 import org.processmining.models.connections.petrinets.behavioral.InitialMarkingConnection;
 import org.processmining.models.graphbased.AttributeMap;
-import org.processmining.models.graphbased.NodeID;
+
 import org.processmining.models.graphbased.directed.AbstractDirectedGraphEdge;
 import org.processmining.models.graphbased.directed.AbstractDirectedGraphNode;
 import org.processmining.models.graphbased.directed.DirectedGraph;
 import org.processmining.models.graphbased.directed.bpmn.BPMNDiagram;
-import org.processmining.models.graphbased.directed.bpmn.BPMNDiagramExt;
-import org.processmining.models.graphbased.directed.bpmn.BPMNDiagramExtFactory;
-import org.processmining.models.graphbased.directed.bpmn.BPMNDiagramFactory;
+
 import org.processmining.models.graphbased.directed.bpmn.BPMNEdge;
 import org.processmining.models.graphbased.directed.bpmn.BPMNNode;
 import org.processmining.models.graphbased.directed.bpmn.elements.Activity;
 import org.processmining.models.graphbased.directed.bpmn.elements.Event;
-import org.processmining.models.graphbased.directed.bpmn.elements.Artifacts.ArtifactType;
 import org.processmining.models.graphbased.directed.bpmn.elements.Event.EventType;
 import org.processmining.models.graphbased.directed.bpmn.elements.Event.EventTrigger;
 import org.processmining.models.graphbased.directed.bpmn.elements.Gateway.GatewayType;
-import org.processmining.models.graphbased.directed.bpmn.elements.Artifacts;
 import org.processmining.models.graphbased.directed.bpmn.elements.Flow;
 import org.processmining.models.graphbased.directed.bpmn.elements.Gateway;
 import org.processmining.models.graphbased.directed.bpmn.elements.SubProcess;
 import org.processmining.models.graphbased.directed.bpmn.elements.Swimlane;
 import org.processmining.models.graphbased.directed.petrinet.Petrinet;
 import org.processmining.models.graphbased.directed.petrinet.PetrinetGraph;
-import org.processmining.models.graphbased.directed.petrinet.elements.Arc;
+
 import org.processmining.models.graphbased.directed.petrinet.elements.ExpandableSubNet;
 import org.processmining.models.graphbased.directed.petrinet.elements.Place;
 import org.processmining.models.graphbased.directed.petrinet.elements.Transition;
 import org.processmining.models.graphbased.directed.petrinet.impl.PetrinetFactory;
-import org.processmining.models.graphbased.directed.petrinet.impl.PetrinetImpl;
 import org.processmining.models.jgraph.ProMJGraph;
 import org.processmining.models.jgraph.ProMJGraphVisualizer;
 import org.processmining.models.jgraph.elements.ProMGraphPort;
 import org.processmining.models.semantics.petrinet.Marking;
-import org.processmining.plugins.petrinet.replay.ReplayAction;
-import org.processmining.plugins.petrinet.replayfitness.ReplayFitnessSetting;
-import org.processmining.plugins.xpdl.Xpdl;
-import org.xmlpull.v1.XmlPullParser;
-import org.xmlpull.v1.XmlPullParserFactory;
 
 import com.jgraph.layout.JGraphFacade;
 import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 
-@Plugin(name = "Import BPMN model from XPDL 2.1 file to PetriNet", parameterLabels = { "Filename" }, returnLabels = {
-		"Petri Net", "Marking",  "BPMNDiagram", "Traslate Result","xpdl","ReplayFitnessSetting" }, returnTypes = { Petrinet.class, Marking.class, BPMNDiagramExt.class,TraslateBPMNResult.class,Xpdl.class,ReplayFitnessSetting.class })
-		@UIImportPlugin(description = "XPDL 2.1 files to PN", extensions = { "xpdl" })
-		public class BPMNtoPN extends AbstractImportPlugin {
+
+public class BPMNtoPN {
 
 	private ExpandableSubNet subNet = null;
 
-	protected FileFilter getFileFilter() {
-		return new FileNameExtensionFilter("XPDL 2.1 files", "xpdl");
-	}
-
-	protected Object importFromStream(PluginContext context, InputStream input,
-			String filename, long fileSizeInBytes) throws Exception {
-		Xpdl xpdl = importXpdlFromStream(context, input, filename,
-				fileSizeInBytes);
-		if (xpdl == null) {
-			/*
-			 * No PNML found in file. Fail.
-			 */
-			return null;
-		}
-		/*
-		 * XPDL file has been imported. Now we need to convert the contents to a
-		 * BPMN diagram.
-		 */
-		BPMNDiagramExt bpmn = BPMNDiagramExtFactory.newBPMNDiagram(filename);
-		Map<String, BPMNNode> id2node = new HashMap<String, BPMNNode>();
-
-		/*
-		 * Initialize the BPMN diagram from the XPDL element.
-		 */
-		xpdl.convertToBpmn(bpmn, id2node );
-
-		/*
-		 * Set the label of the BPMN diagram.
-		 */
-		context.getFutureResult(0).setLabel(filename);
-
+	@Plugin(name = "BPMN to PetriNet",
+			parameterLabels = { "BPMNDiagram" },
+			returnLabels = {"Petri Net", "Marking",  "Error Log" },
+			returnTypes = { Petrinet.class, Marking.class, String.class},userAccessible = true)
+	@UITopiaVariant(affiliation = UITopiaVariant.EHV, author = "GOS", email = "Di.unipi", pack = "BPMN")
+	@PluginVariant(requiredParameterLabels = {0}, variantLabel = "Trasform BPMN to PN")
+	public Object BPMN2PN(PluginContext c ,BPMNDiagram bpmn) {
 		Collection<String> error = this.isWellFormed(bpmn);
 
 		
+	 final	LinkedHashMap<String, Place> placeMap = new LinkedHashMap<String, Place>();
 
 
-		return this.BPMN2Translate(context,bpmn,xpdl,id2node,error);
+		PetrinetGraph net = PetrinetFactory.newPetrinet(bpmn.getLabel());
+		Marking marking = new Marking();
+
+
+		//gli argchi del diagramma BPMN diventano piazze della rete BPMN
+		for (Flow g : bpmn.getFlows()) {
+			String f = g.getSource().getLabel();
+			String z = g.getTarget().getLabel();
+
+			Place p = net.addPlace(f + z, this.subNet);
+			placeMap.put(f + z, p);
+
+
+		}
+
+		translateTask(bpmn, placeMap, net);
+
+		translateGateway(bpmn, placeMap, net);
+
+		translateEvent(bpmn, placeMap, net, marking);
+
+		layoutcreate(c,net);
+
+		String errorLog = error.toString();
+		
+		Object[] objects = new Object[3];
+		objects[0] = net;
+		objects[1] = marking;
+		
+		
+		
+		
+
+		c.addConnection(new BPMNtoPNConnection(bpmn, net, errorLog, placeMap));
+		
+		c.addConnection(new InitialMarkingConnection(net, marking));
+		
+
+
+		return objects;
 	}
-
-	private void translateTask(BPMNDiagram bpmn, Map<String, Place> placeMap,
+	
+	private void translateTask(BPMNDiagram bpmn, LinkedHashMap<String, Place> placeMap,
 			PetrinetGraph net) {
 
 		for (Activity c : bpmn.getActivities()) {
@@ -121,9 +126,9 @@ import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 
 			Transition t = net.addTransition(id + "+start", this.subNet);
 			Place p = net.addPlace(id, this.subNet);
-			Arc a = net.addArc(t, p, 1, this.subNet);
+			 net.addArc(t, p, 1, this.subNet);
 			Transition t1 = net.addTransition(id + "+complete", this.subNet);
-			Arc a1 = net.addArc(p, t1, 1, this.subNet);
+			 net.addArc(p, t1, 1, this.subNet);
 
 			for (BPMNEdge<? extends BPMNNode, ? extends BPMNNode> s : c
 					.getGraph().getInEdges(c)) {
@@ -132,7 +137,7 @@ import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 
 				Place pst = placeMap.get(source + target);
 
-				Arc st = net.addArc(pst, t, 1, this.subNet);
+				 net.addArc(pst, t, 1, this.subNet);
 
 			}
 			for (BPMNEdge<? extends BPMNNode, ? extends BPMNNode> s : c
@@ -143,7 +148,7 @@ import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 
 					Place pst = placeMap.get(source + target);
 
-					Arc st = net.addArc(t1, pst, 1, this.subNet);
+					 net.addArc(t1, pst, 1, this.subNet);
 				}
 			}
 
@@ -151,7 +156,7 @@ import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 
 	}
 
-	private void translateGateway(BPMNDiagram bpmn,	Map<String, Place> placeMap, PetrinetGraph net) {
+	private void translateGateway(BPMNDiagram bpmn,	LinkedHashMap<String, Place> placeMap, PetrinetGraph net) {
 		for (Gateway g : bpmn.getGateways()) {
 			//gateway data-based
 			if (g.getGatewayType().equals(GatewayType.DATABASED)) {
@@ -286,7 +291,7 @@ import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 		}
 	}
 
-	private void translateEvent(BPMNDiagram bpmn,	Map<String, Place> placeMap, PetrinetGraph net, Marking marking){
+	private void translateEvent(BPMNDiagram bpmn, LinkedHashMap<String, Place> placeMap, PetrinetGraph net, Marking marking){
 		for (Event e : bpmn.getEvents()) {
 			if (e.getEventType().equals(EventType.START) && e.getEventTrigger().equals(EventTrigger.NONE)) {
 
@@ -295,7 +300,7 @@ import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 
 				Transition t = net.addTransition("t_"+e.getLabel(), this.subNet);
 				t.setInvisible(true);
-				Arc a = net.addArc(p, t, 1, this.subNet);
+				net.addArc(p, t, 1, this.subNet);
 				marking.add(p, 1);
 
 				for (BPMNEdge<? extends BPMNNode, ? extends BPMNNode> s : e.getGraph().getOutEdges(e)) {
@@ -319,7 +324,7 @@ import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 				Transition t = net.addTransition("t_"+e.getLabel(), this.subNet);
 
 				t.setInvisible(true);
-				Arc a = net.addArc(t, p, 1, this.subNet);
+				net.addArc(t, p, 1, this.subNet);
 
 				for (BPMNEdge<? extends BPMNNode, ? extends BPMNNode> s : e.getGraph().getInEdges(e)) {
 					String source = s.getSource().getLabel();
@@ -361,62 +366,11 @@ import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 
 
 	}
-	/**
-	 * @param bpmn
-	 * @return
-	 */
-	private Object BPMN2Translate(PluginContext c ,BPMNDiagramExt bpmn, Xpdl xpdl, Map<String, BPMNNode> id2node, Collection<String> error) {
-		Map<String, Place> placeMap = new HashMap<String, Place>();
 
 
-		PetrinetGraph net = PetrinetFactory.newPetrinet(bpmn.getLabel());
-		Marking marking = new Marking();
 
 
-		//gli argchi del diagramma BPMN diventano piazze della rete BPMN
-		for (Flow g : bpmn.getFlows()) {
-			String f = g.getSource().getLabel();
-			String z = g.getTarget().getLabel();
-
-			Place p = net.addPlace(f + z, this.subNet);
-			placeMap.put(f + z, p);
-
-
-		}
-
-		translateTask(bpmn, placeMap, net);
-
-		translateGateway(bpmn, placeMap, net);
-
-		translateEvent(bpmn, placeMap, net, marking);
-
-		layoutcreate(c,net);
-
-		
-		TraslateBPMNResult result = new TraslateBPMNResult(bpmn, (Petrinet) net, marking, placeMap,xpdl,id2node,error);
-		Object[] objects = new Object[6];
-		objects[0] = net;
-		objects[1] = marking;
-		objects[2] = bpmn;
-		objects[3] = result;
-		objects[4] = xpdl;
-
-		c.addConnection(new InitialMarkingConnection(net, marking));
-
-
-		ReplayFitnessSetting settings = new ReplayFitnessSetting();
-		System.out.println("Settings: " + settings);
-		settings.setAction(ReplayAction.INSERT_ENABLED_MATCH, true);
-		settings.setAction(ReplayAction.INSERT_ENABLED_INVISIBLE, true);
-		settings.setAction(ReplayAction.REMOVE_HEAD, false);
-		settings.setAction(ReplayAction.INSERT_ENABLED_MISMATCH, false);
-		settings.setAction(ReplayAction.INSERT_DISABLED_MATCH, true);
-		settings.setAction(ReplayAction.INSERT_DISABLED_MISMATCH, false);
-		objects[5] = settings;
-		return objects;
-		//return result;
-
-	}
+	
 
 	private void layoutcreate(PluginContext c, PetrinetGraph net){
 
@@ -778,53 +732,5 @@ import com.jgraph.layout.hierarchical.JGraphHierarchicalLayout;
 		}
 	}
 
-	private Xpdl importXpdlFromStream(PluginContext context, InputStream input,
-			String filename, long fileSizeInBytes) throws Exception {
-		/*
-		 * Get an XML pull parser.
-		 */
-		XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
-		factory.setNamespaceAware(true);
-		XmlPullParser xpp = factory.newPullParser();
-		/*
-		 * Initialize the parser on the provided input.
-		 */
-		xpp.setInput(input, null);
-		/*
-		 * Get the first event type.
-		 */
-		int eventType = xpp.getEventType();
-		/*
-		 * Create a fresh XPDL object.
-		 */
-		Xpdl xpdl = new Xpdl();
 
-		/*
-		 * Skip whatever we find until we've found a start tag.
-		 */
-		while (eventType != XmlPullParser.START_TAG) {
-			eventType = xpp.next();
-		}
-		/*
-		 * Check whether start tag corresponds to XPDL start tag.
-		 */
-		if (xpp.getName().equals(xpdl.tag)) {
-			/*
-			 * Yes it does. Import the XPDL element.
-			 */
-			xpdl.importElement(xpp, xpdl);
-		} else {
-			/*
-			 * No it does not. Return null to signal failure.
-			 */
-			xpdl.log(xpdl.tag, xpp.getLineNumber(), "Expected " + xpdl.tag
-					+ ", got " + xpp.getName());
-		}
-		if (xpdl.hasErrors()) {
-			context.getProvidedObjectManager().createProvidedObject(
-					"Log of XPDL import", xpdl.getLog(), XLog.class, context);
-			return null;
-		}
-		return xpdl;
-	}
 }

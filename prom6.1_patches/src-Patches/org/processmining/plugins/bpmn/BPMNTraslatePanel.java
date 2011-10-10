@@ -2,7 +2,7 @@ package org.processmining.plugins.bpmn;
 
 
 import java.awt.Color;
-import java.awt.Label;
+
 
 import info.clearthought.layout.TableLayoutConstants;
 import info.clearthought.layout.TableLayout;
@@ -17,6 +17,8 @@ import javax.swing.SwingConstants;
 
 import org.processmining.framework.plugin.PluginContext;
 import org.processmining.framework.plugin.Progress;
+import org.processmining.models.graphbased.directed.bpmn.BPMNDiagram;
+import org.processmining.models.graphbased.directed.petrinet.Petrinet;
 import org.processmining.models.jgraph.ProMJGraphVisualizer;
 import org.processmining.models.jgraph.visualization.ProMJGraphPanel;
 import org.processmining.plugins.petrinet.replayfitness.util.StringInteractivePanel;
@@ -29,14 +31,16 @@ public class BPMNTraslatePanel extends JPanel{
 	 * 
 	 */
 	private static final long serialVersionUID = -1078379484400548931L;
-	public BPMNTraslatePanel(PluginContext context,Progress progress, TraslateBPMNResult result) {
+	public BPMNTraslatePanel(PluginContext context,Progress progress, Petrinet pn, BPMNDiagram bpmn, String Error) {
 
-		ProMJGraphPanel netPNView = ProMJGraphVisualizer.instance().visualizeGraph(context, result.getPetri());
-		JComponent netBPMNView = ProMJGraphVisualizer.instance().visualizeGraph(context, result.getBpmn());
+		ProMJGraphPanel netPNView = ProMJGraphVisualizer.instance().visualizeGraph(context, pn);
+		JComponent netBPMNView = ProMJGraphVisualizer.instance().visualizeGraph(context, bpmn);
 		
 		//JComponent ErrorView = visualizestring("<html>"+result.getError().toString()+"</html>");
-		
-		StringInteractivePanel  stringpanel = new StringInteractivePanel(netPNView, "Error_Tranform", "<html>"+result.toString()+"</html>");
+		if(Error==null || Error.isEmpty()){
+			Error="No Errors";
+		}
+		StringInteractivePanel  stringpanel = new StringInteractivePanel(netPNView, "Error_Tranform", "<html>"+Error.toString()+"</html>");
 			 netPNView.addViewInteractionPanel(stringpanel, SwingConstants.SOUTH);
 				
 

@@ -113,7 +113,7 @@ public class ReplayPerformancePlugin {
 				replayedTraces++;
 				System.out.println("Replayed");
 			} catch (Exception ex) {
-				ex.printStackTrace();
+				System.out.println("Failed");
 				context.log("Replay of trace " + trace + " failed: " + ex.getMessage());
 			}
 		}

@@ -1,5 +1,10 @@
 package it.unipi.rupos.processmining;
 
+import java.io.File;
+import org.processmining.models.graphbased.directed.bpmn.BPMNDiagram;
+import org.processmining.models.graphbased.directed.bpmn.BPMNDiagramExt;
+import org.processmining.models.graphbased.directed.petrinet.Petrinet;
+
 import org.processmining.contexts.cli.ProMFactory;
 import org.processmining.contexts.cli.ProMManager;
 import org.deckfour.xes.model.XLog;
@@ -10,7 +15,7 @@ import org.processmining.plugins.petrinet.replayfitness.conformance.PNVisualizze
 import org.processmining.plugins.petrinet.replayfitness.conformance.TotalConformanceResult;
 import org.processmining.plugins.petrinet.replayfitness.performance.PerformanceVisualJS;
 import org.processmining.plugins.petrinet.replayfitness.performance.TotalPerformanceResult;
-import org.processmining.plugins.bpmn.TraslateBPMNResult;
+
 
 /**
  * @author Dipartimento di Informatica - Rupos
@@ -102,11 +107,14 @@ public class SampleMain {
 
 	//traslate BPMN to  PN
 
-	TraslateBPMNResult traslate = manager.bpmnTOpn(BpmnFile);
-	System.out.println(traslate);
+	BPMNDiagram bpmn = manager.openBpmn(BpmnFile);
+	//Petrinet pne = manager.getBpmntoPn(bpmn);
+	PetriNetEngine pn = manager.getBpmntoPn(bpmn);
 
+	System.out.println(pn.net);
+	XLog logs = manager.openLog(logFile);
 
-	ReplayFitnessSetting settings2 = manager.suggestSettings(traslate.getPetri(), log);
+	ReplayFitnessSetting settings2 = manager.suggestSettings(pn.net, logs);
 	settings2.setAction(ReplayAction.INSERT_ENABLED_MATCH, true);
 	settings2.setAction(ReplayAction.INSERT_ENABLED_INVISIBLE, true);
 	settings2.setAction(ReplayAction.REMOVE_HEAD, false);
@@ -114,24 +122,41 @@ public class SampleMain {
 	settings2.setAction(ReplayAction.INSERT_DISABLED_MATCH, true);
 	settings2.setAction(ReplayAction.INSERT_DISABLED_MISMATCH, false);
 		
-	TotalConformanceResult fitnesstrasl = manager.getConformance(traslate.getPetri(), log, settings2, traslate.getMarking());
+	TotalConformanceResult fitnesstrasl = manager.getConformance(pn.net, logs, settings2,pn.marking);
 	
 	System.out.println(fitnesstrasl);
 	
+	BPMNDiagramExt bpmnext = manager.getBPMNwithAnalysis(fitnesstrasl);
 	 
-	TotalPerformanceResult performance1 = manager.getPerformance(traslate.getPetri(), log.get(1), settings2, traslate.getMarking());
-	System.out.println("Conformance: " + performance1);
+	 File f = new File("/home/spagnolo1/Dropbox/Casa/pathname.xpdl");
+	 if(!f.exists()){
+		  f.createNewFile();
+	 }
+	 manager.writefilebpmn(f, bpmnext);
 
+	settings2.setAction(ReplayAction.INSERT_DISABLED_MATCH, false);
+	 
+	TotalPerformanceResult performance1 = manager.getPerformance(pn.net, logs, settings2,pn.marking);
+	System.out.println("Performance: " + performance1);
+	System.out.println("Performance:0 " +performance1.getListperformance().get(0));
+	 
+	bpmnext = manager.getBPMNwithAnalysis(performance1);
+	 
+	 File f2 = new File("/home/spagnolo1/Dropbox/Casa/pathnamep.xpdl");
+	 if(!f2.exists()){
+		  f2.createNewFile();
+	 }
+	manager.writefilebpmn(f2, bpmnext);
 	
 
 	PerformanceVisualJS js22 = new PerformanceVisualJS(manager.getPluginContext().getConnectionManager());
 		
-	js22.generateJS("../javascrips/PerformancedaBpmn.html", traslate.getPetri(), performance1.getListperformance().get(0).getList(),performance1.getListperformance().get(0).getMaparc());
+	js22.generateJS("../javascrips/PerformancedaBpmn.html", pn.net, performance1.getListperformance().get(0).getList(),performance1.getListperformance().get(0).getMaparc());
 	
 
 
 	PNVisualizzeJS js = new PNVisualizzeJS(manager.getPluginContext().getConnectionManager());
-	js.generateJS("../javascrips/conformance.html", traslate.getPetri(), fitnesstrasl);
+	js.generateJS("../javascrips/conformance.html", pn.net, fitnesstrasl);
 
 
 	
