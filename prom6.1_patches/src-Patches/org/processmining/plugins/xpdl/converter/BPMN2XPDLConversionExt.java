@@ -109,7 +109,7 @@ public class BPMN2XPDLConversionExt extends BPMN2XPDLConversion {
 
 					newassociation.setSource("" +  f.hashCode());
 					newassociation.setTarget("" + targetassid.hashCode());
-
+					newassociation.setId("" + newassociation.hashCode());
 
 					setass.add2List(newassociation);
 

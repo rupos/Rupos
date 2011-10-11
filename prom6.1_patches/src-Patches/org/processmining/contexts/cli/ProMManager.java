@@ -243,7 +243,7 @@ public class ProMManager {
 		TotalConformanceResult fitness = res2.getResult(0);
 		System.out.println("------------------------------");
 
-		context1.getParentContext().deleteChild(context1);
+		//context1.getParentContext().deleteChild(context1);
 		return fitness;
 	}
 	
@@ -264,7 +264,7 @@ public class ProMManager {
 		TotalConformanceResult fitness = res2.getResult(0);
 		System.out.println("------------------------------");
 
-		context1.getParentContext().deleteChild(context1);
+		//context1.getParentContext().deleteChild(context1);
 		return fitness;
 	}
 	/**
@@ -294,7 +294,7 @@ public class ProMManager {
 		TotalPerformanceResult performance = res2.getResult(0);
 		System.out.println("------------------------------");
 
-		context1.getParentContext().deleteChild(context1);
+		//context1.getParentContext().deleteChild(context1);
 		return performance;
 	}
 
@@ -318,7 +318,7 @@ public class ProMManager {
 		TotalPerformanceResult performance = res2.getResult(0);
 		System.out.println("------------------------------");
 
-		context1.getParentContext().deleteChild(context1);
+		//context1.getParentContext().deleteChild(context1);
 		return performance;
 	}
 	public TotalPerformanceResult getPerformance(Petrinet net, XLog log,
@@ -340,7 +340,7 @@ public class ProMManager {
 		TotalPerformanceResult performance = res2.getResult(0);
 		System.out.println("------------------------------");
 
-		context1.getParentContext().deleteChild(context1);
+		//context1.getParentContext().deleteChild(context1);
 		return performance;
 	}
 	public TotalPerformanceResult getPerformance(Petrinet net, XTrace trace,
@@ -363,7 +363,7 @@ public class ProMManager {
 		TotalPerformanceResult performance = res2.getResult(0);
 		System.out.println("------------------------------");
 
-		context1.getParentContext().deleteChild(context1);
+		//context1.getParentContext().deleteChild(context1);
 		return performance;
 	}
 	public PetriNetEngine getBpmntoPn(BPMNDiagram bpmn) throws CancellationException, ExecutionException, InterruptedException{
@@ -376,7 +376,7 @@ public class ProMManager {
 		Petrinet res = (Petrinet) context1.getResult().getResult(0);
 		Marking marking= (Marking) context1.getResult().getResult(1);
 		PetriNetEngine res1 = new PetriNetEngine(this, res, marking);
-		context1.getParentContext().deleteChild(context1);
+		//context1.getParentContext().deleteChild(context1);
 		return res1;
 	}
 	//BPMNMeasureswithAnalisysDetails
@@ -388,7 +388,7 @@ public class ProMManager {
 		BPMNMeasureswithAnalisysDetails.invoke(0, context1, tcr);
 		context1.getResult().synchronize();
 		BPMNDiagramExt res = (BPMNDiagramExt) context1.getResult().getResult(0);
-		context1.getParentContext().deleteChild(context1);
+		//context1.getParentContext().deleteChild(context1);
 		return res;
 	}
 	
@@ -400,7 +400,7 @@ public class ProMManager {
 		BPMNMeasureswithAnalisysDetails.invoke(0, context1, pn,tcr);
 		context1.getResult().synchronize();
 		BPMNDiagramExt res = (BPMNDiagramExt) context1.getResult().getResult(0);
-		context1.getParentContext().deleteChild(context1);
+		//context1.getParentContext().deleteChild(context1);
 		return res;
 	}
 	public BPMNDiagramExt getBPMNwithAnalysis(TotalPerformanceResult tcr) throws CancellationException, ExecutionException, InterruptedException{
@@ -411,7 +411,7 @@ public class ProMManager {
 		BPMNMeasureswithAnalisysDetails.invoke(2, context1, tcr);
 		context1.getResult().synchronize();
 		BPMNDiagramExt res = (BPMNDiagramExt) context1.getResult().getResult(0);
-		context1.getParentContext().deleteChild(context1);
+		//context1.getParentContext().deleteChild(context1);
 		return res;
 	}
 	
@@ -423,7 +423,7 @@ public class ProMManager {
 		BPMNMeasureswithAnalisysDetails.invoke(3, context1, pn,tcr);
 		context1.getResult().synchronize();
 		BPMNDiagramExt res = (BPMNDiagramExt) context1.getResult().getResult(0);
-		context1.getParentContext().deleteChild(context1);
+		//context1.getParentContext().deleteChild(context1);
 		return res;
 	}
 	public BPMNDiagram openBpmn(String BpmnFile) throws ExecutionException,
@@ -435,7 +435,7 @@ public class ProMManager {
 		OpenBpmnPlugin.invoke(0, context1, BpmnFile);
 		context1.getResult().synchronize();
 		BPMNDiagram res = (BPMNDiagram) context1.getResult().getResult(0);
-		context1.getParentContext().deleteChild(context1);
+		//context1.getParentContext().deleteChild(context1);
 		return res;
 	}
 	public void writefilebpmn(File BpmnFilename, BPMNDiagramExt bpmn) throws ExecutionException,
@@ -447,7 +447,7 @@ public class ProMManager {
 		BPMNexport.invoke(0, context1, bpmn,BpmnFilename);
 		context1.getResult().synchronize();
 		context1.getResult().getResult(0);
-		context1.getParentContext().deleteChild(context1);
+		//context1.getParentContext().deleteChild(context1);
 		
 	}
 	public void closeContext() {
