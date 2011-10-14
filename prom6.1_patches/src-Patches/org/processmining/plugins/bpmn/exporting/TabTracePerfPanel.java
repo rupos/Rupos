@@ -34,7 +34,7 @@ import org.processmining.framework.util.ui.scalableview.ScalableComponent;
 import org.processmining.framework.util.ui.scalableview.ScalableViewPanel;
 import org.processmining.framework.util.ui.scalableview.interaction.ViewInteractionPanel;
 
-import org.processmining.plugins.petrinet.replayfitness.performance.TotalPerformanceResult;
+import org.processmining.plugins.petrinet.replay.performance.TotalPerformanceResult;
 
 
 

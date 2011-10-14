@@ -1,4 +1,4 @@
-package org.processmining.plugins.petrinet.replayfitness.conformance;
+package org.processmining.plugins.petrinet.replay.conformance;
 
 
 
@@ -33,7 +33,7 @@ import org.processmining.framework.util.ui.scalableview.interaction.ViewInteract
 import org.processmining.models.graphbased.directed.petrinet.Petrinet;
 import org.processmining.models.graphbased.directed.petrinet.impl.PetrinetFactory;
 import org.processmining.models.jgraph.ProMJGraphVisualizer;
-import org.processmining.plugins.petrinet.replayfitness.util.PetriNetDrawUtil;
+import org.processmining.plugins.petrinet.replay.util.PetriNetDrawUtil;
 
 
 
@@ -60,11 +60,11 @@ public class TabTraceConformancePanel extends JPanel implements MouseListener, M
 	private String panelName;
 	private TotalConformanceResult tovisualize;
 	
-	private ReplayConformanceRuposPanel replayRuposPanel;
+	private ReplayConformanceAnalysisPanel replayRuposPanel;
 	
 	
 	public TabTraceConformancePanel(ScalableViewPanel panel, String panelName,
-			TotalConformanceResult tpr , ReplayConformanceRuposPanel replayPRP){
+			TotalConformanceResult tpr , ReplayConformanceAnalysisPanel replayPRP){
 		super(new BorderLayout());
 
 		this.setBorder(BorderFactory.createEmptyBorder());

@@ -37,6 +37,16 @@ for f in files:
     os.symlink(libProMFile, "/".join([destPath, f, "packagelib"]))
 
     try:
+        shutil.rmtree("/".join([destPath, f, "stdlib"]))
+    except:
+        pass
+    try:
+        os.unlink("/".join([destPath, f, "stdlib"]))
+    except:
+        pass
+    os.symlink(libProMFile, "/".join([destPath, f, "stdlib"]))
+
+    try:
         os.mkdir("/".join([destPath, f, "doc"]))
     except:
         pass

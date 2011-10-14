@@ -33,10 +33,10 @@ import org.processmining.models.graphbased.directed.petrinet.elements.Transition
 
 import org.processmining.models.semantics.petrinet.Marking;
 
-import org.processmining.plugins.petrinet.replayfitness.conformance.ConformanceResult;
+import org.processmining.plugins.petrinet.replay.conformance.ConformanceResult;
+import org.processmining.plugins.petrinet.replay.performance.PerformanceData;
+import org.processmining.plugins.petrinet.replay.performance.PerformanceResult;
 
-import org.processmining.plugins.petrinet.replayfitness.performance.PerformanceData;
-import org.processmining.plugins.petrinet.replayfitness.performance.PerformanceResult;
 
 
 public class BPMNDecorateUtil {

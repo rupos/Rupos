@@ -1,5 +1,5 @@
 
-package org.processmining.plugins.petrinet.replayfitness.performance;
+package org.processmining.plugins.petrinet.replay.performance;
 
 import java.awt.Point;
 import java.awt.geom.Point2D;

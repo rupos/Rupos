@@ -1,4 +1,4 @@
-package org.processmining.plugins.petrinet.replayfitness.util;
+package org.processmining.plugins.petrinet.replay.util;
 
 import info.clearthought.layout.TableLayout;
 import info.clearthought.layout.TableLayoutConstants;
@@ -20,7 +20,7 @@ import com.fluxicon.slickerbox.components.NiceIntegerSlider;
 import com.fluxicon.slickerbox.components.NiceSlider.Orientation;
 import com.fluxicon.slickerbox.factory.SlickerFactory;
 
-public class ReplayRuposUI extends JPanel {
+public class ReplayAnalysisUI extends JPanel {
 
 	/**
 	 * 
@@ -31,7 +31,7 @@ public class ReplayRuposUI extends JPanel {
 	private final Map<ReplayAction, JCheckBox> checkBoxMap;
 	private final ReplayFitnessSetting setting;
 
-	public ReplayRuposUI(ReplayFitnessSetting setting) {
+	public ReplayAnalysisUI(ReplayFitnessSetting setting) {
 		sliderMap = new HashMap<ReplayAction, NiceIntegerSlider>();
 		checkBoxMap = new HashMap<ReplayAction, JCheckBox>();
 		this.setting = setting;

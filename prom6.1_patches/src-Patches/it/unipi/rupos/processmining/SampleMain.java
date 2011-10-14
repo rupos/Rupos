@@ -11,10 +11,10 @@ import org.deckfour.xes.model.XLog;
 import org.deckfour.xes.model.XTrace;
 import org.processmining.plugins.petrinet.replay.ReplayAction;
 import org.processmining.plugins.petrinet.replayfitness.ReplayFitnessSetting;
-import org.processmining.plugins.petrinet.replayfitness.conformance.PNVisualizzeJS;
-import org.processmining.plugins.petrinet.replayfitness.conformance.TotalConformanceResult;
-import org.processmining.plugins.petrinet.replayfitness.performance.PerformanceVisualJS;
-import org.processmining.plugins.petrinet.replayfitness.performance.TotalPerformanceResult;
+import org.processmining.plugins.petrinet.replay.conformance.PNVisualizzeJS;
+import org.processmining.plugins.petrinet.replay.conformance.TotalConformanceResult;
+import org.processmining.plugins.petrinet.replay.performance.PerformanceVisualJS;
+import org.processmining.plugins.petrinet.replay.performance.TotalPerformanceResult;
 
 
 /**

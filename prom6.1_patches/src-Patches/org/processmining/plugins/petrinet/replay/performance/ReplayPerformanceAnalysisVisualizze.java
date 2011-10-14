@@ -1,4 +1,5 @@
-package org.processmining.plugins.petrinet.replayfitness.conformance;
+package org.processmining.plugins.petrinet.replay.performance;
+
 
 
 
@@ -16,25 +17,27 @@ import org.processmining.framework.plugin.annotations.Plugin;
 import org.processmining.framework.plugin.annotations.PluginVariant;
 import org.processmining.framework.plugin.events.Logger.MessageLevel;
 import org.processmining.models.graphbased.directed.petrinet.Petrinet;
-import org.processmining.plugins.petrinet.replayfitness.util.ReplayRuposConnection;
+import org.processmining.plugins.petrinet.replay.util.ReplayAnalysisConnection;
+
 
 
 @Visualizer
-@Plugin(name = "Conformance Result Visualizer", parameterLabels = "Conformance Rupos Analisys", returnLabels = "Visualized Fitness", returnTypes = JComponent.class)
-public class ReplayConformancePluginRuposVisualizze {
+@Plugin(name = "Performance Result Visualizer", parameterLabels = "Performance Rupos Analisys", returnLabels = "Visualized Performance", returnTypes = JComponent.class)
+public class ReplayPerformanceAnalysisVisualizze {
 
 	@PluginVariant(requiredParameterLabels = { 0 })
 	@UITopiaVariant(affiliation = UITopiaVariant.EHV, author = "gos", email = "di.unipi.it")
-	public JComponent visualize(PluginContext context, TotalConformanceResult tovisualize) {
+	public JComponent visualize(PluginContext context, TotalPerformanceResult tovisualize) {
 		if(context instanceof UIPluginContext){
 			try {
-				ReplayRuposConnection connection = context.getConnectionManager().getFirstConnection(
-						ReplayRuposConnection.class, context, tovisualize);
+				ReplayAnalysisConnection connection = context.getConnectionManager().getFirstConnection(
+						ReplayAnalysisConnection.class, context, tovisualize);
 
 				// connection found. Create all necessary component to instantiate inactive visualization panel
-				XLog log = connection.getObjectWithRole(ReplayRuposConnection.XLOG);
-				Petrinet netx = connection.getObjectWithRole(ReplayRuposConnection.PNET);
+				XLog log = connection.getObjectWithRole(ReplayAnalysisConnection.XLOG);
+				Petrinet netx = connection.getObjectWithRole(ReplayAnalysisConnection.PNET);
 				
+
 				return getVisualizationPanel(context, netx, log, tovisualize);
 
 			} catch (ConnectionCannotBeObtained e) {
@@ -43,22 +46,24 @@ public class ReplayConformancePluginRuposVisualizze {
 				return null;
 			}
 		}else {
-			
+
 			return StringVisualizer.visualize(context, tovisualize.toString());
 		}
 
 	}
 
 
-	private JComponent getVisualizationPanel(PluginContext context,
-			Petrinet net, XLog log, TotalConformanceResult tovisualize) {
-		Progress progress = context.getProgress();
 
-		ReplayConformanceRuposPanel panel = new ReplayConformanceRuposPanel(context, net, log, progress, tovisualize);
+	private JComponent getVisualizationPanel(PluginContext context,
+			Petrinet net, XLog log, TotalPerformanceResult tovisualize) {
+		Progress progress = context.getProgress();
+		
+		ReplayPerformanceAnalysisPanel panel = new ReplayPerformanceAnalysisPanel(context, net, log, progress, tovisualize);
+		
 		return panel;
 
 
 	}
-
+	
 
 }

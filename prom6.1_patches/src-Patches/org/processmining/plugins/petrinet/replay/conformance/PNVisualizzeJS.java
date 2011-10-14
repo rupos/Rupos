@@ -1,4 +1,4 @@
-package org.processmining.plugins.petrinet.replayfitness.conformance;
+package org.processmining.plugins.petrinet.replay.conformance;
 
 import java.awt.Point;
 import java.awt.geom.Point2D;

@@ -1,4 +1,4 @@
-package org.processmining.plugins.petrinet.replayfitness.performance;
+package org.processmining.plugins.petrinet.replay.performance;
 
 import java.util.HashMap;
 import java.util.Map;

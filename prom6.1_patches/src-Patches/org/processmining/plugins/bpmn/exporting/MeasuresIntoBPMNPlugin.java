@@ -21,11 +21,11 @@ import org.processmining.models.graphbased.directed.petrinet.elements.Place;
 
 import org.processmining.plugins.bpmn.BPMNtoPNConnection;
 
-import org.processmining.plugins.petrinet.replayfitness.conformance.ConformanceResult;
-import org.processmining.plugins.petrinet.replayfitness.conformance.TotalConformanceResult;
-import org.processmining.plugins.petrinet.replayfitness.performance.PerformanceResult;
-import org.processmining.plugins.petrinet.replayfitness.performance.TotalPerformanceResult;
-import org.processmining.plugins.petrinet.replayfitness.util.ReplayRuposConnection;
+import org.processmining.plugins.petrinet.replay.conformance.ConformanceResult;
+import org.processmining.plugins.petrinet.replay.conformance.TotalConformanceResult;
+import org.processmining.plugins.petrinet.replay.performance.PerformanceResult;
+import org.processmining.plugins.petrinet.replay.performance.TotalPerformanceResult;
+import org.processmining.plugins.petrinet.replay.util.ReplayAnalysisConnection;
 
 
 
@@ -40,12 +40,12 @@ import org.processmining.plugins.petrinet.replayfitness.util.ReplayRuposConnecti
 	public Object exportBPMNexportXPDL(PluginContext context, TotalConformanceResult totalconformanceresult) throws Exception {
 
 		try {
-			ReplayRuposConnection connection = context.getConnectionManager().getFirstConnection(
-					ReplayRuposConnection.class, context, totalconformanceresult);
+			ReplayAnalysisConnection connection = context.getConnectionManager().getFirstConnection(
+					ReplayAnalysisConnection.class, context, totalconformanceresult);
 
 			// connection found. Create all necessary component to instantiate inactive visualization panel
 			// log = connection.getObjectWithRole(ReplayRuposConnection.XLOG);
-			Petrinet net= connection.getObjectWithRole(ReplayRuposConnection.PNET);
+			Petrinet net= connection.getObjectWithRole(ReplayAnalysisConnection.PNET);
 		
 			BPMNtoPNConnection connection2 = context.getConnectionManager().getFirstConnection(
 					BPMNtoPNConnection.class, context, net);
@@ -110,12 +110,12 @@ import org.processmining.plugins.petrinet.replayfitness.util.ReplayRuposConnecti
 	public Object exportBPMNexportXPDL(PluginContext context,  TotalPerformanceResult totalPerformanceresult) throws Exception {
 
 		try {
-			ReplayRuposConnection connection = context.getConnectionManager().getFirstConnection(
-					ReplayRuposConnection.class, context, totalPerformanceresult);
+			ReplayAnalysisConnection connection = context.getConnectionManager().getFirstConnection(
+					ReplayAnalysisConnection.class, context, totalPerformanceresult);
 
 			// connection found. Create all necessary component to instantiate inactive visualization panel
 			//XLog log = connection.getObjectWithRole(ReplayRuposConnection.XLOG);
-			Petrinet net= connection.getObjectWithRole(ReplayRuposConnection.PNET);
+			Petrinet net= connection.getObjectWithRole(ReplayAnalysisConnection.PNET);
 		
 			BPMNtoPNConnection connection2 = context.getConnectionManager().getFirstConnection(
 					BPMNtoPNConnection.class, context, net);

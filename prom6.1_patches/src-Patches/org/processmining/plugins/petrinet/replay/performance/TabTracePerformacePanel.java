@@ -1,4 +1,4 @@
-package org.processmining.plugins.petrinet.replayfitness.performance;
+package org.processmining.plugins.petrinet.replay.performance;
 
 
 
@@ -55,11 +55,11 @@ public class TabTracePerformacePanel extends JPanel implements MouseListener, Mo
 	private String panelName;
 	private TotalPerformanceResult tovisualize;
 	
-	private ReplayPerformanceRuposPanel replayPerformanceRuposPanel;
+	private ReplayPerformanceAnalysisPanel replayPerformanceRuposPanel;
 	
 	
 	public TabTracePerformacePanel(ScalableViewPanel panel, String panelName,
-			TotalPerformanceResult tpr , ReplayPerformanceRuposPanel replayPRP){
+			TotalPerformanceResult tpr , ReplayPerformanceAnalysisPanel replayPRP){
 		super(new BorderLayout());
 
 		this.setBorder(BorderFactory.createEmptyBorder());

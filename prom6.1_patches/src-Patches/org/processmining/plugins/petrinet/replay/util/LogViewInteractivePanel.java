@@ -1,4 +1,4 @@
-package org.processmining.plugins.petrinet.replayfitness.util;
+package org.processmining.plugins.petrinet.replay.util;
 
 import java.awt.BorderLayout;
 import java.awt.Color;

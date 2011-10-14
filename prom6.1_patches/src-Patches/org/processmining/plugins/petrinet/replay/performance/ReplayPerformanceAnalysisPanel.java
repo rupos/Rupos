@@ -1,5 +1,5 @@
 
-package org.processmining.plugins.petrinet.replayfitness.performance;
+package org.processmining.plugins.petrinet.replay.performance;
 
 import info.clearthought.layout.TableLayout;
 
@@ -20,13 +20,13 @@ import org.processmining.models.graphbased.directed.petrinet.impl.PetrinetFactor
 import org.processmining.models.jgraph.ProMJGraphVisualizer;
 import org.processmining.models.jgraph.visualization.ProMJGraphPanel;
 
-import org.processmining.plugins.petrinet.replayfitness.util.LogViewInteractivePanel;
-import org.processmining.plugins.petrinet.replayfitness.util.PetriNetDrawUtil;
-import org.processmining.plugins.petrinet.replayfitness.util.StringInteractivePanel;
+import org.processmining.plugins.petrinet.replay.util.LogViewInteractivePanel;
+import org.processmining.plugins.petrinet.replay.util.PetriNetDrawUtil;
+import org.processmining.plugins.petrinet.replay.util.StringInteractivePanel;
 
 
 
-public class ReplayPerformanceRuposPanel extends JPanel{
+public class ReplayPerformanceAnalysisPanel extends JPanel{
 
 	/**
 	 * 
@@ -42,7 +42,7 @@ public class ReplayPerformanceRuposPanel extends JPanel{
 	private PluginContext context;
 	private LogViewInteractivePanel logInteractionPanel;
 	
-	public ReplayPerformanceRuposPanel(PluginContext c, Petrinet netx,
+	public ReplayPerformanceAnalysisPanel(PluginContext c, Petrinet netx,
 			XLog log, Progress progress, TotalPerformanceResult tovisualize) {
 		
 		context=c;

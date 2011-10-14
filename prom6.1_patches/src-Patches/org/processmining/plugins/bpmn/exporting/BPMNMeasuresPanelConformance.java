@@ -40,11 +40,11 @@ import org.processmining.models.jgraph.visualization.ProMJGraphPanel;
 
 import org.processmining.plugins.bpmn.BPMNtoPNConnection;
 
-import org.processmining.plugins.petrinet.replayfitness.conformance.LegendConformancePanel;
-import org.processmining.plugins.petrinet.replayfitness.conformance.TotalConformanceResult;
-import org.processmining.plugins.petrinet.replayfitness.util.LogViewInteractivePanel;
-import org.processmining.plugins.petrinet.replayfitness.util.PetriNetDrawUtil;
-import org.processmining.plugins.petrinet.replayfitness.util.ReplayRuposConnection;
+import org.processmining.plugins.petrinet.replay.conformance.LegendConformancePanel;
+import org.processmining.plugins.petrinet.replay.conformance.TotalConformanceResult;
+import org.processmining.plugins.petrinet.replay.util.LogViewInteractivePanel;
+import org.processmining.plugins.petrinet.replay.util.PetriNetDrawUtil;
+import org.processmining.plugins.petrinet.replay.util.ReplayAnalysisConnection;
 import org.processmining.plugins.xpdl.Xpdl;
 import org.processmining.plugins.xpdl.converter.BPMN2XPDLConversionExt;
 
@@ -117,12 +117,12 @@ public class BPMNMeasuresPanelConformance extends JPanel{
 		
 		context=c;
 		try {
-			ReplayRuposConnection connection = context.getConnectionManager().getFirstConnection(
-					ReplayRuposConnection.class, context, resultc);
+			ReplayAnalysisConnection connection = context.getConnectionManager().getFirstConnection(
+					ReplayAnalysisConnection.class, context, resultc);
 
 			// connection found. Create all necessary component to instantiate inactive visualization panel
-			 log = connection.getObjectWithRole(ReplayRuposConnection.XLOG);
-			 net= connection.getObjectWithRole(ReplayRuposConnection.PNET);
+			 log = connection.getObjectWithRole(ReplayAnalysisConnection.XLOG);
+			 net= connection.getObjectWithRole(ReplayAnalysisConnection.PNET);
 		
 			BPMNtoPNConnection connection2 = context.getConnectionManager().getFirstConnection(
 					BPMNtoPNConnection.class, context, net);

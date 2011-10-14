@@ -21,7 +21,7 @@ import org.processmining.models.graphbased.directed.bpmn.BPMNDiagram;
 import org.processmining.models.graphbased.directed.petrinet.Petrinet;
 import org.processmining.models.jgraph.ProMJGraphVisualizer;
 import org.processmining.models.jgraph.visualization.ProMJGraphPanel;
-import org.processmining.plugins.petrinet.replayfitness.util.StringInteractivePanel;
+import org.processmining.plugins.petrinet.replay.util.StringInteractivePanel;
 
 import com.fluxicon.slickerbox.factory.SlickerDecorator;
 

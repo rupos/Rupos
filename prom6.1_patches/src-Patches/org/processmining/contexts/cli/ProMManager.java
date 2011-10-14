@@ -29,10 +29,10 @@ import org.deckfour.xes.model.impl.XLogImpl;
 import org.processmining.plugins.petrinet.replayfitness.ReplayFitnessSetting;
 
 
-import org.processmining.plugins.petrinet.replayfitness.conformance.ConformanceResult;
-import org.processmining.plugins.petrinet.replayfitness.conformance.TotalConformanceResult;
-import org.processmining.plugins.petrinet.replayfitness.performance.PerformanceResult;
-import org.processmining.plugins.petrinet.replayfitness.performance.TotalPerformanceResult;
+import org.processmining.plugins.petrinet.replay.conformance.ConformanceResult;
+import org.processmining.plugins.petrinet.replay.conformance.TotalConformanceResult;
+import org.processmining.plugins.petrinet.replay.performance.PerformanceResult;
+import org.processmining.plugins.petrinet.replay.performance.TotalPerformanceResult;
 
 import org.processmining.contexts.cli.CLIContext;
 

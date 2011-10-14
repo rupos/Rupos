@@ -1,4 +1,4 @@
-package org.processmining.plugins.petrinet.replayfitness.performance;
+package org.processmining.plugins.petrinet.replay.performance;
 
 
 import java.util.ArrayList;
@@ -49,10 +49,10 @@ import org.processmining.models.semantics.petrinet.impl.PetrinetSemanticsFactory
 import org.processmining.plugins.connectionfactories.logpetrinet.LogPetrinetConnectionFactoryUI;
 import org.processmining.plugins.petrinet.replay.ReplayAction;
 import org.processmining.plugins.petrinet.replay.Replayer;
+import org.processmining.plugins.petrinet.replay.util.ReplayAnalysisConnection;
+import org.processmining.plugins.petrinet.replay.util.ReplayAnalysisUI;
 import org.processmining.plugins.petrinet.replayfitness.ReplayFitnessCost;
 import org.processmining.plugins.petrinet.replayfitness.ReplayFitnessSetting;
-import org.processmining.plugins.petrinet.replayfitness.util.ReplayRuposConnection;
-import org.processmining.plugins.petrinet.replayfitness.util.ReplayRuposUI;
 
 
 public class ReplayPerformancePlugin {
@@ -120,7 +120,7 @@ public class ReplayPerformancePlugin {
 
 		context.log("(based on a successful replay of " + replayedTraces + " out of " + log.size() + " traces)");
 		
-		ReplayRuposConnection connection = new ReplayRuposConnection(performance, log, net);
+		ReplayAnalysisConnection connection = new ReplayAnalysisConnection(performance, log, net);
 		context.getConnectionManager().addConnection(connection);
 
 		return performance;
@@ -388,7 +388,7 @@ public class ReplayPerformancePlugin {
 	public TotalPerformanceResult getPerformanceDetails(UIPluginContext context, XLog log, Petrinet net) {
 		ReplayFitnessSetting setting = new ReplayFitnessSetting();
 		suggestActions(setting, log, net);
-		ReplayRuposUI ui = new ReplayRuposUI(setting);
+		ReplayAnalysisUI ui = new ReplayAnalysisUI(setting);
 		
 		
 		

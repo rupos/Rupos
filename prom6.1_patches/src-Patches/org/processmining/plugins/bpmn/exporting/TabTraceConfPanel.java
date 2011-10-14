@@ -33,7 +33,7 @@ import org.processmining.framework.util.ui.scalableview.ScalableViewPanel;
 import org.processmining.framework.util.ui.scalableview.interaction.ViewInteractionPanel;
 
 
-import org.processmining.plugins.petrinet.replayfitness.conformance.TotalConformanceResult;
+import org.processmining.plugins.petrinet.replay.conformance.TotalConformanceResult;
 
 
 

@@ -19,14 +19,14 @@ import org.processmining.models.graphbased.directed.bpmn.BPMNDiagram;
 import org.processmining.models.graphbased.directed.petrinet.Petrinet;
 import org.processmining.models.graphbased.directed.petrinet.elements.Place;
 import org.processmining.plugins.bpmn.BPMNtoPNConnection;
-import org.processmining.plugins.petrinet.replayfitness.conformance.TotalConformanceResult;
-import org.processmining.plugins.petrinet.replayfitness.performance.TotalPerformanceResult;
-import org.processmining.plugins.petrinet.replayfitness.util.ReplayRuposConnection;
+import org.processmining.plugins.petrinet.replay.conformance.TotalConformanceResult;
+import org.processmining.plugins.petrinet.replay.performance.TotalPerformanceResult;
+import org.processmining.plugins.petrinet.replay.util.ReplayAnalysisConnection;
 
 
 
 @Visualizer
-@Plugin(name = "xBPMN Measure Visualizer", parameterLabels = "BPMN visualizze Conformance or Performance Rupos Analisys", returnLabels = "BPMN Measure Visualized", returnTypes = JComponent.class)
+@Plugin(name = "Visualizer BPMN Measure", parameterLabels = "BPMN visualizze Conformance or Performance Rupos Analisys", returnLabels = "BPMN Measure Visualized", returnTypes = JComponent.class)
 public class BPMNMeasureVisulizze {
 
 	
